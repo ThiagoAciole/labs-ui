@@ -1,0 +1,87 @@
+.labs-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.labs-list--bordered {
+  border: 1px solid var(--border);
+  border-radius: var(--labs-radius-md);
+  overflow: hidden;
+}
+
+.labs-list--divided .labs-list-item:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.labs-list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--labs-space-4);
+  padding: var(--labs-space-3) var(--labs-space-4);
+  background-color: transparent;
+  transition: all var(--labs-transition-fast);
+  outline: none;
+}
+
+.labs-list-item--clickable {
+  cursor: pointer;
+}
+
+.labs-list-item--clickable:hover,
+.labs-list-item:focus-visible {
+  background-color: var(--hover);
+}
+
+.labs-list-item--active,
+.labs-list-item--active:hover {
+  background-color: var(--primary-subtle);
+  color: var(--primary);
+}
+
+/* Slot Start / Icon / Avatar */
+.labs-list-item__start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+
+.labs-list-item--active .labs-list-item__start {
+  color: var(--primary);
+}
+
+/* Content Slot */
+.labs-list-item__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.labs-list-item__title {
+  font-size: var(--labs-font-size-sm);
+  color: var(--text);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.labs-list-item__description {
+  font-size: var(--labs-font-size-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ends Slot (Badges, Buttons flex-end) */
+.labs-list-item__end {
+  display: flex;
+  align-items: center;
+  gap: var(--labs-space-2);
+  flex-shrink: 0;
+}

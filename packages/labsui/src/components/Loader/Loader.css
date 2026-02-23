@@ -1,0 +1,49 @@
+.labs-loader {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.labs-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.labs-loader__ring {
+  display: block;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  animation: labs-spin 0.7s linear infinite;
+}
+
+/* Sizes */
+.labs-loader--xs .labs-loader__ring { width: 0.75rem; height: 0.75rem; }
+.labs-loader--sm .labs-loader__ring { width: 1rem; height: 1rem; }
+.labs-loader--md .labs-loader__ring { width: 1.5rem; height: 1.5rem; }
+.labs-loader--lg .labs-loader__ring { width: 2rem; height: 2rem; border-width: 3px; }
+
+/* Variants */
+.labs-loader--primary .labs-loader__ring {
+  border-top-color: var(--primary);
+  border-right-color: var(--primary-subtle);
+}
+.labs-loader--white .labs-loader__ring {
+  border-top-color: white;
+  border-right-color: rgba(255,255,255,0.3);
+}
+.labs-loader--muted .labs-loader__ring {
+  border-top-color: var(--text-dim);
+  border-right-color: var(--border);
+}
+
+@keyframes labs-spin {
+  to { transform: rotate(360deg); }
+}

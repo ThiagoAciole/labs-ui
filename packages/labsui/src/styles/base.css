@@ -1,0 +1,41 @@
+/* ============================================================
+   LabsUI – Base Reset & Globals
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.labs-root {
+  font-family: var(--labs-font);
+  font-size: var(--labs-font-size-md);
+  color: var(--labs-text);
+  background-color: var(--labs-bg);
+  line-height: var(--labs-line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus visible for keyboard navigation */
+.labs-focus-ring:focus-visible {
+  outline: var(--labs-focus-width) solid var(--labs-focus);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+.labs-root ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.labs-root ::-webkit-scrollbar-track {
+  background: var(--labs-surface2);
+}
+.labs-root ::-webkit-scrollbar-thumb {
+  background: var(--labs-border-strong);
+  border-radius: var(--labs-radius-full);
+}
+.labs-root ::-webkit-scrollbar-thumb:hover {
+  background: var(--labs-text3);
+}

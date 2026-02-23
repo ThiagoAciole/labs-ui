@@ -1,0 +1,51 @@
+{
+  "name": "@labsui/core",
+  "version": "0.1.0",
+  "description": "LabsUI – Violet Neon Dark React component library",
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "design-system",
+    "violet",
+    "dark"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/labsui.cjs.js",
+  "module": "./dist/labsui.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/labsui.es.js",
+      "require": "./dist/labsui.cjs.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "lucide": "^0.575.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.9.0",
+    "vite-plugin-svgr": "^4.5.0"
+  }
+}

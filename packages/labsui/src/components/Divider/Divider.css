@@ -1,0 +1,31 @@
+.labs-divider {
+  border: none;
+  background: var(--border);
+}
+.labs-divider--horizontal {
+  width: 100%;
+  height: 1px;
+}
+.labs-divider--vertical {
+  width: 1px;
+  height: 100%;
+  align-self: stretch;
+}
+.labs-divider--labeled {
+  display: flex;
+  align-items: center;
+  gap: var(--labs-space-3);
+  background: none;
+}
+.labs-divider--labeled::before,
+.labs-divider--labeled::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.labs-divider__label {
+  font-size: var(--labs-font-size-xs);
+  color: var(--text-dim);
+  white-space: nowrap;
+}

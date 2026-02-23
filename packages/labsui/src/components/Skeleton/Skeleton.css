@@ -1,0 +1,28 @@
+.labs-skeleton {
+  background: var(--surface-soft);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--labs-radius-sm);
+  width: 100%;
+}
+
+.labs-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    var(--hover), 
+    transparent
+  );
+  animation: labs-skeleton-loading 1.5s infinite linear;
+}
+
+@keyframes labs-skeleton-loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.labs-skeleton--circle { border-radius: var(--labs-radius-full); }
+.labs-skeleton--rect { border-radius: var(--labs-radius-md); }

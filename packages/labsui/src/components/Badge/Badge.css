@@ -1,0 +1,56 @@
+.labs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--labs-space-1);
+  border-radius: var(--labs-radius-full);
+  font-weight: 500;
+  font-family: var(--labs-font);
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+/* Sizes */
+.labs-badge--sm { font-size: 0.625rem; padding: 1px var(--labs-space-2); }
+.labs-badge--md { font-size: var(--labs-font-size-xs); padding: 2px var(--labs-space-2); }
+.labs-badge--lg { font-size: var(--labs-font-size-sm); padding: var(--labs-space-1) var(--labs-space-3); }
+
+/* Variants */
+.labs-badge--default { 
+  background: var(--surface-soft); 
+  color: var(--text-muted); 
+  border-color: var(--border); 
+}
+.labs-badge--primary { 
+  background: var(--primary-subtle); 
+  color: var(--primary); 
+  border-color: var(--primary-subtle); 
+}
+.labs-badge--success { 
+  background: rgba(16, 185, 129, 0.1); 
+  color: var(--success); 
+  border-color: rgba(16, 185, 129, 0.2); 
+}
+.labs-badge--warning { 
+  background: rgba(245, 158, 11, 0.1); 
+  color: var(--warning); 
+  border-color: rgba(245, 158, 11, 0.2); 
+}
+.labs-badge--danger { 
+  background: rgba(239, 68, 68, 0.1); 
+  color: var(--danger); 
+  border-color: rgba(239, 68, 68, 0.2); 
+}
+.labs-badge--info { 
+  background: rgba(59, 130, 246, 0.1); 
+  color: var(--info); 
+  border-color: rgba(59, 130, 246, 0.2); 
+}
+
+.labs-badge__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}

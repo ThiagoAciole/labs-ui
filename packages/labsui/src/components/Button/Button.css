@@ -1,0 +1,130 @@
+.labs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--labs-space-2);
+  font-family: var(--labs-font);
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: var(--labs-radius-md);
+  cursor: pointer;
+  transition: all var(--labs-transition-fast);
+  user-select: none;
+  white-space: nowrap;
+  position: relative;
+  text-decoration: none;
+}
+
+.labs-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.labs-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.labs-btn:disabled,
+.labs-btn:disabled:hover {
+  background-color: var(--border);
+  color: var(--text-dim);
+  border-color: var(--border);
+  box-shadow: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Variantes transparentes mantêm fundo transparente no disabled */
+.labs-btn--ghost:disabled,
+.labs-btn--ghost:disabled:hover,
+.labs-btn--outline:disabled,
+.labs-btn--outline:disabled:hover {
+  background-color: transparent;
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+
+
+/* Variants */
+.labs-btn--primary {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+  border-color: var(--primary);
+}
+.labs-btn--primary:hover:not(:disabled) {
+  opacity: 0.9;
+  box-shadow: 0 4px 15px -5px var(--primary-subtle);
+}
+
+.labs-btn--secondary {
+  background-color: var(--surface-soft);
+  color: var(--text);
+  border-color: var(--border);
+}
+.labs-btn--secondary:hover:not(:disabled) {
+  background-color: var(--hover);
+  border-color: var(--border-strong);
+}
+
+.labs-btn--ghost {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: transparent;
+}
+.labs-btn--ghost:hover:not(:disabled) {
+  background-color: var(--primary-subtle);
+}
+
+.labs-btn--outline {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.labs-btn--outline:hover:not(:disabled) {
+  background-color: var(--primary-subtle);
+}
+
+.labs-btn--danger {
+  background-color: var(--danger);
+  color: white;
+  border-color: var(--danger);
+}
+.labs-btn--danger:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+/* Sizes */
+.labs-btn--sm {
+  padding: var(--labs-space-1) var(--labs-space-3);
+  font-size: var(--labs-font-size-sm);
+  height: 2rem;
+}
+.labs-btn--md {
+  padding: var(--labs-space-2) var(--labs-space-4);
+  font-size: var(--labs-font-size-md);
+  height: 2.5rem;
+}
+.labs-btn--lg {
+  padding: var(--labs-space-3) var(--labs-space-6);
+  font-size: var(--labs-font-size-lg);
+  height: 3rem;
+}
+
+/* States */
+.labs-btn--full {
+  width: 100%;
+}
+
+.labs-btn--loading {
+  cursor: wait;
+}
+
+.labs-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.labs-btn__spinner {
+  flex-shrink: 0;
+}

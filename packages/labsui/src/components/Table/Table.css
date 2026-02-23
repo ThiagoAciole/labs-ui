@@ -1,0 +1,49 @@
+.labs-table-container {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--labs-radius-lg);
+}
+
+.labs-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--labs-font);
+}
+
+.labs-table th {
+  padding: var(--labs-space-4);
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--border);
+}
+
+.labs-table td {
+  padding: var(--labs-space-4);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-size: var(--labs-font-size-sm);
+  transition: background var(--labs-transition-fast);
+}
+
+.labs-table tr:last-child td {
+  border-bottom: none;
+}
+
+.labs-table--striped tbody tr:nth-child(even) {
+  background: var(--hover);
+}
+
+.labs-table--hover tbody tr:hover td {
+  background: var(--hover);
+}
+
+.labs-table--compact td, 
+.labs-table--compact th {
+  padding: var(--labs-space-2) var(--labs-space-4);
+}

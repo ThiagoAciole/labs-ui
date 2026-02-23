@@ -1,0 +1,26 @@
+.labs-tooltip {
+  position: absolute;
+  z-index: var(--labs-z-tooltip);
+  background: var(--surface-soft);
+  color: var(--text);
+  font-size: var(--labs-font-size-xs);
+  font-family: var(--labs-font);
+  padding: var(--labs-space-1) var(--labs-space-2);
+  border-radius: var(--labs-radius-sm);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--labs-shadow-md);
+  pointer-events: none;
+  white-space: nowrap;
+  max-width: 16rem;
+  animation: labs-tooltip-in 120ms ease;
+}
+
+.labs-tooltip--top { transform: translate(-50%, -100%); }
+.labs-tooltip--bottom { transform: translate(-50%, 0); }
+.labs-tooltip--left { transform: translate(-100%, -50%); }
+.labs-tooltip--right { transform: translate(0, -50%); }
+
+@keyframes labs-tooltip-in {
+  from { opacity: 0; transform-origin: center; scale: 0.9; }
+  to { opacity: 1; scale: 1; }
+}

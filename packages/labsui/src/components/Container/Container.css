@@ -1,0 +1,12 @@
+.labs-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--labs-space-12);
+}
+
+.labs-container--sm { max-width: 640px; }
+.labs-container--md { max-width: 768px; }
+.labs-container--lg { max-width: 1024px; }
+.labs-container--xl { max-width: 1280px; }
+.labs-container--full { max-width: 100%; }
