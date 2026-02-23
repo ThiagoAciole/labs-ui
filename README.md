@@ -1,24 +1,18 @@
 # LabsUI
 
-LabsUI é uma biblioteca de componentes React premium, focada em estética moderna, performance e facilidade de uso.
+Biblioteca de componentes React para uso em aplicacoes web.
 
-## 🚀 Características
-
-- 💎 **Estética Premium**: Componentes com visual moderno, sombras suaves e micro-interações.
-- 🌙 **Dark Mode Nativo**: Suporte completo a temas claro e escuro com persistência.
-- 🎨 **Design System**: Sistema de tokens flexível e consistente.
-- ⚡ **Performance**: Componentes leves e otimizados.
-
-## 📦 Instalação
+## Instalacao
 
 ```bash
 npm install @aciolelabs/labs-ui
 ```
 
-## 🛠️ Como Usar
+## Uso
 
 ```tsx
 import { ThemeProvider, Button } from '@aciolelabs/labs-ui';
+import '@aciolelabs/labs-ui/styles';
 
 function App() {
   return (
@@ -29,6 +23,11 @@ function App() {
 }
 ```
 
-## 📜 Licença
+## Publicacao
 
-Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
+```bash
+npm run build --workspace=packages/labsui
+npm publish --workspace=packages/labsui
+```
+
+`prepublishOnly` ja executa o build automaticamente no pacote.

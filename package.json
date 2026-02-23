@@ -10,6 +10,8 @@
     "dev": "npm run dev --workspace=apps/showcase",
     "build": "npm run build --workspace=packages/labsui",
     "build:all": "npm run build --workspace=packages/labsui && npm run build --workspace=apps/showcase",
+    "pack:labsui": "npm pack --workspace=packages/labsui",
+    "publish:labsui": "npm publish --workspace=packages/labsui",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write \"**/*.{ts,tsx,css,json,md}\""
   },

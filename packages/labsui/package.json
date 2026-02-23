@@ -1,6 +1,6 @@
 {
   "name": "@aciolelabs/labs-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "LabsUI – Violet Neon Dark React component library",
   "keywords": [
     "react",
@@ -21,7 +21,9 @@
       "require": "./dist/labsui.cjs.js",
       "types": "./dist/index.d.ts"
     },
-    "./styles": "./dist/style.css"
+    "./styles": "./dist/style.css",
+    "./dist/style.css": "./dist/style.css",
+    "./package.json": "./package.json"
   },
   "files": [
     "dist"
@@ -31,7 +33,11 @@
   ],
   "scripts": {
     "build": "vite build",
-    "dev": "vite build --watch"
+    "dev": "vite build --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "peerDependencies": {
     "react": "^18.0.0",
