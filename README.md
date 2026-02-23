@@ -12,13 +12,13 @@ LabsUI é uma biblioteca de componentes React premium, focada em estética moder
 ## 📦 Instalação
 
 ```bash
-npm install @labsui/core
+npm install @aciolelabs/labs-ui
 ```
 
 ## 🛠️ Como Usar
 
 ```tsx
-import { ThemeProvider, Button } from '@labsui/core';
+import { ThemeProvider, Button } from '@aciolelabs/labs-ui';
 
 function App() {
   return (

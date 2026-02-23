@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { ToastProvider, ThemeProvider } from '@labsui/core';
+import { ToastProvider, ThemeProvider } from '@aciolelabs/labs-ui';
 import App from './App';
 import './index.css';
 

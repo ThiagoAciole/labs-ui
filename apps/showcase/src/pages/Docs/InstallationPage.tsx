@@ -1,10 +1,10 @@
-import { Heading, Text, Card, CardBody, Container, Flex, Icon } from '@labsui/core';
+import { Heading, Text, Card, CardBody, Container, Flex, Icon } from '@aciolelabs/labs-ui';
 import ShowcasePage from '../../components/ShowcasePage';
 
 const InstallationPage = () => {
-    const installCode = `npm install @labsui/core`;
-    const usageCode = `import { ThemeProvider, Button } from '@labsui/core';
-import '@labsui/core/dist/style.css'; // Opcional se já estiver no seu index.css
+    const installCode = `npm install @aciolelabs/labs-ui`;
+    const usageCode = `import { ThemeProvider, Button } from '@aciolelabs/labs-ui';
+import '@aciolelabs/labs-ui/dist/style.css'; // Opcional se já estiver no seu index.css
 
 function App() {
   return (

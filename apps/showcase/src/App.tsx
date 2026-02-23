@@ -9,7 +9,7 @@ import {
     ThemeProvider,
     ThemeToggle,
     useTheme
-} from '@labsui/core';
+} from '@aciolelabs/labs-ui';
 
 // Pages por Categoria
 // Docs
