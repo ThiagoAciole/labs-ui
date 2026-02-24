@@ -6,10 +6,10 @@ export default function ProgressPage() {
     return (
         <Playground.Root
             componentName="Progress"
-            defaultProps={{ value: 65, color: 'violet', size: 'md', animated: true, showValue: true, label: 'Status do Processamento' }}
+            defaultProps={{ value: 65, color: 'primary', size: 'md', animated: true, showValue: true, label: 'Status do Processamento' }}
             controls={{
                 value: { type: 'number' },
-                color: { type: 'select', options: [ { value: 'violet', label: 'Violet' }, { value: 'green', label: 'Green' }, { value: 'yellow', label: 'Yellow' }, { value: 'red', label: 'Red' }, { value: 'blue', label: 'Blue' } ] },
+                color: { type: 'select', options: [ { value: 'primary', label: 'Primary' }, { value: 'success', label: 'Success' }, { value: 'attention', label: 'Attention' }, { value: 'error', label: 'Error' }, { value: 'neutral', label: 'Neutral' } ] },
                 size: { type: 'select', options: [ { value: 'sm', label: 'Small' }, { value: 'md', label: 'Medium' }, { value: 'lg', label: 'Large' } ] },
                 animated: { type: 'boolean' }, showValue: { type: 'boolean' }, label: { type: 'text' }
             }}
@@ -19,9 +19,9 @@ export default function ProgressPage() {
                 <div style={{ marginTop: '4rem' }}>
                     <Heading size="m">Estados por Cor</Heading>
                     <Flex direction="column" gap="4" style={{ marginTop: '1.5rem', maxWidth: '500px' }}>
-                        <Progress value={100} color="green" label="Completo" showValue />
-                        <Progress value={50} color="yellow" label="Atencao" showValue />
-                        <Progress value={20} color="red" label="Erro Critico" showValue />
+                        <Progress value={100} color="success" label="Completo" showValue />
+                        <Progress value={50} color="attention" label="Atencao" showValue />
+                        <Progress value={20} color="error" label="Erro Critico" showValue />
                     </Flex>
                 </div>
             </ShowcasePage>

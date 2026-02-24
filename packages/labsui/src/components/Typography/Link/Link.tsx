@@ -11,7 +11,7 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
     to?: string;
 }
 
-export const Link: React.FC<LinkProps> = ({ color = 'violet', underline = false, active, as: Component = 'a', className, children, href, to, style, ...props }) => {
+export const Link: React.FC<LinkProps> = ({ color = 'primary', underline = false, active, as: Component = 'a', className, children, href, to, style, ...props }) => {
     const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
     const route = to ?? href;
     const normalizePath = (path: string) => {

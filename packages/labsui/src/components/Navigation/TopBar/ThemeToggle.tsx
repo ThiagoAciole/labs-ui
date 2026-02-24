@@ -13,7 +13,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ appearance = 'soft', s
     return (
         <IconButton
             appearance={appearance}
-            color={theme === 'dark' ? 'yellow' : 'violet'}
+            color={theme === 'dark' ? 'attention' : 'primary'}
             size={size}
             icon={theme === 'dark' ? 'theme-dark' : 'theme-light'}
             onClick={toggleTheme}

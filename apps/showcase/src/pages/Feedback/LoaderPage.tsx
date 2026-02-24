@@ -6,9 +6,9 @@ export default function LoaderPage() {
     return (
         <Playground.Root
             componentName="Loader"
-            defaultProps={{ color: 'violet', size: 'md' }}
+            defaultProps={{ color: 'primary', size: 'md' }}
             controls={{
-                color: { type: 'select', options: [ { value: 'violet', label: 'Violet' }, { value: 'blue', label: 'Blue' }, { value: 'green', label: 'Green' }, { value: 'yellow', label: 'Yellow' }, { value: 'red', label: 'Red' }, { value: 'gray', label: 'Gray' } ] },
+                color: { type: 'select', options: [ { value: 'primary', label: 'Primary' }, { value: 'success', label: 'Success' }, { value: 'attention', label: 'Attention' }, { value: 'error', label: 'Error' }, { value: 'neutral', label: 'Neutral' } ] },
                 size: { type: 'select', options: [ { value: 'xs', label: 'XS' }, { value: 'sm', label: 'Small' }, { value: 'md', label: 'Medium' }, { value: 'lg', label: 'Large' } ] }
             }}
         >

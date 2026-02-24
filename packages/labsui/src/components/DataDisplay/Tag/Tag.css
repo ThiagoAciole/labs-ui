@@ -1,5 +1,5 @@
 .labs-tag {
-  --labs-tag-color: var(--color--violet);
+  --labs-tag-color: var(--text-primary);
   display: inline-flex;
   align-items: center;
   gap: var(--space--1);
@@ -8,7 +8,7 @@
   font-weight: var(--font--weight--medium);
   border: var(--border--width--hairline) solid transparent;
 }
-.labs-tag--soft { background: color-mix(in srgb, var(--labs-tag-color) 20%, var(--color--grayLight)); color: var(--labs-tag-color); border-color: color-mix(in srgb, var(--labs-tag-color) 40%, var(--color--grayLight)); }
+.labs-tag--soft { background: color-mix(in srgb, var(--labs-tag-color) 15%, transparent); color: var(--labs-tag-color); border-color: color-mix(in srgb, var(--labs-tag-color) 30%, transparent); }
 .labs-tag--outline { background: transparent; color: var(--labs-tag-color); border-color: var(--labs-tag-color); }
 .labs-tag--xs { font-size: var(--font--size--xs); padding: 0 var(--space--1); }
 .labs-tag--sm { font-size: var(--font--size--xs); padding: 1px var(--space--2); }

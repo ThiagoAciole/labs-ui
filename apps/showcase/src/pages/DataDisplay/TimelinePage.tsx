@@ -44,7 +44,7 @@ export default function TimelinePage() {
 
                 <div style={{ marginTop: '4rem' }}>
                     <Heading size="m">Variante Visual</Heading>
-                    <Text color="secondary" style={{ marginTop: '0.5rem' }}>
+                    <Text style={{ marginTop: '0.5rem' }}>
                         A Timeline se adapta automaticamente. Se nenhum ícone (logo) for fornecido, ela utiliza um ponto minimalista.
                     </Text>
                     <div style={{ marginTop: '2rem', maxWidth: '600px' }}>

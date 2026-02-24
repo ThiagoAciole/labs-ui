@@ -34,7 +34,7 @@ export default function PageHeaderPage() {
                             action={
                                 <Flex gap="2">
                                     <Button appearance="ghost" size="sm" icon="settings">Configurar</Button>
-                                    <Button appearance="solid" color="violet" size="sm" icon="plus">Nova Instância</Button>
+                                    <Button appearance="solid" color="primary" size="sm" icon="plus">Nova Instância</Button>
                                 </Flex>
                             }
                         />

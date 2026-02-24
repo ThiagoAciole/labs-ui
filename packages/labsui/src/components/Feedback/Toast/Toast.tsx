@@ -34,7 +34,7 @@ function ToastItem({ toast, onDismiss }: { toast: ToastData; onDismiss: (id: str
 
     useEffect(() => { const timer = setTimeout(handleDismiss, toast.duration ?? 4000); return () => clearTimeout(timer); }, [handleDismiss, toast.duration]);
 
-    const color = toast.color ?? 'violet';
+    const color = toast.color ?? 'primary';
     const icon = COLOR_ICONS[color] ?? 'info';
 
     return (

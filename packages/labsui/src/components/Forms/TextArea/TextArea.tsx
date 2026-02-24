@@ -1,6 +1,7 @@
 import './TextArea.css';
 import React from 'react';
 import { classNames } from '../../../utils/classNames';
+import { Text } from '../../Typography/Text/Text';
 
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     label?: string;
@@ -17,7 +18,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         return (
             <div className={classNames('labs-textarea-wrapper', full && 'labs-textarea-wrapper--full', className)}>
                 {label && (
-                    <label htmlFor={inputId} className="labs-textarea-label">{label}</label>
+                    <Text as="label" htmlFor={inputId} className="labs-textarea-label">{label}</Text>
                 )}
                 <textarea
                     ref={ref}
@@ -33,8 +34,8 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
                     aria-describedby={error ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined}
                     {...props}
                 />
-                {error && <span id={`${inputId}-error`} className="labs-textarea-message labs-textarea-message--error" role="alert">{error}</span>}
-                {!error && hint && <span id={`${inputId}-hint`} className="labs-textarea-message">{hint}</span>}
+                {error && <Text as="span" id={`${inputId}-error`} color="error" size="sm" className="labs-textarea-message labs-textarea-message--error" role="alert">{error}</Text>}
+                {!error && hint && <Text as="span" id={`${inputId}-hint`} color="disabled" size="sm" className="labs-textarea-message">{hint}</Text>}
             </div>
         );
     }

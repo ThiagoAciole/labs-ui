@@ -7,10 +7,10 @@ export default function ButtonPage() {
     return (
         <Playground.Root
             componentName="Button"
-            defaultProps={{ appearance: 'solid', color: 'violet', size: 'md', children: 'Botao Labs', loading: false, disabled: false, full: false }}
+            defaultProps={{ appearance: 'solid', color: 'primary', size: 'md', children: 'Botao Labs', loading: false, disabled: false, full: false }}
             controls={{
                 appearance: { type: 'select', options: [ { value: 'solid', label: 'Solid' }, { value: 'soft', label: 'Soft' }, { value: 'outline', label: 'Outline' }, { value: 'ghost', label: 'Ghost' } ] },
-                color: { type: 'select', options: [ { value: 'violet', label: 'Violet' }, { value: 'blue', label: 'Blue' }, { value: 'green', label: 'Green' }, { value: 'yellow', label: 'Yellow' }, { value: 'red', label: 'Red' }, { value: 'gray', label: 'Gray' } ] },
+                color: { type: 'select', options: [ { value: 'primary', label: 'Primary' }, { value: 'success', label: 'Success' }, { value: 'attention', label: 'Attention' }, { value: 'error', label: 'Error' }, { value: 'neutral', label: 'Neutral' } ] },
                 size: { type: 'select', options: [ { value: 'xs', label: 'XS' }, { value: 'sm', label: 'Small' }, { value: 'md', label: 'Medium' }, { value: 'lg', label: 'Large' }, { value: 'xl', label: 'XL' } ] },
                 icon: {
                     type: 'select', searchable: true,
@@ -28,10 +28,10 @@ export default function ButtonPage() {
                 <div style={{ marginTop: '4rem' }}>
                     <Heading size="m">Exemplos</Heading>
                     <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
-                        <Button appearance="solid" color="violet" icon="plus">Novo Item</Button>
-                        <Button appearance="soft" color="blue" icon="arrow-right">Continuar</Button>
-                        <Button appearance="outline" color="gray">Cancelar</Button>
-                        <Button appearance="solid" color="red">Excluir</Button>
+                        <Button appearance="solid" color="primary" icon="plus">Novo Item</Button>
+                        <Button appearance="soft" color="primary" icon="arrow-right">Continuar</Button>
+                        <Button appearance="outline" color="neutral">Cancelar</Button>
+                        <Button appearance="solid" color="error">Excluir</Button>
                     </div>
                 </div>
             </ShowcasePage>

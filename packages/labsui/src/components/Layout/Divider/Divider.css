@@ -1,6 +1,6 @@
 .labs-divider {
   border: none;
-  background: var(--color--grayDark);
+  background: var(--surface-inverse);
 }
 .labs-divider--horizontal {
   width: 100%;
@@ -22,11 +22,11 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--color--grayDark);
+  background: var(--surface-inverse);
 }
 .labs-divider__label {
   font-size: var(--font--size--xs);
-  color: var(--color--grayDark);
+  color: var(--text-gray);
   white-space: nowrap;
 }
 

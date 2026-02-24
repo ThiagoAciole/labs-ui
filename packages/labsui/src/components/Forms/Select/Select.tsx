@@ -2,6 +2,8 @@ import './Select.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { classNames, LabelFormater } from '../../../utils';
 import { Icon } from '../../Typography/Icon/Icon';
+import { Text } from '../../Typography/Text/Text';
+import { DropdownContainer } from '../../Layout/DropdownContainer';
 
 export interface SelectOption {
     value: string;
@@ -88,9 +90,9 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                 className={classNames('labs-select-wrapper', full && 'labs-select-wrapper--full', className)}
             >
                 {label && (
-                    <label id={`${inputId}-label`} className="labs-select-label" onClick={() => !disabled && setIsOpen(true)}>
+                    <Text as="label" id={`${inputId}-label`} className="labs-select-label" onClick={() => !disabled && setIsOpen(true)}>
                         {LabelFormater(label)}
-                    </label>
+                    </Text>
                 )}
 
                 <div
@@ -101,11 +103,12 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                     aria-haspopup="listbox"
                     aria-labelledby={`${inputId}-label`}
                     className={classNames(
-                        'labs-select-field',
-                        `labs-select-field--${size}`,
-                        isOpen && 'labs-select-field--active',
-                        error && 'labs-select-field--error',
-                        disabled && 'labs-select-field--disabled'
+                        'labs-input-field',
+                        'labs-input-field--clickable',
+                        `labs-input-field--${size}`,
+                        isOpen && 'labs-input-field--active',
+                        error && 'labs-input-field--error',
+                        disabled && 'labs-input-field--disabled'
                     )}
                     onClick={handleToggle}
                     tabIndex={disabled ? -1 : 0}
@@ -119,63 +122,63 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                     }}
                     {...props}
                 >
-                    <span className={classNames('labs-select-field__value', !selectedOption && 'labs-select-field__value--placeholder')}>
-                        {selectedOption ? selectedOption.label : placeholder}
-                    </span>
-                    <span className="labs-select-field__icon">
+                    <div className="labs-input-field__input" style={{ display: 'flex', alignItems: 'center' }}>
+                        <Text as="span" color={!selectedOption ? "disabled" : "default"} className={classNames('labs-select-field__value', !selectedOption && 'labs-select-field__value--placeholder')}>
+                            {selectedOption ? selectedOption.label : placeholder}
+                        </Text>
+                    </div>
+                    <span className="labs-input-field__adornment labs-input-field__adornment--suffix">
                         <Icon name="chevron-down" size={16} />
                     </span>
                 </div>
 
-                {isOpen && (
-                    <div className="labs-select-menu">
-                        {props.searchable && (
-                            <div className="labs-select-menu__search">
-                                <Icon name="search" size={14} className="labs-select-menu__search-icon" />
-                                <input
-                                    ref={searchInputRef}
-                                    type="text"
-                                    className="labs-select-menu__search-input"
-                                    placeholder={props.searchPlaceholder || 'Pesquisar...'}
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                    onClick={(e) => e.stopPropagation()}
-                                    onKeyDown={(e) => {
-                                        if (e.key === ' ') e.stopPropagation();
-                                    }}
-                                />
-                            </div>
+                <DropdownContainer isOpen={isOpen}>
+                    {props.searchable && (
+                        <div className="labs-select-menu__search">
+                            <Icon name="search" size={14} className="labs-select-menu__search-icon" />
+                            <input
+                                ref={searchInputRef}
+                                type="text"
+                                className="labs-select-menu__search-input"
+                                placeholder={props.searchPlaceholder || 'Pesquisar...'}
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                onClick={(e) => e.stopPropagation()}
+                                onKeyDown={(e) => {
+                                    if (e.key === ' ') e.stopPropagation();
+                                }}
+                            />
+                        </div>
+                    )}
+                    <ul className="labs-select-menu__list" role="listbox">
+                        {filteredOptions.length > 0 ? filteredOptions.map((opt) => (
+                            <li
+                                key={opt.value}
+                                role="option"
+                                aria-selected={opt.value === selectedValue}
+                                className={classNames(
+                                    'labs-select-menu__option',
+                                    opt.value === selectedValue && 'labs-select-menu__option--selected',
+                                    opt.disabled && 'labs-select-menu__option--disabled'
+                                )}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleOptionClick(opt.value, opt.disabled);
+                                }}
+                            >
+                                {opt.label}
+                                {opt.value === selectedValue && (
+                                    <Icon name="check" size={14} />
+                                )}
+                            </li>
+                        )) : (
+                            <li className="labs-select-menu__empty">Nenhum resultado encontrado</li>
                         )}
-                        <ul className="labs-select-menu__list" role="listbox">
-                            {filteredOptions.length > 0 ? filteredOptions.map((opt) => (
-                                <li
-                                    key={opt.value}
-                                    role="option"
-                                    aria-selected={opt.value === selectedValue}
-                                    className={classNames(
-                                        'labs-select-menu__option',
-                                        opt.value === selectedValue && 'labs-select-menu__option--selected',
-                                        opt.disabled && 'labs-select-menu__option--disabled'
-                                    )}
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        handleOptionClick(opt.value, opt.disabled);
-                                    }}
-                                >
-                                    {opt.label}
-                                    {opt.value === selectedValue && (
-                                        <Icon name="check" size={14} />
-                                    )}
-                                </li>
-                            )) : (
-                                <li className="labs-select-menu__empty">Nenhum resultado encontrado</li>
-                            )}
-                        </ul>
-                    </div>
-                )}
+                    </ul>
+                </DropdownContainer>
 
-                {error && <span className="labs-select-message labs-select-message--error" role="alert">{error}</span>}
-                {!error && hint && <span className="labs-select-message">{hint}</span>}
+                {error && <Text as="span" color="error" size="sm" className="labs-select-message labs-select-message--error" role="alert">{error}</Text>}
+                {!error && hint && <Text as="span" color="disabled" size="sm" className="labs-select-message">{hint}</Text>}
             </div>
         );
     }

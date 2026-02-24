@@ -113,7 +113,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 
                 <div className="labs-file-upload__content">
                     <div className="labs-file-upload__icon">
-                        <Icon name="rocket" size={32} />
+                        <Icon name="upload" size={32} />
                     </div>
                     <span className="labs-file-upload__title">{title}</span>
                     <span className="labs-file-upload__description">{description}</span>

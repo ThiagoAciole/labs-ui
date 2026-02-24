@@ -1,6 +1,6 @@
 import React from 'react';
 import { classNames } from '../../../utils/classNames';
-import { colorVar, type TokenColor } from '../../../utils/styleTokens';
+import { iconColorVar, type TokenIconColor } from '../../../utils/styleTokens';
 
 const svgModules = import.meta.glob('../../../icons/*.svg', { eager: true, query: '?react', import: 'default' });
 
@@ -17,7 +17,7 @@ export type IconName = string;
 export interface IconProps {
     name: IconName;
     size?: number | string;
-    color?: TokenColor | string;
+    color?: TokenIconColor | string;
     className?: string;
     'aria-hidden'?: boolean;
     'aria-label'?: string;
@@ -38,7 +38,11 @@ export const Icon: React.FC<IconProps> = ({
         return null;
     }
 
-    const iconColor = color ? (color.includes('var(') || color.startsWith('#') ? color : colorVar(color)) : 'currentColor';
+    const iconColor = (() => {
+        if (!color) return iconColorVar('default');
+        const tokenColor = iconColorVar(color as TokenIconColor);
+        return tokenColor ?? color;
+    })();
 
     return (
         <span
@@ -60,7 +64,3 @@ export const Icon: React.FC<IconProps> = ({
 };
 
 export default Icon;
-
-
-
-

@@ -15,7 +15,7 @@ export interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
     label?: string;
 }
 
-export const Progress: React.FC<ProgressProps> = ({ value, max = 100, size = 'md', color = 'violet', animated = false, showValue = false, label, className, style, ...props }) => {
+export const Progress: React.FC<ProgressProps> = ({ value, max = 100, size = 'md', color = 'primary', animated = false, showValue = false, label, className, style, ...props }) => {
     const percentage = Math.min(100, Math.max(0, (value / max) * 100));
     return (
         <div className={classNames('labs-progress-wrapper', className)}>

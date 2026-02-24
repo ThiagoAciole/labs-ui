@@ -1,6 +1,6 @@
 .labs-text {
   margin: 0;
-  color: var(--color--gray);
+  color: var(--text-gray);
   font-family: var(--font--family);
   line-height: var(--line--height--md);
 }
@@ -21,7 +21,7 @@
 
 .labs-heading {
   margin: 0;
-  color: var(--color--gray);
+  color: var(--text-gray);
   font-family: var(--font--family);
   font-weight: var(--font--weight--bold);
   line-height: 1.2;

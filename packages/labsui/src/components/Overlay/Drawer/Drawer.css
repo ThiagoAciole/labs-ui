@@ -9,7 +9,7 @@
 
 .labs-drawer {
   position: fixed;
-  background: var(--color--grayLight);
+  background: var(--surface-alt);
   box-shadow: var(--shadow--lg);
   z-index: calc(var(--z--modal) + 1);
   display: flex;
@@ -23,7 +23,7 @@
   bottom: 0;
   width: 320px;
   transform: translateX(-100%);
-  border-right: 1px solid var(--color--grayDark);
+  border-right: 1px solid var(--border-gray);
 }
 
 .labs-drawer--right {
@@ -32,7 +32,7 @@
   bottom: 0;
   width: 320px;
   transform: translateX(100%);
-  border-left: 1px solid var(--color--grayDark);
+  border-left: 1px solid var(--border-gray);
 }
 
 .labs-drawer--open {
@@ -41,7 +41,7 @@
 
 .labs-drawer__header {
   padding: var(--space--4) var(--space--6);
-  border-bottom: 1px solid var(--color--grayDark);
+  border-bottom: 1px solid var(--border-gray);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,7 +51,7 @@
 .labs-drawer__title {
   font-size: var(--font--size--lg);
   font-weight: 700;
-  color: var(--color--gray);
+  color: var(--text-gray);
   margin: 0;
 }
 
@@ -59,12 +59,12 @@
   padding: var(--space--6);
   flex: 1;
   overflow-y: auto;
-  color: var(--color--gray);
+  color: var(--text-gray);
 }
 
 .labs-drawer__footer {
   padding: var(--space--4) var(--space--6);
-  border-top: 1px solid var(--color--grayDark);
+  border-top: 1px solid var(--border-gray);
   display: flex;
   justify-content: flex-end;
   gap: var(--space--3);

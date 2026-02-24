@@ -1,11 +1,11 @@
 import '../TypographyTokens.css';
 import React from 'react';
 import { classNames } from '../../../utils/classNames';
-import { colorVar, fontWeightVar, type TokenColor, type TokenWeight } from '../../../utils/styleTokens';
+import { textColorVar, fontWeightVar, type TokenTextColor, type TokenWeight } from '../../../utils/styleTokens';
 
 export type HeadingSize = 'xs' | 'sm' | 's' | 'md' | 'm' | 'lg' | 'xl';
 export type HeadingWeight = TokenWeight;
-export type HeadingColor = TokenColor;
+export type HeadingColor = TokenTextColor;
 export type HeadingAlign = 'left' | 'center' | 'right';
 
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -28,7 +28,7 @@ const sizeMap: Record<HeadingSize, string> = {
 export const Heading: React.FC<HeadingProps> = ({
     size = 'xl',
     weight = 'bold',
-    color = 'gray',
+    color = 'default',
     align = 'left',
     children,
     className,
@@ -45,7 +45,7 @@ export const Heading: React.FC<HeadingProps> = ({
                 className
             )}
             style={{
-                color: colorVar(color),
+                color: textColorVar(color),
                 fontWeight: fontWeightVar(weight),
                 ...(style ?? {})
             }}
@@ -55,7 +55,6 @@ export const Heading: React.FC<HeadingProps> = ({
         </Tag>
     );
 };
-
 
 
 

@@ -1,5 +1,5 @@
 .labs-badge {
-  --labs-badge-color: var(--color--violet);
+  --labs-badge-color: var(--bg-primary);
   display: inline-flex;
   align-items: center;
   gap: var(--space--1);
@@ -8,7 +8,7 @@
   font-family: var(--font--family);
   border: var(--border--width--hairline) solid transparent;
 }
-.labs-badge--soft { background: color-mix(in srgb, var(--labs-badge-color) 20%, var(--color--grayLight)); color: var(--labs-badge-color); border-color: color-mix(in srgb, var(--labs-badge-color) 40%, var(--color--grayLight)); }
+.labs-badge--soft { background: color-mix(in srgb, var(--labs-badge-color) 15%, transparent); color: var(--labs-badge-color); border-color: color-mix(in srgb, var(--labs-badge-color) 30%, transparent); }
 .labs-badge--outline { background: transparent; color: var(--labs-badge-color); border-color: var(--labs-badge-color); }
 .labs-badge--xs { font-size: var(--font--size--xs); padding: 0 var(--space--1); }
 .labs-badge--sm { font-size: var(--font--size--xs); padding: 1px var(--space--2); }

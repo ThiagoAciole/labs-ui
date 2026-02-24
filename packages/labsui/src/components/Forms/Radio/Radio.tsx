@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import './Radio.css';
 import { classNames } from '../../../utils/classNames';
+import { Text } from '../../Typography/Text/Text';
 
 export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
     label?: string;
@@ -44,8 +45,8 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
 
             {(label || description) && (
                 <div className="labs-radio__content">
-                    {label && <span className="labs-radio__label">{label}</span>}
-                    {description && <span className="labs-radio__description">{description}</span>}
+                    {label && <Text as="span" className="labs-radio__label">{label}</Text>}
+                    {description && <Text as="span" color="disabled" size="sm" className="labs-radio__description">{description}</Text>}
                 </div>
             )}
         </label>

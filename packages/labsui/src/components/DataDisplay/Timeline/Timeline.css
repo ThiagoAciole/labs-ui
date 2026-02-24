@@ -38,7 +38,7 @@
   content: '';
   width: 2px;
   height: 100%;
-  background: var(--color--grayDark);
+  background: var(--surface-inverse);
   opacity: 0.5;
   border-radius: var(--radius--pill);
 }
@@ -70,19 +70,19 @@
 .labs-timeline-item__title {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--color--gray);
+  color: var(--text-gray);
 }
 
 .labs-timeline-item__date {
   font-size: 0.75rem;
-  color: var(--color--grayDark);
+  color: var(--text-gray);
   font-style: italic;
   white-space: nowrap;
 }
 
 .labs-timeline-item__description {
   font-size: 0.875rem;
-  color: var(--color--grayLight);
+  color: var(--text-disabled);
 }
 
 .labs-timeline-item--dot .labs-timeline-item__left {
@@ -95,8 +95,8 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--color--violet);
-  box-shadow: 0 0 8px var(--color--violetLight);
+  background: var(--bg-primary);
+  box-shadow: 0 0 8px var(--bg-primary-light);
   margin-top: 10px;
 }
 

@@ -191,6 +191,12 @@ const SidebarGroup = ({ title, icon, active, defaultExpanded = true, className, 
         }
     };
 
+    const resolvedGroupIcon = React.isValidElement(icon)
+        ? React.cloneElement(icon as React.ReactElement<any>, {
+            color: (icon as React.ReactElement<any>).props?.color ?? 'inherit'
+        })
+        : icon;
+
     return (
         <div className={classNames('labs-sidebar__group', expanded && 'labs-sidebar__group--expanded', className)} {...props}>
             <button
@@ -200,7 +206,7 @@ const SidebarGroup = ({ title, icon, active, defaultExpanded = true, className, 
                 )}
                 onClick={toggleExpand}
             >
-                {icon && <div className="labs-sidebar__item-icon">{icon}</div>}
+                {resolvedGroupIcon && <div className="labs-sidebar__item-icon">{resolvedGroupIcon}</div>}
                 <span className="labs-sidebar__group-title">{title}</span>
                 <div className="labs-sidebar__group-chevron">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={expanded ? 'm18 15-6-6-6 6' : 'm6 9 6 6 6-6'} /></svg>

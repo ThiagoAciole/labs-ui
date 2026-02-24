@@ -1,5 +1,5 @@
 import React, { useState, createContext, useContext } from 'react';
-import { Select, Switch, Input, Divider, IconButton, Icon, Panel } from '@aciolelabs/labs-ui';
+import { Select, Switch, Input, Divider, IconButton, Icon, Panel, Badge, Flex } from '@aciolelabs/labs-ui';
 import './style.css';
 
 export type PropControl =
@@ -88,27 +88,25 @@ function Preview({ render }: PreviewProps) {
 
     return (
         <div className={`playground-preview-box playground-preview-box--${bgType}`}>
-            <div className="preview-label-v2">Live Preview</div>
-
-            <div className="preview-toolbar">
-                <IconButton
-                    icon="grid"
-                    size="sm"
-                    appearance={bgType === 'grid' ? 'solid' : 'ghost'}
-                    color={bgType === 'grid' ? 'violet' : 'gray'}
-                    onClick={() => setBgType('grid')}
-                    aria-label="Fundo em grade"
-                />
-                <IconButton
-                    icon="grip"
-                    size="sm"
-                    appearance={bgType === 'grip' ? 'solid' : 'ghost'}
-                    color={bgType === 'grip' ? 'violet' : 'gray'}
-                    onClick={() => setBgType('grip')}
-                    aria-label="Fundo em pontos"
-                />
+            <div className="preview-topbar">
+                <Badge color="neutral" size="sm" appearance="soft">Live Preview</Badge>
+                <Flex gap="1" className="preview-toolbar-group">
+                    <IconButton
+                        icon="grid"
+                        size="sm"
+                        appearance={bgType === 'grid' ? 'solid' : 'ghost'}
+                        onClick={() => setBgType('grid')}
+                        aria-label="Fundo em grade"
+                    />
+                    <IconButton
+                        icon="grip"
+                        size="sm"
+                        appearance={bgType === 'grip' ? 'solid' : 'ghost'}
+                        onClick={() => setBgType('grip')}
+                        aria-label="Fundo em pontos"
+                    />
+                </Flex>
             </div>
-
             <div className="preview-canvas">
                 {render(props)}
             </div>
@@ -135,7 +133,7 @@ function Controls() {
                     <IconButton
                         icon="refresh"
                         size="sm"
-                        appearance="ghost" color="gray"
+                        appearance="ghost"
                         onClick={resetProps}
                         aria-label="Limpar propriedades"
                     />
@@ -204,7 +202,7 @@ function Controls() {
                             <IconButton
                                 icon={copied ? 'check' : 'copy'}
                                 size="sm"
-                                appearance="ghost" color="gray"
+                                appearance="ghost"
                                 onClick={handleCopy}
                                 className={copied ? 'copy-success' : ''}
                                 aria-label="Copy source"

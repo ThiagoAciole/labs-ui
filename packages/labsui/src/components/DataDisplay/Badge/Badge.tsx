@@ -15,7 +15,7 @@ export interface BadgeProps {
     style?: React.CSSProperties;
 }
 
-export function Badge({ appearance = 'soft', size = 'md', color = 'violet', children, dot = false, className, style }: BadgeProps) {
+export function Badge({ appearance = 'soft', size = 'md', color = 'primary', children, dot = false, className, style }: BadgeProps) {
     return (
         <span className={classNames('labs-badge', `labs-badge--${appearance}`, `labs-badge--${size}`, dot && 'labs-badge--dot', className)} style={{ ['--labs-badge-color' as string]: colorVar(color), ...(style ?? {}) }}>
             {dot && <span className="labs-badge__dot" />}

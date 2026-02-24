@@ -1,9 +1,10 @@
 import React from 'react';
 import './EmptyState.css';
 import { classNames } from '../../../utils/classNames';
+import { Heading, Icon, Text } from '../../Categories';
 
 interface EmptyStateProps {
-    icon?: React.ReactNode;
+    icon?: string;
     title: string;
     description?: string;
     action?: React.ReactNode;
@@ -21,9 +22,9 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 }) => {
     return (
         <div className={classNames('labs-empty-state', className)} style={style}>
-            {icon && <div className="labs-empty-state__icon">{icon}</div>}
-            <h3 className="labs-empty-state__title">{title}</h3>
-            {description && <p className="labs-empty-state__description">{description}</p>}
+            {icon && <div className="labs-empty-state__icon"><Icon name={icon} size={48} color='neutral' /></div>}
+            <Heading size="m">{title}</Heading>
+            {description && <Text>{description}</Text>}
             {action && <div className="labs-empty-state__action">{action}</div>}
         </div>
     );

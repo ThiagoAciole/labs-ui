@@ -10,14 +10,14 @@
 .labs-slider__track {
   height: 6px;
   width: 100%;
-  background: var(--color--grayLight);
+  background: var(--surface-alt);
   border-radius: var(--radius--pill);
   position: relative;
 }
 
 .labs-slider__fill {
   height: 100%;
-  background: var(--color--violet);
+  background: var(--bg-primary);
   border-radius: var(--radius--pill);
   position: absolute;
   top: 0;
@@ -27,8 +27,8 @@
 .labs-slider__thumb {
   width: 18px;
   height: 18px;
-  background: var(--color--grayLight);
-  border: 2px solid var(--color--violet);
+  background: var(--surface-alt);
+  border: 2px solid var(--border-primary);
   border-radius: var(--radius--pill);
   position: absolute;
   top: 50%;
@@ -43,7 +43,7 @@
 }
 
 .labs-slider--muted .labs-slider__thumb {
-  box-shadow: 0 0 0 2px var(--color--violetLight);
+  box-shadow: 0 0 0 2px var(--bg-primary-light);
 }
 
 /* Hidden range input */

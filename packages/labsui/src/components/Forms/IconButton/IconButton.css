@@ -1,5 +1,5 @@
 .labs-icon-btn {
-  --labs-icon-btn-color: var(--color--violet);
+  --labs-icon-btn-color: var(--bg-primary);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -9,17 +9,17 @@
   transition: all var(--transition--fast);
   color: var(--labs-icon-btn-color);
 }
-.labs-icon-btn:focus-visible { outline: 2px solid var(--color--violet); outline-offset: 2px; }
+.labs-icon-btn:focus-visible { outline: 2px solid var(--labs-icon-btn-color); outline-offset: 2px; }
 .labs-icon-btn:disabled {
-  background-color: var(--color--grayLight);
-  color: var(--color--grayDark);
-  border-color: var(--color--grayDark);
+  background-color: var(--bg-inverse);
+  color: var(--text-disabled);
+  border-color: var(--border-gray);
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
 }
-.labs-icon-btn--solid { background: var(--labs-icon-btn-color); color: var(--color--grayLight); border-color: var(--labs-icon-btn-color); }
-.labs-icon-btn--soft { background: color-mix(in srgb, var(--labs-icon-btn-color) 20%, var(--color--grayLight)); border-color: color-mix(in srgb, var(--labs-icon-btn-color) 40%, var(--color--grayLight)); }
+.labs-icon-btn--solid { background: var(--labs-icon-btn-color); color: var(--text-on-solid); border-color: var(--labs-icon-btn-color); }
+.labs-icon-btn--soft { background: color-mix(in srgb, var(--labs-icon-btn-color) 20%, var(--surface)); border-color: color-mix(in srgb, var(--labs-icon-btn-color) 40%, var(--surface)); }
 .labs-icon-btn--ghost { background: transparent; border-color: transparent; }
 .labs-icon-btn--outline { background: transparent; border-color: var(--labs-icon-btn-color); }
 .labs-icon-btn--sm { width: 2rem; height: 2rem; }

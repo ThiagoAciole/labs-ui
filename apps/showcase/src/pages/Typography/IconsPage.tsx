@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Icon, Input, Card, Text, availableIcons, useToast } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
+import { COLOR_OPTIONS } from '../../config/categories/colorOptions';
 
 const IconsPage = () => {
     const [search, setSearch] = useState('');
@@ -17,7 +18,7 @@ const IconsPage = () => {
         navigator.clipboard.writeText(name);
         toast({
             title: `Icone ${name} Copiado!`,
-            color: 'green'
+            color: 'success'
         });
     };
 
@@ -27,7 +28,7 @@ const IconsPage = () => {
             defaultProps={{
                 name: 'rocket',
                 size: 32,
-                color: 'currentColor'
+                color: 'primary'
             }}
             controls={{
                 name: {
@@ -47,17 +48,7 @@ const IconsPage = () => {
                 size: { type: 'number' },
                 color: {
                     type: 'select',
-                    options: [
-                        { value: 'currentColor', label: 'Current Color' },
-                        { value: 'var(--color--violet)', label: 'Primary' },
-                        { value: 'var(--color--grayLight)', label: 'Secondary' },
-                        { value: 'var(--color--green)', label: 'Success' },
-                        { value: 'var(--color--yellow)', label: 'Warning' },
-                        { value: 'var(--color--red)', label: 'Danger' },
-                        { value: 'var(--color--blue)', label: 'Info' },
-                        { value: 'var(--color--gray)', label: 'Text' },
-                        { value: 'var(--color--grayLight)', label: 'Muted' }
-                    ]
+                    options: COLOR_OPTIONS
                 }
             }}
         >
@@ -67,7 +58,7 @@ const IconsPage = () => {
                 aside={<Playground.Controls />}
                 noGrid
             >
-                <Playground.Preview render={(props) => (
+                <Playground.Preview render={(props: any) => (
                     <Card
                         variant="outlined"
                         onClick={() => handleCopy(props.name)}
@@ -90,7 +81,7 @@ const IconsPage = () => {
                         }}
                     >
                         <Icon name={props.name} size={props.size} color={props.color} />
-                        <Text size="xs" color="gray" weight="medium">{props.name}</Text>
+                        <Text size="xs" weight="medium">{props.name}</Text>
                     </Card>
                 )} />
 
@@ -134,7 +125,6 @@ const IconsPage = () => {
                                 <Icon name={name} size={32} />
                                 <Text
                                     size="xs"
-                                    color="gray"
                                     weight="medium"
                                     style={{
                                         whiteSpace: 'nowrap',
@@ -151,7 +141,7 @@ const IconsPage = () => {
 
                     {filteredIcons.length === 0 && (
                         <div style={{ padding: '3rem', textAlign: 'center' }}>
-                            <Text color="grayDark">Nenhum icone encontrado para "{search}"</Text>
+                            <Text >Nenhum icone encontrado para "{search}"</Text>
                         </div>
                     )}
                 </div>

@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { classNames } from '../../../utils/classNames';
 import { Icon } from '../../Typography/Icon/Icon';
 import { Button } from '../../Forms/Button/Button';
+import { DropdownContainer } from '../../Layout/DropdownContainer';
 
 export interface DatePickerProps {
     value?: Date;
@@ -143,52 +144,53 @@ export const DatePicker: React.FC<DatePickerProps> = ({
 
             <div
                 className={classNames(
-                    'labs-datepicker-trigger',
-                    `labs-datepicker-trigger--${size}`,
-                    isOpen && 'labs-datepicker-trigger--active',
-                    disabled && 'labs-datepicker-trigger--disabled'
+                    'labs-input-field',
+                    'labs-input-field--clickable',
+                    `labs-input-field--${size}`,
+                    isOpen && 'labs-input-field--active',
+                    disabled && 'labs-input-field--disabled'
                 )}
                 onClick={() => !disabled && setIsOpen(!isOpen)}
             >
-                <span className={classNames(
-                    selectedDate ? 'labs-datepicker-trigger__value' : 'labs-datepicker-trigger__placeholder'
-                )}>
-                    {selectedDate ? formatDate(selectedDate) : placeholder}
-                </span>
-                <span className="labs-datepicker-trigger__icon">
+                <div className="labs-input-field__input" style={{ display: 'flex', alignItems: 'center' }}>
+                    <span className={classNames(
+                        selectedDate ? 'labs-datepicker-trigger__value' : 'labs-datepicker-trigger__placeholder'
+                    )}>
+                        {selectedDate ? formatDate(selectedDate) : placeholder}
+                    </span>
+                </div>
+                <span className="labs-input-field__adornment labs-input-field__adornment--suffix">
                     <Icon name="calendar" size={16} />
                 </span>
             </div>
 
-            {isOpen && (
-                <div className="labs-calendar">
-                    <div className="labs-calendar__header">
-                        <button className="labs-calendar__nav-btn" onClick={handlePrevMonth}>
-                            <Icon name="chevron-left" size={18} />
-                        </button>
+            <DropdownContainer isOpen={isOpen} style={{ width: '320px', padding: '16px' }}>
+                <div className="labs-calendar__header">
+                    <button className="labs-calendar__nav-btn" onClick={handlePrevMonth}>
+                        <Icon name="chevron-left" size={18} />
+                    </button>
 
-                        <div className="labs-calendar__current-title">
-                            {MONTHS[currentMonth.getMonth()]} {currentMonth.getFullYear()}
-                        </div>
-
-                        <button className="labs-calendar__nav-btn" onClick={handleNextMonth}>
-                            <Icon name="chevron-right" size={18} />
-                        </button>
+                    <div className="labs-calendar__current-title">
+                        {MONTHS[currentMonth.getMonth()]} {currentMonth.getFullYear()}
                     </div>
 
-                    <div className="labs-calendar__grid">
-                        {WEEKDAYS.map(day => (
-                            <div key={day} className="labs-calendar__weekday">{day}</div>
-                        ))}
-                        {renderDays()}
-                    </div>
-
-                    <div className="labs-calendar__footer">
-                        <Button appearance="ghost" size="sm" onClick={handleReset}>Limpar</Button>
-                        <Button size="sm" onClick={() => setIsOpen(false)}>Concluído</Button>
-                    </div>
+                    <button className="labs-calendar__nav-btn" onClick={handleNextMonth}>
+                        <Icon name="chevron-right" size={18} />
+                    </button>
                 </div>
-            )}
+
+                <div className="labs-calendar__grid">
+                    {WEEKDAYS.map(day => (
+                        <div key={day} className="labs-calendar__weekday">{day}</div>
+                    ))}
+                    {renderDays()}
+                </div>
+
+                <div className="labs-calendar__footer">
+                    <Button appearance="ghost" size="sm" onClick={handleReset}>Limpar</Button>
+                    <Button size="sm" onClick={() => setIsOpen(false)}>Concluído</Button>
+                </div>
+            </DropdownContainer>
         </div>
     );
 };

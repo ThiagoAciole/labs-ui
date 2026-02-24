@@ -18,7 +18,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ appearance = 'solid', size = 'md', loading = false, disabled, icon, full = false, color = 'violet', children, className, style, ...props }, ref) => {
+    ({ appearance = 'solid', size = 'md', loading = false, disabled, icon, full = false, color = 'primary', children, className, style, ...props }, ref) => {
         const isDisabled = disabled || loading;
         const iconSize = size === 'xs' ? 14 : size === 'sm' ? 16 : size === 'lg' || size === 'xl' ? 24 : 20;
 
@@ -37,7 +37,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 {loading && <Loader size="sm" className="labs-btn__spinner" color={color} />}
                 {!loading && icon && (
                     <span className="labs-btn__icon labs-btn__icon--left">
-                        <Icon name={icon} size={iconSize} />
+                        <Icon name={icon} size={iconSize} color="inherit" />
                     </span>
                 )}
                 {children && <span className="labs-btn__label">{children}</span>}

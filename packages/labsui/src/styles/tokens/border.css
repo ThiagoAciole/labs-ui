@@ -1,9 +1,8 @@
 :root {
-  --color--graylight--width--hairline: 1px;
-  --color--graylight--width--thin: 2px;
-  --color--graylight--width--md: 3px;
+  --border-width-hairline: 1px;
+  --border-width-thin: 2px;
+  --border-width-md: 3px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
 }
-
-
-
-

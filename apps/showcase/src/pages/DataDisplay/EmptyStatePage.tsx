@@ -9,7 +9,7 @@ export default function EmptyStatePage() {
             defaultProps={{
                 title: 'Nenhum item encontrado',
                 description: 'Parece que você ainda não criou nenhum conteúdo. Comece agora mesmo!',
-                iconName: 'folder-open',
+                iconName: 'box',
                 showAction: true
             }}
             controls={{
@@ -29,8 +29,8 @@ export default function EmptyStatePage() {
                         <EmptyState
                             title={props.title}
                             description={props.description}
-                            icon={<Icon name={props.iconName} size={48} />}
-                            action={props.showAction ? <Button appearance="solid" color="violet">Criar Novo</Button> : undefined}
+                            icon={props.iconName}
+                            action={props.showAction ? <Button appearance="solid" color="primary">Criar Novo</Button> : undefined}
                         />
                     </div>
                 )} />

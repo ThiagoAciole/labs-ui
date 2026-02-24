@@ -31,7 +31,7 @@ export default function ListPage() {
                             <ListItem
                                 startContent={<Avatar initials="CS" size="sm" />}
                                 description="csilva@labs.com"
-                                endContent={<Badge color="green">Ativo</Badge>}
+                                endContent={<Badge color="success">Ativo</Badge>}
                             >
                                 Carlos Silva
                             </ListItem>
@@ -39,15 +39,15 @@ export default function ListPage() {
                             <ListItem
                                 startContent={<Avatar initials="MC" size="sm" color="primary" />}
                                 description="mclara@labs.com"
-                                endContent={<Badge color="yellow">Pausado</Badge>}
+                                endContent={<Badge color="attention">Ausente</Badge>}
                             >
                                 Maria Clara
                             </ListItem>
 
                             <ListItem
-                                startContent={<Avatar initials="JP" size="sm" color="danger" />}
+                                startContent={<Avatar initials="JP" size="sm" color="error" />}
                                 description="jpedro@labs.com"
-                                endContent={<Badge color="red">Inativo</Badge>}
+                                endContent={<Badge color="error">Inativo</Badge>}
                                 disabled
                             >
                                 João Pedro

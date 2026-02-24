@@ -28,7 +28,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
                 {showBack && (
                     <div className="labs-page-header__back">
                         <IconButton
-                            appearance="ghost" color="gray"
+                            appearance="ghost"
                             size="md"
                             icon="chevron-left"
                             onClick={onBack}
@@ -40,15 +40,12 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
                 <div className="labs-page-header__content">
                     <Heading
                         size="lg"
-
                     >
                         {title}
                     </Heading>
                     {description && (
                         <Text
                             size="lg"
-                            color="muted"
-                            className="labs-page-header__description"
                         >
                             {description}
                         </Text>

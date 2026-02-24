@@ -10,7 +10,7 @@ export default function HeadingPage() {
                 size: 'xl',
                 children: 'Design System Premium',
                 align: 'left',
-                color: 'gray'
+                color: 'neutral'
             }}
             controls={{
                 size: {
@@ -35,10 +35,11 @@ export default function HeadingPage() {
                 color: {
                     type: 'select',
                     options: [
-                        { value: 'default', label: 'Default' },
+                        { value: 'neutral', label: 'Neutral' },
                         { value: 'primary', label: 'Primary' },
-                        { value: 'accent', label: 'Accent' },
-                        { value: 'muted', label: 'Muted' },
+                        { value: 'success', label: 'Success' },
+                        { value: 'error', label: 'Error' },
+                        { value: 'attention', label: 'Attention' },
                     ]
                 },
                 children: { type: 'text' }

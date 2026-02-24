@@ -18,7 +18,7 @@ export interface IconButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLBut
 }
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-    ({ icon, appearance = 'soft', size = 'md', loading = false, color = 'violet', disabled, className, style, 'aria-label': ariaLabel, ...props }, ref) => {
+    ({ icon, appearance = 'soft', size = 'md', loading = false, color = 'primary', disabled, className, style, 'aria-label': ariaLabel, ...props }, ref) => {
         const iconSize = size === 'sm' ? 16 : size === 'lg' ? 24 : 20;
         return (
             <button
@@ -30,11 +30,10 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
                 style={{ ['--labs-icon-btn-color' as string]: colorVar(color), ...(style ?? {}) }}
                 {...props}
             >
-                {loading ? <Loader size={size} color={color} /> : <Icon name={icon} size={iconSize} />}
+                {loading ? <Loader size={size} color={color} /> : <Icon name={icon} size={iconSize} color="inherit" />}
             </button>
         );
     }
 );
 
 IconButton.displayName = 'IconButton';
-

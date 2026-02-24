@@ -2,61 +2,61 @@
   position: relative;
   width: 100%;
   min-height: 400px;
-  background-color: var(--surface);
-  border: 1px solid var(--border-color);
+  background: linear-gradient(180deg, #0d1d42 0%, #0b1a3d 100%);
+  border: 1px solid var(--color-gray);
   border-radius: var(--radius--xl);
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  justify-content: center;
   overflow: hidden;
   transition: all 0.3s ease;
 }
 
-.playground-preview-box--dots {
-  background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+.playground-preview-box--grip {
+  background-image: radial-gradient(rgba(74, 101, 151, 0.35) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .playground-preview-box--grid {
   background-image: 
-    linear-gradient(var(--border-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    linear-gradient(rgba(74, 101, 151, 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 101, 151, 0.28) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-.preview-label-v2 {
-  position: absolute;
-  top: 1.25rem;
-  left: 1.25rem;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--color--gray);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  background: var(--surface);
-  padding: 4px 8px;
-  border-radius: 4px;
-  backdrop-filter: blur(4px);
-  border: 1px solid var(--border-color);
+.preview-topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.25rem;
 }
 
-.preview-toolbar {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+.preview-live-badge {
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e6efff;
+  background: var(--bg-dark);
+  border: 1px solid #314974;
+}
+
+.preview-toolbar-group {
   display: flex;
-  gap: 4px;
-  background: var(--surface);
-  padding: 4px;
-  border-radius: var(--radius--lg);
-  border: 1px solid var(--border-color);
+  gap: 0.375rem;
+  padding: 0.25rem;
+  border-radius: var(--radius--xl);
+  background: var(--bg-dark);
+  border: 1px solid #314974;
   backdrop-filter: blur(8px);
 }
 
 .preview-canvas {
   padding: var(--space--12);
+  padding-top: var(--space--6);
   width: 100%;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;

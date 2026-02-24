@@ -1,11 +1,11 @@
 import '../TypographyTokens.css';
 import React from 'react';
 import { classNames } from '../../../utils/classNames';
-import { colorVar, fontSizeVar, fontWeightVar, type TokenColor, type TokenSize, type TokenWeight } from '../../../utils/styleTokens';
+import { textColorVar, fontSizeVar, fontWeightVar, type TokenSize, type TokenTextColor, type TokenWeight } from '../../../utils/styleTokens';
 
 export type TextSize = TokenSize;
 export type TextWeight = TokenWeight;
-export type TextColor = TokenColor;
+export type TextColor = TokenTextColor;
 export type TextAlign = 'left' | 'center' | 'right';
 
 export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -14,12 +14,13 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
     color?: TextColor;
     align?: TextAlign;
     as?: React.ElementType;
+    htmlFor?: string;
 }
 
 export const Text: React.FC<TextProps> = ({
     size = 'md',
     weight = 'regular',
-    color = 'gray',
+    color = 'default',
     align = 'left',
     as: Component = 'span',
     children,
@@ -37,7 +38,7 @@ export const Text: React.FC<TextProps> = ({
                 className
             )}
             style={{
-                color: colorVar(color),
+                color: textColorVar(color),
                 fontSize: fontSizeVar(size),
                 fontWeight: fontWeightVar(weight),
                 ...(style ?? {})

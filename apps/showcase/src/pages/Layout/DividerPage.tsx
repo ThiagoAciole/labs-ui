@@ -33,9 +33,9 @@ export default function DividerPage() {
                         align="center"
                         style={{ minHeight: '150px', width: '100%' }}
                     >
-                        <Text color="secondary">Seção Anterior</Text>
+                        <Text color="gray">Seção Anterior</Text>
                         <Divider {...props} style={props.orientation === 'vertical' ? { height: '100px' } : { width: '100%' }} />
-                        <Text color="secondary">Seção Posterior</Text>
+                        <Text color="gray">Seção Posterior</Text>
                     </Flex>
                 )} />
 

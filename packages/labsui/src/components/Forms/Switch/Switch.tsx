@@ -1,6 +1,7 @@
 import './Switch.css';
 import React from 'react';
 import { classNames, LabelFormater } from '../../../utils';
+import { Text } from '../../Typography/Text/Text';
 
 export type SwitchSize = 'sm' | 'md' | 'lg';
 
@@ -19,7 +20,7 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
             <div className={classNames('labs-switch-root', props.disabled && 'labs-switch-root--disabled', className)}>
                 <label className="labs-switch-label" htmlFor={inputId}>
                     {label && labelPosition === 'left' && (
-                        <span className="labs-switch-text">{LabelFormater(label)}</span>
+                        <Text as="span" className="labs-switch-text">{LabelFormater(label)}</Text>
                     )}
                     <span className={classNames('labs-switch-control', `labs-switch-control--${size}`)}>
                         <input
@@ -36,10 +37,10 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
                         </span>
                     </span>
                     {label && labelPosition === 'right' && (
-                        <span className="labs-switch-text">{LabelFormater(label)}</span>
+                        <Text as="span" className="labs-switch-text">{LabelFormater(label)}</Text>
                     )}
                 </label>
-                {hint && <span className="labs-switch-hint">{hint}</span>}
+                {hint && <Text as="span" color="disabled" size="sm" className="labs-switch-hint">{hint}</Text>}
             </div>
         );
     }

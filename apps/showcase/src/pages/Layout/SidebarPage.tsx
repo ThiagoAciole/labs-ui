@@ -30,7 +30,7 @@ export default function SidebarPage() {
                                 icon={<Icon name="box" size={32} color="var(--color--violet)" />}
                                 logo={<span style={{ marginLeft: '8px', fontWeight: 'bold', fontSize: '1.25rem' }}>LabsUI</span>}
                             >
-                                <Badge color="violet" size="sm">v1.2.0</Badge>
+                                <Badge color="primary" size="sm">v1.2.0</Badge>
                             </Sidebar.Header>
 
                             <Sidebar.Nav>
@@ -78,7 +78,7 @@ export default function SidebarPage() {
 
                         <div style={{ flex: 1, padding: '2rem', backgroundColor: 'var(--color--grayLight)' }}>
                             <Heading size="lg">{activeTab}</Heading>
-                            <Text color="muted" style={{ marginTop: '1rem' }}>
+                            <Text color="gray" style={{ marginTop: '1rem' }}>
                                 A largura da área de conteúdo se adapta automaticamente quando a Sidebar é colapsada.
                             </Text>
                         </div>

@@ -1,5 +1,5 @@
 .labs-link {
-  --labs-link-color: var(--color--violet);
+  --labs-link-color: var(--text-primary);
   color: var(--labs-link-color);
   text-decoration: none;
   cursor: pointer;

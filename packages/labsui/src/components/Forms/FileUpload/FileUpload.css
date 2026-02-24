@@ -12,31 +12,32 @@
   justify-content: center;
   width: 100%;
   padding: var(--space--12) var(--space--4);
-  background-color: var(--color--grayLight);
-  border: 2px dashed var(--color--grayDark);
+  background-color: transparent;
+  border: 2px dashed var(--border-gray);
   border-radius: var(--radius--lg);
   cursor: pointer;
   transition: all var(--transition--normal);
 }
 
 .labs-file-upload__dropzone:hover {
-  background-color: var(--color--grayLight);
-  border-color: var(--color--violet);
+  background-color: var(--surface-alt);
+  border-color: var(--text-primary);
+  opacity: 0.5;
 }
 
 .labs-file-upload__dropzone--dragging {
-  background-color: var(--color--violetLight);
-  border-color: var(--color--violet);
+  background-color: var(--bg-primary-light);
+  border-color: var(--text-primary);
 }
 
 .labs-file-upload__dropzone--error {
-  border-color: var(--color--red);
+  border-color: var(--text-error);
 }
 
 .labs-file-upload__dropzone--disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  background-color: var(--color--grayDark);
+  background-color: var(--surface-alt);
 }
 
 .labs-file-upload__input {
@@ -58,26 +59,26 @@
   width: 64px;
   height: 64px;
   border-radius: var(--radius--pill);
-  background-color: var(--color--grayLight);
-  color: var(--color--violet);
+  background-color: var(--surface);
+  color: var(--text-primary);
   margin-bottom: var(--space--4);
 }
 
 .labs-file-upload__title {
   font-size: var(--font--size--md);
   font-weight: 600;
-  color: var(--color--gray);
+  color: var(--text-gray);
   margin-bottom: var(--space--2);
 }
 
 .labs-file-upload__description {
   font-size: var(--font--size--sm);
-  color: var(--color--grayDark);
+  color: var(--text-gray);
 }
 
 .labs-file-upload__error-text {
   font-size: var(--font--size--sm);
-  color: var(--color--red);
+  color: var(--text-error);
   margin-top: -var(--space--2);
 }
 
@@ -95,8 +96,8 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--space--3);
-  background-color: var(--color--grayLight);
-  border: 1px solid var(--color--grayDark);
+  background-color: var(--text-disabled);
+  border: 1px solid var(--border-gray);
   border-radius: var(--radius--md);
 }
 
@@ -109,7 +110,7 @@
 
 .labs-file-upload__file-name {
   font-size: var(--font--size--sm);
-  color: var(--color--gray);
+  color: var(--text-gray);
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -119,7 +120,7 @@
 
 .labs-file-upload__file-size {
   font-size: var(--font--size--xs);
-  color: var(--color--grayDark);
+  color: var(--text-gray);
 }
 
 .labs-file-upload__remove-btn {
@@ -128,7 +129,7 @@
   justify-content: center;
   background: transparent;
   border: none;
-  color: var(--color--grayDark);
+  color: var(--text-gray);
   cursor: pointer;
   padding: var(--space--1);
   border-radius: var(--radius--sm);
@@ -136,7 +137,7 @@
 }
 
 .labs-file-upload__remove-btn:hover {
-  color: var(--color--red);
+  color: var(--text-error);
   background-color: rgba(239, 68, 68, 0.1);
 }
 

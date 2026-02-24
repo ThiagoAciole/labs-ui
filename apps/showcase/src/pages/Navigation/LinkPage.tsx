@@ -6,9 +6,9 @@ export default function LinkPage() {
     return (
         <Playground.Root
             componentName="Link"
-            defaultProps={{ children: 'Clique aqui para navegar', href: '#', underline: true, color: 'violet' }}
+            defaultProps={{ children: 'Clique aqui para navegar', href: '#', underline: true, color: 'primary' }}
             controls={{
-                color: { type: 'select', options: [ { value: 'violet', label: 'Violet' }, { value: 'blue', label: 'Blue' }, { value: 'gray', label: 'Gray' }, { value: 'red', label: 'Red' } ] },
+                color: { type: 'select', options: [ { value: 'primary', label: 'Primary' }, { value: 'success', label: 'Success' }, { value: 'attention', label: 'Attention' }, { value: 'error', label: 'Error' }, { value: 'neutral', label: 'Neutral' } ] },
                 underline: { type: 'boolean' }
             }}
         >
@@ -17,11 +17,11 @@ export default function LinkPage() {
                 <div style={{ marginTop: '4rem' }}>
                     <Heading size="m">Exemplos de Uso</Heading>
                     <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        <Text>Links podem ser usados de forma isolada ou <Link href="#" underline color="violet">dentro de paragrafos</Link>.</Text>
+                        <Text>Links podem ser usados de forma isolada ou <Link href="#" underline color="primary">dentro de paragrafos</Link>.</Text>
                         <div style={{ display: 'flex', gap: '2rem' }}>
-                            <Link href="#" color="blue">Explorar Recursos</Link>
-                            <Link href="#" color="gray">Termos de Uso</Link>
-                            <Link href="#" color="red">Apagar Conta</Link>
+                            <Link href="#" color="primary">Explorar Recursos</Link>
+                            <Link href="#" color="neutral">Termos de Uso</Link>
+                            <Link href="#" color="error">Apagar Conta</Link>
                         </div>
                     </div>
                 </div>

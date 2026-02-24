@@ -42,7 +42,6 @@ export function CardHeader({ title, description, icon, action, children, classNa
                         {title && (
                             <Heading
                                 size="sm"
-                                className="labs-card-header__title"
                             >
                                 {title}
                             </Heading>
@@ -52,8 +51,6 @@ export function CardHeader({ title, description, icon, action, children, classNa
                 {description && (
                     <Text
                         size="sm"
-                        color="muted"
-                        className="labs-card-header__description"
                     >
                         {description}
                     </Text>

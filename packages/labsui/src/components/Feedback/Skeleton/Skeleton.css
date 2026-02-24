@@ -1,5 +1,5 @@
 .labs-skeleton {
-  background: var(--color--grayLight);
+  background: var(--surface-alt);
   position: relative;
   overflow: hidden;
   border-radius: var(--radius--sm);
@@ -13,7 +13,7 @@
   background: linear-gradient(
     90deg, 
     transparent, 
-    var(--color--grayLight), 
+    var(--surface-alt), 
     transparent
   );
   animation: labs-skeleton-loading 1.5s infinite linear;

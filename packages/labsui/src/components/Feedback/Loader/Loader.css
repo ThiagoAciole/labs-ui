@@ -1,4 +1,4 @@
-.labs-loader { --labs-loader-color: var(--color--violet); display: inline-flex; align-items: center; justify-content: center; }
+.labs-loader { --labs-loader-color: var(--bg-primary); display: inline-flex; align-items: center; justify-content: center; }
 .labs-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 .labs-loader__ring { border-radius: 50%; border: 2px solid transparent; border-top-color: var(--labs-loader-color); border-right-color: color-mix(in srgb, var(--labs-loader-color) 40%, transparent); animation: labs-spin 0.7s linear infinite; }
 .labs-loader--xs .labs-loader__ring { width: .75rem; height: .75rem; }

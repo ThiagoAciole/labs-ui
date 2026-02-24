@@ -1,6 +1,7 @@
 import './Slider.css';
 import React, { useState } from 'react';
 import { classNames } from '../../../utils/classNames';
+import { Text } from '../../Typography/Text/Text';
 
 export interface SliderProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'> {
     label?: string;
@@ -29,7 +30,7 @@ export const Slider: React.FC<SliderProps> = ({
 
     return (
         <div className={classNames('labs-slider-wrapper', className)}>
-            {label && <label className="labs-select-label" style={{ marginBottom: '8px', display: 'block' }}>{label}</label>}
+            {label && <Text as="label" className="labs-select-label" style={{ marginBottom: '8px', display: 'block' }}>{label}</Text>}
             <div className="labs-slider">
                 <div className="labs-slider__track">
                     <div className="labs-slider__fill" style={{ width: `${percentage}%` }} />

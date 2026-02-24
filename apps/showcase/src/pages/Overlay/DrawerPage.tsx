@@ -58,7 +58,7 @@ export default function DrawerPage() {
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                                 <section>
                                     <Heading size="sm" style={{ marginBottom: '0.5rem' }}>Configurações de Notificação</Heading>
-                                    <Text size="sm" color="muted">Visualize e edite como você recebe alertas do sistema.</Text>
+                                    <Text size="sm" color="gray">Visualize e edite como você recebe alertas do sistema.</Text>
                                 </section>
                                 <section>
                                     <Text>Conteúdo rico, formulários ou listas podem ser colocados aqui dentro.</Text>

@@ -1,6 +1,8 @@
 import './Input.css';
 import { classNames, LabelFormater } from '../../../utils';
+import { Text } from '../../Typography/Text/Text';
 import React from 'react';
+
 export type InputSize = 'sm' | 'md' | 'lg';
 
 export interface InputProps extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size' | 'prefix' | 'suffix'> {
@@ -20,9 +22,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         return (
             <div className={classNames('labs-input-wrapper', full && 'labs-input-wrapper--full', className)}>
                 {label && (
-                    <label htmlFor={inputId} className="labs-input-label">
-                        {LabelFormater(label)}
-                    </label>
+                    <Text as="label" htmlFor={inputId} className="labs-input-label">
+                        {label}
+                    </Text>
                 )}
                 <div className={classNames('labs-input-field', `labs-input-field--${size}`, error && 'labs-input-field--error', props.disabled && 'labs-input-field--disabled')}>
                     {prefix && <span className="labs-input-field__adornment labs-input-field__adornment--prefix">{prefix}</span>}
@@ -36,16 +38,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     />
                     {suffix && <span className="labs-input-field__adornment labs-input-field__adornment--suffix">{suffix}</span>}
                 </div>
-                {error && <span id={`${inputId}-error`} className="labs-input-message labs-input-message--error" role="alert">{error}</span>}
-                {!error && hint && <span id={`${inputId}-hint`} className="labs-input-message">{hint}</span>}
+                {error && <Text as="span" id={`${inputId}-error`} color="error" size="sm" className="labs-input-message labs-input-message--error" role="alert">{error}</Text>}
+                {!error && hint && <Text as="span" id={`${inputId}-hint`} color="disabled" size="sm" className="labs-input-message">{hint}</Text>}
             </div>
         );
     }
 );
 
 Input.displayName = 'Input';
-
-
-
-
-
