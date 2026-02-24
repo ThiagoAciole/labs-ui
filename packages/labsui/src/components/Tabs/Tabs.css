@@ -40,6 +40,38 @@
 }
 .labs-tabs-trigger:disabled { opacity: 0.4; cursor: not-allowed; }
 
+/* --- Variants --- */
+.labs-tabs--pills .labs-tabs-list {
+  border-bottom: none;
+  background-color: var(--surface-soft);
+  padding: 4px;
+  border-radius: var(--labs-radius-lg);
+  display: inline-flex;
+}
+
+.labs-tabs--pills .labs-tabs-trigger {
+  border-bottom: none;
+  border-radius: var(--labs-radius-md);
+  margin-bottom: 0;
+}
+
+.labs-tabs--pills .labs-tabs-trigger--active {
+  background-color: var(--surface);
+  color: var(--primary);
+  box-shadow: var(--labs-shadow-sm);
+}
+
+/* --- Sizes --- */
+.labs-tabs--sm .labs-tabs-trigger {
+  padding: var(--labs-space-1) var(--labs-space-3);
+  font-size: var(--labs-font-size-xs);
+}
+
+.labs-tabs--lg .labs-tabs-trigger {
+  padding: var(--labs-space-3) var(--labs-space-6);
+  font-size: var(--labs-font-size-md);
+}
+
 .labs-tabs-panel {
   padding: var(--labs-space-5) 0;
   outline: none;

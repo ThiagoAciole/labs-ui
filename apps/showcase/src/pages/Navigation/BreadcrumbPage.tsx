@@ -1,25 +1,45 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Breadcrumb, Icon, Heading } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const BreadcrumbPage = () => (
-    <ShowcasePage title="Breadcrumb" description="Trilha de navegação rastro de migalhas." code={`<Breadcrumb items={[{label: 'Home', href: '/'}]} />`}>
-        <Breadcrumb
-            items={[
-                { label: 'Home', href: '#', icon: <Icon name="home" size={14} /> },
-                { label: 'Componentes', href: '#' },
-                { label: 'Breadcrumb' }
-            ]}
-        />
-    </ShowcasePage>
-);
+export default function BreadcrumbPage() {
+    const defaultItems = [
+        { label: 'Home', href: '#', icon: <Icon name="home" size={14} /> },
+        { label: 'Componentes', href: '#' },
+        { label: 'Navegação', href: '#' },
+        { label: 'Breadcrumb' }
+    ];
 
-export default BreadcrumbPage;
+    return (
+        <Playground.Root
+            componentName="Breadcrumb"
+            defaultProps={{
+                separator: '/'
+            }}
+            controls={{
+                separator: { type: 'text' }
+            }}
+        >
+            <ShowcasePage
+                title="Breadcrumb"
+                description="O Breadcrumb indica a localização do usuário dentro da hierarquia da aplicação, facilitando a navegação de retorno."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <Breadcrumb {...props} items={defaultItems} />
+                )} />
+
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Melhores Práticas</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li>Mantenha o item final sem link para indicar a página atual.</li>
+                            <li>Use ícones apenas para o primeiro item (Home) para manter a clareza.</li>
+                            <li>Ideal para aplicações com mais de 2 níveis de profundidade de navegação.</li>
+                        </ul>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

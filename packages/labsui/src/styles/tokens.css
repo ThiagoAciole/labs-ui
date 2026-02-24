@@ -5,17 +5,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 
 :root {
-  /* ── Core Palette (Primitive Tokens) ── */
-  --grayLight: #f8f9fa;
-  --gray: #adb5bd;
-  --grayDark: #495057;
-  --grayDarker: #212529;
-  --grayBlack: #0b0b0f;
+  /* ── Primitives (Raw Colors) ── */
+  --primitive-gray-50: #f8f9fa;
+  --primitive-gray-100: #f1f3f5;
+  --primitive-gray-200: #e9ecef;
+  --primitive-gray-300: #dee2e6;
+  --primitive-gray-400: #ced4da;
+  --primitive-gray-500: #adb5bd;
+  --primitive-gray-600: #868e96;
+  --primitive-gray-700: #495057;
+  --primitive-gray-800: #343a40;
+  --primitive-gray-900: #212529;
+  --primitive-gray-950: #0b0b0f;
 
-  --violetLight: #ddd6fe;
-  --violet: #8b5cf6;
-  --violetDark: #7c3aed;
-  --violetDarker: #4c1d95;
+  --primitive-violet-50: #f5f3ff;
+  --primitive-violet-100: #ede9fe;
+  --primitive-violet-200: #ddd6fe;
+  --primitive-violet-300: #c4b5fd;
+  --primitive-violet-400: #a78bfa;
+  --primitive-violet-500: #8b5cf6;
+  --primitive-violet-600: #7c3aed;
+  --primitive-violet-700: #6d28d9;
+  --primitive-violet-800: #5b21b6;
+  --primitive-violet-900: #4c1d95;
+
+  /* ── Legacy Aliases (For Compatibility) ── */
+  --grayLight: var(--primitive-gray-50);
+  --gray: var(--primitive-gray-500);
+  --grayDark: var(--primitive-gray-700);
+  --grayDarker: var(--primitive-gray-900);
+  --grayBlack: var(--primitive-gray-950);
+  --violetLight: var(--primitive-violet-200);
+  --violet: var(--primitive-violet-500);
+  --violetDark: var(--primitive-violet-600);
+  --violetDarker: var(--primitive-violet-900);
 
   /* ── Shared Tokens (Structural) ── */
   --labs-font: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
@@ -37,19 +60,20 @@
   --labs-space-8: 2rem;
   --labs-space-12: 3rem;
 
-  --labs-transition-fast: 120ms ease;
-  --labs-transition-normal: 200ms ease;
+  --labs-transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --labs-transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --labs-transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* ── Typography Tokens ── */
-  --labs-font-size-xs: 0.75rem;    /* 12px */
-  --labs-font-size-sm: 0.875rem;   /* 14px */
-  --labs-font-size-md: 1rem;       /* 16px */
-  --labs-font-size-lg: 1.125rem;   /* 18px */
-  --labs-font-size-xl: 1.25rem;    /* 20px */
-  --labs-font-size-2xl: 1.5rem;    /* 24px */
-  --labs-font-size-3xl: 1.875rem;  /* 30px */
-  --labs-font-size-4xl: 2.25rem;   /* 36px */
-  --labs-font-size-5xl: 3rem;       /* 48px */
+  --labs-font-size-xs: 0.75rem;
+  --labs-font-size-sm: 0.875rem;
+  --labs-font-size-md: 1rem;
+  --labs-font-size-lg: 1.125rem;
+  --labs-font-size-xl: 1.25rem;
+  --labs-font-size-2xl: 1.5rem;
+  --labs-font-size-3xl: 1.875rem;
+  --labs-font-size-4xl: 2.25rem;
+  --labs-font-size-5xl: 3rem;
 
   --labs-line-height-normal: 1.5;
   --labs-line-height-relaxed: 1.625;
@@ -72,12 +96,6 @@
   --labs-z-popover: 1400;
   --labs-z-tooltip: 1500;
   --labs-z-toast: 1600;
-
-  /* ── Shadows ── */
-  --labs-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
-  --labs-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --labs-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
-  --labs-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
 }
 
 /* ── DARK THEME ── */
@@ -88,36 +106,45 @@
   --bg: #0b0b14;
   --surface: #151521;
   --surface-soft: #1e1e30;
-  --border: #33334d;
-  --border-strong: #444466;
+  --surface-glass: rgba(21, 21, 33, 0.7);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
   
   /* Brand */
-  --primary: var(--violet);
+  --primary: var(--primitive-violet-500);
+  --primary-hover: var(--primitive-violet-400);
+  --primary-active: var(--primitive-violet-600);
   --primary-subtle: rgba(139, 92, 246, 0.15);
-  --primary-hover: var(--violetLight);
   
   /* Text */
-  --text: var(--grayLight);
+  --text: var(--primitive-gray-50);
   --text-muted: #9494b8;
   --text-dim: #64748b;
-  --text-inverse: var(--grayDarker);
+  --text-inverse: var(--primitive-gray-950);
 
   /* Status */
   --success: #10b981;
+  --success-subtle: rgba(16, 185, 129, 0.12);
   --warning: #f59e0b;
+  --warning-subtle: rgba(245, 158, 11, 0.12);
   --danger: #ef4444;
+  --danger-subtle: rgba(239, 68, 68, 0.12);
   --info: #3b82f6;
+  --info-subtle: rgba(59, 130, 246, 0.12);
 
-  --hover: rgba(255, 255, 255, 0.06);
-  --active: rgba(255, 255, 255, 0.1);
+  /* Interactive States */
+  --hover: rgba(255, 255, 255, 0.04);
+  --active: rgba(255, 255, 255, 0.08);
+  --ring-color: var(--primary-subtle);
+  --ring-offset-bg: var(--bg);
 
   /* Shadows Dark */
-  --labs-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
-  --labs-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-  --labs-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
-  --labs-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --labs-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --labs-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --labs-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
+  --labs-shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.5);
 
-  /* Compatibility Bridge (Aliases para não quebrar nada) */
+  /* Compatibility Bridge */
   --labs-bg: var(--bg);
   --labs-surface: var(--surface);
   --labs-surface2: var(--surface-soft);
@@ -140,24 +167,36 @@
   /* Semantic Layout */
   --bg: #f8f8fc;
   --surface: #ffffff;
-  --surface-soft: #f4f4fa;
-  --border: #dadae6;
-  --border-strong: #c5c5d9;
+  --surface-soft: #f1f1f9;
+  --surface-glass: rgba(255, 255, 255, 0.8);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.12);
 
   /* Brand */
-  --primary: var(--violetDark);
+  --primary: var(--primitive-violet-600);
+  --primary-hover: var(--primitive-violet-500);
+  --primary-active: var(--primitive-violet-700);
   --primary-subtle: rgba(124, 58, 237, 0.08);
-  --primary-hover: var(--violet);
 
   /* Text */
-  --text: var(--grayDarker);
+  --text: var(--primitive-gray-900);
   --text-muted: #64748b;
   --text-dim: #94a3b8;
-  --text-inverse: var(--grayLight);
+  --text-inverse: var(--primitive-gray-50);
 
-  /* Interactive */
-  --hover: rgba(0, 0, 0, 0.04);
-  --active: rgba(0, 0, 0, 0.08);
+  /* Status */
+  --success: #059669;
+  --success-subtle: rgba(5, 150, 105, 0.1);
+  --warning: #d97706;
+  --warning-subtle: rgba(217, 119, 6, 0.1);
+  --danger: #dc2626;
+  --danger-subtle: rgba(220, 38, 38, 0.1);
+
+  /* Interactive States */
+  --hover: rgba(0, 0, 0, 0.03);
+  --active: rgba(0, 0, 0, 0.06);
+  --ring-color: var(--primary-subtle);
+  --ring-offset-bg: var(--bg);
 
   /* Compatibility Bridge */
   --labs-bg: var(--bg);
@@ -174,3 +213,10 @@
   --labs-accent: var(--primary);
   --labs-accent-glow: var(--primary-subtle);
 }
+
+/* ── Global Focus Styles ── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+

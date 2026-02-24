@@ -1,84 +1,73 @@
-import { useState } from 'react';
-import {
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox,
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead,
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState,
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs,
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress,
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider,
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName
-} from '@labsui/core';
+import { Card, CardHeader, CardBody, CardFooter, Button, Heading, Text, Icon } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
-
-
+import Playground from '../../components/Playground';
 
 export default function CardPage() {
-    const [variant, setVariant] = useState<any>('default');
-    const [padding, setPadding] = useState<any>('md');
-
-    const code = `<Card variant="${variant}" padding="${padding}">
-  <CardHeader 
-    title="Título do Card" 
-    description="Uma descrição breve para o componente"
-    icon={<LabsIcon name="rocket" />}
-  />
-  <CardBody>
-    Conteúdo principal do seu card.
-  </CardBody>
-  <CardFooter>
-    <Button variant="ghost">Cancelar</Button>
-    <Button>Salvar</Button>
-  </CardFooter>
-</Card>`;
-
     return (
-        <ShowcasePage
-            title="Card"
-            description="Conteiners para agrupar informações relacionadas."
-            code={code}
-            controls={
-                <>
-                    <Select
-                        label="Variante"
-                        value={variant}
-                        onChange={(val) => setVariant(val)}
-                        options={[
-                            { value: 'default', label: 'Default' },
-                            { value: 'elevated', label: 'Elevated' },
-                            { value: 'outlined', label: 'Outlined' },
-                            { value: 'ghost', label: 'Ghost' },
-                        ]}
-                    />
-                    <Select
-                        label="Padding"
-                        value={padding}
-                        onChange={(val) => setPadding(val)}
-                        options={[
-                            { value: 'none', label: 'None' },
-                            { value: 'sm', label: 'Small' },
-                            { value: 'md', label: 'Medium' },
-                            { value: 'lg', label: 'Large' },
-                        ]}
-                    />
-                </>
-            }
+        <Playground.Root
+            componentName="Card"
+            defaultProps={{
+                variant: 'default',
+                padding: 'md'
+            }}
+            controls={{
+                variant: {
+                    type: 'select',
+                    options: [
+                        { value: 'default', label: 'Default' },
+                        { value: 'elevated', label: 'Elevated' },
+                        { value: 'outlined', label: 'Outlined' },
+                        { value: 'ghost', label: 'Ghost' },
+                    ]
+                },
+                padding: {
+                    type: 'select',
+                    options: [
+                        { value: 'none', label: 'None' },
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                    ]
+                }
+            }}
         >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '100%', maxWidth: '400px' }}>
-                <Card variant={variant} padding={padding}>
-                    <CardHeader
-                        title="Labs UI Design"
-                        description="Inspirado no futuro neon"
-                        icon="rocket"
-                    />
-                    <CardBody>
-                        A LabsUI foi desenhada para interfaces modernas e sombrias, com foco em usabilidade e estética neon violeta.
-                    </CardBody>
-                    <CardFooter>
-                        <Button variant="ghost" size="sm">Ignorar</Button>
-                        <Button size="sm">Explorar</Button>
-                    </CardFooter>
-                </Card>
-            </div>
-        </ShowcasePage>
+            <ShowcasePage
+                title="Card"
+                description="Contêineres versáteis para agrupar informações relacionadas, como cards de produtos, dashboards ou seções de conteúdo."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ width: '100%', maxWidth: '400px' }}>
+                        <Card {...props}>
+                            <CardHeader
+                                title="Labs UI Design"
+                                description="Inspirado no futuro neon e estética cyberpunk."
+                                icon="rocket"
+                            />
+                            <CardBody>
+                                <Text>
+                                    A LabsUI foi desenhada para interfaces modernas e sombrias, com foco em usabilidade e uma paleta de cores vibrante que se destaca no modo escuro.
+                                </Text>
+                            </CardBody>
+                            <CardFooter>
+                                <Button variant="ghost" size="sm">Ignorar</Button>
+                                <Button size="sm">Explorar</Button>
+                            </CardFooter>
+                        </Card>
+                    </div>
+                )} />
+
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Anatomia do Card</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li><strong>CardHeader:</strong> Contém título, descrição opcional e ícones de suporte.</li>
+                            <li><strong>CardBody:</strong> Área principal para qualquer tipo de conteúdo.</li>
+                            <li><strong>CardFooter:</strong> Geralmente usado para ações relacionadas ao conteúdo do card.</li>
+                        </ul>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root >
     );
 }

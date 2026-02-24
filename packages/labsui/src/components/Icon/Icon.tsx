@@ -12,7 +12,33 @@ for (const path in svgModules) {
 
 export const availableIcons: string[] = Object.keys(iconRegistry).sort();
 
-export type IconName = string;
+export type IconName =
+    | 'activity' | 'alert-circle' | 'alert-triangle' | 'align-horizontal' | 'align-justify'
+    | 'app-window' | 'arrow-down' | 'arrow-left' | 'arrow-right' | 'arrow-up'
+    | 'badge' | 'battery' | 'bell' | 'bluetooth' | 'box'
+    | 'calendar' | 'camera' | 'check-square' | 'check' | 'chevron-down'
+    | 'chevron-left' | 'chevron-right' | 'chevron-up' | 'chevron' | 'circle-dot'
+    | 'clock' | 'close' | 'cloud' | 'component' | 'copy'
+    | 'credit-card' | 'database' | 'download' | 'edit' | 'external-link'
+    | 'eye-off' | 'eye' | 'file-text' | 'file' | 'filter'
+    | 'folder' | 'form-input' | 'ghost' | 'gift' | 'git-commit'
+    | 'github' | 'grid' | 'grip' | 'heading1' | 'heart'
+    | 'help-circle' | 'history' | 'home' | 'image' | 'info'
+    | 'lab' | 'laptop' | 'layout-template' | 'link' | 'linkedin'
+    | 'list-checks' | 'list-collapse' | 'list-filter' | 'list' | 'loader2'
+    | 'lock' | 'log-in' | 'log-out' | 'mail' | 'map-pin'
+    | 'menu' | 'message-circle' | 'message-square' | 'mic' | 'milestone'
+    | 'minus' | 'monitor' | 'moon' | 'more-horizontal' | 'mouse-pointer'
+    | 'music' | 'panel-left' | 'panel-top' | 'phone' | 'plus'
+    | 'rectangle-horizontal' | 'refresh' | 'rocket' | 'ruler' | 'search'
+    | 'server' | 'settings' | 'share' | 'shopping-cart' | 'sliders-horizontal'
+    | 'smartphone' | 'spark' | 'sparkles' | 'spinner' | 'square'
+    | 'star' | 'sun' | 'table' | 'tablet' | 'tag'
+    | 'text-cursor' | 'theme-dark' | 'theme-light' | 'toggle-right' | 'trash'
+    | 'type' | 'unlock' | 'upload-cloud' | 'upload' | 'user-circle'
+    | 'user' | 'video' | 'warning' | 'wifi' | 'x'
+    | 'code' | 'layout'
+    | (string & {});
 
 export interface IconProps {
     name: IconName;

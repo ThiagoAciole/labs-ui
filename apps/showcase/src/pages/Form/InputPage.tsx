@@ -1,22 +1,67 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Input, Icon, Heading } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const InputPage = () => {
-    const [val, setVal] = useState('');
+export default function InputPage() {
     return (
-        <ShowcasePage title="Input" description="Entrada de texto padrão." code={`<Input label="Nome" placeholder="Digite aqui..." />`}>
-            <Input label="Exemplo" placeholder="Placeholder..." value={val} onChange={e => setVal(e.target.value)} fullWidth />
-        </ShowcasePage>
-    );
-};
+        <Playground.Root
+            componentName="Input"
+            defaultProps={{
+                label: 'Seu Nome',
+                placeholder: 'Digite seu nome completo...',
+                size: 'md',
+                full: true,
+                disabled: false,
+                error: '',
+                hint: 'Como você gostaria de ser chamado?'
+            }}
+            controls={{
+                label: { type: 'text' },
+                placeholder: { type: 'text' },
+                error: { type: 'text' },
+                hint: { type: 'text' },
+                size: {
+                    type: 'select',
+                    options: [
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                    ]
+                },
+                disabled: { type: 'boolean' },
+                full: { type: 'boolean' }
+            }}
+        >
+            <ShowcasePage
+                title="Input"
+                description="Componente de entrada de texto flexível com suporte a ícones, estados de erro e labels descritivos."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ width: '100%', maxWidth: '400px' }}>
+                        <Input {...props} />
+                    </div>
+                )} />
 
-export default InputPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Exemplos com Ícones</Heading>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '1.5rem', maxWidth: '400px' }}>
+                        <Input
+                            label="E-mail"
+                            placeholder="contato@empresa.com"
+                            prefix={<Icon name="mail" size={16} />}
+                        />
+                        <Input
+                            label="Senha"
+                            type="password"
+                            placeholder="••••••••"
+                            suffix={<Icon name="lock" size={16} />}
+                        />
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}
+
+export { InputPage };

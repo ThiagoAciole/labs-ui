@@ -1,32 +1,57 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { PageHeader, Button, Heading, Text, Flex, Breadcrumb, Icon } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
-
-
+import Playground from '../../components/Playground';
 
 export default function PageHeaderPage() {
     return (
-        <ShowcasePage
-            title="PageHeader"
-            description="Componente de cabeçalho estrutural usado no topo de telas da aplicação."
-            code={`<PageHeader title="Meus Pedidos" />`}
+        <Playground.Root
+            componentName="PageHeader"
+            defaultProps={{
+                title: 'Painel de Controle',
+                description: 'Gerencie suas instâncias e visualize métricas em tempo real.'
+            }}
+            controls={{
+                title: { type: 'text' },
+                description: { type: 'text' }
+            }}
         >
-            <div style={{ width: '100%', background: 'var(--labs-surface2)', padding: '2rem' }}>
-                <PageHeader
-                    title="Detalhes do Pedido"
-                    description="O pedido #400 foi recebido e está em processamento."
+            <ShowcasePage
+                title="PageHeader"
+                description="O PageHeader é usado para definir o contexto de uma página, fornecendo o título principal, uma descrição breve e ações primárias."
+                aside={<Playground.Controls />}
+            >
+                <div style={{ background: 'var(--surface-soft)', padding: '2rem', borderRadius: 'var(--labs-radius-xl)' }}>
+                    <Playground.Preview render={(props) => (
+                        <PageHeader
+                            {...props}
+                            breadcrumb={
+                                <Breadcrumb items={[
+                                    { label: 'Cloud', href: '#' },
+                                    { label: 'Projetos', href: '#' },
+                                    { label: 'LabsUI' }
+                                ]} />
+                            }
+                            action={
+                                <Flex gap="2">
+                                    <Button variant="ghost" size="sm" leftIcon={<Icon name="settings" size={16} />}>Configurar</Button>
+                                    <Button variant="primary" size="sm" leftIcon={<Icon name="plus" size={16} />}>Nova Instância</Button>
+                                </Flex>
+                            }
+                        />
+                    )} />
+                </div>
 
-                    action={<Button variant="primary">Processar Pedido</Button>}
-                />
-            </div>
-        </ShowcasePage>
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Anatomia</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li><strong>Breadcrumb:</strong> (Opcional) Ajuda o usuário a entender sua localização hierárquica.</li>
+                            <li><strong>Title & Description:</strong> Define claramente o propósito da tela.</li>
+                            <li><strong>Actions:</strong> Área dedicada para as ações globais mais importantes da página.</li>
+                        </ul>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
     );
 }

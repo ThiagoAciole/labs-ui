@@ -1,22 +1,40 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Checkbox, Heading } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const CheckboxPage = () => {
-    const [c, setC] = useState(false);
+export default function CheckboxPage() {
     return (
-        <ShowcasePage title="Checkbox" description="Seleção binária ou múltipla." code={`<Checkbox label="Aceito os termos" />`}>
-            <Checkbox label="Aceito os termos e condições de uso do LabsUI" checked={c} onChange={e => setC(e.target.checked)} />
-        </ShowcasePage>
-    );
-};
+        <Playground.Root
+            componentName="Checkbox"
+            defaultProps={{
+                label: 'Aceitar termos e condições',
+                disabled: false,
+                checked: false
+            }}
+            controls={{
+                label: { type: 'text' },
+                disabled: { type: 'boolean' },
+                checked: { type: 'boolean' }
+            }}
+        >
+            <ShowcasePage
+                title="Checkbox"
+                description="O Checkbox permite que o usuário selecione um ou mais itens de um conjunto, ou alterne entre dois estados mutuamente exclusivos."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <Checkbox {...props} />
+                )} />
 
-export default CheckboxPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Grupos de Seleção</Heading>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem' }}>
+                        <Checkbox label="Notificações por E-mail" defaultChecked />
+                        <Checkbox label="Notificações por SMS" />
+                        <Checkbox label="Notificações Push (Desativado)" disabled />
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

@@ -1,35 +1,59 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { MultiSelect, Heading } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
+import { useState } from 'react';
 
-export const MultiSelectPage = () => {
+export default function MultiSelectPage() {
     const [selected, setSelected] = useState<string[]>(['react']);
     const options = [
         { label: 'React', value: 'react' },
         { label: 'Vue', value: 'vue' },
         { label: 'Angular', value: 'angular' },
-        { label: 'Svelte', value: 'svelte' }
+        { label: 'Svelte', value: 'svelte' },
+        { label: 'Next.js', value: 'next' },
+        { label: 'Remix', value: 'remix' }
     ];
-    return (
-        <ShowcasePage title="MultiSelect" description="Seleção múltipla com suporte a tags." code={`<MultiSelect options={...} />`} noGrid>
-            <div style={{ maxWidth: '400px', width: '100%', paddingBottom: '12rem' }}>
-                <MultiSelect
-                    options={options}
-                    value={selected}
-                    onChange={setSelected}
-                    placeholder="Selecione os frameworks"
-                />
-            </div>
-        </ShowcasePage>
-    );
-};
 
-export default MultiSelectPage;
+    return (
+        <Playground.Root
+            componentName="MultiSelect"
+            defaultProps={{
+                placeholder: 'Selecione as tecnologias...',
+                disabled: false,
+                maxTags: 5
+            }}
+            controls={{
+                placeholder: { type: 'text' },
+                disabled: { type: 'boolean' }
+            }}
+        >
+            <ShowcasePage
+                title="MultiSelect"
+                description="O MultiSelect permite selecionar múltiplas opções de uma lista, visualizando-as como tags removíveis."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ width: '100%', maxWidth: '400px', paddingBottom: '12rem' }}>
+                        <MultiSelect
+                            {...props}
+                            options={options}
+                            value={selected}
+                            onChange={setSelected}
+                        />
+                    </div>
+                )} />
+
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Funcionalidades</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li>Tags removíveis com interações de hover suaves.</li>
+                            <li>Menu suspenso com posicionamento dinâmico.</li>
+                            <li>Feedback tátil ao selecionar e remover itens.</li>
+                        </ul>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

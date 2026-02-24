@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTheme } from '../ThemeProvider/ThemeProvider';
 import { IconButton } from '../IconButton/IconButton';
-import { Icon } from '../Icon/Icon';
 
 export interface ThemeToggleProps {
     variant?: 'ghost' | 'secondary' | 'outline' | 'primary';
@@ -20,7 +19,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
         <IconButton
             variant={variant}
             size={size}
-            icon={<Icon name={theme === 'dark' ? 'theme-dark' : 'theme-light'} size={20} />}
+            icon={theme === 'dark' ? 'theme-dark' : 'theme-light'}
             onClick={toggleTheme}
             className={className}
             aria-label="Toggle theme"

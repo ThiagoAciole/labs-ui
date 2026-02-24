@@ -6,6 +6,9 @@
     "paths": {
       "@labsui/core": [
         "../../packages/labsui/src/index.ts"
+      ],
+      "@aciolelabs/labs-ui": [
+        "../../packages/labsui/src/index.ts"
       ]
     },
     "noUnusedLocals": false,

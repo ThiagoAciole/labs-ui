@@ -1,45 +1,55 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { DatePicker, Heading, Text, Flex } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
+import { useState } from 'react';
 
-export const DatePickerPage = () => {
+export default function DatePickerPage() {
     const [date, setDate] = useState<Date | undefined>(new Date());
 
     return (
-        <ShowcasePage
-            title="DatePicker"
-            description="Seletor de datas premium com calendário customizado, navegação e suporte a reset."
-            code={`const [date, setDate] = useState(new Date());\n\n<DatePicker \n  label="Agendamento" \n  value={date} \n  onChange={setDate} \n/>`}
+        <Playground.Root
+            componentName="DatePicker"
+            defaultProps={{
+                label: 'Agendamento',
+                placeholder: 'Selecione uma data...',
+                size: 'md',
+                full: true,
+                disabled: false
+            }}
+            controls={{
+                label: { type: 'text' },
+                placeholder: { type: 'text' },
+                size: {
+                    type: 'select',
+                    options: [
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                    ]
+                },
+                full: { type: 'boolean' },
+                disabled: { type: 'boolean' }
+            }}
         >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '100%', maxWidth: '400px' }}>
-                <DatePicker
-                    label="Data do Evento"
-                    value={date}
-                    onChange={setDate}
-                    fullWidth
-                />
+            <ShowcasePage
+                title="DatePicker"
+                description="O DatePicker oferece uma interface de calendário intuitiva para seleção de datas, com suporte a tradução e reset."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ width: '100%', maxWidth: '350px' }}>
+                        <DatePicker {...props} value={date} onChange={setDate} />
+                    </div>
+                )} />
 
-                <div style={{ padding: '1rem', background: 'var(--labs-surface2)', borderRadius: 'var(--labs-radius-md)', fontSize: '14px' }}>
-                    Data Selecionada: <strong style={{ color: 'var(--labs-primary2)' }}>
-                        {date ? date.toLocaleDateString('pt-BR') : 'Nenhuma'}
-                    </strong>
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Variantes</Heading>
+                    <Flex gap="6" style={{ marginTop: '1.5rem' }}>
+                        <DatePicker label="Início" size="sm" />
+                        <DatePicker label="Fim" size="sm" />
+                    </Flex>
                 </div>
-
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                    <DatePicker label="Tamanho SM" size="sm" />
-                    <DatePicker label="Desabilitado" disabled />
-                </div>
-            </div>
-        </ShowcasePage>
+            </ShowcasePage>
+        </Playground.Root>
     );
-};
-
-export default DatePickerPage;
+}

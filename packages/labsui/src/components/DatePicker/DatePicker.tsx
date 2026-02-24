@@ -10,7 +10,7 @@ export interface DatePickerProps {
     label?: string;
     placeholder?: string;
     disabled?: boolean;
-    fullWidth?: boolean;
+    full?: boolean;
     size?: 'sm' | 'md' | 'lg';
 }
 
@@ -27,7 +27,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     label,
     placeholder = 'Selecione uma data',
     disabled = false,
-    fullWidth = false,
+    full = false,
     size = 'md'
 }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -137,7 +137,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     return (
         <div
             ref={containerRef}
-            className={classNames('labs-datepicker-container', fullWidth && 'labs-select-wrapper--full')}
+            className={classNames('labs-datepicker-container', full && 'labs-select-wrapper--full')}
         >
             {label && <label className="labs-select-label">{label}</label>}
 

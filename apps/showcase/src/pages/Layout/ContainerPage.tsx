@@ -1,23 +1,53 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Container, Heading, Text, Card, CardBody } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const ContainerPage = () => (
-    <ShowcasePage title="Container" description="Limita a largura máxima do conteúdo." code={`<Container size="md">...</Container>`}>
-        <div style={{ width: '100%', background: 'var(--labs-surface2)', padding: '1rem' }}>
-            <Container size="md" style={{ background: 'var(--labs-primary)', color: '#fff', padding: '1rem', textAlign: 'center' }}>
-                Container Medium
-            </Container>
-        </div>
-    </ShowcasePage>
-);
+export default function ContainerPage() {
+    return (
+        <Playground.Root
+            componentName="Container"
+            defaultProps={{
+                size: 'md'
+            }}
+            controls={{
+                size: {
+                    type: 'select',
+                    options: [
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                        { value: 'xl', label: 'Extra Large' },
+                        { value: 'full', label: 'Full' },
+                    ]
+                }
+            }}
+        >
+            <ShowcasePage
+                title="Container"
+                description="O Container limita a largura horizontal do conteúdo, centralizando-o e garantindo uma leitura confortável em telas grandes."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ width: '100%', background: 'var(--hover)', padding: '2rem', borderRadius: 'var(--labs-radius-lg)' }}>
+                        <Container {...props} style={{ background: 'var(--primary)', color: 'var(--text-inverse)', padding: '2rem', textAlign: 'center', borderRadius: 'var(--labs-radius-md)' }}>
+                            <Heading size="s" style={{ color: 'inherit' }}>Conteúdo do Container</Heading>
+                            <Text>Largura máxima baseada no tamanho: {props.size}</Text>
+                        </Container>
+                    </div>
+                )} />
 
-export default ContainerPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Uso Recomendado</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li><strong>SM:</strong> Ideal para formulários centralizados ou Landing Pages minimalistas.</li>
+                            <li><strong>MD/LG:</strong> Padrao para blogs e documentações.</li>
+                            <li><strong>XL:</strong> Dashboards e interfaces ricas em dados.</li>
+                            <li><strong>Full:</strong> Quando você precisa de controle total da largura, geralmente com grids internos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

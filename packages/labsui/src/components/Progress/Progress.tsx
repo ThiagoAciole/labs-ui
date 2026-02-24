@@ -12,6 +12,7 @@ export interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
     variant?: ProgressVariant;
     animated?: boolean;
     showValue?: boolean;
+    label?: string;
 }
 
 export const Progress: React.FC<ProgressProps> = ({
@@ -21,6 +22,7 @@ export const Progress: React.FC<ProgressProps> = ({
     variant = 'default',
     animated = false,
     showValue = false,
+    label,
     className,
     ...props
 }) => {
@@ -28,6 +30,11 @@ export const Progress: React.FC<ProgressProps> = ({
 
     return (
         <div className={classNames('labs-progress-wrapper', className)}>
+            {label && (
+                <div className="labs-progress-label">
+                    {label}
+                </div>
+            )}
             <div
                 className={classNames(
                     'labs-progress',
@@ -47,7 +54,7 @@ export const Progress: React.FC<ProgressProps> = ({
                 />
             </div>
             {showValue && (
-                <div className="labs-progress-value" style={{ marginTop: '4px', fontSize: '12px', textAlign: 'right', color: 'var(--text-muted)' }}>
+                <div className="labs-progress-value">
                     {Math.round(percentage)}%
                 </div>
             )}

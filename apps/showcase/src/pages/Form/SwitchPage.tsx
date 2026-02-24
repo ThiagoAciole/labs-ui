@@ -1,22 +1,49 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Switch, Heading } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const SwitchPage = () => {
-    const [s, setS] = useState(false);
+export default function SwitchPage() {
     return (
-        <ShowcasePage title="Switch" description="Interruptor de estado." code={`<Switch label="Modo escuro" />`}>
-            <Switch label="Habilitar notificações?" checked={s} onChange={e => setS(e.target.checked)} />
-        </ShowcasePage>
-    );
-};
+        <Playground.Root
+            componentName="Switch"
+            defaultProps={{
+                label: 'Modo Escuro',
+                checked: true,
+                disabled: false,
+                size: 'md'
+            }}
+            controls={{
+                label: { type: 'text' },
+                checked: { type: 'boolean' },
+                disabled: { type: 'boolean' },
+                size: {
+                    type: 'select',
+                    options: [
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                    ]
+                }
+            }}
+        >
+            <ShowcasePage
+                title="Switch"
+                description="O Switch é um componente usado para alternar entre dois estados, como ligado/desligado ou sim/não."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <Switch {...props} />
+                )} />
 
-export default SwitchPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Cenários de Uso</Heading>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1.5rem', maxWidth: '300px' }}>
+                        <Switch label="Wi-Fi" defaultChecked />
+                        <Switch label="Bluetooth" />
+                        <Switch label="Modo Avião" disabled />
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

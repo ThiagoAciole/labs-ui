@@ -106,6 +106,8 @@ export type { DrawerProps, DrawerPlacement } from './components/Drawer/Drawer';
 export { Pagination } from './components/Pagination/Pagination';
 export type { PaginationProps } from './components/Pagination/Pagination';
 
+export * from './components/Panel';
+
 export { Progress } from './components/Progress/Progress';
 export type { ProgressProps, ProgressVariant, ProgressSize } from './components/Progress/Progress';
 

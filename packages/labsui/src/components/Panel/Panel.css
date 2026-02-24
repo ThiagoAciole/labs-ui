@@ -1,0 +1,121 @@
+.labs-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--surface);
+  flex-shrink: 0;
+  position: relative;
+  z-index: var(--labs-z-sticky);
+  overflow: hidden;
+  transition: width var(--labs-transition-normal), transform var(--labs-transition-normal);
+}
+
+.labs-panel--right {
+  border-left: 1px solid var(--border);
+}
+
+.labs-panel--left {
+  border-right: 1px solid var(--border);
+}
+
+.labs-panel--glass {
+  background-color: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* --- Close Button --- */
+.labs-panel__close {
+  position: absolute;
+  top: var(--labs-space-4);
+  right: var(--labs-space-4);
+  z-index: 20;
+}
+
+/* --- Header --- */
+.labs-panel__header {
+  padding: var(--labs-space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--labs-space-3);
+  border-bottom: 1px solid var(--border);
+  min-height: 72px;
+  flex-shrink: 0;
+}
+
+.labs-panel__header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.labs-panel__header-title {
+  margin: 0 !important;
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* --- Content --- */
+.labs-panel__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--labs-space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--labs-space-6);
+}
+
+/* Custom Scrollbar for Panel */
+.labs-panel__content::-webkit-scrollbar {
+  width: 4px;
+}
+.labs-panel__content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.labs-panel__content::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 10px;
+}
+
+/* --- Footer --- */
+.labs-panel__footer {
+  padding: var(--labs-space-6);
+  border-top: 1px solid var(--border);
+  background-color: var(--surface-soft);
+  flex-shrink: 0;
+}
+
+/* --- Section --- */
+.labs-panel__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--labs-space-4);
+}
+
+.labs-panel__section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--labs-space-2);
+}
+
+.labs-panel__section-icon {
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+}
+
+.labs-panel__section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.labs-panel__section-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--labs-space-4);
+}

@@ -1,0 +1,5 @@
+/* ShowcasePage styles are now mostly handled by Container, PageHeader and Panel components */
+.showcase-page-content {
+    flex: 1;
+    overflow-y: auto;
+}

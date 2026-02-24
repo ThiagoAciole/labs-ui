@@ -8,7 +8,9 @@ import {
     Sidebar,
     ThemeProvider,
     ThemeToggle,
-    useTheme
+    useTheme,
+    Flex,
+    Container
 } from '@aciolelabs/labs-ui';
 
 // Pages por Categoria
@@ -214,7 +216,7 @@ export default function App() {
     const ActiveComponent = ALL_COMPONENTS.find(c => c.id === activeId)?.component;
 
     return (
-        <div className="showcase-app">
+        <Flex className="showcase-app">
             <Sidebar defaultCollapsed={window.innerWidth < 768}>
                 <Sidebar.Header
                     icon={<img src={icon} alt="LabsUI Icon" style={{ height: '24px' }} />}
@@ -245,22 +247,24 @@ export default function App() {
                 </Sidebar.Nav>
             </Sidebar>
 
-            <main className="showcase-content">
+            <Flex direction="column" className="showcase-content">
                 <TopBar
                     sticky
                     themeToggle={true}
                 />
-                <div className="showcase-page-wrapper">
-                    {ActiveComponent ? (
-                        <ActiveComponent />
-                    ) : (
-                        <div className="showcase-empty">
-                            <Icon name="rocket" size={64} />
-                            <h2>Selecione um item para começar</h2>
-                        </div>
-                    )}
+                <div style={{ flex: 1, minHeight: 0, overflow: 'hidden', position: 'relative' }}>
+                    {
+                        ActiveComponent ? (
+                            <ActiveComponent />
+                        ) : (
+                            <div className="showcase-empty">
+                                <Icon name="rocket" size={64} />
+                                <h2>Selecione um item para começar</h2>
+                            </div>
+                        )
+                    }
                 </div>
-            </main>
-        </div>
+            </Flex>
+        </Flex>
     );
 }

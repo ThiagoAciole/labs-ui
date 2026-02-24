@@ -4,15 +4,22 @@
   justify-content: center;
   gap: var(--labs-space-2);
   font-family: var(--labs-font);
-  font-weight: 500;
+  font-weight: var(--labs-font-weight-medium);
   border: 1px solid transparent;
   border-radius: var(--labs-radius-md);
   cursor: pointer;
-  transition: all var(--labs-transition-fast);
+  transition: 
+    background-color var(--labs-transition-normal),
+    border-color var(--labs-transition-normal),
+    color var(--labs-transition-normal),
+    box-shadow var(--labs-transition-normal),
+    transform var(--labs-transition-fast),
+    opacity var(--labs-transition-normal);
   user-select: none;
   white-space: nowrap;
   position: relative;
   text-decoration: none;
+  overflow: hidden;
 }
 
 .labs-btn:focus-visible {
@@ -20,40 +27,36 @@
   outline-offset: 2px;
 }
 
-.labs-btn:active:not(:disabled) {
-  transform: translateY(1px);
+.labs-btn:active:not(:disabled):not(.labs-btn--loading) {
+  transform: scale(0.98);
 }
 
-.labs-btn:disabled,
-.labs-btn:disabled:hover {
-  background-color: var(--border);
+.labs-btn:disabled {
+  background-color: var(--surface-soft);
   color: var(--text-dim);
   border-color: var(--border);
-  box-shadow: none;
-  opacity: 0.6;
   cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+  box-shadow: none;
 }
 
-/* Variantes transparentes mantêm fundo transparente no disabled */
-.labs-btn--ghost:disabled,
-.labs-btn--ghost:disabled:hover,
-.labs-btn--outline:disabled,
-.labs-btn--outline:disabled:hover {
-  background-color: transparent;
-  border-color: var(--border);
-  color: var(--text-dim);
-}
-
-
-/* Variants */
+/* ── Variants ── */
 .labs-btn--primary {
   background-color: var(--primary);
   color: var(--text-inverse);
   border-color: var(--primary);
+  box-shadow: 0 4px 12px var(--primary-subtle);
 }
+
 .labs-btn--primary:hover:not(:disabled) {
-  opacity: 0.9;
-  box-shadow: 0 4px 15px -5px var(--primary-subtle);
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  box-shadow: 0 6px 16px var(--primary-subtle);
+}
+
+.labs-btn--primary:active:not(:disabled) {
+  background-color: var(--primary-active);
 }
 
 .labs-btn--secondary {
@@ -61,6 +64,7 @@
   color: var(--text);
   border-color: var(--border);
 }
+
 .labs-btn--secondary:hover:not(:disabled) {
   background-color: var(--hover);
   border-color: var(--border-strong);
@@ -68,51 +72,64 @@
 
 .labs-btn--ghost {
   background-color: transparent;
-  color: var(--primary);
+  color: var(--text);
   border-color: transparent;
 }
+
 .labs-btn--ghost:hover:not(:disabled) {
-  background-color: var(--primary-subtle);
+  background-color: var(--hover);
+  color: var(--primary);
 }
 
 .labs-btn--outline {
   background-color: transparent;
-  color: var(--primary);
-  border-color: var(--primary);
+  color: var(--text);
+  border-color: var(--border-strong);
 }
+
 .labs-btn--outline:hover:not(:disabled) {
-  background-color: var(--primary-subtle);
+  background-color: var(--hover);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .labs-btn--danger {
+  background-color: var(--danger-subtle);
+  color: var(--danger);
+  border-color: var(--danger-subtle);
+}
+
+.labs-btn--danger:hover:not(:disabled) {
   background-color: var(--danger);
   color: white;
   border-color: var(--danger);
 }
-.labs-btn--danger:hover:not(:disabled) {
-  opacity: 0.9;
-}
 
-/* Sizes */
+/* ── Sizes ── */
 .labs-btn--sm {
-  padding: var(--labs-space-1) var(--labs-space-3);
+  padding: 0 var(--labs-space-3);
   font-size: var(--labs-font-size-sm);
   height: 2rem;
+  gap: var(--labs-space-1);
 }
+
 .labs-btn--md {
-  padding: var(--labs-space-2) var(--labs-space-4);
+  padding: 0 var(--labs-space-4);
   font-size: var(--labs-font-size-md);
   height: 2.5rem;
 }
+
 .labs-btn--lg {
-  padding: var(--labs-space-3) var(--labs-space-6);
+  padding: 0 var(--labs-space-6);
   font-size: var(--labs-font-size-lg);
   height: 3rem;
+  gap: var(--labs-space-3);
 }
 
-/* States */
+/* ── Utilities/States ── */
 .labs-btn--full {
   width: 100%;
+  display: flex;
 }
 
 .labs-btn--loading {
@@ -122,9 +139,20 @@
 .labs-btn__icon {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  transition: transform var(--labs-transition-normal);
+}
+
+.labs-btn:hover .labs-btn__icon--right {
+  transform: translateX(2px);
+}
+
+.labs-btn:hover .labs-btn__icon--left {
+  transform: translateX(-2px);
 }
 
 .labs-btn__spinner {
-  flex-shrink: 0;
+  margin-right: var(--labs-space-2);
 }
+

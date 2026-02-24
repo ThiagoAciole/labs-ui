@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@labsui/core': resolve(__dirname, '../../packages/labsui/src/index.ts'),
+      '@aciolelabs/labs-ui': resolve(__dirname, '../../packages/labsui/src/index.ts'),
     },
   },
   server: {

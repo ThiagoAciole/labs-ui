@@ -1,24 +1,67 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Grid, Card, CardBody, Heading, Text } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const GridPage = () => (
-    <ShowcasePage title="Grid" description="Sistema de grid com colunas fixas." code={`<Grid columns={3} gap="4">...</Grid>`}>
-        <Grid columns={3} gap="4" style={{ width: '100%' }}>
-            <div style={{ background: 'var(--labs-surface2)', padding: '1rem', textAlign: 'center' }}>1</div>
-            <div style={{ background: 'var(--labs-surface2)', padding: '1rem', textAlign: 'center' }}>2</div>
-            <div style={{ background: 'var(--labs-surface2)', padding: '1rem', textAlign: 'center' }}>3</div>
-            <div style={{ background: 'var(--labs-surface2)', padding: '1rem', textAlign: 'center' }}>4</div>
-        </Grid>
-    </ShowcasePage>
-);
+export default function GridPage() {
+    return (
+        <Playground.Root
+            componentName="Grid"
+            defaultProps={{
+                columns: '3',
+                gap: '4'
+            }}
+            controls={{
+                columns: {
+                    type: 'select',
+                    options: [
+                        { value: '1', label: '1 Coluna' },
+                        { value: '2', label: '2 Colunas' },
+                        { value: '3', label: '3 Colunas' },
+                        { value: '4', label: '4 Colunas' },
+                        { value: '6', label: '6 Colunas' },
+                        { value: '12', label: '12 Colunas' }
+                    ]
+                },
+                gap: {
+                    type: 'select',
+                    options: [
+                        { value: '0', label: 'None' },
+                        { value: '2', label: 'Small' },
+                        { value: '4', label: 'Medium' },
+                        { value: '8', label: 'Large' },
+                        { value: '12', label: 'XLarge' }
+                    ]
+                }
+            }}
+        >
+            <ShowcasePage
+                title="Grid"
+                description="O Grid permite organizar elementos em colunas e linhas baseadas no sistema CSS Grid, facilitando a criação de layouts estruturados."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ width: '100%' }}>
+                        <Grid columns={Number(props.columns) as any} gap={props.gap}>
+                            {[1, 2, 3, 4, 5, 6].map((i) => (
+                                <Card key={i} variant="outlined">
+                                    <CardBody style={{ padding: '2rem', textAlign: 'center' }}>
+                                        <Text weight="bold" color="primary">{i}</Text>
+                                    </CardBody>
+                                </Card>
+                            ))}
+                        </Grid>
+                    </div>
+                )} />
 
-export default GridPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Sistema de Colunas</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <Text>
+                            O componente Grid usa um sistema simplificado de colunas repetidas. Para layouts mais complexos com áreas nomeadas, recomenda-se o uso de CSS Grid personalizado ou Flexbox.
+                        </Text>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

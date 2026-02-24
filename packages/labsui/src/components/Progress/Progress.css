@@ -46,3 +46,17 @@
 .labs-progress--success .labs-progress__bar { background: var(--success); }
 .labs-progress--danger .labs-progress__bar { background: var(--danger); }
 .labs-progress--warning .labs-progress__bar { background: var(--warning); }
+
+.labs-progress-label {
+  margin-bottom: var(--labs-space-2);
+  font-size: var(--labs-font-size-sm);
+  font-weight: 500;
+  color: var(--labs-text1);
+}
+
+.labs-progress-value {
+  margin-top: var(--labs-space-1);
+  font-size: var(--labs-font-size-xs);
+  text-align: right;
+  color: var(--labs-text-muted);
+}

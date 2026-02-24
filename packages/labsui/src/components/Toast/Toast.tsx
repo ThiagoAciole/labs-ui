@@ -58,7 +58,7 @@ function ToastItem({ toast, onDismiss }: { toast: ToastData; onDismiss: (id: str
                 {toast.description && <p className="labs-toast__description">{toast.description}</p>}
             </div>
             <IconButton
-                icon={<Icon name="close" size={14} />}
+                icon="close"
                 aria-label="Dismiss notification"
                 variant="ghost"
                 size="sm"

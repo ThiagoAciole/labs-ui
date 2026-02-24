@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { classNames } from '../../utils/classNames';
 import { IconButton } from '../IconButton/IconButton';
-import { Icon } from '../../components/Icon/Icon';
 import { Heading } from '../Heading/Heading';
 
 export type ModalSize = 'sm' | 'md' | 'lg' | 'xl' | 'full';
@@ -69,14 +68,14 @@ export function Modal({
                     <div className="labs-modal-header">
                         <div>
                             {title && (
-                                <Heading id="labs-modal-title" size={5} className="labs-modal-title">
+                                <Heading id="labs-modal-title" size="sm" className="labs-modal-title">
                                     {title}
                                 </Heading>
                             )}
                             {description && <p id="labs-modal-description" className="labs-modal-description">{description}</p>}
                         </div>
                         <IconButton
-                            icon={<Icon name="close" size={18} />}
+                            icon="close"
                             aria-label="Close modal"
                             variant="ghost"
                             size="sm"

@@ -1,37 +1,69 @@
 import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Pagination, Heading, Card, CardBody } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const PaginationPage = () => {
+export default function PaginationPage() {
     const [page, setPage] = useState(1);
+
     return (
-        <ShowcasePage
-            title="Pagination"
-            description="Navegação para conteúdos divididos em múltiplas páginas."
-            code={`<Pagination currentPage={page} totalPages={10} onPageChange={setPage} />`}
+        <Playground.Root
+            componentName="Pagination"
+            defaultProps={{
+                totalPages: 10,
+                variant: 'default',
+                size: 'md'
+            }}
+            controls={{
+                totalPages: { type: 'number' },
+                variant: {
+                    type: 'select',
+                    options: [
+                        { value: 'default', label: 'Default' },
+                        { value: 'pills', label: 'Pills' }
+                    ]
+                },
+                size: {
+                    type: 'select',
+                    options: [
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' }
+                    ]
+                }
+            }}
         >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                <div>
+            <ShowcasePage
+                title="Pagination"
+                description="O componente Pagination permite navegar entre grandes conjuntos de dados divididos em partes menores, melhorando a performance e o foco do usuário."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'center' }}>
+                        <Pagination
+                            {...props}
+                            currentPage={page}
+                            onPageChange={setPage}
+                        />
+                        <Card style={{ width: '200px', textAlign: 'center' }}>
+                            <CardBody>
+                                Página: <strong>{page}</strong>
+                            </CardBody>
+                        </Card>
+                    </div>
+                )} />
 
-                    <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Dicas de Uso</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li>Ideal para tabelas, grids de produtos e listas de resultados de busca.</li>
+                            <li>Sempre informe ao usuário em qual página ele está no momento.</li>
+                            <li>Tente não exibir muitos números de página de uma vez (o componente já gerencia o truncamento).</li>
+                        </ul>
+                    </div>
                 </div>
-
-                <Card>
-                    <CardBody>
-                        Página atual selecionada: <strong>{page}</strong>
-                    </CardBody>
-                </Card>
-            </div>
-        </ShowcasePage>
+            </ShowcasePage>
+        </Playground.Root>
     );
-};
-
-export default PaginationPage;
+}

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './MultiSelect.css';
 import { Icon } from '../Icon/Icon';
-import { classNames } from '../../utils/classNames';
+import { classNames } from '../../utils';
 
 export interface MultiSelectOption {
     label: string;

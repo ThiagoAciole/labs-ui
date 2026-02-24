@@ -1,11 +1,12 @@
 import './Select.css';
 import React, { useState, useRef, useEffect } from 'react';
-import { classNames } from '../../utils/classNames';
+import { classNames, LabelFormater } from '../../utils';
 import { Icon } from '../Icon/Icon';
 
 export interface SelectOption {
     value: string;
-    label: string;
+    label: React.ReactNode;
+    searchValue?: string;
     disabled?: boolean;
 }
 
@@ -21,15 +22,19 @@ export interface SelectProps extends Omit<React.ComponentPropsWithoutRef<'div'>,
     hint?: string;
     size?: SelectSize;
     placeholder?: string;
-    fullWidth?: boolean;
+    full?: boolean;
     disabled?: boolean;
+    searchable?: boolean;
+    searchPlaceholder?: string;
 }
 
 export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
-    ({ options, value, defaultValue, onChange, label, error, hint, size = 'md', placeholder = 'Selecione...', fullWidth = false, disabled = false, className, id, ...props }, ref) => {
+    ({ options, value, defaultValue, onChange, label, error, hint, size = 'md', placeholder = 'Selecione...', full = false, disabled = false, className, id, ...props }, ref) => {
         const [isOpen, setIsOpen] = useState(false);
         const [selectedValue, setSelectedValue] = useState(value || defaultValue || '');
+        const [searchTerm, setSearchTerm] = useState('');
         const containerRef = useRef<HTMLDivElement>(null);
+        const searchInputRef = useRef<HTMLInputElement>(null);
 
         // Atualiza estado interno se o value prop mudar
         useEffect(() => {
@@ -47,6 +52,15 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
             return () => document.removeEventListener('mousedown', handleClickOutside);
         }, []);
 
+        useEffect(() => {
+            if (isOpen && props.searchable && searchInputRef.current) {
+                searchInputRef.current.focus();
+            }
+            if (!isOpen) {
+                setSearchTerm('');
+            }
+        }, [isOpen, props.searchable]);
+
         const selectedOption = options.find(opt => opt.value === selectedValue);
         const inputId = id ?? (label ? `labs-select-${label.toLowerCase().replace(/\s+/g, '-')}` : undefined);
 
@@ -62,14 +76,20 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
             if (onChange) onChange(val);
         };
 
+        const filteredOptions = options.filter(opt => {
+            if (!props.searchable || !searchTerm) return true;
+            const textToSearch = opt.searchValue || (typeof opt.label === 'string' ? opt.label : String(opt.value));
+            return textToSearch.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+
         return (
             <div
                 ref={containerRef}
-                className={classNames('labs-select-wrapper', fullWidth && 'labs-select-wrapper--full', className)}
+                className={classNames('labs-select-wrapper', full && 'labs-select-wrapper--full', className)}
             >
                 {label && (
                     <label id={`${inputId}-label`} className="labs-select-label" onClick={() => !disabled && setIsOpen(true)}>
-                        {label}
+                        {LabelFormater(label)}
                     </label>
                 )}
 
@@ -109,8 +129,25 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
 
                 {isOpen && (
                     <div className="labs-select-menu">
+                        {props.searchable && (
+                            <div className="labs-select-menu__search">
+                                <Icon name="search" size={14} className="labs-select-menu__search-icon" />
+                                <input
+                                    ref={searchInputRef}
+                                    type="text"
+                                    className="labs-select-menu__search-input"
+                                    placeholder={props.searchPlaceholder || 'Pesquisar...'}
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    onClick={(e) => e.stopPropagation()}
+                                    onKeyDown={(e) => {
+                                        if (e.key === ' ') e.stopPropagation();
+                                    }}
+                                />
+                            </div>
+                        )}
                         <ul className="labs-select-menu__list" role="listbox">
-                            {options.map((opt) => (
+                            {filteredOptions.length > 0 ? filteredOptions.map((opt) => (
                                 <li
                                     key={opt.value}
                                     role="option"
@@ -130,7 +167,9 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                                         <Icon name="check" size={14} />
                                     )}
                                 </li>
-                            ))}
+                            )) : (
+                                <li className="labs-select-menu__empty">Nenhum resultado encontrado</li>
+                            )}
                         </ul>
                     </div>
                 )}

@@ -1,24 +1,62 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Image, Heading, Flex } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const ImagePage = () => (
-    <ShowcasePage title="Image" description="Componente de imagem com suporte a loading state (Skeleton)." code={`<Image src="..." radius="lg" />`}>
-        <Image
-            src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=400&h=300&fit=crop"
-            alt="Gradient"
-            radius="lg"
-            style={{ width: '400px', height: '300px' }}
-        />
-    </ShowcasePage>
-);
+export default function ImagePage() {
+    return (
+        <Playground.Root
+            componentName="Image"
+            defaultProps={{
+                src: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&h=600&fit=crop',
+                alt: 'Abstract Gradient',
+                radius: 'lg',
+                objectFit: 'cover'
+            }}
+            controls={{
+                src: { type: 'text' },
+                alt: { type: 'text' },
+                radius: {
+                    type: 'select',
+                    options: [
+                        { value: 'none', label: 'None' },
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                        { value: 'xl', label: 'Extra Large' },
+                        { value: 'full', label: 'Full' },
+                    ]
+                },
+                objectFit: {
+                    type: 'select',
+                    options: [
+                        { value: 'cover', label: 'Cover' },
+                        { value: 'contain', label: 'Contain' },
+                        { value: 'fill', label: 'Fill' },
+                    ]
+                }
+            }}
+        >
+            <ShowcasePage
+                title="Image"
+                description="O componente Image fornece uma maneira simples de exibir imagens com controle de bordas, carregamento progressivo e layouts flexíveis."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ width: '100%', maxWidth: '500px', height: '350px' }}>
+                        <Image {...props} style={{ width: '100%', height: '100%' }} />
+                    </div>
+                )} />
 
-export default ImagePage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Arredondamento (Radius)</Heading>
+                    <Flex gap="6" style={{ marginTop: '1.5rem', flexWrap: 'wrap' }}>
+                        <Image src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&h=150&fit=crop" radius="sm" style={{ width: '100px', height: '100px' }} alt={''} />
+                        <Image src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&h=150&fit=crop" radius="md" style={{ width: '100px', height: '100px' }} alt={''} />
+                        <Image src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&h=150&fit=crop" radius="lg" style={{ width: '100px', height: '100px' }} alt={''} />
+                        <Image src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&h=150&fit=crop" radius="full" style={{ width: '100px', height: '100px' }} alt={''} />
+                    </Flex>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

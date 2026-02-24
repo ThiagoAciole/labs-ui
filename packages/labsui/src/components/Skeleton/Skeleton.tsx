@@ -6,6 +6,8 @@ export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
     width?: string | number;
     height?: string | number;
     circle?: boolean;
+    radius?: string | number;
+    animated?: boolean;
     className?: string;
 }
 
@@ -13,6 +15,8 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     width,
     height,
     circle = false,
+    radius,
+    animated = true,
     className,
     style,
     ...props
@@ -20,6 +24,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     const customStyle = {
         width: typeof width === 'number' ? `${width}px` : width,
         height: typeof height === 'number' ? `${height}px` : height,
+        borderRadius: circle ? '50%' : (typeof radius === 'number' ? `${radius}px` : radius),
         ...style
     };
 
@@ -28,6 +33,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
             className={classNames(
                 'labs-skeleton',
                 circle && 'labs-skeleton--circle',
+                animated && 'labs-skeleton--animated',
                 className
             )}
             style={customStyle}

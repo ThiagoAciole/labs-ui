@@ -1,44 +1,43 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Radio, Flex, Heading } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
+import { useState } from 'react';
 
-export const RadioPage = () => {
-    const [selected, setSelected] = useState('1');
+export default function RadioPage() {
     return (
-        <ShowcasePage title="Radio" description="Botão de seleção única." code={`<Radio label="Opção 1" checked />`}>
-            <Flex direction="column" gap="4">
-                <Radio
-                    name="group1"
-                    value="1"
-                    label="Primeira Opção"
-                    checked={selected === '1'}
-                    onChange={(e) => setSelected(e.target.value)}
-                />
-                <Radio
-                    name="group1"
-                    value="2"
-                    label="Segunda Opção"
-                    description="Essa é uma descrição mais detalhada."
-                    checked={selected === '2'}
-                    onChange={(e) => setSelected(e.target.value)}
-                />
-                <Radio
-                    name="group1"
-                    value="3"
-                    label="Opção Desabilitada"
-                    disabled
-                />
-            </Flex>
-        </ShowcasePage>
-    );
-};
+        <Playground.Root
+            componentName="Radio"
+            defaultProps={{
+                label: 'Sua Opção',
+                description: 'Esta é uma breve descrição da escolha.',
+                checked: true,
+                disabled: false
+            }}
+            controls={{
+                label: { type: 'text' },
+                description: { type: 'text' },
+                checked: { type: 'boolean' },
+                disabled: { type: 'boolean' }
+            }}
+        >
+            <ShowcasePage
+                title="Radio"
+                description="O Radio é usado para selecionar uma única opção de uma lista. Oferece suporte a títulos e descrições detalhadas."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <Radio {...props} name="playground-radio" />
+                )} />
 
-export default RadioPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Grupo de Opções</Heading>
+                    <Flex direction="column" gap="4" style={{ marginTop: '1.5rem' }}>
+                        <Radio name="ex" label="Plano Básico" description="Acesso limitado aos recursos básicos." defaultChecked />
+                        <Radio name="ex" label="Plano Pro" description="Acesso total com suporte prioritário." />
+                        <Radio name="ex" label="Plano Enterprise" description="Solução customizada para grandes empresas." disabled />
+                    </Flex>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

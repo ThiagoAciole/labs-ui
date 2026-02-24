@@ -1,46 +1,60 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Avatar, Heading, Flex, Card, CardBody } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const AvatarPage = () => (
-    <ShowcasePage
-        title="Avatar"
-        description="Representação visual de usuários ou entidades."
-        code={`<Avatar src="..." initials="TL" size="md" />`}
-        noGrid
-    >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', width: '100%' }}>
-            <Card>
-                <CardBody title="Tamanhos">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-                        <Avatar size="sm" initials="SM" />
-                        <Avatar size="md" initials="MD" />
-                        <Avatar size="lg" initials="LG" bordered />
-                        <Avatar size="xl" initials="XL" />
-                    </div>
-                </CardBody>
-            </Card>
+export default function AvatarPage() {
+    return (
+        <Playground.Root
+            componentName="Avatar"
+            defaultProps={{
+                size: 'md',
+                shape: 'circle',
+                initials: 'TA',
+                src: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=128&h=128&fit=crop',
+                bordered: false
+            }}
+            controls={{
+                size: {
+                    type: 'select',
+                    options: [
+                        { value: 'xs', label: 'Extra Small' },
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                        { value: 'xl', label: 'Extra Large' },
+                        { value: '2xl', label: '2XL' },
+                    ]
+                },
+                shape: {
+                    type: 'select',
+                    options: [
+                        { value: 'circle', label: 'Círculo' },
+                        { value: 'square', label: 'Quadrado' },
+                    ]
+                },
+                initials: { type: 'text' },
+                src: { type: 'text' },
+                bordered: { type: 'boolean' }
+            }}
+        >
+            <ShowcasePage
+                title="Avatar"
+                description="O Avatar é usado para representar usuários ou marcas de forma visual, com suporte a imagens, iniciais ou ícones de fallback."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <Avatar {...props} />
+                )} />
 
-            <Card>
-                <CardBody title="Variantes">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-                        <Avatar shape="square" initials="SQ" />
-                        <Avatar shape="circle" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=128&h=128&fit=crop" />
-                        <Avatar shape="circle" initials="ER" src="invalid-url" />
-                        <Avatar size="lg" fallbackIcon="star" />
-                    </div>
-                </CardBody>
-            </Card>
-        </div>
-    </ShowcasePage>
-);
-
-export default AvatarPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Fallbacks e Iniciais</Heading>
+                    <Flex gap="6" style={{ marginTop: '1.5rem', alignItems: 'center' }}>
+                        <Avatar size="lg" initials="AZ" />
+                        <Avatar size="lg" src="invalid-link" initials="FL" />
+                        <Avatar size="lg" fallbackIcon="user" />
+                    </Flex>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

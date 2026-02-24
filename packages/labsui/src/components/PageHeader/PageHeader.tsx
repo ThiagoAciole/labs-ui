@@ -1,23 +1,16 @@
 import './PageHeader.css';
 import React from 'react';
 import { IconButton } from '../IconButton/IconButton';
-import { Icon } from '../Icon/Icon';
 import { Heading } from '../Heading/Heading';
 import { Text } from '../Text/Text';
 import { classNames } from '../../utils/classNames';
 
 export interface PageHeaderProps {
-    /** Título principal do header */
     title: string;
-    /** Descrição ou subtítulo opcional */
     description?: string;
-    /** Se deve exibir o botão de voltar */
     showBack?: boolean;
-    /** Callback para o clique no botão de voltar */
     onBack?: () => void;
-    /** Componente ou conteúdo extra exibido no lado direito */
     action?: React.ReactNode;
-    /** Classe CSS adicional */
     className?: string;
 }
 
@@ -37,7 +30,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
                         <IconButton
                             variant="ghost"
                             size="md"
-                            icon={<Icon name="chevron-left" size={24} />}
+                            icon="chevron-left"
                             onClick={onBack}
                             aria-label="Voltar"
                         />
@@ -46,7 +39,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
 
                 <div className="labs-page-header__content">
                     <Heading
-                        size={2}
+                        size="lg"
 
                     >
                         {title}

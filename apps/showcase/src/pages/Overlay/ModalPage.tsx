@@ -1,36 +1,74 @@
 import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Modal, Button, Heading, Text, Flex } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const ModalPage = () => {
+export default function ModalPage() {
     const [open, setOpen] = useState(false);
-    return (
-        <ShowcasePage title="Modal" description="Diálogos overlay." code={`<Modal open={open} title="Aviso">Conteúdo</Modal>`}>
-            <Button onClick={() => setOpen(true)}>Abrir Modal</Button>
-            <Modal
-                open={open}
-                onClose={() => setOpen(false)}
-                title="Configurações Avançadas"
-                description="Ajuste os parâmetros do sistema LabsUI."
-                footer={
-                    <>
-                        <Button variant="ghost" onClick={() => setOpen(false)}>Cancelar</Button>
-                        <Button onClick={() => setOpen(false)}>Confirmar</Button>
-                    </>
-                }
-            >
-                Este é um exemplo de modal com transição neon e fundo embaçado.
-            </Modal>
-        </ShowcasePage>
-    );
-};
 
-export default ModalPage;
+    return (
+        <Playground.Root
+            componentName="Modal"
+            defaultProps={{
+                title: 'Confirmação de Ação',
+                size: 'md',
+                closeOnOverlayClick: true
+            }}
+            controls={{
+                title: { type: 'text' },
+                size: {
+                    type: 'select',
+                    options: [
+                        { value: 'xs', label: 'Extra Small' },
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                        { value: 'xl', label: 'Extra Large' },
+                        { value: 'full', label: 'Full Screen' }
+                    ]
+                },
+                closeOnOverlayClick: { type: 'boolean' }
+            }}
+        >
+            <ShowcasePage
+                title="Modal"
+                description="O Modal é usado para diálogos que exigem a atenção do usuário ou para exibir conteúdo adicional sem sair do contexto atual."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ display: 'flex', justifyContent: 'center', padding: '2rem' }}>
+                        <Button onClick={() => setOpen(true)}>Visualizar Modal</Button>
+                        <Modal
+                            {...props}
+                            open={open}
+                            onClose={() => setOpen(false)}
+                            footer={
+                                <Flex justify="flex-end" gap="2">
+                                    <Button variant="ghost" onClick={() => setOpen(false)}>Cancelar</Button>
+                                    <Button onClick={() => setOpen(false)}>Confirmar</Button>
+                                </Flex>
+                            }
+                        >
+                            <div style={{ padding: '0.5rem 0' }}>
+                                <Text>
+                                    Este é um exemplo de diálogo modal. Você pode ajustar o tamanho e outras propriedades nos controles laterais. O fundo utiliza um efeito de desfoque (blur) para manter o foco no conteúdo principal.
+                                </Text>
+                            </div>
+                        </Modal>
+                    </div>
+                )} />
+
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Melhores Práticas</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li>Use modais para ações críticas que precisam de confirmação.</li>
+                            <li>Tente manter o conteúdo do modal conciso e direto ao ponto.</li>
+                            <li>Evite abrir modais de dentro de outros modais.</li>
+                        </ul>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

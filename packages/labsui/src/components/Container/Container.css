@@ -2,7 +2,7 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: var(--labs-space-12);
+  padding: 32px;
 }
 
 .labs-container--sm { max-width: 640px; }

@@ -18,7 +18,7 @@ function App() {
     <ShowcasePage title="Instalacao" description="Aprenda a configurar e utilizar o LabsUI no seu projeto." noGrid>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '100%' }}>
         <section>
-          <Heading size={2} style={{ marginBottom: '1rem' }}>
+          <Heading size="lg" style={{ marginBottom: '1rem' }}>
             Introducao
           </Heading>
           <Text size="lg" color="secondary">
@@ -29,7 +29,7 @@ function App() {
 
         <Card>
           <CardBody>
-            <Heading size={3} style={{ marginBottom: '1rem' }}>
+            <Heading size="m" style={{ marginBottom: '1rem' }}>
               Instalacao
             </Heading>
             <Text style={{ marginBottom: '1rem' }}>Rode o comando abaixo no seu terminal:</Text>
@@ -43,7 +43,7 @@ function App() {
 
         <Card>
           <CardBody>
-            <Heading size={3} style={{ marginBottom: '1rem' }}>
+            <Heading size="m" style={{ marginBottom: '1rem' }}>
               Como usar
             </Heading>
             <Text style={{ marginBottom: '1.5rem' }}>
@@ -59,7 +59,7 @@ function App() {
         </Card>
 
         <section>
-          <Heading size={3} style={{ marginBottom: '1rem' }}>
+          <Heading size="m" style={{ marginBottom: '1rem' }}>
             Principios de design
           </Heading>
           <Flex gap="6" wrap="wrap">
@@ -67,7 +67,7 @@ function App() {
               <CardBody>
                 <Flex align="center" gap="4" style={{ marginBottom: '1rem' }}>
                   <Icon name="sparkles" color="var(--primary)" />
-                  <Heading size={4}>Estetica premium</Heading>
+                  <Heading size="s">Estetica premium</Heading>
                 </Flex>
                 <Text size="sm" color="secondary">
                   Designs modernos com sombras suaves, gradientes sutis e micro-interacoes.
@@ -78,7 +78,7 @@ function App() {
               <CardBody>
                 <Flex align="center" gap="4" style={{ marginBottom: '1rem' }}>
                   <Icon name="theme-dark" color="var(--primary)" />
-                  <Heading size={4}>Dark Mode nativo</Heading>
+                  <Heading size="s">Dark Mode nativo</Heading>
                 </Flex>
                 <Text size="sm" color="secondary">
                   Otimizado para interfaces escuras com persistencia automatica de tema.

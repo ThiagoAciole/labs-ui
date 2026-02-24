@@ -1,39 +1,64 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Progress, Heading, Flex, Button } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
+import { useState } from 'react';
 
-export const ProgressPage = () => {
-    const [progress, setProgress] = useState(40);
+export default function ProgressPage() {
     return (
-        <ShowcasePage
-            title="Progress"
-            description="Exibição visual do progresso de um processo."
-            code={`<Progress value={45} animated />`}
+        <Playground.Root
+            componentName="Progress"
+            defaultProps={{
+                value: 65,
+                variant: 'primary',
+                size: 'md',
+                animated: true,
+                showValue: true,
+                label: 'Status do Processamento'
+            }}
+            controls={{
+                value: { type: 'number' },
+                variant: {
+                    type: 'select',
+                    options: [
+                        { value: 'primary', label: 'Primary' },
+                        { value: 'success', label: 'Success' },
+                        { value: 'warning', label: 'Warning' },
+                        { value: 'danger', label: 'Danger' },
+                    ]
+                },
+                size: {
+                    type: 'select',
+                    options: [
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                    ]
+                },
+                animated: { type: 'boolean' },
+                showValue: { type: 'boolean' },
+                label: { type: 'text' }
+            }}
         >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '100%', maxWidth: '500px' }}>
-                <Progress value={progress} showValue animated />
+            <ShowcasePage
+                title="Progress"
+                description="O componente Progress visualiza o progresso de uma tarefa ou processo, fornecendo feedback em tempo real para o usuário."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ width: '100%', maxWidth: '500px' }}>
+                        <Progress {...props} />
+                    </div>
+                )} />
 
-                <div style={{ display: 'flex', gap: '8px' }}>
-                    <Button size="sm" onClick={() => setProgress(Math.max(0, progress - 10))}>-10%</Button>
-                    <Button size="sm" onClick={() => setProgress(Math.min(100, progress + 10))}>+10%</Button>
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Variantes de Estado</Heading>
+                    <Flex direction="column" gap="4" style={{ marginTop: '1.5rem', maxWidth: '500px' }}>
+                        <Progress value={100} variant="success" label="Completo" showValue />
+                        <Progress value={50} variant="warning" label="Atenção" showValue />
+                        <Progress value={20} variant="danger" label="Erro Crítico" showValue />
+                    </Flex>
                 </div>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
-                    <Progress value={100} variant="success" size="sm" />
-                    <Progress value={75} variant="warning" />
-                    <Progress value={25} variant="danger" size="lg" />
-                </div>
-            </div>
-        </ShowcasePage>
+            </ShowcasePage>
+        </Playground.Root>
     );
-};
-
-export default ProgressPage;
+}

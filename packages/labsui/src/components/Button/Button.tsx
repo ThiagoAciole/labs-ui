@@ -2,17 +2,24 @@ import './Button.css';
 import React from 'react';
 import { classNames } from '../../utils/classNames';
 import { Loader } from '../Loader/Loader';
+import { Icon } from '../Icon/Icon';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'outline';
+export type ButtonVariant =
+    | 'primary'
+    | 'secondary'
+    | 'ghost'
+    | 'danger'
+    | 'outline';
+
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariant;
     size?: ButtonSize;
     loading?: boolean;
-    leftIcon?: React.ReactNode;
-    rightIcon?: React.ReactNode;
-    fullWidth?: boolean;
+    icon?: string;        // ✅ apenas nome do ícone
+    full?: boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -22,9 +29,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             size = 'md',
             loading = false,
             disabled,
-            leftIcon,
-            rightIcon,
-            fullWidth = false,
+            icon,
+            full = false,
             children,
             className,
             ...props
@@ -32,6 +38,13 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref
     ) => {
         const isDisabled = disabled || loading;
+
+        const iconSize =
+            size === 'sm'
+                ? 16
+                : size === 'lg'
+                    ? 24
+                    : 20;
 
         return (
             <button
@@ -42,20 +55,29 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                     'labs-btn',
                     `labs-btn--${variant}`,
                     `labs-btn--${size}`,
-                    fullWidth && 'labs-btn--full',
+                    full && 'labs-btn--full',
                     loading && 'labs-btn--loading',
                     className
                 )}
                 {...props}
             >
-                {loading ? (
+                {/* Loading */}
+                {loading && (
                     <Loader size="sm" className="labs-btn__spinner" />
-                ) : leftIcon ? (
-                    <span className="labs-btn__icon labs-btn__icon--left">{leftIcon}</span>
-                ) : null}
-                {children && <span className="labs-btn__label">{children}</span>}
-                {!loading && rightIcon && (
-                    <span className="labs-btn__icon labs-btn__icon--right">{rightIcon}</span>
+                )}
+
+                {/* Icon Left */}
+                {!loading && icon && (
+                    <span className="labs-btn__icon labs-btn__icon--left">
+                        <Icon name={icon} size={iconSize} />
+                    </span>
+                )}
+
+                {/* Label */}
+                {children && (
+                    <span className="labs-btn__label">
+                        {children}
+                    </span>
                 )}
             </button>
         );

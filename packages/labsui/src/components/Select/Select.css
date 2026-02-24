@@ -131,3 +131,37 @@
 
 .labs-select-message { font-size: var(--labs-font-size-xs); color: var(--text-muted); margin-top: 2px; }
 .labs-select-message--error { color: var(--danger); }
+
+.labs-select-menu__search {
+  padding: var(--labs-space-1);
+  margin-bottom: var(--labs-space-1);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.labs-select-menu__search-icon {
+  margin-right: var(--labs-space-2);
+  color: var(--text-muted);
+}
+
+.labs-select-menu__search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: var(--labs-font-size-sm);
+  outline: none;
+  padding: var(--labs-space-2) 0;
+}
+
+.labs-select-menu__search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.labs-select-menu__empty {
+  padding: var(--labs-space-2) var(--labs-space-3);
+  color: var(--text-muted);
+  font-size: var(--labs-font-size-sm);
+  text-align: center;
+}

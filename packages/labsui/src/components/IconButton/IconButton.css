@@ -15,7 +15,13 @@
   outline-offset: 2px;
 }
 .labs-icon-btn:active:not(:disabled) { transform: translateY(1px); }
-.labs-icon-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.labs-icon-btn:disabled {  background-color: var(--surface-soft);
+  color: var(--text-dim);
+  border-color: var(--border);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+  box-shadow: none; }
 
 /* Variants */
 .labs-icon-btn--primary { background: var(--primary); color: var(--text-inverse); border-color: var(--primary); }

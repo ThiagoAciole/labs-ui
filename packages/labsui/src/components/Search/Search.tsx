@@ -2,7 +2,7 @@ import React from 'react';
 import { Input, InputProps } from '../Input/Input';
 import { Icon } from '../Icon/Icon';
 import { Loader } from '../Loader/Loader';
-import { classNames } from '../../utils/classNames';
+import { classNames } from '../../utils';
 
 export interface SearchProps extends Omit<InputProps, 'prefix'> {
     onSearch?: (value: string) => void;

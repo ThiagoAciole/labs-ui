@@ -1,108 +1,75 @@
 import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { TopBar, Icon, IconButton, Heading, Text } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-
-
-const TopBarPage = () => {
+export default function TopBarPage() {
     const [activeTab, setActiveTab] = useState('Home');
 
     const navItems = [
-        { label: 'Home', active: activeTab === 'Home', onClick: () => setActiveTab('Home') },
-        { label: 'About', active: activeTab === 'About', onClick: () => setActiveTab('About') },
-        { label: 'Contact', active: activeTab === 'Contact', onClick: () => setActiveTab('Contact') },
+        { label: 'Início', active: activeTab === 'Home', onClick: () => setActiveTab('Home') },
+        { label: 'Recursos', active: activeTab === 'Features', onClick: () => setActiveTab('Features') },
+        { label: 'Preços', active: activeTab === 'Pricing', onClick: () => setActiveTab('Pricing') },
+        { label: 'Blog', active: activeTab === 'Blog', onClick: () => setActiveTab('Blog') },
     ];
 
     const extraContent = (
-        <>
-            <IconButton
-                variant="ghost"
-                size="sm"
-                icon={<Icon name="github" size={18} />}
-                aria-label="GitHub"
-            />
-            <IconButton
-                variant="ghost"
-                size="sm"
-                icon={<Icon name="linkedin" size={18} />}
-                aria-label="LinkedIn"
-            />
-        </>
-    );
-
-    const themeToggle = (
-        <IconButton
-            variant="ghost"
-            size="sm"
-            className="theme-toggle-btn"
-            icon={<Icon name="theme-dark" size={18} />}
-            aria-label="Trocar Tema"
-        />
+        <div style={{ display: 'flex', gap: '8px' }}>
+            <IconButton variant="ghost" size="sm" icon="search" aria-label="Search" />
+            <IconButton variant="ghost" size="sm" icon="user" aria-label="User Profile" />
+        </div>
     );
 
     return (
-        <ShowcasePage
-            title="TopBar"
-            description="Componente de navegação superior flexível para cabeçalhos de aplicativos."
-            code={`<TopBar 
-  logo="Logo" 
-  navItems={navItems} 
-  navPosition="center" 
-  extraContent={<IconButton.../>}
-  themeToggle={<ThemeToggle.../>}
-/>`}
+        <Playground.Root
+            componentName="TopBar"
+            defaultProps={{
+                logo: 'LabsUI',
+                navPosition: 'center',
+                sticky: false,
+                themeToggle: true
+            }}
+            controls={{
+                logo: { type: 'text' },
+                navPosition: {
+                    type: 'select',
+                    options: [
+                        { value: 'center', label: 'Center' },
+                        { value: 'right', label: 'Right' }
+                    ]
+                },
+                sticky: { type: 'boolean' },
+                themeToggle: { type: 'boolean' }
+            }}
         >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '100%', padding: '1rem', background: 'var(--labs-surface2)', borderRadius: '12px' }}>
+            <ShowcasePage
+                title="TopBar"
+                description="O TopBar é o elemento principal de navegação superior, fornecendo branding, links de navegação e controles globais como troca de tema."
+                aside={<Playground.Controls />}
+            >
+                <div style={{ background: 'var(--surface-soft)', padding: '2rem', borderRadius: 'var(--labs-radius-xl)', overflow: 'hidden' }}>
+                    <Playground.Preview render={(props) => (
+                        <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--labs-radius-lg)', overflow: 'hidden' }}>
+                            <TopBar
+                                {...props}
+                                navItems={navItems}
+                                extraContent={extraContent}
+                            />
+                        </div>
+                    )} />
+                </div>
 
-                <section>
-                    <p style={{ fontSize: '12px', color: 'var(--labs-text3)', marginBottom: '8px' }}>Padrão (Logo + Nav Centro + Ações)</p>
-                    <TopBar
-                        logo="Logo"
-                        navItems={navItems}
-                        extraContent={extraContent}
-                        themeToggle={themeToggle}
-                    />
-                </section>
-
-                <section>
-                    <p style={{ fontSize: '12px', color: 'var(--labs-text3)', marginBottom: '8px' }}>Logo + Ações (Sem Nav)</p>
-                    <TopBar
-                        logo="Logo"
-                        extraContent={extraContent}
-                        themeToggle={themeToggle}
-                    />
-                </section>
-
-                <section>
-                    <p style={{ fontSize: '12px', color: 'var(--labs-text3)', marginBottom: '8px' }}>Só Ações (Direita)</p>
-                    <TopBar
-                        extraContent={extraContent}
-                        themeToggle={themeToggle}
-                    />
-                </section>
-
-                <section>
-                    <p style={{ fontSize: '12px', color: 'var(--labs-text3)', marginBottom: '8px' }}>Nav na Direita</p>
-                    <TopBar
-                        logo="Logo"
-                        navItems={navItems}
-                        navPosition="right"
-                    />
-                </section>
-
-
-
-            </div>
-        </ShowcasePage>
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Características</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li><strong>Responsivo:</strong> Adapta-se automaticamente a diferentes larguras de tela.</li>
+                            <li><strong>Posicionamento:</strong> Flexibilidade para colocar a navegação no centro ou à direita.</li>
+                            <li><strong>Theme Aware:</strong> Pronta integração com o `ThemeProvider` para troca de temas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
     );
-};
-
-export default TopBarPage;
+}

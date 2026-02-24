@@ -1,58 +1,84 @@
 import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Drawer, Button, Heading, Text, Flex } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const DrawerPage = () => {
-    const [openRight, setOpenRight] = useState(false);
-    const [openLeft, setOpenLeft] = useState(false);
+export default function DrawerPage() {
+    const [open, setOpen] = useState(false);
 
     return (
-        <ShowcasePage
-            title="Drawer"
-            description="Painéis laterais que deslizam sobre o conteúdo principal."
-            code={`<Drawer isOpen={open} onClose={() => setOpen(false)}>...</Drawer>`}
+        <Playground.Root
+            componentName="Drawer"
+            defaultProps={{
+                title: 'Painel Lateral',
+                placement: 'right',
+                size: 'md'
+            }}
+            controls={{
+                title: { type: 'text' },
+                placement: {
+                    type: 'select',
+                    options: [
+                        { value: 'left', label: 'Left' },
+                        { value: 'right', label: 'Right' },
+                        { value: 'top', label: 'Top' },
+                        { value: 'bottom', label: 'Bottom' }
+                    ]
+                },
+                size: {
+                    type: 'select',
+                    options: [
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                        { value: 'full', label: 'Full Screen' }
+                    ]
+                }
+            }}
         >
-            <div style={{ display: 'flex', gap: '1rem' }}>
-                <Button onClick={() => setOpenRight(true)}>Abrir Drawer (Direita)</Button>
-                <Button variant="outline" onClick={() => setOpenLeft(true)}>Abrir Drawer (Esquerda)</Button>
+            <ShowcasePage
+                title="Drawer"
+                description="Painéis que deslizam das bordas da tela, úteis para navegação secundária, filtros ou formulários rápidos."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ display: 'flex', justifyContent: 'center', padding: '2rem' }}>
+                        <Button onClick={() => setOpen(true)}>Abrir Painel Lateral</Button>
+                        <Drawer
+                            {...props}
+                            isOpen={open}
+                            onClose={() => setOpen(false)}
+                            footer={
+                                <Flex gap="2">
+                                    <Button variant="ghost" full onClick={() => setOpen(false)}>Cancelar</Button>
+                                    <Button full onClick={() => setOpen(false)}>Salvar Mudanças</Button>
+                                </Flex>
+                            }
+                        >
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                                <section>
+                                    <Heading size="sm" style={{ marginBottom: '0.5rem' }}>Configurações de Notificação</Heading>
+                                    <Text size="sm" color="muted">Visualize e edite como você recebe alertas do sistema.</Text>
+                                </section>
+                                <section>
+                                    <Text>Conteúdo rico, formulários ou listas podem ser colocados aqui dentro.</Text>
+                                </section>
+                            </div>
+                        </Drawer>
+                    </div>
+                )} />
 
-                <Drawer
-                    isOpen={openRight}
-                    onClose={() => setOpenRight(false)}
-                    title="Detalhes do Pedido"
-                    footer={
-                        <>
-                            <Button variant="ghost" onClick={() => setOpenRight(false)}>Fechar</Button>
-                            <Button onClick={() => setOpenRight(false)}>Salvar</Button>
-                        </>
-                    }
-                >
-                    <Heading size={4} style={{ marginBottom: '1rem' }}>Configurações de Layout</Heading>
-                    <Text color="muted">
-                        Aqui você pode adicionar formulários, configurações ou informações adicionais
-                        que não cabem na tela principal.
-                    </Text>
-                </Drawer>
-
-                <Drawer
-                    isOpen={openLeft}
-                    onClose={() => setOpenLeft(false)}
-                    placement="left"
-                    title="Menu Principal"
-                >
-                    <Text>Conteúdo lateral esquerdo.</Text>
-                </Drawer>
-            </div>
-        </ShowcasePage>
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Casos de Uso</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li><strong>Navegação:</strong> Menus em dispositivos móveis que vêm pela esquerda.</li>
+                            <li><strong>Filtros:</strong> Opções de filtragem em listas de produtos.</li>
+                            <li><strong>Edição Rápida:</strong> Formulários de edição que não precisam trocar a página.</li>
+                        </ul>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
     );
-};
-
-export default DrawerPage;
+}

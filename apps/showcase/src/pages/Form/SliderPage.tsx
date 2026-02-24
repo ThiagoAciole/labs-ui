@@ -1,39 +1,45 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Slider, Heading, Text, Card, CardBody } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const SliderPage = () => {
-    const [val, setVal] = useState(50);
+export default function SliderPage() {
     return (
-        <ShowcasePage
-            title="Slider"
-            description="Entrada de intervalo numérico com interface visual."
-            code={`<Slider label="Volume" value={val} onChange={(e) => setVal(e.target.value)} />`}
+        <Playground.Root
+            componentName="Slider"
+            defaultProps={{
+                label: 'Volume',
+                min: 0,
+                max: 100,
+                step: 1,
+                disabled: false
+            }}
+            controls={{
+                label: { type: 'text' },
+                min: { type: 'number' },
+                max: { type: 'number' },
+                step: { type: 'number' },
+                disabled: { type: 'boolean' }
+            }}
         >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', width: '100%', maxWidth: '400px' }}>
-                <Slider
-                    label="Intensidade Solar"
-                    value={val}
-                    onChange={(e: any) => setVal(e.target.value)}
-                />
-                <Card>
-                    <CardBody>
-                        <Text>Valor atual: <Heading size={4}>{val}%</Heading></Text>
-                    </CardBody>
-                </Card>
+            <ShowcasePage
+                title="Slider"
+                description="O Slider permite aos usuários selecionar um valor ou intervalo de valores a partir de uma faixa contínua ou discreta."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ width: '100%', maxWidth: '400px' }}>
+                        <Slider {...props} />
+                    </div>
+                )} />
 
-                <Slider label="Desabilitado" disabled defaultValue={30} />
-            </div>
-        </ShowcasePage>
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Casos de Uso</Heading>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '1.5rem', maxWidth: '400px' }}>
+                        <Slider label="Brilho" defaultValue={80} />
+                        <Slider label="Opacidade" min={0} max={1} step={0.1} defaultValue={0.5} />
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
     );
-};
-
-export default SliderPage;
+}

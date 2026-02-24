@@ -7,15 +7,15 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
     error?: string;
     hint?: string;
     resize?: 'none' | 'vertical' | 'horizontal' | 'both';
-    fullWidth?: boolean;
+    full?: boolean;
 }
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
-    ({ label, error, hint, resize = 'vertical', fullWidth = false, className, id, rows = 4, ...props }, ref) => {
+    ({ label, error, hint, resize = 'vertical', full = false, className, id, rows = 4, ...props }, ref) => {
         const inputId = id ?? (label ? `labs-textarea-${label.toLowerCase().replace(/\s+/g, '-')}` : undefined);
 
         return (
-            <div className={classNames('labs-textarea-wrapper', fullWidth && 'labs-textarea-wrapper--full', className)}>
+            <div className={classNames('labs-textarea-wrapper', full && 'labs-textarea-wrapper--full', className)}>
                 {label && (
                     <label htmlFor={inputId} className="labs-textarea-label">{label}</label>
                 )}

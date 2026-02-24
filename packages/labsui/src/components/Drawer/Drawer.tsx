@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { classNames } from '../../utils/classNames';
 import { IconButton } from '../IconButton/IconButton';
-import { Icon } from '../Icon/Icon';
 import { Heading } from '../Heading/Heading';
 
 export type DrawerPlacement = 'left' | 'right';
@@ -51,14 +50,14 @@ export const Drawer: React.FC<DrawerProps> = ({
             >
                 <div className="labs-drawer__header">
                     {title ? (
-                        <Heading size={5} className="labs-drawer__title">
+                        <Heading size="sm" className="labs-drawer__title">
                             {title}
                         </Heading>
                     ) : <div />}
                     <IconButton
                         variant="ghost"
                         size="sm"
-                        icon={<Icon name="close" size={20} />}
+                        icon="close"
                         onClick={onClose}
                         aria-label="Fechar"
                     />

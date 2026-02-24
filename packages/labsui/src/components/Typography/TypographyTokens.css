@@ -40,9 +40,9 @@
   line-height: var(--labs-line-height-tight);
 }
 
-.labs-heading--h1 { font-size: var(--labs-font-size-5xl); letter-spacing: -0.03em; }
-.labs-heading--h2 { font-size: var(--labs-font-size-4xl); letter-spacing: -0.02em; }
-.labs-heading--h3 { font-size: var(--labs-font-size-3xl); letter-spacing: -0.01em; }
-.labs-heading--h4 { font-size: var(--labs-font-size-2xl); }
-.labs-heading--h5 { font-size: var(--labs-font-size-xl); }
-.labs-heading--h6 { font-size: var(--labs-font-size-lg); text-transform: uppercase; letter-spacing: 0.05em; }
+.labs-heading--xl { font-size: var(--labs-font-size-5xl); letter-spacing: -0.03em; }
+.labs-heading--lg { font-size: var(--labs-font-size-4xl); letter-spacing: -0.02em; }
+.labs-heading--m { font-size: var(--labs-font-size-3xl); letter-spacing: -0.01em; }
+.labs-heading--s { font-size: var(--labs-font-size-2xl); }
+.labs-heading--sm { font-size: var(--labs-font-size-xl); }
+.labs-heading--xs { font-size: var(--labs-font-size-lg); text-transform: uppercase; letter-spacing: 0.05em; }

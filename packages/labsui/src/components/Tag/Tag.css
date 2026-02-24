@@ -13,9 +13,11 @@
 
 .labs-tag--default { background: var(--surface-soft); color: var(--text-muted); border-color: var(--border); }
 .labs-tag--primary { background: var(--primary-subtle); color: var(--primary); border-color: var(--primary-subtle); }
+.labs-tag--secondary { background: var(--labs-surface-soft); color: var(--labs-text2); border-color: var(--labs-border); }
 .labs-tag--success { background: rgba(16, 185, 129, 0.1); color: var(--success); }
 .labs-tag--warning { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
 .labs-tag--danger { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+.labs-tag--outline { background: transparent; color: var(--labs-primary); border-color: var(--labs-primary); }
 
 .labs-tag__remove {
   display: inline-flex;

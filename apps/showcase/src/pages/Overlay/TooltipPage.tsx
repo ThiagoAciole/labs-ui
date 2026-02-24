@@ -1,21 +1,61 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Tooltip, Button, Flex, Heading, Text } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const TooltipPage = () => (
-    <ShowcasePage title="Tooltip" description="Dicas contextuais ao passar o mouse." code={`<Tooltip content="Informação">Alvo</Tooltip>`}>
-        <Tooltip content="Isso é uma Labs Tooltip!">
-            <Button variant="outline">Passe o mouse aqui</Button>
-        </Tooltip>
-    </ShowcasePage>
-);
+export default function TooltipPage() {
+    return (
+        <Playground.Root
+            componentName="Tooltip"
+            defaultProps={{
+                content: 'Esta é uma dica contextual (Tooltip)!',
+                placement: 'top'
+            }}
+            controls={{
+                content: { type: 'text' },
+                placement: {
+                    type: 'select',
+                    options: [
+                        { value: 'top', label: 'Top' },
+                        { value: 'bottom', label: 'Bottom' },
+                        { value: 'left', label: 'Left' },
+                        { value: 'right', label: 'Right' }
+                    ]
+                }
+            }}
+        >
+            <ShowcasePage
+                title="Tooltip"
+                description="O Tooltip fornece informações breves e contextuais quando o usuário passa o mouse ou foca em um elemento."
+                aside={<Playground.Controls />}
+            >
+                <div style={{ padding: '4rem 0' }}>
+                    <Playground.Preview render={(props) => (
+                        <Flex justify="center">
+                            <Tooltip {...props}>
+                                <Button variant="outline">Passe o mouse ou foque aqui</Button>
+                            </Tooltip>
+                        </Flex>
+                    )} />
+                </div>
 
-export default TooltipPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Variantes</Heading>
+                    <div style={{ marginTop: '1.5rem', display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                        <Tooltip content="Informação útil" placement="left">
+                            <Button size="sm">Esquerda</Button>
+                        </Tooltip>
+                        <Tooltip content="Informação útil" placement="top">
+                            <Button size="sm">Cima</Button>
+                        </Tooltip>
+                        <Tooltip content="Informação útil" placement="bottom">
+                            <Button size="sm">Baixo</Button>
+                        </Tooltip>
+                        <Tooltip content="Informação útil" placement="right">
+                            <Button size="sm">Direita</Button>
+                        </Tooltip>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

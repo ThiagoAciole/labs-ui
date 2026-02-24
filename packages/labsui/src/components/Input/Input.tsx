@@ -1,5 +1,5 @@
 import './Input.css';
-import { classNames } from '../../utils/classNames';
+import { classNames, LabelFormater } from '../../utils';
 import React from 'react';
 export type InputSize = 'sm' | 'md' | 'lg';
 
@@ -10,18 +10,18 @@ export interface InputProps extends Omit<React.ComponentPropsWithoutRef<'input'>
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
     size?: InputSize;
-    fullWidth?: boolean;
+    full?: boolean;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    ({ label, error, hint, prefix, suffix, size = 'md', fullWidth = false, className, id, ...props }, ref) => {
-        const inputId = id ?? (label ? `labs-input-${label.toLowerCase().replace(/\s+/g, '-')}` : undefined);
+    ({ label, error, hint, prefix, suffix, size = 'md', full = false, className, id, ...props }, ref) => {
+        const inputId = id ?? (label ? `labs-input-${LabelFormater(label)}` : undefined);
 
         return (
-            <div className={classNames('labs-input-wrapper', fullWidth && 'labs-input-wrapper--full', className)}>
+            <div className={classNames('labs-input-wrapper', full && 'labs-input-wrapper--full', className)}>
                 {label && (
                     <label htmlFor={inputId} className="labs-input-label">
-                        {label}
+                        {LabelFormater(label)}
                     </label>
                 )}
                 <div className={classNames('labs-input-field', `labs-input-field--${size}`, error && 'labs-input-field--error', props.disabled && 'labs-input-field--disabled')}>

@@ -1,22 +1,59 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Tag, Heading, Flex, Icon } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const TagPage = () => (
-    <ShowcasePage title="Tag" description="Rótulos curtos e removíveis." code={`<Tag onRemove={() => {}}>React</Tag>`}>
-        <div style={{ display: 'flex', gap: '1rem' }}>
-            <Tag variant="primary">Design</Tag>
-            <Tag onRemove={() => alert('Removido')}>Frontend</Tag>
-        </div>
-    </ShowcasePage>
-);
+export default function TagPage() {
+    return (
+        <Playground.Root
+            componentName="Tag"
+            defaultProps={{
+                variant: 'primary',
+                size: 'md',
+                children: 'Design System',
+                closable: false
+            }}
+            controls={{
+                variant: {
+                    type: 'select',
+                    options: [
+                        { value: 'primary', label: 'Primary' },
+                        { value: 'secondary', label: 'Secondary' },
+                        { value: 'outline', label: 'Outline' },
+                        { value: 'ghost', label: 'Ghost' },
+                    ]
+                },
+                size: {
+                    type: 'select',
+                    options: [
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                    ]
+                },
+                closable: { type: 'boolean' },
+                children: { type: 'text' }
+            }}
+        >
+            <ShowcasePage
+                title="Tag"
+                description="As Tags são usadas para rotular, categorizar ou organizar itens usando palavras-chave."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <Tag {...props} onRemove={props.closable ? () => { } : undefined}>
+                        {props.children}
+                    </Tag>
+                )} />
 
-export default TagPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Exemplos com Ícones</Heading>
+                    <Flex gap="4" style={{ marginTop: '1.5rem', flexWrap: 'wrap' }}>
+                        <Tag leftIcon={<Icon name="spark" size={14} />}>Inovação</Tag>
+                        <Tag variant="secondary" leftIcon={<Icon name="rocket" size={14} />}>Lançamento</Tag>
+                        <Tag closable onRemove={() => { }}>Removível</Tag>
+                    </Flex>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

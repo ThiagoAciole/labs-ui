@@ -1,23 +1,55 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Loader, Heading, Flex } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const LoaderPage = () => (
-    <ShowcasePage title="Loader" description="Indicador de carregamento." code={`<Loader size="lg" />`}>
-        <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-            <Loader size="sm" />
-            <Loader size="md" />
-            <Loader size="lg" />
-        </div>
-    </ShowcasePage>
-);
+export default function LoaderPage() {
+    return (
+        <Playground.Root
+            componentName="Loader"
+            defaultProps={{
+                variant: 'primary',
+                size: 'md'
+            }}
+            controls={{
+                variant: {
+                    type: 'select',
+                    options: [
+                        { value: 'primary', label: 'Primary' },
+                        { value: 'secondary', label: 'Secondary' },
+                        { value: 'muted', label: 'Muted' },
+                    ]
+                },
+                size: {
+                    type: 'select',
+                    options: [
+                        { value: 'xs', label: 'Extra Small' },
+                        { value: 'sm', label: 'Small' },
+                        { value: 'md', label: 'Medium' },
+                        { value: 'lg', label: 'Large' },
+                        { value: 'xl', label: 'Extra Large' },
+                    ]
+                }
+            }}
+        >
+            <ShowcasePage
+                title="Loader"
+                description="O Loader é um componente visual usado para indicar que um conteúdo ou ação está em processo de carregamento."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <Loader {...props} />
+                )} />
 
-export default LoaderPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Escala de Tamanhos</Heading>
+                    <Flex gap="8" style={{ marginTop: '1.5rem', alignItems: 'center' }}>
+                        <Loader size="xs" />
+                        <Loader size="sm" />
+                        <Loader size="md" />
+                        <Loader size="lg" />
+                    </Flex>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

@@ -1,21 +1,45 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { FileUpload, Heading } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const FileUploadPage = () => (
-    <ShowcasePage title="FileUpload" description="Área para arrastar e enviar arquivos." code={`<FileUpload multiple onFileSelect={...} />`} noGrid>
-        <div style={{ maxWidth: '600px', width: '100%' }}>
-            <FileUpload multiple maxSize={5 * 1024 * 1024} accept="image/*, .pdf" />
-        </div>
-    </ShowcasePage>
-);
+export default function FileUploadPage() {
+    return (
+        <Playground.Root
+            componentName="FileUpload"
+            defaultProps={{
+                multiple: true,
+                disabled: false,
+                accept: 'image/*, .pdf',
+                maxSize: 5242880 // 5MB
+            }}
+            controls={{
+                multiple: { type: 'boolean' },
+                disabled: { type: 'boolean' },
+                accept: { type: 'text' }
+            }}
+        >
+            <ShowcasePage
+                title="FileUpload"
+                description="O FileUpload permite aos usuários fazer upload de arquivos através de clique ou arrastar e soltar (drag & drop)."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ width: '100%', maxWidth: '600px' }}>
+                        <FileUpload {...props} />
+                    </div>
+                )} />
 
-export default FileUploadPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Dicas de Uso</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li>Suporta múltiplos arquivos quando a prop <code>multiple</code> está ativa.</li>
+                            <li>Validação de tamanho de arquivo integrada.</li>
+                            <li>Feedback visual dinâmico durante o drag & drop.</li>
+                        </ul>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}

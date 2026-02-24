@@ -1,92 +1,80 @@
-import { useState } from 'react';
-import {
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox,
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead,
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState,
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs,
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress,
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider,
-    PageHeader, List, ListItem, MultiSelect, Text, Heading
-} from '@labsui/core';
+import { List, ListItem, Avatar, Badge, Icon, Heading } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
 export default function ListPage() {
-    const [variant, setVariant] = useState<any>('default');
-
-    const code = `<List variant="${variant}">
-  <ListItem 
-    startContent={<Avatar initials="JD" size="sm" />}
-    description="Software Engineer"
-    endContent={<Button size="sm" variant="ghost">Ver Perfil</Button>}
-  >
-    John Doe
-  </ListItem>
-  <ListItem 
-    startContent={<Avatar initials="AS" size="sm" color="success" />}
-    description="Product Manager"
-    endContent={<Button size="sm" variant="ghost">Ver Perfil</Button>}
-  >
-    Alice Smith
-  </ListItem>
-</List>`;
-
     return (
-        <ShowcasePage
-            title="List"
-            description="Exibe fluxos contínuos de itens em uma única coluna vertical. Muito comum para listagem de configurações, contatos ou itens leves de banco de dados."
-            code={code}
-            controls={
-                <Select
-                    label="Variante"
-                    value={variant}
-                    onChange={(val) => setVariant(val)}
-                    options={[
+        <Playground.Root
+            componentName="List"
+            defaultProps={{
+                variant: 'default'
+            }}
+            controls={{
+                variant: {
+                    type: 'select',
+                    options: [
                         { value: 'default', label: 'Default' },
                         { value: 'bordered', label: 'Bordered' },
                         { value: 'divided', label: 'Divided' }
-                    ]}
-                />
-            }
+                    ]
+                }
+            }}
         >
-            <div style={{ width: '100%', maxWidth: '500px' }}>
-                <List variant={variant}>
-                    <ListItem
-                        startContent={<Avatar initials="CS" size="sm" />}
-                        description="csilva@labs.com"
-                        endContent={<Badge variant="success">Ativo</Badge>}
-                        onClick={() => alert("Clicou Carlos")}
-                    >
-                        Carlos Silva
-                    </ListItem>
+            <ShowcasePage
+                title="List"
+                description="Exibe fluxos contínuos de itens em uma única coluna vertical. Muito comum para listagem de configurações, contatos ou itens leves de banco de dados."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <div style={{ width: '100%', maxWidth: '500px' }}>
+                        <List {...props}>
+                            <ListItem
+                                startContent={<Avatar initials="CS" size="sm" />}
+                                description="csilva@labs.com"
+                                endContent={<Badge variant="success">Ativo</Badge>}
+                            >
+                                Carlos Silva
+                            </ListItem>
 
-                    <ListItem
-                        startContent={<Avatar initials="MC" size="sm" color="primary" />}
-                        description="mclara@labs.com"
-                        endContent={<Badge variant="warning">Pausado</Badge>}
-                        onClick={() => alert("Clicou Maria")}
-                    >
-                        Maria Clara
-                    </ListItem>
+                            <ListItem
+                                startContent={<Avatar initials="MC" size="sm" color="primary" />}
+                                description="mclara@labs.com"
+                                endContent={<Badge variant="warning">Pausado</Badge>}
+                            >
+                                Maria Clara
+                            </ListItem>
 
-                    <ListItem
-                        startContent={<Avatar initials="JP" size="sm" color="danger" />}
-                        description="jpedro@labs.com"
-                        endContent={<Badge variant="danger">Inativo</Badge>}
-                        disabled
-                    >
-                        João Pedro
-                    </ListItem>
+                            <ListItem
+                                startContent={<Avatar initials="JP" size="sm" color="danger" />}
+                                description="jpedro@labs.com"
+                                endContent={<Badge variant="danger">Inativo</Badge>}
+                                disabled
+                            >
+                                João Pedro
+                            </ListItem>
 
-                    <ListItem
-                        startContent={<Icon name="settings" size={24} />}
-                        description="Gerencie as configurações da sua organização."
-                        endContent={<Icon name="chevron-right" size={16} />}
-                        onClick={() => alert("Navegando...")}
-                    >
-                        Configurações Globais
-                    </ListItem>
-                </List>
-            </div>
-        </ShowcasePage>
+                            <ListItem
+                                startContent={<Icon name="settings" size={24} />}
+                                description="Gerencie as configurações da sua organização."
+                                endContent={<Icon name="chevron-right" size={16} />}
+                            >
+                                Configurações Globais
+                            </ListItem>
+                        </List>
+                    </div>
+                )} />
+
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Dicas de Uso</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li>Use <code>ListItem</code> para itens que tenham uma estrutura consistente (título, descrição, conteúdo extra).</li>
+                            <li>A variante <code>divided</code> é excelente para separar itens visualmente sem adicionar bordas externas.</li>
+                            <li>Tente manter o <code>endContent</code> com elementos simples como Badges, Ícones ou botões pequenos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
     );
 }

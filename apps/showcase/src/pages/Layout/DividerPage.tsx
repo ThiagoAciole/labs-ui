@@ -1,22 +1,55 @@
-import { useState } from 'react';
-import { 
-    Icon, Button, IconButton, Badge, Input, TextArea, Search, Select, Checkbox, 
-    Radio, Switch, Slider, DatePicker, FileUpload, Avatar, Tag, Table, Thead, 
-    Tbody, Tr, Th, Td, Timeline, TimelineItem, Accordion, AccordionItem, EmptyState, 
-    Image, Card, CardBody, CardHeader, CardFooter, Link, Breadcrumb, Tabs, 
-    Pagination, DropdownMenu, TopBar, ToastProvider, useToast, Loader, Progress, 
-    Skeleton, Modal, Drawer, Tooltip, Container, Flex, Grid, Spacer, Divider, 
-    PageHeader, List, ListItem, MultiSelect, Text, Heading, IconName 
-} from '@labsui/core';
+import { Divider, Heading, Text, Flex } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
+import Playground from '../../components/Playground';
 
-export const DividerPage = () => (
-    <ShowcasePage title="Divider" description="Separador visual." code={`<Divider label="OU" />`}>
-        <div style={{ width: '100%', maxWidth: '400px', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            <Divider />
-            <Divider label="Separador com Texto" />
-        </div>
-    </ShowcasePage>
-);
+export default function DividerPage() {
+    return (
+        <Playground.Root
+            componentName="Divider"
+            defaultProps={{
+                label: '',
+                orientation: 'horizontal'
+            }}
+            controls={{
+                label: { type: 'text' },
+                orientation: {
+                    type: 'select',
+                    options: [
+                        { value: 'horizontal', label: 'Horizontal' },
+                        { value: 'vertical', label: 'Vertical' }
+                    ]
+                }
+            }}
+        >
+            <ShowcasePage
+                title="Divider"
+                description="O Divider é um elemento visual sutil usado para separar seções de conteúdo ou agrupar elementos relacionados."
+                aside={<Playground.Controls />}
+            >
+                <Playground.Preview render={(props) => (
+                    <Flex
+                        direction={props.orientation === 'vertical' ? 'row' : 'column'}
+                        justify="center"
+                        align="center"
+                        style={{ minHeight: '150px', width: '100%' }}
+                    >
+                        <Text color="secondary">Seção Anterior</Text>
+                        <Divider {...props} style={props.orientation === 'vertical' ? { height: '100px' } : { width: '100%' }} />
+                        <Text color="secondary">Seção Posterior</Text>
+                    </Flex>
+                )} />
 
-export default DividerPage;
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Uso Sugerido</Heading>
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <ul>
+                            <li><strong>Semântica:</strong> Use dividers para separar logicamente diferentes tópicos em uma página.</li>
+                            <li><strong>Labels:</strong> Adicione labels curtos (como "OU" ou "OU ENTRAR COM") para adicionar contexto ao separador.</li>
+                            <li><strong>Vertical:</strong> Em barras de ferramentas (toolbars), use divisores verticais para agrupar botões de funções similares.</li>
+                        </ul>
+                    </div>
+                </div>
+            </ShowcasePage>
+        </Playground.Root>
+    );
+}
