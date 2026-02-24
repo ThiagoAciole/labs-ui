@@ -17,7 +17,7 @@ const IconsPage = () => {
         navigator.clipboard.writeText(name);
         toast({
             title: `Icone ${name} Copiado!`,
-            variant: 'success'
+            color: 'green'
         });
     };
 
@@ -49,14 +49,14 @@ const IconsPage = () => {
                     type: 'select',
                     options: [
                         { value: 'currentColor', label: 'Current Color' },
-                        { value: 'var(--labs-primary)', label: 'Primary' },
-                        { value: 'var(--labs-secondary)', label: 'Secondary' },
-                        { value: 'var(--success)', label: 'Success' },
-                        { value: 'var(--warning)', label: 'Warning' },
-                        { value: 'var(--danger)', label: 'Danger' },
-                        { value: 'var(--info)', label: 'Info' },
-                        { value: 'var(--text)', label: 'Text' },
-                        { value: 'var(--text-muted)', label: 'Muted' }
+                        { value: 'var(--color--violet)', label: 'Primary' },
+                        { value: 'var(--color--grayLight)', label: 'Secondary' },
+                        { value: 'var(--color--green)', label: 'Success' },
+                        { value: 'var(--color--yellow)', label: 'Warning' },
+                        { value: 'var(--color--red)', label: 'Danger' },
+                        { value: 'var(--color--blue)', label: 'Info' },
+                        { value: 'var(--color--gray)', label: 'Text' },
+                        { value: 'var(--color--grayLight)', label: 'Muted' }
                     ]
                 }
             }}
@@ -86,11 +86,11 @@ const IconsPage = () => {
                             cursor: 'pointer',
                             transform: previewHovered ? 'translateY(-4px)' : 'translateY(0)',
                             boxShadow: previewHovered ? '0 10px 24px rgba(0, 0, 0, 0.12)' : 'none',
-                            borderColor: previewHovered ? 'var(--labs-primary)' : undefined
+                            borderColor: previewHovered ? 'var(--color--violet)' : undefined
                         }}
                     >
                         <Icon name={props.name} size={props.size} color={props.color} />
-                        <Text size="xs" color="secondary" weight="medium">{props.name}</Text>
+                        <Text size="xs" color="gray" weight="medium">{props.name}</Text>
                     </Card>
                 )} />
 
@@ -128,13 +128,13 @@ const IconsPage = () => {
                                     cursor: 'pointer',
                                     transform: hoveredGridIcon === name ? 'translateY(-4px)' : 'translateY(0)',
                                     boxShadow: hoveredGridIcon === name ? '0 10px 24px rgba(0, 0, 0, 0.12)' : 'none',
-                                    borderColor: hoveredGridIcon === name ? 'var(--labs-primary)' : undefined
+                                    borderColor: hoveredGridIcon === name ? 'var(--color--violet)' : undefined
                                 }}
                             >
                                 <Icon name={name} size={32} />
                                 <Text
                                     size="xs"
-                                    color="secondary"
+                                    color="gray"
                                     weight="medium"
                                     style={{
                                         whiteSpace: 'nowrap',
@@ -151,7 +151,7 @@ const IconsPage = () => {
 
                     {filteredIcons.length === 0 && (
                         <div style={{ padding: '3rem', textAlign: 'center' }}>
-                            <Text color="muted">Nenhum icone encontrado para "{search}"</Text>
+                            <Text color="grayDark">Nenhum icone encontrado para "{search}"</Text>
                         </div>
                     )}
                 </div>
@@ -161,3 +161,7 @@ const IconsPage = () => {
 };
 
 export default IconsPage;
+
+
+
+

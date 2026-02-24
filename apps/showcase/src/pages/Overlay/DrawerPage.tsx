@@ -50,7 +50,7 @@ export default function DrawerPage() {
                             onClose={() => setOpen(false)}
                             footer={
                                 <Flex gap="2">
-                                    <Button variant="ghost" full onClick={() => setOpen(false)}>Cancelar</Button>
+                                    <Button appearance="ghost" full onClick={() => setOpen(false)}>Cancelar</Button>
                                     <Button full onClick={() => setOpen(false)}>Salvar Mudanças</Button>
                                 </Flex>
                             }
@@ -82,3 +82,7 @@ export default function DrawerPage() {
         </Playground.Root>
     );
 }
+
+
+
+

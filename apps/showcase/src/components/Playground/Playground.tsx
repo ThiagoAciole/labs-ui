@@ -94,14 +94,16 @@ function Preview({ render }: PreviewProps) {
                 <IconButton
                     icon="grid"
                     size="sm"
-                    variant={bgType === 'grid' ? 'primary' : 'ghost'}
+                    appearance={bgType === 'grid' ? 'solid' : 'ghost'}
+                    color={bgType === 'grid' ? 'violet' : 'gray'}
                     onClick={() => setBgType('grid')}
                     aria-label="Fundo em grade"
                 />
                 <IconButton
                     icon="grip"
                     size="sm"
-                    variant={bgType === 'grip' ? 'primary' : 'ghost'}
+                    appearance={bgType === 'grip' ? 'solid' : 'ghost'}
+                    color={bgType === 'grip' ? 'violet' : 'gray'}
                     onClick={() => setBgType('grip')}
                     aria-label="Fundo em pontos"
                 />
@@ -133,7 +135,7 @@ function Controls() {
                     <IconButton
                         icon="refresh"
                         size="sm"
-                        variant="ghost"
+                        appearance="ghost" color="gray"
                         onClick={resetProps}
                         aria-label="Limpar propriedades"
                     />
@@ -202,7 +204,7 @@ function Controls() {
                             <IconButton
                                 icon={copied ? 'check' : 'copy'}
                                 size="sm"
-                                variant="ghost"
+                                appearance="ghost" color="gray"
                                 onClick={handleCopy}
                                 className={copied ? 'copy-success' : ''}
                                 aria-label="Copy source"
@@ -226,3 +228,8 @@ const Playground = {
 
 export default Playground;
 export { Root, Preview, Controls };
+
+
+
+
+

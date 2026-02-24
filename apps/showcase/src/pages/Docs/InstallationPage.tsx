@@ -66,7 +66,7 @@ function App() {
             <Card style={{ flex: '1 1 300px' }}>
               <CardBody>
                 <Flex align="center" gap="4" style={{ marginBottom: '1rem' }}>
-                  <Icon name="sparkles" color="var(--primary)" />
+                  <Icon name="sparkles" color="var(--color--violet)" />
                   <Heading size="s">Estetica premium</Heading>
                 </Flex>
                 <Text size="sm" color="secondary">
@@ -77,7 +77,7 @@ function App() {
             <Card style={{ flex: '1 1 300px' }}>
               <CardBody>
                 <Flex align="center" gap="4" style={{ marginBottom: '1rem' }}>
-                  <Icon name="theme-dark" color="var(--primary)" />
+                  <Icon name="theme-dark" color="var(--color--violet)" />
                   <Heading size="s">Dark Mode nativo</Heading>
                 </Flex>
                 <Text size="sm" color="secondary">
@@ -93,3 +93,7 @@ function App() {
 };
 
 export default InstallationPage;
+
+
+
+

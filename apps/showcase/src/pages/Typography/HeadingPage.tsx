@@ -10,7 +10,7 @@ export default function HeadingPage() {
                 size: 'xl',
                 children: 'Design System Premium',
                 align: 'left',
-                color: 'default'
+                color: 'gray'
             }}
             controls={{
                 size: {
@@ -68,3 +68,7 @@ export default function HeadingPage() {
         </Playground.Root>
     );
 }
+
+
+
+

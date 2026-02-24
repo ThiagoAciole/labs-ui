@@ -1,0 +1,14 @@
+.labs-link {
+  --labs-link-color: var(--color--violet);
+  color: var(--labs-link-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition--fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space--1);
+}
+.labs-link:hover { opacity: 0.85; }
+.labs-link--underline { border-bottom: 1px solid transparent; }
+.labs-link--underline:hover { border-bottom-color: currentColor; }
+.labs-link--active { font-weight: var(--font--weight--bold); }

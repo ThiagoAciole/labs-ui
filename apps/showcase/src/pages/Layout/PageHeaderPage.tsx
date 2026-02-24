@@ -20,7 +20,7 @@ export default function PageHeaderPage() {
                 description="O PageHeader é usado para definir o contexto de uma página, fornecendo o título principal, uma descrição breve e ações primárias."
                 aside={<Playground.Controls />}
             >
-                <div style={{ background: 'var(--surface-soft)', padding: '2rem', borderRadius: 'var(--labs-radius-xl)' }}>
+                <div style={{ background: 'var(--color--grayLight)', padding: '2rem', borderRadius: 'var(--radius--xl)' }}>
                     <Playground.Preview render={(props) => (
                         <PageHeader
                             {...props}
@@ -33,8 +33,8 @@ export default function PageHeaderPage() {
                             }
                             action={
                                 <Flex gap="2">
-                                    <Button variant="ghost" size="sm" leftIcon={<Icon name="settings" size={16} />}>Configurar</Button>
-                                    <Button variant="primary" size="sm" leftIcon={<Icon name="plus" size={16} />}>Nova Instância</Button>
+                                    <Button appearance="ghost" size="sm" icon="settings">Configurar</Button>
+                                    <Button appearance="solid" color="violet" size="sm" icon="plus">Nova Instância</Button>
                                 </Flex>
                             }
                         />
@@ -55,3 +55,7 @@ export default function PageHeaderPage() {
         </Playground.Root>
     );
 }
+
+
+
+

@@ -15,8 +15,8 @@ export default function TopBarPage() {
 
     const extraContent = (
         <div style={{ display: 'flex', gap: '8px' }}>
-            <IconButton variant="ghost" size="sm" icon="search" aria-label="Search" />
-            <IconButton variant="ghost" size="sm" icon="user" aria-label="User Profile" />
+            <IconButton appearance="ghost" color="gray" size="sm" icon="search" aria-label="Search" />
+            <IconButton appearance="ghost" color="gray" size="sm" icon="user" aria-label="User Profile" />
         </div>
     );
 
@@ -47,9 +47,9 @@ export default function TopBarPage() {
                 description="O TopBar é o elemento principal de navegação superior, fornecendo branding, links de navegação e controles globais como troca de tema."
                 aside={<Playground.Controls />}
             >
-                <div style={{ background: 'var(--surface-soft)', padding: '2rem', borderRadius: 'var(--labs-radius-xl)', overflow: 'hidden' }}>
+                <div style={{ background: 'var(--color--grayLight)', padding: '2rem', borderRadius: 'var(--radius--xl)', overflow: 'hidden' }}>
                     <Playground.Preview render={(props) => (
-                        <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--labs-radius-lg)', overflow: 'hidden' }}>
+                        <div style={{ border: '1px solid var(--color--grayDark)', borderRadius: 'var(--radius--lg)', overflow: 'hidden' }}>
                             <TopBar
                                 {...props}
                                 navItems={navItems}
@@ -73,3 +73,7 @@ export default function TopBarPage() {
         </Playground.Root>
     );
 }
+
+
+
+

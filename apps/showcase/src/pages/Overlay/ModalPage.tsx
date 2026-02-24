@@ -44,7 +44,7 @@ export default function ModalPage() {
                             onClose={() => setOpen(false)}
                             footer={
                                 <Flex justify="flex-end" gap="2">
-                                    <Button variant="ghost" onClick={() => setOpen(false)}>Cancelar</Button>
+                                    <Button appearance="ghost" onClick={() => setOpen(false)}>Cancelar</Button>
                                     <Button onClick={() => setOpen(false)}>Confirmar</Button>
                                 </Flex>
                             }
@@ -72,3 +72,7 @@ export default function ModalPage() {
         </Playground.Root>
     );
 }
+
+
+
+

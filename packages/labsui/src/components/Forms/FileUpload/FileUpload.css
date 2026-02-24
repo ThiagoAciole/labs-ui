@@ -1,0 +1,146 @@
+.labs-file-upload {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--space--4);
+}
+
+.labs-file-upload__dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space--12) var(--space--4);
+  background-color: var(--color--grayLight);
+  border: 2px dashed var(--color--grayDark);
+  border-radius: var(--radius--lg);
+  cursor: pointer;
+  transition: all var(--transition--normal);
+}
+
+.labs-file-upload__dropzone:hover {
+  background-color: var(--color--grayLight);
+  border-color: var(--color--violet);
+}
+
+.labs-file-upload__dropzone--dragging {
+  background-color: var(--color--violetLight);
+  border-color: var(--color--violet);
+}
+
+.labs-file-upload__dropzone--error {
+  border-color: var(--color--red);
+}
+
+.labs-file-upload__dropzone--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--color--grayDark);
+}
+
+.labs-file-upload__input {
+  display: none;
+}
+
+.labs-file-upload__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.labs-file-upload__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius--pill);
+  background-color: var(--color--grayLight);
+  color: var(--color--violet);
+  margin-bottom: var(--space--4);
+}
+
+.labs-file-upload__title {
+  font-size: var(--font--size--md);
+  font-weight: 600;
+  color: var(--color--gray);
+  margin-bottom: var(--space--2);
+}
+
+.labs-file-upload__description {
+  font-size: var(--font--size--sm);
+  color: var(--color--grayDark);
+}
+
+.labs-file-upload__error-text {
+  font-size: var(--font--size--sm);
+  color: var(--color--red);
+  margin-top: -var(--space--2);
+}
+
+.labs-file-upload__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space--2);
+}
+
+.labs-file-upload__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space--3);
+  background-color: var(--color--grayLight);
+  border: 1px solid var(--color--grayDark);
+  border-radius: var(--radius--md);
+}
+
+.labs-file-upload__file-info {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space--2);
+  overflow: hidden;
+}
+
+.labs-file-upload__file-name {
+  font-size: var(--font--size--sm);
+  color: var(--color--gray);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.labs-file-upload__file-size {
+  font-size: var(--font--size--xs);
+  color: var(--color--grayDark);
+}
+
+.labs-file-upload__remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--color--grayDark);
+  cursor: pointer;
+  padding: var(--space--1);
+  border-radius: var(--radius--sm);
+  transition: all var(--transition--fast);
+}
+
+.labs-file-upload__remove-btn:hover {
+  color: var(--color--red);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+
+
+
+

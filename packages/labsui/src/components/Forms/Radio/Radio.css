@@ -1,0 +1,116 @@
+.labs-radio__wrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space--2);
+  cursor: pointer;
+  vertical-align: top;
+}
+
+.labs-radio__input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.labs-radio__input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: inherit;
+  z-index: 1;
+}
+
+.labs-radio__control {
+  position: relative;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius--pill);
+  border: 2px solid var(--color--grayDark);
+  background-color: var(--color--gray);
+  transition: all var(--transition--normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.labs-radio__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius--pill);
+  background-color: var(--color--violet);
+  transform: scale(0);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.labs-radio__wrapper:hover .labs-radio__control {
+  border-color: var(--color--violet);
+}
+
+.labs-radio__input:checked + .labs-radio__control {
+  border-color: var(--color--violet);
+}
+
+.labs-radio__input:checked + .labs-radio__control .labs-radio__dot {
+  transform: scale(1);
+}
+
+.labs-radio__input:focus-visible + .labs-radio__control {
+  outline: 2px solid var(--color--violet);
+  outline-offset: 2px;
+}
+
+.labs-radio__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.labs-radio__label {
+  font-size: var(--font--size--sm);
+  font-weight: 600;
+  color: var(--color--gray);
+  line-height: normal;
+}
+
+.labs-radio__description {
+  font-size: var(--font--size--xs);
+  color: var(--color--gray);
+  line-height: var(--line--height--sm);
+}
+
+/* Error State */
+.labs-radio--error .labs-radio__control {
+  border-color: var(--color--red);
+}
+
+.labs-radio--error .labs-radio__dot {
+  background-color: var(--color--red);
+}
+
+/* Disabled State */
+.labs-radio--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.labs-radio--disabled .labs-radio__control {
+  background-color: var(--color--grayDark);
+  border-color: var(--color--grayDark);
+}
+
+.labs-radio--disabled .labs-radio__input:checked + .labs-radio__control .labs-radio__dot {
+  background-color: var(--color--grayDark);
+}
+
+
+
+
+

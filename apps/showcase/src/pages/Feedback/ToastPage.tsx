@@ -8,64 +8,26 @@ export default function ToastPage() {
     return (
         <Playground.Root
             componentName="Toast"
-            defaultProps={{
-                title: 'Notificação',
-                description: 'Esta é uma mensagem de exemplo.',
-                variant: 'default',
-                duration: 3000
-            }}
+            defaultProps={{ title: 'Notificacao', description: 'Esta e uma mensagem de exemplo.', color: 'violet', duration: 3000 }}
             controls={{
                 title: { type: 'text' },
                 description: { type: 'text' },
-                variant: {
-                    type: 'select',
-                    options: [
-                        { value: 'default', label: 'Default' },
-                        { value: 'success', label: 'Success' },
-                        { value: 'danger', label: 'Danger' },
-                        { value: 'warning', label: 'Warning' },
-                        { value: 'info', label: 'Info' }
-                    ]
-                },
+                color: { type: 'select', options: [ { value: 'violet', label: 'Violet' }, { value: 'green', label: 'Green' }, { value: 'red', label: 'Red' }, { value: 'yellow', label: 'Yellow' }, { value: 'blue', label: 'Blue' }, { value: 'gray', label: 'Gray' } ] },
                 duration: { type: 'number' }
             }}
         >
-            <ShowcasePage
-                title="Toast"
-                description="O Toast fornece feedback temporário e não intrusivo sobre o resultado de uma ação ou um alerta do sistema."
-                aside={<Playground.Controls />}
-            >
+            <ShowcasePage title="Toast" description="Toast orientado por TokenColor." aside={<Playground.Controls />}>
                 <Playground.Preview render={(props) => (
                     <Flex justify="center" align="center" style={{ minHeight: '100px' }}>
-                        <Button
-                            onClick={() => toast({
-                                title: props.title,
-                                description: props.description,
-                                variant: props.variant,
-                                duration: props.duration
-                            })}
-                        >
-                            Disparar Notificação
-                        </Button>
+                        <Button onClick={() => toast({ title: props.title, description: props.description, color: props.color, duration: props.duration })}>Disparar Notificacao</Button>
                     </Flex>
                 )} />
-
                 <div style={{ marginTop: '4rem' }}>
                     <Heading size="m">Como usar</Heading>
                     <div style={{ marginTop: '1.5rem' }}>
-                        <Text>
-                            O sistema de Toasts da LabsUI requer que você envolva sua aplicação com o <code>ToastProvider</code>. Depois, você pode usar o hook <code>useToast</code> para disparar notificações de qualquer lugar.
-                        </Text>
-                        <pre style={{
-                            background: 'var(--surface-soft)',
-                            padding: '1.5rem',
-                            borderRadius: 'var(--labs-radius-lg)',
-                            marginTop: '1.5rem',
-                            fontSize: '0.875rem',
-                            color: 'var(--primary)',
-                            overflow: 'auto'
-                        }}>
-                            <code>{`const { toast } = useToast();\n\ntoast({\n  title: "Arquivo Salvo",\n  variant: "success"\n});`}</code>
+                        <Text>Use o <code>ToastProvider</code> e o hook <code>useToast</code>.</Text>
+                        <pre style={{ background: 'var(--color--grayLight)', padding: '1.5rem', borderRadius: 'var(--radius--lg)', marginTop: '1.5rem', fontSize: '0.875rem', color: 'var(--color--violet)', overflow: 'auto' }}>
+                            <code>{`const { toast } = useToast();\n\ntoast({\n  title: "Arquivo Salvo",\n  color: "green"\n});`}</code>
                         </pre>
                     </div>
                 </div>
@@ -73,3 +35,4 @@ export default function ToastPage() {
         </Playground.Root>
     );
 }
+

@@ -6,40 +6,14 @@ export default function LoaderPage() {
     return (
         <Playground.Root
             componentName="Loader"
-            defaultProps={{
-                variant: 'primary',
-                size: 'md'
-            }}
+            defaultProps={{ color: 'violet', size: 'md' }}
             controls={{
-                variant: {
-                    type: 'select',
-                    options: [
-                        { value: 'primary', label: 'Primary' },
-                        { value: 'secondary', label: 'Secondary' },
-                        { value: 'muted', label: 'Muted' },
-                    ]
-                },
-                size: {
-                    type: 'select',
-                    options: [
-                        { value: 'xs', label: 'Extra Small' },
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' },
-                        { value: 'xl', label: 'Extra Large' },
-                    ]
-                }
+                color: { type: 'select', options: [ { value: 'violet', label: 'Violet' }, { value: 'blue', label: 'Blue' }, { value: 'green', label: 'Green' }, { value: 'yellow', label: 'Yellow' }, { value: 'red', label: 'Red' }, { value: 'gray', label: 'Gray' } ] },
+                size: { type: 'select', options: [ { value: 'xs', label: 'XS' }, { value: 'sm', label: 'Small' }, { value: 'md', label: 'Medium' }, { value: 'lg', label: 'Large' } ] }
             }}
         >
-            <ShowcasePage
-                title="Loader"
-                description="O Loader é um componente visual usado para indicar que um conteúdo ou ação está em processo de carregamento."
-                aside={<Playground.Controls />}
-            >
-                <Playground.Preview render={(props) => (
-                    <Loader {...props} />
-                )} />
-
+            <ShowcasePage title="Loader" description="Loader orientado por TokenColor." aside={<Playground.Controls />}>
+                <Playground.Preview render={(props) => <Loader {...props} />} />
                 <div style={{ marginTop: '4rem' }}>
                     <Heading size="m">Escala de Tamanhos</Heading>
                     <Flex gap="8" style={{ marginTop: '1.5rem', alignItems: 'center' }}>
@@ -53,3 +27,4 @@ export default function LoaderPage() {
         </Playground.Root>
     );
 }
+

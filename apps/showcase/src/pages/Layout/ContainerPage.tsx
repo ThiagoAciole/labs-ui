@@ -28,8 +28,8 @@ export default function ContainerPage() {
                 aside={<Playground.Controls />}
             >
                 <Playground.Preview render={(props) => (
-                    <div style={{ width: '100%', background: 'var(--hover)', padding: '2rem', borderRadius: 'var(--labs-radius-lg)' }}>
-                        <Container {...props} style={{ background: 'var(--primary)', color: 'var(--text-inverse)', padding: '2rem', textAlign: 'center', borderRadius: 'var(--labs-radius-md)' }}>
+                    <div style={{ width: '100%', background: 'var(--color--grayLight)', padding: '2rem', borderRadius: 'var(--radius--lg)' }}>
+                        <Container {...props} style={{ background: 'var(--color--violet)', color: 'var(--color--grayLight)', padding: '2rem', textAlign: 'center', borderRadius: 'var(--radius--md)' }}>
                             <Heading size="s" style={{ color: 'inherit' }}>Conteúdo do Container</Heading>
                             <Text>Largura máxima baseada no tamanho: {props.size}</Text>
                         </Container>
@@ -51,3 +51,7 @@ export default function ContainerPage() {
         </Playground.Root>
     );
 }
+
+
+
+

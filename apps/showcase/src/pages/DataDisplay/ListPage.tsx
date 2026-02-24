@@ -31,7 +31,7 @@ export default function ListPage() {
                             <ListItem
                                 startContent={<Avatar initials="CS" size="sm" />}
                                 description="csilva@labs.com"
-                                endContent={<Badge variant="success">Ativo</Badge>}
+                                endContent={<Badge color="green">Ativo</Badge>}
                             >
                                 Carlos Silva
                             </ListItem>
@@ -39,7 +39,7 @@ export default function ListPage() {
                             <ListItem
                                 startContent={<Avatar initials="MC" size="sm" color="primary" />}
                                 description="mclara@labs.com"
-                                endContent={<Badge variant="warning">Pausado</Badge>}
+                                endContent={<Badge color="yellow">Pausado</Badge>}
                             >
                                 Maria Clara
                             </ListItem>
@@ -47,7 +47,7 @@ export default function ListPage() {
                             <ListItem
                                 startContent={<Avatar initials="JP" size="sm" color="danger" />}
                                 description="jpedro@labs.com"
-                                endContent={<Badge variant="danger">Inativo</Badge>}
+                                endContent={<Badge color="red">Inativo</Badge>}
                                 disabled
                             >
                                 João Pedro
@@ -78,3 +78,7 @@ export default function ListPage() {
         </Playground.Root>
     );
 }
+
+
+
+

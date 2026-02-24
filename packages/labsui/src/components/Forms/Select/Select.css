@@ -1,0 +1,173 @@
+.labs-select-wrapper { 
+  display: inline-flex; 
+  flex-direction: column; 
+  gap: var(--space--1); 
+  position: relative;
+  transition: z-index var(--transition--fast);
+}
+.labs-select-wrapper:focus-within {
+  z-index: var(--z--dropdown);
+}
+.labs-select-wrapper--full { width: 100%; }
+
+.labs-select-label { 
+  font-size: var(--font--size--sm); 
+  font-weight: 500; 
+  color: var(--color--gray); 
+}
+
+.labs-select-field {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius--md);
+  position: relative;
+  transition: all var(--transition--fast);
+  cursor: pointer;
+  user-select: none;
+}
+
+.labs-select-field:hover:not(.labs-select-field--disabled) {
+  border-color: var(--color--violet);
+  opacity: 0.9;
+}
+
+.labs-select-field--muted {
+  border-color: var(--color--violet);
+  box-shadow: 0 0 0 3px var(--color--violetLight);
+}
+
+.labs-select-field--error { border-color: var(--color--red); }
+.labs-select-field--disabled { 
+  opacity: 0.5; 
+  cursor: not-allowed;
+}
+
+.labs-select-field--sm { height: 2rem; font-size: var(--font--size--sm); }
+.labs-select-field--md { height: 2.5rem; font-size: var(--font--size--md); }
+.labs-select-field--lg { height: 3rem; font-size: var(--font--size--lg); }
+
+.labs-select-field__value {
+  flex: 1;
+  padding: 0 var(--space--3);
+  color: var(--color--gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.labs-select-field__value--placeholder {
+  color: var(--color--gray);
+  opacity: 0.6;
+}
+
+.labs-select-field__icon {
+  margin-right: var(--space--3);
+  color: var(--color--gray);
+  transition: transform var(--transition--normal);
+  display: flex;
+}
+
+.labs-select-field--muted .labs-select-field__icon {
+  transform: rotate(180deg);
+}
+
+/* Custom Dropdown Menu */
+.labs-select-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: var(--space--2);
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius--lg);
+  box-shadow: var(--shadow--lg);
+  z-index: var(--z--dropdown);
+  overflow: hidden;
+  padding: var(--space--1);
+  animation: labs-select-fade-in var(--transition--fast);
+}
+
+.labs-select-menu__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.labs-select-menu__option {
+  padding: var(--space--2) var(--space--3);
+  border-radius: var(--radius--md);
+  color: var(--color--gray);
+  cursor: pointer;
+  transition: background var(--transition--fast);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.labs-select-menu__option:hover:not(.labs-select-menu__option--disabled) {
+  background: var(--hover-surface);
+}
+
+.labs-select-menu__option--selected {
+  background: var(--color--violetLight);
+  color: var(--color--violet);
+  font-weight: 500;
+}
+
+.labs-select-menu__option--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes labs-select-fade-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.labs-select-message { font-size: var(--font--size--xs); color: var(--color--gray); margin-top: 2px; }
+.labs-select-message--error { color: var(--color--red); }
+
+.labs-select-menu__search {
+  padding: var(--space--1);
+  margin-bottom: var(--space--1);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color--grayDark);
+}
+
+.labs-select-menu__search-icon {
+  margin-right: var(--space--2);
+  color: var(--color--gray);
+}
+
+.labs-select-menu__search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--color--gray);
+  font-size: var(--font--size--sm);
+  outline: none;
+  padding: var(--space--2) 0;
+}
+
+.labs-select-menu__search-input::placeholder {
+  color: var(--color--gray);
+}
+
+.labs-select-menu__empty {
+  padding: var(--space--2) var(--space--3);
+  color: var(--color--gray);
+  font-size: var(--font--size--sm);
+  text-align: center;
+}
+
+
+
+
+
+

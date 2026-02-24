@@ -75,3 +75,7 @@ export const TablePage = () => {
 };
 
 export default TablePage;
+
+
+
+

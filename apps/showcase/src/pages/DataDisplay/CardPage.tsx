@@ -50,7 +50,7 @@ export default function CardPage() {
                                 </Text>
                             </CardBody>
                             <CardFooter>
-                                <Button variant="ghost" size="sm">Ignorar</Button>
+                                <Button appearance="ghost" size="sm">Ignorar</Button>
                                 <Button size="sm">Explorar</Button>
                             </CardFooter>
                         </Card>
@@ -71,3 +71,7 @@ export default function CardPage() {
         </Playground.Root >
     );
 }
+
+
+
+

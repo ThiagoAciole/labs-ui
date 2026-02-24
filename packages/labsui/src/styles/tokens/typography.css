@@ -1,0 +1,21 @@
+:root {
+  --font--family: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
+  --font--weight--regular: 400;
+  --font--weight--medium: 500;
+  --font--weight--bold: 700;
+
+  --font--size--xs: 0.75rem;
+  --font--size--sm: 0.875rem;
+  --font--size--md: 1rem;
+  --font--size--lg: 1.125rem;
+  --font--size--xl: 1.25rem;
+  --font--size--2xl: 1.5rem;
+
+  --line--height--sm: 1.25;
+  --line--height--md: 1.5;
+  --line--height--lg: 1.625;
+}
+
+
+
+

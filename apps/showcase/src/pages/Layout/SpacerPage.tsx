@@ -28,10 +28,10 @@ export default function SpacerPage() {
                 aside={<Playground.Controls />}
             >
                 <Playground.Preview render={(props) => (
-                    <Flex direction="column" style={{ width: '100%', border: '1px dashed var(--border)', padding: '1rem', borderRadius: 'var(--labs-radius-md)' }}>
-                        <div style={{ background: 'var(--surface-soft)', padding: '1rem', textAlign: 'center' }}>Elemento A</div>
+                    <Flex direction="column" style={{ width: '100%', border: '1px dashed var(--color--grayDark)', padding: '1rem', borderRadius: 'var(--radius--md)' }}>
+                        <div style={{ background: 'var(--color--grayLight)', padding: '1rem', textAlign: 'center' }}>Elemento A</div>
                         <Spacer size={props.size} />
-                        <div style={{ background: 'var(--surface-soft)', padding: '1rem', textAlign: 'center' }}>Elemento B</div>
+                        <div style={{ background: 'var(--color--grayLight)', padding: '1rem', textAlign: 'center' }}>Elemento B</div>
                     </Flex>
                 )} />
 
@@ -47,3 +47,7 @@ export default function SpacerPage() {
         </Playground.Root>
     );
 }
+
+
+
+

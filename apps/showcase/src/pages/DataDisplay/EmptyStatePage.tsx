@@ -30,7 +30,7 @@ export default function EmptyStatePage() {
                             title={props.title}
                             description={props.description}
                             icon={<Icon name={props.iconName} size={48} />}
-                            action={props.showAction ? <Button variant="primary">Criar Novo</Button> : undefined}
+                            action={props.showAction ? <Button appearance="solid" color="violet">Criar Novo</Button> : undefined}
                         />
                     </div>
                 )} />
@@ -49,3 +49,7 @@ export default function EmptyStatePage() {
         </Playground.Root>
     );
 }
+
+
+
+

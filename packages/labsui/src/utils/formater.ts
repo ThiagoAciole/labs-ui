@@ -5,3 +5,5 @@ export function LabelFormater(text: string): string {
     .toLowerCase()
     .replace(/^\p{L}/u, (char) => char.toUpperCase());
 }
+
+

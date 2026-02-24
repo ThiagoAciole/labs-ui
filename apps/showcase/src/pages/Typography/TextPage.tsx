@@ -9,7 +9,7 @@ export default function TextPage() {
             defaultProps={{
                 size: 'md',
                 weight: 'regular',
-                color: 'default',
+                color: 'gray',
                 children: 'A experiência do usuário é o coração do design moderno, unindo estética e funcionalidade.'
             }}
             controls={{
@@ -36,12 +36,12 @@ export default function TextPage() {
                 color: {
                     type: 'select',
                     options: [
-                        { value: 'default', label: 'Default' },
-                        { value: 'primary', label: 'Primary' },
-                        { value: 'secondary', label: 'Secondary' },
-                        { value: 'muted', label: 'Muted' },
-                        { value: 'success', label: 'Success' },
-                        { value: 'danger', label: 'Danger' },
+                        { value: 'gray', label: 'Gray' },
+                        { value: 'violet', label: 'Violet' },
+                        { value: 'grayLight', label: 'Gray Light' },
+                        { value: 'grayDark', label: 'Gray Dark' },
+                        { value: 'green', label: 'Success' },
+                        { value: 'red', label: 'Danger' },
                     ]
                 },
                 children: { type: 'text' }
@@ -62,11 +62,15 @@ export default function TextPage() {
                     <Heading size="m">Pesos e Cores</Heading>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem' }}>
                         <Text weight="bold">Texto em Negrito para ênfase máxima.</Text>
-                        <Text color="primary">Texto com cor de marca para ações secundárias.</Text>
-                        <Text color="muted">Texto suave para informações menos importantes ou sugestões.</Text>
+                        <Text color="violet">Texto com cor de marca para ações secundárias.</Text>
+                        <Text color="grayDark">Texto suave para informações menos importantes ou sugestões.</Text>
                     </div>
                 </div>
             </ShowcasePage>
         </Playground.Root>
     );
 }
+
+
+
+

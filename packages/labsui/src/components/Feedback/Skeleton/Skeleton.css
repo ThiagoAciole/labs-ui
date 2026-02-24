@@ -1,0 +1,33 @@
+.labs-skeleton {
+  background: var(--color--grayLight);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius--sm);
+  width: 100%;
+}
+
+.labs-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    var(--color--grayLight), 
+    transparent
+  );
+  animation: labs-skeleton-loading 1.5s infinite linear;
+}
+
+@keyframes labs-skeleton-loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.labs-skeleton--circle { border-radius: var(--radius--pill); }
+.labs-skeleton--rect { border-radius: var(--radius--md); }
+
+
+
+
+

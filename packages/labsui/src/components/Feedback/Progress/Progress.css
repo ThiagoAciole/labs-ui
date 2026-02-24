@@ -1,0 +1,8 @@
+.labs-progress { --labs-progress-color: var(--color--violet); width: 100%; height: 8px; background: var(--color--grayLight); border-radius: var(--radius--pill); overflow: hidden; }
+.labs-progress--sm { height: 4px; }
+.labs-progress--lg { height: 12px; }
+.labs-progress__bar { height: 100%; background: var(--labs-progress-color); border-radius: var(--radius--pill); transition: width var(--transition--normal); }
+.labs-progress-label { margin-bottom: var(--space--2); font-size: var(--font--size--sm); font-weight: var(--font--weight--medium); color: var(--color--gray); }
+.labs-progress-value { margin-top: var(--space--1); font-size: var(--font--size--xs); text-align: right; color: var(--color--grayLight); }
+.labs-progress--animated .labs-progress__bar::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent); animation: labs-progress-shine 1.5s infinite linear; }
+@keyframes labs-progress-shine { from { transform: translateX(-100%);} to {transform: translateX(100%);} }

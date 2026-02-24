@@ -70,7 +70,7 @@ export default function FlexPage() {
                 aside={<Playground.Controls />}
             >
                 <Playground.Preview render={(props) => (
-                    <div style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: 'var(--labs-radius-lg)', minHeight: '200px', display: 'flex', width: '100%' }}>
+                    <div style={{ padding: '1rem', border: '1px solid var(--color--grayDark)', borderRadius: 'var(--radius--lg)', minHeight: '200px', display: 'flex', width: '100%' }}>
                         <Flex {...props} style={{ width: '100%' }}>
                             <Card style={{ minWidth: '80px', textAlign: 'center' }}>
                                 <CardBody style={{ padding: '1rem' }}><Text weight="bold">1</Text></CardBody>
@@ -99,3 +99,7 @@ export default function FlexPage() {
         </Playground.Root>
     );
 }
+
+
+
+

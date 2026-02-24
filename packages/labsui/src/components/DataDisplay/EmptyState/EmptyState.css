@@ -1,0 +1,47 @@
+.labs-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space--12) var(--space--4);
+  text-align: center;
+  background-color: var(--color--grayLight);
+  border: 1px dashed var(--color--grayDark);
+  border-radius: var(--radius--lg);
+}
+
+.labs-empty-state__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius--pill);
+  background-color: var(--color--grayLight);
+  color: var(--color--grayDark);
+  margin-bottom: var(--space--4);
+  font-size: 32px;
+}
+
+.labs-empty-state__title {
+  margin: 0 0 var(--space--2) 0;
+  font-size: var(--font--size--lg);
+  font-weight: 600;
+  color: var(--color--gray);
+}
+
+.labs-empty-state__description {
+  margin: 0;
+  font-size: var(--font--size--md);
+  color: var(--color--grayLight);
+  max-width: 400px;
+}
+
+.labs-empty-state__action {
+  margin-top: var(--space--6);
+}
+
+
+
+
+

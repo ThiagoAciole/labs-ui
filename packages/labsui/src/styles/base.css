@@ -1,5 +1,5 @@
 /* ============================================================
-   LabsUI – Base Reset & Globals
+   LabsUI - Base Reset & Globals
    ============================================================ */
 
 *,
@@ -10,39 +10,39 @@
 
 html,
 body {
-  font-family: var(--labs-font);
-  color: var(--labs-text);
-  background-color: var(--labs-bg);
+  font-family: var(--font--family);
+  color: var(--color--gray);
+  background-color: var(--bg);
 }
 
 .labs-root {
-  font-family: var(--labs-font);
-  font-size: var(--labs-font-size-md);
-  color: var(--labs-text);
-  background-color: var(--labs-bg);
-  line-height: var(--labs-line-height-normal);
+  font-family: var(--font--family);
+  font-size: var(--font--size--md);
+  color: var(--color--gray);
+  background-color: var(--surface);
+  line-height: var(--line--height--md);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Focus visible for keyboard navigation */
 .labs-focus-ring:focus-visible {
-  outline: var(--labs-focus-width) solid var(--labs-focus);
+  outline: var(--border--width--thin) solid var(--color--violet);
   outline-offset: 2px;
 }
 
-/* Scrollbar styling */
 .labs-root ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 .labs-root ::-webkit-scrollbar-track {
-  background: var(--labs-surface2);
+  background: var(--surface);
 }
 .labs-root ::-webkit-scrollbar-thumb {
-  background: var(--labs-border-strong);
-  border-radius: var(--labs-radius-full);
+  background: var(--border-color-strong);
+  border-radius: var(--radius--pill);
 }
 .labs-root ::-webkit-scrollbar-thumb:hover {
-  background: var(--labs-text3);
+  background: var(--border-color);
 }
+
+
