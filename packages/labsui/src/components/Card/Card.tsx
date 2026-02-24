@@ -41,7 +41,7 @@ export function CardHeader({ title, description, icon, action, children, classNa
                         {icon && <Icon name={icon} className="labs-card-header__icon" />}
                         {title && (
                             <Heading
-                                size={4}
+                                size={5}
                                 className="labs-card-header__title"
                             >
                                 {title}

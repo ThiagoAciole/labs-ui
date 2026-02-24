@@ -2,10 +2,12 @@ import React from 'react';
 import './Breadcrumb.css';
 import { Icon } from '../Icon/Icon';
 import { classNames } from '../../utils/classNames';
+import { Link } from '../Link/Link';
 
 export interface BreadcrumbItem {
     label: string;
     href?: string;
+    to?: string;
     icon?: React.ReactNode;
 }
 
@@ -30,11 +32,11 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
 
                     return (
                         <li key={index} className="labs-breadcrumb__item">
-                            {item.href && !isLast ? (
-                                <a href={item.href} className="labs-breadcrumb__link">
+                            {(item.to || item.href) && !isLast ? (
+                                <Link href={item.to ?? item.href} className="labs-breadcrumb__link">
                                     {item.icon && <span className="labs-breadcrumb__icon">{item.icon}</span>}
                                     {item.label}
-                                </a>
+                                </Link>
                             ) : (
                                 <span className={classNames('labs-breadcrumb__text', { 'labs-breadcrumb__text--current': isLast })} aria-current={isLast ? 'page' : undefined}>
                                     {item.icon && <span className="labs-breadcrumb__icon">{item.icon}</span>}

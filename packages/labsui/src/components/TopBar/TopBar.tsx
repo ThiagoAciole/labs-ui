@@ -7,6 +7,7 @@ export interface TopBarNavItem {
     active?: boolean;
     onClick?: () => void;
     href?: string;
+    to?: string;
 }
 
 export interface TopBarProps {
@@ -36,6 +37,17 @@ export const TopBar: React.FC<TopBarProps> = ({
     className = '',
 }) => {
     const isNavRight = navPosition === 'right';
+    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+
+    const normalizePath = (path: string) => {
+        const pathname = path.split('?')[0].split('#')[0];
+        return pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
+    };
+
+    const isCurrentRoute = (path?: string) => {
+        if (!path || !currentPath) return false;
+        return normalizePath(currentPath) === normalizePath(path);
+    };
 
     const renderThemeToggle = () => {
         if (themeToggle === true) {
@@ -46,15 +58,35 @@ export const TopBar: React.FC<TopBarProps> = ({
 
     const renderNav = () => (
         <nav className="labs-topbar__nav">
-            {navItems.map((item, idx) => (
-                <button
-                    key={`${item.label}-${idx}`}
-                    className={`labs-topbar__nav-item ${item.active ? 'labs-topbar__nav-item--active' : ''}`}
-                    onClick={item.onClick}
-                >
-                    {item.label}
-                </button>
-            ))}
+            {navItems.map((item, idx) => {
+                const route = item.to ?? item.href;
+                const isActive = item.active ?? isCurrentRoute(route);
+
+                if (route) {
+                    return (
+                        <a
+                            key={`${item.label}-${idx}`}
+                            className={`labs-topbar__nav-item ${isActive ? 'labs-topbar__nav-item--active' : ''}`}
+                            onClick={item.onClick}
+                            href={route}
+                            aria-current={isActive ? 'page' : undefined}
+                        >
+                            {item.label}
+                        </a>
+                    );
+                }
+
+                return (
+                    <button
+                        key={`${item.label}-${idx}`}
+                        className={`labs-topbar__nav-item ${isActive ? 'labs-topbar__nav-item--active' : ''}`}
+                        onClick={item.onClick}
+                        type="button"
+                    >
+                        {item.label}
+                    </button>
+                );
+            })}
         </nav>
     );
 

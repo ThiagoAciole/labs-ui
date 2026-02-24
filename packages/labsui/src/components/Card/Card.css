@@ -11,8 +11,8 @@
 /* Variants */
 .labs-card--default { box-shadow: var(--labs-shadow-sm); }
 .labs-card--elevated { box-shadow: var(--labs-shadow-md); }
-.labs-card--outlined { background: transparent; box-shadow: none; }
-.labs-card--ghost { background: transparent; border-color: transparent; box-shadow: none; }
+.labs-card--outlined { background: var(--surface-soft); box-shadow: none; }
+.labs-card--ghost { background: var(--surface-soft); border-color: transparent; box-shadow: none; }
 
 /* Padding */
 .labs-card--pad-sm { padding: var(--labs-space-3); }

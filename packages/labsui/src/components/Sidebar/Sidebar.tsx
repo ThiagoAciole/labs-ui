@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import './Sidebar.css';
 import { classNames } from '../../utils/classNames';
+import { Icon } from '../Icon/Icon';
 
 interface SidebarContextValue {
     collapsed: boolean;
@@ -75,8 +76,9 @@ const SidebarHeader = ({ icon, logo, children, className, onClick, ...props }: S
 
     return (
         <div className={classNames('labs-sidebar__header', className)} onClick={handleClick} {...props}>
-            {icon && <div className="labs-sidebar__header-icon">{icon}</div>}
+            <div className="labs-sidebar__header-icon">{icon ?? <Icon name="menu" size={20} />}</div>
             {logo && <div className="labs-sidebar__header-logo">{logo}</div>}
+            {children && <div className="labs-sidebar__header-logo">{children}</div>}
         </div>
     );
 };
@@ -98,16 +100,27 @@ export interface SidebarItemProps extends React.AnchorHTMLAttributes<HTMLAnchorE
     icon?: React.ReactNode;
     active?: boolean;
     as?: React.ElementType;
+    to?: string;
 }
-const SidebarItem = ({ icon, active, as: Component = 'a', className, children, ...props }: SidebarItemProps) => {
-    // Convert boolean 'active' to string for generic component rendering like react-router
+const SidebarItem = ({ icon, active, as: Component = 'a', className, children, href, to, ...props }: SidebarItemProps) => {
+    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+    const route = to ?? href;
+    const normalizePath = (path: string) => {
+        const pathname = path.split('?')[0].split('#')[0];
+        return pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
+    };
+    const isCurrentRoute = route && currentPath ? normalizePath(currentPath) === normalizePath(route) : false;
+    const isActive = active ?? isCurrentRoute;
+
     return (
         <Component
             className={classNames(
                 'labs-sidebar__item',
-                active && 'labs-sidebar__item--active',
+                isActive && 'labs-sidebar__item--active',
                 className
             )}
+            href={route}
+            aria-current={isActive ? 'page' : undefined}
             {...props}
         >
             {icon && <div className="labs-sidebar__item-icon">{icon}</div>}

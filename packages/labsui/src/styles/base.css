@@ -8,6 +8,13 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  font-family: var(--labs-font);
+  color: var(--labs-text);
+  background-color: var(--labs-bg);
+}
+
 .labs-root {
   font-family: var(--labs-font);
   font-size: var(--labs-font-size-md);

@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 import { classNames } from '../../utils/classNames';
 import { IconButton } from '../IconButton/IconButton';
 import { Icon } from '../Icon/Icon';
+import { Heading } from '../Heading/Heading';
 
 export type DrawerPlacement = 'left' | 'right';
 
@@ -49,7 +50,11 @@ export const Drawer: React.FC<DrawerProps> = ({
                 style={size ? { width: size } : {}}
             >
                 <div className="labs-drawer__header">
-                    {title ? <h3 className="labs-drawer__title">{title}</h3> : <div />}
+                    {title ? (
+                        <Heading size={5} className="labs-drawer__title">
+                            {title}
+                        </Heading>
+                    ) : <div />}
                     <IconButton
                         variant="ghost"
                         size="sm"
