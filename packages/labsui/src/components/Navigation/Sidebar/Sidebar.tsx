@@ -49,8 +49,8 @@ export const Sidebar = ({
         <SidebarContext.Provider value={{ collapsed, toggleCollapsed }}>
             <aside
                 className={classNames(
-                    'labs-sidebar',
-                    collapsed && 'labs-sidebar--collapsed',
+                    'sidebar',
+                    collapsed && 'sidebar--collapsed',
                     className
                 )}
                 {...props}
@@ -76,10 +76,10 @@ const SidebarHeader = ({ icon, logo, children, className, onClick, ...props }: S
     };
 
     return (
-        <Flex align="center" gap="3" className={classNames('labs-sidebar__header', className)} onClick={handleClick} {...props}>
-            <Flex align="center" justify="center" className="labs-sidebar__header-icon">{icon ?? <Icon name="menu" size={20} />}</Flex>
-            {logo && <Flex align="center" justify="center" className="labs-sidebar__header-logo">{logo}</Flex>}
-            {children && <Flex align="center" justify="center" className="labs-sidebar__header-logo">{children}</Flex>}
+        <Flex align="center" gap="3" className={classNames('sidebar__header', className)} onClick={handleClick} {...props}>
+            <Flex align="center" justify="center" className="sidebar__header-icon">{icon ?? <Icon name="menu" size={20} />}</Flex>
+            {logo && <Flex align="center" justify="center" className="sidebar__header-logo">{logo}</Flex>}
+            {children && <Flex align="center" justify="center" className="sidebar__header-logo">{children}</Flex>}
         </Flex>
     );
 };
@@ -90,7 +90,7 @@ export interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
 }
 const SidebarNav = ({ className, children, ...props }: SidebarNavProps) => {
     return (
-        <Flex as="nav" direction="column" gap="2" className={classNames('labs-sidebar__nav', className)} {...props}>
+        <Flex as="nav" direction="column" gap="2" className={classNames('sidebar__nav', className)} {...props}>
             {children}
         </Flex>
     );
@@ -120,16 +120,16 @@ const SidebarItem = ({ icon, active, as: Component = 'a', className, children, h
             justify="flex-start"
             gap="4"
             className={classNames(
-                'labs-sidebar__item',
-                isActive && 'labs-sidebar__item--active',
+                'sidebar__item',
+                isActive && 'sidebar__item--active',
                 className
             )}
             href={route}
             aria-current={isActive ? 'page' : undefined}
             {...(props as any)}
         >
-            {icon && <Flex align="center" justify="center" className="labs-sidebar__item-icon">{icon}</Flex>}
-            <span className="labs-sidebar__item-label">{children}</span>
+            {icon && <Flex align="center" justify="center" className="sidebar__item-icon">{icon}</Flex>}
+            <span className="sidebar__item-label">{children}</span>
         </Flex>
     );
 };
@@ -140,7 +140,7 @@ export interface SidebarFooterProps extends React.HTMLAttributes<HTMLDivElement>
 }
 const SidebarFooter = ({ className, children, ...props }: SidebarFooterProps) => {
     return (
-        <Flex direction="column" gap="6" className={classNames('labs-sidebar__footer', className)} {...props}>
+        <Flex direction="column" gap="6" className={classNames('sidebar__footer', className)} {...props}>
             {children}
         </Flex>
     );
@@ -155,14 +155,14 @@ export interface SidebarUserProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 const SidebarUser = ({ avatar, name, description, action, className, ...props }: SidebarUserProps) => {
     return (
-        <Flex align="center" justify="space-between" gap="3" className={classNames('labs-sidebar__user', className)} {...props}>
-            {avatar && <Flex align="center" justify="center" className="labs-sidebar__user-avatar">{avatar}</Flex>}
-            <Flex direction="column" className="labs-sidebar__user-details">
-                {name && <span className="labs-sidebar__user-name">{name}</span>}
-                {description && <span className="labs-sidebar__user-description">{description}</span>}
+        <Flex align="center" justify="space-between" gap="3" className={classNames('sidebar__user', className)} {...props}>
+            {avatar && <Flex align="center" justify="center" className="sidebar__user-avatar">{avatar}</Flex>}
+            <Flex direction="column" className="sidebar__user-details">
+                {name && <span className="sidebar__user-name">{name}</span>}
+                {description && <span className="sidebar__user-description">{description}</span>}
             </Flex>
             {action && (
-                <div className="labs-sidebar__user-action">
+                <div className="sidebar__user-action">
                     {action}
                 </div>
             )}
@@ -198,21 +198,21 @@ const SidebarGroup = ({ title, icon, active, defaultExpanded = true, className, 
         : icon;
 
     return (
-        <div className={classNames('labs-sidebar__group', expanded && 'labs-sidebar__group--expanded', className)} {...props}>
+        <div className={classNames('sidebar__group', expanded && 'sidebar__group--expanded', className)} {...props}>
             <button
                 className={classNames(
-                    'labs-sidebar__group-header',
-                    active && 'labs-sidebar__group-header--active'
+                    'sidebar__group-header',
+                    active && 'sidebar__group-header--active'
                 )}
                 onClick={toggleExpand}
             >
-                {resolvedGroupIcon && <div className="labs-sidebar__item-icon">{resolvedGroupIcon}</div>}
-                <span className="labs-sidebar__group-title">{title}</span>
-                <div className="labs-sidebar__group-chevron">
+                {resolvedGroupIcon && <div className="sidebar__item-icon">{resolvedGroupIcon}</div>}
+                <span className="sidebar__group-title">{title}</span>
+                <div className="sidebar__group-chevron">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={expanded ? 'm18 15-6-6-6 6' : 'm6 9 6 6 6-6'} /></svg>
                 </div>
             </button>
-            <div className="labs-sidebar__group-content">
+            <div className="sidebar__group-content">
                 {children}
             </div>
         </div>

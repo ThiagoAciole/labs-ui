@@ -38,13 +38,13 @@ function ToastItem({ toast, onDismiss }: { toast: ToastData; onDismiss: (id: str
     const icon = COLOR_ICONS[color] ?? 'info';
 
     return (
-        <div className={classNames('labs-toast', exiting && 'labs-toast--exiting')} style={{ ['--labs-toast-color' as string]: `var(--bg-${color === 'primary' ? 'primary' : color})` }}>
-            <span className="labs-toast__icon"><Icon name={icon} size={18} color={color} /></span>
-            <div className="labs-toast__content">
-                <p className="labs-toast__title">{toast.title}</p>
-                {toast.description && <p className="labs-toast__description">{toast.description}</p>}
+        <div className={classNames('toast', exiting && 'toast--exiting')} style={{ ['--toast-color' as string]: `var(--bg-${color === 'primary' ? 'primary' : color})` }}>
+            <span className="toast__icon"><Icon name={icon} size={18} color={color} /></span>
+            <div className="toast__content">
+                <p className="toast__title">{toast.title}</p>
+                {toast.description && <p className="toast__description">{toast.description}</p>}
             </div>
-            <IconButton icon="close" aria-label="Dismiss notification" variant="ghost" size="sm" color={color} onClick={handleDismiss} className="labs-toast__close" />
+            <IconButton icon="close" aria-label="Dismiss notification" variant="ghost" size="sm" color={color} onClick={handleDismiss} className="toast__close" />
         </div>
     );
 }
@@ -63,7 +63,7 @@ export function ToastProvider({ children, position = 'top-right', maxToasts = 5 
         <ToastContext.Provider value={{ toast, dismiss }}>
             {children}
             {createPortal(
-                <div className={classNames('labs-toast-container', `labs-toast-container--${position}`)}>
+                <div className={classNames('toast-container', `toast-container--${position}`)}>
                     {toasts.map((t) => <ToastItem key={t.id} toast={t} onDismiss={dismiss} />)}
                 </div>,
                 document.body

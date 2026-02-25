@@ -27,7 +27,7 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
     children,
     defaultTheme = 'dark',
-    storageKey = 'labs-theme'
+    storageKey = 'theme'
 }) => {
     const [theme, setThemeState] = useState<Theme>(() => {
         return (localStorage.getItem(storageKey) as Theme) || defaultTheme;

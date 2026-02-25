@@ -88,12 +88,12 @@ export const FileUpload: React.FC<FileUploadProps> = ({
     };
 
     return (
-        <div className={classNames('labs-file-upload', className)}>
+        <div className={classNames('file-upload', className)}>
             <div
-                className={classNames('labs-file-upload__dropzone', {
-                    'labs-file-upload__dropzone--dragging': isDragging,
-                    'labs-file-upload__dropzone--disabled': disabled,
-                    'labs-file-upload__dropzone--error': !!error
+                className={classNames('file-upload__dropzone', {
+                    'file-upload__dropzone--dragging': isDragging,
+                    'file-upload__dropzone--disabled': disabled,
+                    'file-upload__dropzone--error': !!error
                 })}
                 onDragEnter={handleDragEnter}
                 onDragOver={handleDragEnter}
@@ -104,38 +104,38 @@ export const FileUpload: React.FC<FileUploadProps> = ({
                 <input
                     ref={inputRef}
                     type="file"
-                    className="labs-file-upload__input"
+                    className="file-upload__input"
                     onChange={handleFileChange}
                     accept={accept}
                     multiple={multiple}
                     disabled={disabled}
                 />
 
-                <div className="labs-file-upload__content">
-                    <div className="labs-file-upload__icon">
+                <div className="file-upload__content">
+                    <div className="file-upload__icon">
                         <Icon name="upload" size={32} />
                     </div>
-                    <span className="labs-file-upload__title">{title}</span>
-                    <span className="labs-file-upload__description">{description}</span>
+                    <span className="file-upload__title">{title}</span>
+                    <span className="file-upload__description">{description}</span>
                 </div>
             </div>
 
-            {error && <span className="labs-file-upload__error-text">{error}</span>}
+            {error && <span className="file-upload__error-text">{error}</span>}
 
             {files.length > 0 && (
-                <ul className="labs-file-upload__list">
+                <ul className="file-upload__list">
                     {files.map((file, idx) => (
-                        <li key={`${file.name}-${idx}`} className="labs-file-upload__item">
-                            <span className="labs-file-upload__file-info">
+                        <li key={`${file.name}-${idx}`} className="file-upload__item">
+                            <span className="file-upload__file-info">
                                 <Icon name="lab" size={16} />
-                                <span className="labs-file-upload__file-name">{file.name}</span>
-                                <span className="labs-file-upload__file-size">
+                                <span className="file-upload__file-name">{file.name}</span>
+                                <span className="file-upload__file-size">
                                     ({Math.round(file.size / 1024)} KB)
                                 </span>
                             </span>
                             <button
                                 type="button"
-                                className="labs-file-upload__remove-btn"
+                                className="file-upload__remove-btn"
                                 onClick={(e) => removeFile(e, idx)}
                             >
                                 <Icon name="trash" size={16} />

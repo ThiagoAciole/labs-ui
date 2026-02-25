@@ -58,7 +58,7 @@ export const TopBar: React.FC<TopBarProps> = ({
     };
 
     const renderNav = () => (
-        <Flex as="nav" align="center" gap="6" className="labs-topbar__nav">
+        <Flex as="nav" align="center" gap="6" className="topbar__nav">
             {navItems.map((item, idx) => {
                 const route = item.to ?? item.href;
                 const isActive = item.active ?? isCurrentRoute(route);
@@ -66,7 +66,7 @@ export const TopBar: React.FC<TopBarProps> = ({
                 if (route) {
                     return (
                         <a
-                            className={`labs-topbar__nav-item ${isActive ? 'labs-topbar__nav-item--active' : ''}`}
+                            className={`topbar__nav-item ${isActive ? 'topbar__nav-item--active' : ''}`}
                             onClick={item.onClick}
                             href={route}
                             aria-current={isActive ? 'page' : undefined}
@@ -79,7 +79,7 @@ export const TopBar: React.FC<TopBarProps> = ({
                 return (
                     <button
                         key={`${item.label}-${idx}`}
-                        className={`labs-topbar__nav-item ${isActive ? 'labs-topbar__nav-item--active' : ''}`}
+                        className={`topbar__nav-item ${isActive ? 'topbar__nav-item--active' : ''}`}
                         onClick={item.onClick}
                         type="button"
                     >
@@ -95,33 +95,33 @@ export const TopBar: React.FC<TopBarProps> = ({
             as="header"
             align="center"
             justify="space-between"
-            className={`labs-topbar ${sticky ? 'labs-topbar--sticky' : ''} ${isNavRight ? 'labs-topbar--nav-right' : ''} ${className}`}
+            className={`topbar ${sticky ? 'topbar--sticky' : ''} ${isNavRight ? 'topbar--nav-right' : ''} ${className}`}
         >
-            <Flex align="center" gap="4" className="labs-topbar__left">
+            <Flex align="center" gap="4" className="topbar__left">
                 {logo && (
-                    <Flex as="div" align="center" gap="2" className="labs-topbar__logo">
+                    <Flex as="div" align="center" gap="2" className="topbar__logo">
                         {logo}
                     </Flex>
                 )}
             </Flex>
 
             {navPosition === 'center' && navItems.length > 0 && (
-                <Flex align="center" justify="center" className="labs-topbar__center">
+                <Flex align="center" justify="center" className="topbar__center">
                     {renderNav()}
                 </Flex>
             )}
 
-            <Flex align="center" gap="4" className="labs-topbar__right">
+            <Flex align="center" gap="4" className="topbar__right">
                 {navPosition === 'right' && navItems.length > 0 && renderNav()}
 
                 {extraContent && (
-                    <Flex align="center" gap="2" className="labs-topbar__actions">
+                    <Flex align="center" gap="2" className="topbar__actions">
                         {extraContent}
                     </Flex>
                 )}
 
                 {themeToggle && (
-                    <div className="labs-topbar__theme">
+                    <div className="topbar__theme">
                         {renderThemeToggle()}
                     </div>
                 )}

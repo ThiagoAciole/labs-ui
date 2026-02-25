@@ -1,4 +1,4 @@
-.labs-modal-overlay {
+.modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
@@ -8,10 +8,10 @@
   justify-content: center;
   padding: var(--space--4);
   z-index: var(--z--modal);
-  animation: labs-fade-in 150ms ease;
+  animation: fade-in 150ms ease;
 }
 
-.labs-modal {
+.modal {
   background: var(--surface);
   border: 1px solid var(--border-neutral);
   border-radius: var(--radius--xl);
@@ -20,17 +20,17 @@
   flex-direction: column;
   max-height: calc(100vh - var(--space--8));
   outline: none;
-  animation: labs-slide-up 200ms ease;
+  animation: slide-up 200ms ease;
   width: 100%;
 }
 
-.labs-modal--sm { max-width: 24rem; }
-.labs-modal--md { max-width: 32rem; }
-.labs-modal--lg { max-width: 42rem; }
-.labs-modal--xl { max-width: 56rem; }
-.labs-modal--full { max-width: calc(100vw - var(--space--8)); height: calc(100vh - var(--space--8)); }
+.modal--sm { max-width: 24rem; }
+.modal--md { max-width: 32rem; }
+.modal--lg { max-width: 42rem; }
+.modal--xl { max-width: 56rem; }
+.modal--full { max-width: calc(100vw - var(--space--8)); height: calc(100vh - var(--space--8)); }
 
-.labs-modal-header {
+.modal-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -38,25 +38,25 @@
   padding: var(--space--4) var(--space--4) var(--space--4);
   border-bottom: 1px solid var(--border-neutral);
 }
-.labs-modal-title {
+.modal-title {
   font-size: var(--font--size--xl);
   font-weight: 600;
   color: var(--text-gray);
   margin: 0;
   line-height: var(--line--height--sm);
 }
-.labs-modal-description {
+.modal-description {
   font-size: var(--font--size--sm);
   color: var(--text-disabled);
   margin: var(--space--1) 0 0;
 }
-.labs-modal-body {
+.modal-body {
   padding: var(--space--4);
   overflow-y: auto;
   flex: 1;
   color: var(--text-gray);
 }
-.labs-modal-footer {
+.modal-footer {
   display: flex;
   gap: var(--space--3);
   justify-content: flex-end;
@@ -64,11 +64,11 @@
   border-top: 1px solid var(--border-neutral);
 }
 
-@keyframes labs-fade-in {
+@keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-@keyframes labs-slide-up {
+@keyframes slide-up {
   from { opacity: 0; transform: translateY(12px) scale(0.97); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }

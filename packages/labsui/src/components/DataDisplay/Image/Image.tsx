@@ -29,22 +29,22 @@ export const Image: React.FC<ImageProps> = ({
     }
 
     return (
-        <div className={classNames('labs-image__wrapper', className)} style={style}>
+        <div className={classNames('image__wrapper', className)} style={style}>
             {!isLoaded && !hasError && (
                 <Skeleton
                     width="100%"
                     height="100%"
-                    className={`labs-image__skeleton labs-image__radius--${radius}`}
+                    className={`image__skeleton image__radius--${radius}`}
                 />
             )}
             <img
                 src={src}
                 alt={alt}
                 className={classNames(
-                    'labs-image',
-                    `labs-image__fit--${objectFit}`,
-                    `labs-image__radius--${radius}`,
-                    { 'labs-image--loaded': isLoaded }
+                    'image',
+                    `image__fit--${objectFit}`,
+                    `image__radius--${radius}`,
+                    { 'image--loaded': isLoaded }
                 )}
                 onLoad={() => setIsLoaded(true)}
                 onError={() => setHasError(true)}

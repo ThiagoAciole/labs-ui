@@ -16,7 +16,7 @@ body {
 }
 
 
-.labs-root {
+.root {
   font-family: var(--font--family);
   font-size: var(--font--size--md);
   color: var(--text-gray);
@@ -26,23 +26,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.labs-focus-ring:focus-visible {
+.focus-ring:focus-visible {
   outline: var(--border--width--thin) solid var(--border-primary);
   outline-offset: 2px;
 }
 
-.labs-root ::-webkit-scrollbar {
+.root ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-.labs-root ::-webkit-scrollbar-track {
+.root ::-webkit-scrollbar-track {
   background: var(--surface);
 }
-.labs-root ::-webkit-scrollbar-thumb {
+.root ::-webkit-scrollbar-thumb {
   background: var(--border-color-strong);
   border-radius: var(--radius--pill);
 }
-.labs-root ::-webkit-scrollbar-thumb:hover {
+.root ::-webkit-scrollbar-thumb:hover {
   background: var(--border-color);
 }
 

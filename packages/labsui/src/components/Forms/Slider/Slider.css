@@ -1,4 +1,4 @@
-.labs-slider {
+.slider {
   width: 100%;
   position: relative;
   height: 24px;
@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-.labs-slider__track {
+.slider__track {
   height: 6px;
   width: 100%;
   background: var(--surface-alt);
@@ -15,7 +15,7 @@
   position: relative;
 }
 
-.labs-slider__fill {
+.slider__fill {
   height: 100%;
   background: var(--bg-primary);
   border-radius: var(--radius--pill);
@@ -24,7 +24,7 @@
   left: 0;
 }
 
-.labs-slider__thumb {
+.slider__thumb {
   width: 18px;
   height: 18px;
   background: var(--surface-alt);
@@ -38,16 +38,16 @@
   z-index: 2;
 }
 
-.labs-slider:hover .labs-slider__thumb {
+.slider:hover .slider__thumb {
   transform: translate(-50%, -50%) scale(1.1);
 }
 
-.labs-slider--muted .labs-slider__thumb {
+.slider--muted .slider__thumb {
   box-shadow: 0 0 0 2px var(--bg-primary-light);
 }
 
 /* Hidden range input */
-.labs-slider__input {
+.slider__input {
   position: absolute;
   top: 0;
   left: 0;

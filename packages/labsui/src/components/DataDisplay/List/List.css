@@ -1,20 +1,20 @@
-.labs-list {
+.list {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.labs-list--bordered {
+.list--bordered {
   border: 1px solid var(--border-gray);
   border-radius: var(--radius--md);
   overflow: hidden;
 }
 
-.labs-list--divided .labs-list-item:not(:last-child) {
+.list--divided .list-item:not(:last-child) {
   border-bottom: 1px solid var(--border-gray);
 }
 
-.labs-list-item {
+.list-item {
   display: flex;
   align-items: center;
   gap: var(--space--4);
@@ -24,23 +24,23 @@
   outline: none;
 }
 
-.labs-list-item--clickable {
+.list-item--clickable {
   cursor: pointer;
 }
 
-.labs-list-item--clickable:hover,
-.labs-list-item:focus-visible {
+.list-item--clickable:hover,
+.list-item:focus-visible {
   background-color: var(--text-disabled);
 }
 
-.labs-list-item--muted,
-.labs-list-item--muted:hover {
+.list-item--muted,
+.list-item--muted:hover {
   background-color: var(--bg-primary-light);
   color: var(--text-primary);
 }
 
 /* Slot Start / Icon / Avatar */
-.labs-list-item__start {
+.list-item__start {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,19 +48,19 @@
   color: var(--text-disabled);
 }
 
-.labs-list-item--muted .labs-list-item__start {
+.list-item--muted .list-item__start {
   color: var(--text-primary);
 }
 
 /* Content Slot */
-.labs-list-item__content {
+.list-item__content {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   overflow: hidden;
 }
 
-.labs-list-item__title {
+.list-item__title {
   font-size: var(--font--size--sm);
   color: var(--text-gray);
   font-weight: 600;
@@ -69,7 +69,7 @@
   text-overflow: ellipsis;
 }
 
-.labs-list-item__description {
+.list-item__description {
   font-size: var(--font--size--xs);
   color: var(--text-disabled);
   margin-top: 2px;
@@ -79,14 +79,21 @@
 }
 
 /* Ends Slot (Badges, Buttons flex-end) */
-.labs-list-item__end {
+.list-item__end {
   display: flex;
   align-items: center;
   gap: var(--space--2);
   flex-shrink: 0;
 }
 
+/* Checklist Variant */
+.list--checklist .list-item {
+  padding: var(--space--2) var(--space--4);
+  gap: var(--space--2);
+}
 
-
+.list-item__check-icon {
+  color: var(--text-primary);
+}
 
 

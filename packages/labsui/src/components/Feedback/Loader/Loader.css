@@ -1,8 +1,8 @@
-.labs-loader { --labs-loader-color: var(--bg-primary); display: inline-flex; align-items: center; justify-content: center; }
-.labs-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
-.labs-loader__ring { border-radius: 50%; border: 2px solid transparent; border-top-color: var(--labs-loader-color); border-right-color: color-mix(in srgb, var(--labs-loader-color) 40%, transparent); animation: labs-spin 0.7s linear infinite; }
-.labs-loader--xs .labs-loader__ring { width: .75rem; height: .75rem; }
-.labs-loader--sm .labs-loader__ring { width: 1rem; height: 1rem; }
-.labs-loader--md .labs-loader__ring { width: 1.5rem; height: 1.5rem; }
-.labs-loader--lg .labs-loader__ring { width: 2rem; height: 2rem; border-width: 3px; }
-@keyframes labs-spin { to { transform: rotate(360deg); } }
+.loader { --loader-color: var(--bg-primary); display: inline-flex; align-items: center; justify-content: center; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.loader__ring { border-radius: 50%; border: 2px solid transparent; border-top-color: var(--loader-color); border-right-color: color-mix(in srgb, var(--loader-color) 40%, transparent); animation: spin 0.7s linear infinite; }
+.loader--xs .loader__ring { width: .75rem; height: .75rem; }
+.loader--sm .loader__ring { width: 1rem; height: 1rem; }
+.loader--md .loader__ring { width: 1.5rem; height: 1.5rem; }
+.loader--lg .loader__ring { width: 2rem; height: 2rem; border-width: 3px; }
+@keyframes spin { to { transform: rotate(360deg); } }

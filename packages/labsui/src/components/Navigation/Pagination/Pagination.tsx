@@ -1,5 +1,5 @@
 import './Pagination.css';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { classNames } from '../../../utils/classNames';
 import { Icon } from '../../Typography/Icon/Icon';
 
@@ -18,33 +18,37 @@ export const Pagination: React.FC<PaginationProps> = ({
     showControls = true,
     className
 }) => {
-    const pages = [];
+    
+    const pages = useMemo(() => {
+        const items: (number | string)[] = [];
+        const startPage = Math.max(1, currentPage - 1);
+        const endPage = Math.min(totalPages, currentPage + 1);
 
-    // Lógica simplificada de páginas (exibir vizinhos)
-    const startPage = Math.max(1, currentPage - 1);
-    const endPage = Math.min(totalPages, currentPage + 1);
+        if (startPage > 1) {
+            items.push(1);
+            if (startPage > 2) items.push('dots-1');
+        }
 
-    if (startPage > 1) {
-        pages.push(1);
-        if (startPage > 2) pages.push('dots-1');
-    }
+        for (let i = startPage; i <= endPage; i++) {
+            items.push(i);
+        }
 
-    for (let i = startPage; i <= endPage; i++) {
-        pages.push(i);
-    }
-
-    if (endPage < totalPages) {
-        if (endPage < totalPages - 1) pages.push('dots-2');
-        pages.push(totalPages);
-    }
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) items.push('dots-2');
+            items.push(totalPages);
+        }
+        return items;
+    }, [currentPage, totalPages]);
 
     return (
-        <nav className={classNames('labs-pagination', className)}>
+        <nav className={classNames('pagination', className)} aria-label="Paginação">
             {showControls && (
                 <button
-                    className={classNames('labs-pagination__item', currentPage === 1 && 'labs-pagination__item--disabled')}
-                    onClick={() => currentPage > 1 && onPageChange(currentPage - 1)}
+                    type="button"
+                    className={classNames('pagination__item', currentPage === 1 && 'pagination__item--disabled')}
+                    onClick={() => onPageChange(currentPage - 1)}
                     disabled={currentPage === 1}
+                    aria-label="Página anterior"
                 >
                     <Icon name="chevron-left" size={16} />
                 </button>
@@ -52,16 +56,25 @@ export const Pagination: React.FC<PaginationProps> = ({
 
             {pages.map((p, idx) => {
                 if (typeof p === 'string') {
-                    return <span key={idx} className="labs-pagination__dots">...</span>;
+                    return (
+                        <span key={`dots-${idx}`} className="pagination__dots">
+                            &hellip;
+                        </span>
+                    );
                 }
+
+                const isActive = currentPage === p;
+
                 return (
                     <button
-                        key={idx}
+                        key={p}
+                        type="button"
                         className={classNames(
-                            'labs-pagination__item',
-                            currentPage === p && 'labs-pagination__item--active'
+                            'pagination__item',
+                            isActive && 'pagination__item--active'
                         )}
-                        onClick={() => onPageChange(p)}
+                        onClick={() => !isActive && onPageChange(p)}
+                        aria-current={isActive ? 'page' : undefined}
                     >
                         {p}
                     </button>
@@ -70,9 +83,11 @@ export const Pagination: React.FC<PaginationProps> = ({
 
             {showControls && (
                 <button
-                    className={classNames('labs-pagination__item', currentPage === totalPages && 'labs-pagination__item--disabled')}
-                    onClick={() => currentPage < totalPages && onPageChange(currentPage + 1)}
+                    type="button"
+                    className={classNames('pagination__item', currentPage === totalPages && 'pagination__item--disabled')}
+                    onClick={() => onPageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
+                    aria-label="Próxima página"
                 >
                     <Icon name="chevron-right" size={16} />
                 </button>
@@ -82,8 +97,3 @@ export const Pagination: React.FC<PaginationProps> = ({
 };
 
 Pagination.displayName = 'Pagination';
-
-
-
-
-

@@ -19,13 +19,13 @@ export const Table: React.FC<TableProps> = ({
     ...props
 }) => {
     return (
-        <div className={classNames('labs-table-container', containerClassName)}>
+        <div className={classNames('table-container', containerClassName)}>
             <table
                 className={classNames(
-                    'labs-table',
-                    striped && 'labs-table--striped',
-                    hover && 'labs-table--hover',
-                    compact && 'labs-table--compact',
+                    'table',
+                    striped && 'table--striped',
+                    hover && 'table--hover',
+                    compact && 'table--compact',
                     className
                 )}
                 {...props}

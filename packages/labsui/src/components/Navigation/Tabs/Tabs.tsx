@@ -50,13 +50,13 @@ export function Tabs({
     const activeTab = tabs.find((t) => t.value === active);
 
     return (
-        <div className={classNames('labs-tabs', `labs-tabs--${variant}`, `labs-tabs--${size}`, className)}>
-            <div className="labs-tabs-list" role="tablist">
+        <div className={classNames('tabs', `tabs--${variant}`, `tabs--${size}`, className)}>
+            <div className="tabs-list" role="tablist">
                 {tabs.map((tab) => {
                     const route = tab.to ?? tab.href;
                     const triggerClasses = classNames(
-                        'labs-tabs-trigger',
-                        active === tab.value && 'labs-tabs-trigger--active'
+                        'tabs-trigger',
+                        active === tab.value && 'tabs-trigger--active'
                     );
                     if (route) {
                         return (
@@ -64,8 +64,8 @@ export function Tabs({
                                 key={tab.value}
                                 role="tab"
                                 aria-selected={active === tab.value}
-                                aria-controls={`labs-tab-panel-${tab.value}`}
-                                id={`labs-tab-trigger-${tab.value}`}
+                                aria-controls={`tab-panel-${tab.value}`}
+                                id={`tab-trigger-${tab.value}`}
                                 className={triggerClasses}
                                 onClick={() => !tab.disabled && handleSelect(tab.value)}
                                 href={route}
@@ -83,8 +83,8 @@ export function Tabs({
                             type="button"
                             disabled={tab.disabled}
                             aria-selected={active === tab.value}
-                            aria-controls={`labs-tab-panel-${tab.value}`}
-                            id={`labs-tab-trigger-${tab.value}`}
+                            aria-controls={`tab-panel-${tab.value}`}
+                            id={`tab-trigger-${tab.value}`}
                             className={triggerClasses}
                             onClick={() => !tab.disabled && handleSelect(tab.value)}
                         >
@@ -95,9 +95,9 @@ export function Tabs({
             </div>
             <div
                 role="tabpanel"
-                id={`labs-tab-panel-${active}`}
-                aria-labelledby={`labs-tab-trigger-${active}`}
-                className="labs-tabs-panel"
+                id={`tab-panel-${active}`}
+                aria-labelledby={`tab-trigger-${active}`}
+                className="tabs-panel"
                 tabIndex={0}
             >
                 {activeTab?.content}

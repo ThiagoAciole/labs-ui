@@ -13,29 +13,29 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
     ({ label, error, supportText, resize = 'vertical', full = false, className, id, rows = 4, ...props }, ref) => {
-        const inputId = id ?? (label ? `labs-textarea-${label.toLowerCase().replace(/\s+/g, '-')}` : undefined);
+        const inputId = id ?? (label ? `textarea-${label.toLowerCase().replace(/\s+/g, '-')}` : undefined);
 
         return (
-            <div className={classNames('labs-textarea-wrapper', full && 'labs-textarea-wrapper--full', className)}>
+            <div className={classNames('textarea-wrapper', full && 'textarea-wrapper--full', className)}>
                 {label && (
-                    <Text as="label" htmlFor={inputId} className="labs-textarea-label">{label}</Text>
+                    <Text as="label" htmlFor={inputId} className="textarea-label">{label}</Text>
                 )}
                 <textarea
                     ref={ref}
                     id={inputId}
                     rows={rows}
                     className={classNames(
-                        'labs-textarea',
-                        error && 'labs-textarea--error',
-                        props.disabled && 'labs-textarea--disabled'
+                        'textarea',
+                        error && 'textarea--error',
+                        props.disabled && 'textarea--disabled'
                     )}
                     style={{ resize }}
                     aria-invalid={!!error}
                     aria-describedby={error ? `${inputId}-error` : supportText ? `${inputId}-supportText` : undefined}
                     {...props}
                 />
-                {error && <Text as="span" id={`${inputId}-error`} color="error" size="sm" className="labs-textarea-message labs-textarea-message--error" role="alert">{error}</Text>}
-                {!error && supportText && <Text as="span" id={`${inputId}-supportText`} color="disabled" size="sm" className="labs-textarea-message">{supportText}</Text>}
+                {error && <Text as="span" id={`${inputId}-error`} color="error" size="sm" className="textarea-message textarea-message--error" role="alert">{error}</Text>}
+                {!error && supportText && <Text as="span" id={`${inputId}-supportText`} color="disabled" size="sm" className="textarea-message">{supportText}</Text>}
             </div>
         );
     }

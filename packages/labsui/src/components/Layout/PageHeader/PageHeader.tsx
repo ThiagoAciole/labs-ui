@@ -23,10 +23,10 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
     className
 }) => {
     return (
-        <div className={classNames('labs-page-header', className)}>
-            <div className="labs-page-header__left">
+        <div className={classNames('page-header', className)}>
+            <div className="page-header__left">
                 {showBack && (
-                    <div className="labs-page-header__back">
+                    <div className="page-header__back">
                         <IconButton
                             variant="ghost"
                             size="md"
@@ -37,7 +37,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
                     </div>
                 )}
 
-                <div className="labs-page-header__content">
+                <div className="page-header__content">
                     <Heading
                         size="lg"
                     >
@@ -54,7 +54,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
             </div>
 
             {action && (
-                <div className="labs-page-header__right">
+                <div className="page-header__right">
                     {action}
                 </div>
             )}

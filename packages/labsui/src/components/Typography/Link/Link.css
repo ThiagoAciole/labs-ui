@@ -1,6 +1,6 @@
-.labs-link {
-  --labs-link-color: var(--text-primary);
-  color: var(--labs-link-color);
+.link {
+  --link-color: var(--text-primary);
+  color: var(--link-color);
   text-decoration: none;
   cursor: pointer;
   transition: all var(--transition--fast);
@@ -8,7 +8,7 @@
   align-items: center;
   gap: var(--space--1);
 }
-.labs-link:hover { opacity: 0.85; }
-.labs-link--underline { border-bottom: 1px solid transparent; }
-.labs-link--underline:hover { border-bottom-color: currentColor; }
-.labs-link--active { font-weight: var(--font--weight--bold); }
+.link:hover { opacity: 0.85; }
+.link--underline { border-bottom: 1px solid transparent; }
+.link--underline:hover { border-bottom-color: currentColor; }
+.link--active { font-weight: var(--font--weight--bold); }

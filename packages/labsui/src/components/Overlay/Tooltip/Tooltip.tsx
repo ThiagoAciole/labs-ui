@@ -54,7 +54,7 @@ export function Tooltip({ content, placement = 'top', children, delay = 300 }: T
             {child}
             {visible && createPortal(
                 <div
-                    className={classNames('labs-tooltip', `labs-tooltip--${placement}`)}
+                    className={classNames('tooltip', `tooltip--${placement}`)}
                     style={{ top: pos.top, left: pos.left }}
                     role="tooltip"
                 >

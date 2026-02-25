@@ -31,10 +31,10 @@ export const Text: React.FC<TextProps> = ({
     return (
         <Component
             className={classNames(
-                'labs-text',
-                `labs-text--${size}`,
-                `labs-text--${weight}`,
-                `labs-text--${align}`,
+                'text',
+                `text--${size}`,
+                `text--${weight}`,
+                `text--${align}`,
                 className
             )}
             style={{

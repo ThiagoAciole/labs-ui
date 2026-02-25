@@ -25,26 +25,26 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
     style
 }) => {
     return (
-        <nav className={classNames('labs-breadcrumb', className)} style={style} aria-label="Breadcrumb">
-            <ol className="labs-breadcrumb__list">
+        <nav className={classNames('breadcrumb', className)} style={style} aria-label="Breadcrumb">
+            <ol className="breadcrumb__list">
                 {items.map((item, index) => {
                     const isLast = index === items.length - 1;
 
                     return (
-                        <li key={index} className="labs-breadcrumb__item">
+                        <li key={index} className="breadcrumb__item">
                             {(item.to || item.href) && !isLast ? (
-                                <Link href={item.to ?? item.href} className="labs-breadcrumb__link">
-                                    {item.icon && <span className="labs-breadcrumb__icon">{item.icon}</span>}
+                                <Link href={item.to ?? item.href} className="breadcrumb__link">
+                                    {item.icon && <span className="breadcrumb__icon">{item.icon}</span>}
                                     {item.label}
                                 </Link>
                             ) : (
-                                <span className={classNames('labs-breadcrumb__text', { 'labs-breadcrumb__text--current': isLast })} aria-current={isLast ? 'page' : undefined}>
-                                    {item.icon && <span className="labs-breadcrumb__icon">{item.icon}</span>}
+                                <span className={classNames('breadcrumb__text', { 'breadcrumb__text--current': isLast })} aria-current={isLast ? 'page' : undefined}>
+                                    {item.icon && <span className="breadcrumb__icon">{item.icon}</span>}
                                     {item.label}
                                 </span>
                             )}
 
-                            {!isLast && <span className="labs-breadcrumb__separator">{separator}</span>}
+                            {!isLast && <span className="breadcrumb__separator">{separator}</span>}
                         </li>
                     );
                 })}

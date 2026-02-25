@@ -1,4 +1,4 @@
-.labs-panel {
+.panel {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -11,22 +11,22 @@
   transition: width var(--transition--normal), transform var(--transition--normal);
 }
 
-.labs-panel--right {
+.panel--right {
   border-left: 1px solid var(--border-neutral);
 }
 
-.labs-panel--left {
+.panel--left {
   border-right: 1px solid var(--border-neutral);
 }
 
-.labs-panel--glass {
+.panel--glass {
   background-color: var(--text-disabled);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 /* --- Close Button --- */
-.labs-panel__close {
+.panel__close {
   position: absolute;
   top: var(--space--4);
   right: var(--space--4);
@@ -34,7 +34,7 @@
 }
 
 /* --- Header --- */
-.labs-panel__header {
+.panel__header {
   padding: var(--space--6);
   display: flex;
   align-items: center;
@@ -44,14 +44,14 @@
   flex-shrink: 0;
 }
 
-.labs-panel__header-icon {
+.panel__header-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-primary);
 }
 
-.labs-panel__header-title {
+.panel__header-title {
   margin: 0 !important;
   color: var(--text-primary);
   font-weight: 700;
@@ -59,7 +59,7 @@
 }
 
 /* --- Content --- */
-.labs-panel__content {
+.panel__content {
   flex: 1;
   overflow-y: auto;
   padding: var(--space--6);
@@ -69,19 +69,19 @@
 }
 
 /* Custom Scrollbar for Panel */
-.labs-panel__content::-webkit-scrollbar {
+.panel__content::-webkit-scrollbar {
   width: 4px;
 }
-.labs-panel__content::-webkit-scrollbar-track {
+.panel__content::-webkit-scrollbar-track {
   background: transparent;
 }
-.labs-panel__content::-webkit-scrollbar-thumb {
+.panel__content::-webkit-scrollbar-thumb {
   background: var(--surface-inverse);
   border-radius: 10px;
 }
 
 /* --- Footer --- */
-.labs-panel__footer {
+.panel__footer {
   padding: var(--space--6);
   border-top: 1px solid var(--border-neutral);
   background-color: var(--surface-alt);
@@ -89,25 +89,25 @@
 }
 
 /* --- Section --- */
-.labs-panel__section {
+.panel__section {
   display: flex;
   flex-direction: column;
   gap: var(--space--4);
 }
 
-.labs-panel__section-header {
+.panel__section-header {
   display: flex;
   align-items: center;
   gap: var(--space--2);
 }
 
-.labs-panel__section-icon {
+.panel__section-icon {
   color: var(--text-disabled);
   display: flex;
   align-items: center;
 }
 
-.labs-panel__section-title {
+.panel__section-title {
   font-size: 11px;
   font-weight: 700;
   color: var(--text-disabled);
@@ -115,7 +115,7 @@
   letter-spacing: 0.1em;
 }
 
-.labs-panel__section-content {
+.panel__section-content {
   display: flex;
   flex-direction: column;
   gap: var(--space--4);

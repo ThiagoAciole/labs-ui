@@ -29,20 +29,20 @@ export const Slider: React.FC<SliderProps> = ({
     };
 
     return (
-        <div className={classNames('labs-slider-wrapper', className)}>
-            {label && <Text as="label" className="labs-select-label" style={{ marginBottom: '8px', display: 'block' }}>{label}</Text>}
-            <div className="labs-slider">
-                <div className="labs-slider__track">
-                    <div className="labs-slider__fill" style={{ width: `${percentage}%` }} />
+        <div className={classNames('slider-wrapper', className)}>
+            {label && <Text as="label" className="select-label" style={{ marginBottom: '8px', display: 'block' }}>{label}</Text>}
+            <div className="slider">
+                <div className="slider__track">
+                    <div className="slider__fill" style={{ width: `${percentage}%` }} />
                 </div>
-                <div className="labs-slider__thumb" style={{ left: `${percentage}%` }} />
+                <div className="slider__thumb" style={{ left: `${percentage}%` }} />
                 <input
                     type="range"
                     min={min}
                     max={max}
                     value={displayedValue}
                     onChange={handleChange}
-                    className="labs-slider__input"
+                    className="slider__input"
                     {...props}
                 />
             </div>

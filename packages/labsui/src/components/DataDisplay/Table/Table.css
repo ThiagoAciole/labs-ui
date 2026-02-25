@@ -1,18 +1,18 @@
-.labs-table-container {
+.table-container {
   width: 100%;
   background: var(--surface);
   border: 1px solid var(--border-gray);
   border-radius: var(--radius--lg);
 }
 
-.labs-table {
+.table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
   font-family: var(--font--family);
 }
 
-.labs-table th {
+.table th {
   padding: var(--space--4);
   background: var(--surface-alt);
   color: var(--text-gray);
@@ -23,7 +23,7 @@
   border-bottom: 2px solid var(--border-gray);
 }
 
-.labs-table td {
+.table td {
   padding: var(--space--4);
   border-bottom: 1px solid var(--border-gray);
   color: var(--text-gray);
@@ -31,20 +31,20 @@
   transition: background var(--transition--fast);
 }
 
-.labs-table tr:last-child td {
+.table tr:last-child td {
   border-bottom: none;
 }
 
-.labs-table--striped tbody tr:nth-child(even) {
+.table--striped tbody tr:nth-child(even) {
   background: var(--surface-alt);
 }
 
-.labs-table--striped tbody tr:hover td {
+.table--striped tbody tr:hover td {
   background: var(--surface-alt);
 }
 
-.labs-table--compact td, 
-.labs-table--compact th {
+.table--compact td, 
+.table--compact th {
   padding: var(--space--2) var(--space--4);
 }
 

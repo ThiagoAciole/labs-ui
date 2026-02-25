@@ -1,4 +1,4 @@
-import { FileUpload, Heading } from '@labsui/core';
+import { FileUpload, Flex, Heading, Text, Badge, Icon } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -32,11 +32,11 @@ export default function FileUploadPage() {
                 <div style={{ marginTop: '4rem' }}>
                     <Heading size="m">Dicas de Uso</Heading>
                     <div style={{ marginTop: '1.5rem' }}>
-                        <ul>
-                            <li>Suporta múltiplos arquivos quando a prop <code>multiple</code> está ativa.</li>
-                            <li>Validação de tamanho de arquivo integrada.</li>
-                            <li>Feedback visual dinâmico durante o drag & drop.</li>
-                        </ul>
+                        <Flex direction="column" gap="2">
+                            <Flex align="center" gap="2" ><Icon name="check" /><Text> Suporta múltiplos arquivos quando a prop <Badge><code>multiple</code></Badge> está ativa.</Text></Flex>
+                            <Flex align="center" gap="2"><Icon name="check" /><Text> Validação de tamanho de arquivo integrada.</Text></Flex>
+                            <Flex align="center" gap="2" ><Icon name="check" /><Text> Feedback visual dinâmico durante o drag & drop.</Text></Flex>
+                        </Flex>
                     </div>
                 </div>
             </ShowcasePage>

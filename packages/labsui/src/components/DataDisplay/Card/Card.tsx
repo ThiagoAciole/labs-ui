@@ -17,7 +17,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 export function Card({ padding = 'md', variant = 'default', as: Component = 'div', children, className, ...props }: CardProps) {
     return (
         <Component
-            className={classNames('labs-card', `labs-card--${variant}`, `labs-card--pad-${padding}`, className)}
+            className={classNames('card', `card--${variant}`, `card--pad-${padding}`, className)}
             {...props}
         >
             {children}
@@ -34,11 +34,11 @@ export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function CardHeader({ title, description, icon, action, children, className, ...props }: CardHeaderProps) {
     return (
-        <div className={classNames('labs-card-header', className)} {...props}>
-            <div className="labs-card-header__content">
+        <div className={classNames('card-header', className)} {...props}>
+            <div className="card-header__content">
                 {(title || icon) && (
-                    <div className="labs-card-header__title-wrapper">
-                        {icon && <Icon name={icon} className="labs-card-header__icon" />}
+                    <div className="card-header__title-wrapper">
+                        {icon && <Icon name={icon} className="card-header__icon" />}
                         {title && (
                             <Heading
                                 size="sm"
@@ -51,23 +51,24 @@ export function CardHeader({ title, description, icon, action, children, classNa
                 {description && (
                     <Text
                         size="sm"
+                        color="default"
                     >
                         {description}
                     </Text>
                 )}
                 {children}
             </div>
-            {action && <div className="labs-card-header__action">{action}</div>}
+            {action && <div className="card-header__action">{action}</div>}
         </div>
     );
 }
 
 export function CardBody({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-    return <div className={classNames('labs-card-body', className)} {...props}>{children}</div>;
+    return <div className={classNames('card-body', className)} {...props}>{children}</div>;
 }
 
 export function CardFooter({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-    return <div className={classNames('labs-card-footer', className)} {...props}>{children}</div>;
+    return <div className={classNames('card-footer', className)} {...props}>{children}</div>;
 }
 
 

@@ -3,6 +3,8 @@ import './Accordion.css';
 import { Icon } from '../../Typography/Icon/Icon';
 import { classNames } from '../../../utils/classNames';
 
+// ─── Types ────────────────────────────────────────────────────────────────────
+
 interface AccordionItemProps {
     title: string;
     children: React.ReactNode;
@@ -12,43 +14,6 @@ interface AccordionItemProps {
     className?: string;
 }
 
-export const AccordionItem: React.FC<AccordionItemProps> = ({
-    title,
-    children,
-    isOpen = false,
-    onToggle,
-    id,
-    className
-}) => {
-    return (
-        <div className={classNames('labs-accordion-item', { 'labs-accordion-item--open': isOpen }, className)}>
-            <button
-                className="labs-accordion-item__trigger"
-                onClick={onToggle}
-                aria-expanded={isOpen}
-                aria-controls={`accordion-content-${id}`}
-                id={`accordion-trigger-${id}`}
-            >
-                <span className="labs-accordion-item__title">{title}</span>
-                <span className="labs-accordion-item__icon">
-                    <Icon name="chevron-down" size={16} />
-                </span>
-            </button>
-            <div
-                className="labs-accordion-item__content-wrapper"
-                id={`accordion-content-${id}`}
-                role="region"
-                aria-labelledby={`accordion-trigger-${id}`}
-                hidden={!isOpen}
-            >
-                <div className="labs-accordion-item__content">
-                    {children}
-                </div>
-            </div>
-        </div>
-    );
-};
-
 interface AccordionProps {
     children: React.ReactNode;
     type?: 'single' | 'multiple';
@@ -57,48 +22,91 @@ interface AccordionProps {
     style?: React.CSSProperties;
 }
 
-export const Accordion: React.FC<AccordionProps> & { Item: typeof AccordionItem } = ({
+type AccordionComponent = React.FC<AccordionProps> & { Item: typeof AccordionItem };
+
+// ─── Hook ─────────────────────────────────────────────────────────────────────
+
+function useAccordionState(type: 'single' | 'multiple', defaultValue?: string | string[]) {
+    const initialOpen = Array.isArray(defaultValue)
+        ? defaultValue
+        : defaultValue ? [defaultValue] : [];
+
+    const [openItems, setOpenItems] = useState<string[]>(initialOpen);
+
+    const toggle = (id: string) => {
+        setOpenItems(prev => {
+            const isOpen = prev.includes(id);
+            if (type === 'single') return isOpen ? [] : [id];
+            return isOpen ? prev.filter(i => i !== id) : [...prev, id];
+        });
+    };
+
+    return { openItems, toggle };
+}
+
+// ─── AccordionItem ─────────────────────────────────────────────────────────────
+
+export const AccordionItem: React.FC<AccordionItemProps> = ({
+    title,
+    children,
+    isOpen = false,
+    onToggle,
+    id,
+    className,
+}) => (
+    <div className={classNames('accordion-item', { 'accordion-item--open': isOpen }, className)}>
+        <button
+            className="accordion-item__trigger"
+            onClick={onToggle}
+            aria-expanded={isOpen}
+            aria-controls={`accordion-content-${id}`}
+            id={`accordion-trigger-${id}`}
+        >
+            <span className="accordion-item__title">{title}</span>
+            <Icon
+                name="chevron-down"
+                size={16}
+                style={{ transition: 'transform 0.3s cubic-bezier(0.87, 0, 0.13, 1)', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+            />
+        </button>
+
+        <div
+            className="accordion-item__content"
+            id={`accordion-content-${id}`}
+            role="region"
+            aria-labelledby={`accordion-trigger-${id}`}
+            hidden={!isOpen}
+        >
+            {children}
+        </div>
+    </div>
+);
+
+// ─── Accordion ─────────────────────────────────────────────────────────────────
+
+export const Accordion: AccordionComponent = ({
     children,
     type = 'single',
     defaultValue,
     className,
-    style
+    style,
 }) => {
-    const [openItems, setOpenItems] = useState<string[]>(
-        Array.isArray(defaultValue) ? defaultValue : (defaultValue ? [defaultValue] : [])
-    );
-
-    const handleToggle = (id: string) => {
-        if (type === 'single') {
-            setOpenItems(openItems.includes(id) ? [] : [id]);
-        } else {
-            setOpenItems(openItems.includes(id)
-                ? openItems.filter(item => item !== id)
-                : [...openItems, id]
-            );
-        }
-    };
+    const { openItems, toggle } = useAccordionState(type, defaultValue);
 
     return (
-        <div className={classNames('labs-accordion', className)} style={style}>
+        <div className={classNames('accordion', className)} style={style}>
             {React.Children.map(children, (child, index) => {
-                if (React.isValidElement<AccordionItemProps>(child)) {
-                    const id = child.props.id || `accordion-item-${index}`;
-                    return React.cloneElement(child, {
-                        isOpen: openItems.includes(id),
-                        onToggle: () => handleToggle(id),
-                        id
-                    });
-                }
-                return child;
+                if (!React.isValidElement<AccordionItemProps>(child)) return child;
+
+                const id = child.props.id ?? `accordion-item-${index}`;
+                return React.cloneElement(child, {
+                    id,
+                    isOpen: openItems.includes(id),
+                    onToggle: () => toggle(id),
+                });
             })}
         </div>
     );
 };
 
 Accordion.Item = AccordionItem;
-
-
-
-
-

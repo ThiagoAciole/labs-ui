@@ -22,9 +22,9 @@ export const Grid: React.FC<GridProps> = ({
     return (
         <Component
             className={classNames(
-                'labs-grid',
-                `labs-grid-cols--${columns}`,
-                `labs-grid-gap--${gap}`,
+                'grid',
+                `grid-cols--${columns}`,
+                `grid-gap--${gap}`,
                 className
             )}
             style={style}

@@ -16,6 +16,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,css,json,md}\""
   },
   "devDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.59.0",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.0",
     "eslint": "^8.57.0",

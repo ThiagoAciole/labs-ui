@@ -53,26 +53,26 @@ export function Modal({
     if (!open) return null;
 
     return createPortal(
-        <div className="labs-modal-overlay" onClick={closeOnOverlayClick ? onClose : undefined}>
+        <div className="modal-overlay" onClick={closeOnOverlayClick ? onClose : undefined}>
             <div
                 ref={dialogRef}
                 role="dialog"
                 aria-modal="true"
-                aria-labelledby={title ? 'labs-modal-title' : undefined}
-                aria-describedby={description ? 'labs-modal-description' : undefined}
+                aria-labelledby={title ? 'modal-title' : undefined}
+                aria-describedby={description ? 'modal-description' : undefined}
                 tabIndex={-1}
-                className={classNames('labs-modal', `labs-modal--${size}`, className)}
+                className={classNames('modal', `modal--${size}`, className)}
                 onClick={(e) => e.stopPropagation()}
             >
                 {(title || description) && (
-                    <div className="labs-modal-header">
+                    <div className="modal-header">
                         <div>
                             {title && (
-                                <Heading id="labs-modal-title" size="sm" className="labs-modal-title">
+                                <Heading id="modal-title" size="sm" className="modal-title">
                                     {title}
                                 </Heading>
                             )}
-                            {description && <p id="labs-modal-description" className="labs-modal-description">{description}</p>}
+                            {description && <p id="modal-description" className="modal-description">{description}</p>}
                         </div>
                         <IconButton
                             icon="close"
@@ -83,8 +83,8 @@ export function Modal({
                         />
                     </div>
                 )}
-                {children && <div className="labs-modal-body">{children}</div>}
-                {footer && <div className="labs-modal-footer">{footer}</div>}
+                {children && <div className="modal-body">{children}</div>}
+                {footer && <div className="modal-footer">{footer}</div>}
             </div>
         </div>,
         document.body

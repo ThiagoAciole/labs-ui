@@ -25,7 +25,7 @@ function setForwardedRef<T>(ref: React.ForwardedRef<T>, value: T | null) {
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     ({ label, indeterminate = false, supportText, className, id, disabled, color = 'primary', ...props }, ref) => {
         const generatedId = React.useId();
-        const inputId = id ?? `labs-cb-${generatedId}`;
+        const inputId = id ?? `cb-${generatedId}`;
         const inputRef = React.useRef<HTMLInputElement | null>(null);
 
         React.useEffect(() => {
@@ -42,32 +42,32 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         return (
             <div
                 className={classNames(
-                    'labs-checkbox-root',
-                    disabled && 'labs-checkbox-root--disabled',
-                    indeterminate && 'labs-checkbox-root--indeterminate',
+                    'checkbox-root',
+                    disabled && 'checkbox-root--disabled',
+                    indeterminate && 'checkbox-root--indeterminate',
                     className
                 )}
-                style={{ ['--labs-checkbox-color' as string]: colorVar(color), ...(props.style ?? {}) }}
+                style={{ ['--checkbox-color' as string]: colorVar(color), ...(props.style ?? {}) }}
             >
-                <label className="labs-checkbox-label" htmlFor={inputId}>
-                    <span className="labs-checkbox-control">
+                <label className="checkbox-label" htmlFor={inputId}>
+                    <span className="checkbox-control">
                         <input
                             ref={handleRef}
                             type="checkbox"
                             id={inputId}
-                            className="labs-checkbox-control__input"
+                            className="checkbox-control__input"
                             aria-checked={indeterminate ? 'mixed' : undefined}
                             disabled={disabled}
                             {...props}
                         />
-                        <span className="labs-checkbox-control__box" aria-hidden>
-                            <Icon name="check" size={12} color="inherit" className="labs-checkbox-control__icon" />
-                            <span className="labs-checkbox-control__dash" />
+                        <span className="checkbox-control__box" aria-hidden>
+                            <Icon name="check" size={12} color="inherit" className="checkbox-control__icon" />
+                            <span className="checkbox-control__dash" />
                         </span>
                     </span>
-                    {label && <Text as="span" className="labs-checkbox-text">{label}</Text>}
+                    {label && <Text as="span" className="checkbox-text">{label}</Text>}
                 </label>
-                {supportText && <Text as="span" color="disabled" size="sm" className="labs-checkbox-supportText">{supportText}</Text>}
+                {supportText && <Text as="span" color="disabled" size="sm" className="checkbox-supportText">{supportText}</Text>}
             </div>
         );
     }

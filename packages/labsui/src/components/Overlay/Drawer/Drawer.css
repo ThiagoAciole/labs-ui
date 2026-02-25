@@ -1,13 +1,13 @@
-.labs-drawer-overlay {
+.drawer-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
   z-index: var(--z--modal);
-  animation: labs-drawer-fade-in var(--transition--normal);
+  animation: drawer-fade-in var(--transition--normal);
 }
 
-.labs-drawer {
+.drawer {
   position: fixed;
   background: var(--surface-alt);
   box-shadow: var(--shadow--lg);
@@ -17,7 +17,7 @@
   transition: transform var(--transition--normal);
 }
 
-.labs-drawer--left {
+.drawer--left {
   top: 0;
   left: 0;
   bottom: 0;
@@ -26,7 +26,7 @@
   border-right: 1px solid var(--border-neutral);
 }
 
-.labs-drawer--right {
+.drawer--right {
   top: 0;
   right: 0;
   bottom: 0;
@@ -35,11 +35,11 @@
   border-left: 1px solid var(--border-neutral);
 }
 
-.labs-drawer--open {
+.drawer--open {
   transform: translateX(0);
 }
 
-.labs-drawer__header {
+.drawer__header {
   padding: var(--space--4) var(--space--6);
   border-bottom: 1px solid var(--border-neutral);
   display: flex;
@@ -48,21 +48,21 @@
   height: 64px;
 }
 
-.labs-drawer__title {
+.drawer__title {
   font-size: var(--font--size--lg);
   font-weight: 700;
   color: var(--text-gray);
   margin: 0;
 }
 
-.labs-drawer__body {
+.drawer__body {
   padding: var(--space--6);
   flex: 1;
   overflow-y: auto;
   color: var(--text-gray);
 }
 
-.labs-drawer__footer {
+.drawer__footer {
   padding: var(--space--4) var(--space--6);
   border-top: 1px solid var(--border-neutral);
   display: flex;
@@ -70,7 +70,7 @@
   gap: var(--space--3);
 }
 
-@keyframes labs-drawer-fade-in {
+@keyframes drawer-fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }

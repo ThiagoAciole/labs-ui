@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { createContext, useContext } from 'react';
 import './List.css';
 import { classNames } from '../../../utils/classNames';
+import { Icon } from '../../Typography/Icon/Icon';
 
 export interface ListProps {
     children: React.ReactNode;
-    variant?: 'default' | 'bordered' | 'divided';
+    variant?: 'default' | 'bordered' | 'divided' | 'checklist';
     className?: string;
     style?: React.CSSProperties;
 }
@@ -21,6 +22,8 @@ export interface ListItemProps {
     style?: React.CSSProperties;
 }
 
+const ListContext = createContext<{ variant?: string }>({});
+
 export const List: React.FC<ListProps> & { Item: React.FC<ListItemProps> } = ({
     children,
     variant = 'default',
@@ -28,17 +31,19 @@ export const List: React.FC<ListProps> & { Item: React.FC<ListItemProps> } = ({
     style
 }) => {
     return (
-        <div
-            className={classNames(
-                'labs-list',
-                `labs-list--${variant}`,
-                className
-            )}
-            style={style}
-            role="list"
-        >
-            {children}
-        </div>
+        <ListContext.Provider value={{ variant }}>
+            <div
+                className={classNames(
+                    'list',
+                    `list--${variant}`,
+                    className
+                )}
+                style={style}
+                role="list"
+            >
+                {children}
+            </div>
+        </ListContext.Provider>
     );
 };
 
@@ -53,13 +58,19 @@ export const ListItem: React.FC<ListItemProps> = ({
     className,
     style
 }) => {
+    const { variant } = useContext(ListContext);
+
+    const resolvedStartContent = variant === 'checklist' && !startContent
+        ? <Icon name="check" size={20} color='primary' className="list-item__check-icon" />
+        : startContent;
+
     return (
         <div
             className={classNames(
-                'labs-list-item',
-                active && 'labs-list-item--active',
-                onClick && !disabled && 'labs-list-item--clickable',
-                disabled && 'labs-list-item--disabled',
+                'list-item',
+                active && 'list-item--active',
+                onClick && !disabled && 'list-item--clickable',
+                disabled && 'list-item--disabled',
                 className
             )}
             style={style}
@@ -67,21 +78,21 @@ export const ListItem: React.FC<ListItemProps> = ({
             role="listitem"
             tabIndex={disabled ? -1 : (onClick ? 0 : undefined)}
         >
-            {startContent && (
-                <div className="labs-list-item__start">
-                    {startContent}
+            {resolvedStartContent && (
+                <div className="list-item__start">
+                    {resolvedStartContent}
                 </div>
             )}
 
-            <div className="labs-list-item__content">
-                <span className="labs-list-item__title">{children}</span>
+            <div className="list-item__content">
+                <span className="list-item__title">{children}</span>
                 {description && (
-                    <span className="labs-list-item__description">{description}</span>
+                    <span className="list-item__description">{description}</span>
                 )}
             </div>
 
             {endContent && (
-                <div className="labs-list-item__end">
+                <div className="list-item__end">
                     {endContent}
                 </div>
             )}

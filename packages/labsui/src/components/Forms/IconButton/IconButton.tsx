@@ -26,8 +26,8 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
                 disabled={disabled || loading}
                 aria-label={ariaLabel || icon}
                 aria-busy={loading}
-                className={classNames('labs-icon-btn', `labs-icon-btn--variant-${variant}`, `labs-icon-btn--size-${size}`, loading && 'labs-icon-btn--loading', className)}
-                style={{ ['--labs-icon-btn-color' as string]: colorVar(color), ...(style ?? {}) }}
+                className={classNames('icon-btn', `icon-btn--variant-${variant}`, `icon-btn--size-${size}`, loading && 'icon-btn--loading', className)}
+                style={{ ['--icon-btn-color' as string]: colorVar(color), ...(style ?? {}) }}
                 {...props}
             >
                 {loading ? <Loader size={size} color={color} /> : <Icon name={icon} size={iconSize} color="inherit" />}

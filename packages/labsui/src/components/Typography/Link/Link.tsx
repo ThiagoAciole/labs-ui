@@ -23,8 +23,8 @@ export const Link: React.FC<LinkProps> = ({ color = 'primary', underline = false
 
     return (
         <Component
-            className={classNames('labs-link', underline && 'labs-link--underline', isActive && 'labs-link--active', className)}
-            style={{ ['--labs-link-color' as string]: `var(--text-${color === 'primary' ? 'primary' : color})`, ...(style ?? {}) }}
+            className={classNames('link', underline && 'link--underline', isActive && 'link--active', className)}
+            style={{ ['--link-color' as string]: `var(--text-${color === 'primary' ? 'primary' : color})`, ...(style ?? {}) }}
             href={route}
             aria-current={isActive ? 'page' : undefined}
             {...props}

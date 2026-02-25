@@ -32,10 +32,10 @@ export const Avatar: React.FC<AvatarProps> = ({
     return (
         <div
             className={classNames(
-                'labs-avatar',
-                `labs-avatar--${size}`,
-                `labs-avatar--${shape}`,
-                bordered && 'labs-avatar--bordered',
+                'avatar',
+                `avatar--${size}`,
+                `avatar--${shape}`,
+                bordered && 'avatar--bordered',
                 className
             )}
             {...props}
@@ -44,13 +44,13 @@ export const Avatar: React.FC<AvatarProps> = ({
                 <img
                     src={src}
                     alt={alt}
-                    className="labs-avatar__image"
+                    className="avatar__image"
                     onError={() => setHasError(true)}
                 />
             ) : initials ? (
-                <span className="labs-avatar__initials">{initials.substring(0, 2)}</span>
+                <span className="avatar__initials">{initials.substring(0, 2)}</span>
             ) : (
-                <div className="labs-avatar__fallback">
+                <div className="avatar__fallback">
                     <Icon name={fallbackIcon as any} size={size === 'xl' ? 48 : size === 'lg' ? 32 : 20} />
                 </div>
             )}

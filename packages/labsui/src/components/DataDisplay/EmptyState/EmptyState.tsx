@@ -21,11 +21,11 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
     style
 }) => {
     return (
-        <div className={classNames('labs-empty-state', className)} style={style}>
-            {icon && <div className="labs-empty-state__icon"><Icon name={icon} size={48} color='neutral' /></div>}
+        <div className={classNames('empty-state', className)} style={style}>
+            {icon && <div className="empty-state__icon"><Icon name={icon} size={48} color='neutral' /></div>}
             <Heading size="m">{title}</Heading>
             {description && <Text>{description}</Text>}
-            {action && <div className="labs-empty-state__action">{action}</div>}
+            {action && <div className="empty-state__action">{action}</div>}
         </div>
     );
 };

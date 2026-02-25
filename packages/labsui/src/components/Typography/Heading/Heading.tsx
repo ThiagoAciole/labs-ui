@@ -39,9 +39,9 @@ export const Heading: React.FC<HeadingProps> = ({
     return (
         <Tag
             className={classNames(
-                'labs-heading',
-                `labs-heading--${size}`,
-                `labs-text--${align}`,
+                'heading',
+                `heading--${size}`,
+                `text--${align}`,
                 className
             )}
             style={{

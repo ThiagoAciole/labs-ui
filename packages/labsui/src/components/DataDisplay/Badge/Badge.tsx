@@ -17,8 +17,8 @@ export interface BadgeProps {
 
 export function Badge({ variant = 'soft', size = 'md', color = 'primary', children, dot = false, className, style }: BadgeProps) {
     return (
-        <span className={classNames('labs-badge', `labs-badge--variant-${variant}`, `labs-badge--size-${size}`, dot && 'labs-badge--dot', className)} style={{ ['--labs-badge-color' as string]: colorVar(color), ...(style ?? {}) }}>
-            {dot && <span className="labs-badge__dot" />}
+        <span className={classNames('badge', `badge--variant-${variant}`, `badge--size-${size}`, dot && 'badge--dot', className)} style={{ ['--badge-color' as string]: colorVar(color), ...(style ?? {}) }}>
+            {dot && <span className="badge__dot" />}
             {children}
         </span>
     );

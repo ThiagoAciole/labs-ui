@@ -24,32 +24,32 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
     return (
         <label
             className={classNames(
-                'labs-radio__wrapper',
+                'radio__wrapper',
                 {
-                    'labs-radio--disabled': disabled,
-                    'labs-radio--error': error
+                    'radio--disabled': disabled,
+                    'radio--error': error
                 },
                 className
             )}
-            style={{ ['--labs-radio-color' as string]: colorVar(color), ...(style ?? {}) }}
+            style={{ ['--radio-color' as string]: colorVar(color), ...(style ?? {}) }}
         >
-            <div className="labs-radio__input-container">
+            <div className="radio__input-container">
                 <input
                     type="radio"
-                    className="labs-radio__input"
+                    className="radio__input"
                     disabled={disabled}
                     ref={ref}
                     {...props}
                 />
-                <div className="labs-radio__control">
-                    <div className="labs-radio__dot" />
+                <div className="radio__control">
+                    <div className="radio__dot" />
                 </div>
             </div>
 
             {(label || description) && (
-                <div className="labs-radio__content">
-                    {label && <Text as="span" className="labs-radio__label">{label}</Text>}
-                    {description && <Text as="span" color="disabled" size="sm" className="labs-radio__description">{description}</Text>}
+                <div className="radio__content">
+                    {label && <Text as="span" className="radio__label">{label}</Text>}
+                    {description && <Text as="span" color="disabled" size="sm" className="radio__description">{description}</Text>}
                 </div>
             )}
         </label>

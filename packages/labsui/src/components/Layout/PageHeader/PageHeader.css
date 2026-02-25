@@ -1,4 +1,4 @@
-.labs-page-header {
+.page-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -7,25 +7,25 @@
   margin-bottom: var(--space--12);
 }
 
-.labs-page-header__left {
+.page-header__left {
   display: flex;
   align-items: flex-start;
   gap: var(--space--4);
   flex: 1;
 }
 
-.labs-page-header__back {
+.page-header__back {
   margin-top: calc(var(--space--1) * 0.5); /* Alinhamento visual com o título H1 */
 }
 
-.labs-page-header__content {
+.page-header__content {
   display: flex;
   flex-direction: column;
   gap: var(--space--1);
 }
 
 
-.labs-page-header__right {
+.page-header__right {
   display: flex;
   align-items: center;
   flex-shrink: 0;

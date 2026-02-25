@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
-import { Pagination, Heading, Card, CardBody } from '@labsui/core';
+import { Pagination, Heading, Card, Text } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
+import UseTips from '../../components/UseTips';
 
 export default function PaginationPage() {
     const [page, setPage] = useState(1);
@@ -43,23 +44,13 @@ export default function PaginationPage() {
                             onPageChange={setPage}
                         />
                         <Card style={{ width: '200px', textAlign: 'center' }}>
-                            <CardBody>
-                                Página: <strong>{page}</strong>
-                            </CardBody>
+                            <Text> Página: <strong>{" "}{page}</strong></Text>
                         </Card>
                     </div>
                 )} />
 
-                <div style={{ marginTop: '4rem' }}>
-                    <Heading size="m">Dicas de Uso</Heading>
-                    <div style={{ marginTop: '1.5rem' }}>
-                        <ul>
-                            <li>Ideal para tabelas, grids de produtos e listas de resultados de busca.</li>
-                            <li>Sempre informe ao usuário em qual página ele está no momento.</li>
-                            <li>Tente não exibir muitos números de página de uma vez (o componente já gerencia o truncamento).</li>
-                        </ul>
-                    </div>
-                </div>
+                <UseTips tips={["Ideal para tabelas, grids de produtos e listas de resultados de busca.", "Sempre informe ao usuário em qual página ele está no momento.", "Tente não exibir muitos números de página de uma vez (o componente já gerencia o truncamento)."]} />
+
             </ShowcasePage>
         </Playground.Root>
     );

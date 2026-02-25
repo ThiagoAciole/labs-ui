@@ -1,6 +1,7 @@
-import { Accordion, AccordionItem, Heading, Icon } from '@labsui/core';
+import { Accordion, AccordionItem, Text, Flex, Heading, Icon } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
+import { UseTips } from '../../components/UseTips';
 
 export default function AccordionPage() {
     return (
@@ -42,16 +43,12 @@ export default function AccordionPage() {
                     </div>
                 )} />
 
-                <div style={{ marginTop: '4rem' }}>
-                    <Heading size="m">Uso Sugerido</Heading>
-                    <div style={{ marginTop: '1.5rem' }}>
-                        <ul>
-                            <li>Ideal para seções de FAQ (Perguntas Frequentes).</li>
-                            <li>Agrupamento de configurações em painéis de controle.</li>
-                            <li>Informações detalhadas que não precisam estar visíveis o tempo todo.</li>
-                        </ul>
-                    </div>
-                </div>
+                <UseTips tips={[
+                    "Ideal para seções de FAQ (Perguntas Frequentes).",
+                    "Agrupamento de configurações em painéis de controle.",
+                    "Informações detalhadas que não precisam estar visíveis o tempo todo.",
+                ]} />
+
             </ShowcasePage>
         </Playground.Root>
     );

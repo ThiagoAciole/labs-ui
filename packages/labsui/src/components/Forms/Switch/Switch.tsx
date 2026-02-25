@@ -14,33 +14,33 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
 
 export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
     ({ label, labelPosition = 'right', size = 'md', supportText, className, id, ...props }, ref) => {
-        const inputId = id ?? (label ? `labs-sw-${LabelFormater(label)}` : undefined);
+        const inputId = id ?? (label ? `sw-${LabelFormater(label)}` : undefined);
 
         return (
-            <div className={classNames('labs-switch-root', props.disabled && 'labs-switch-root--disabled', className)}>
-                <label className="labs-switch-label" htmlFor={inputId}>
+            <div className={classNames('switch-root', props.disabled && 'switch-root--disabled', className)}>
+                <label className="switch-label" htmlFor={inputId}>
                     {label && labelPosition === 'left' && (
-                        <Text as="span" className="labs-switch-text">{LabelFormater(label)}</Text>
+                        <Text as="span" className="switch-text">{LabelFormater(label)}</Text>
                     )}
-                    <span className={classNames('labs-switch-control', `labs-switch-control--${size}`)}>
+                    <span className={classNames('switch-control', `switch-control--${size}`)}>
                         <input
                             ref={ref}
                             type="checkbox"
                             role="switch"
                             id={inputId}
-                            className="labs-switch-control__input"
+                            className="switch-control__input"
                             aria-checked={props.checked}
                             {...props}
                         />
-                        <span className="labs-switch-control__track" aria-hidden>
-                            <span className="labs-switch-control__thumb" />
+                        <span className="switch-control__track" aria-hidden>
+                            <span className="switch-control__thumb" />
                         </span>
                     </span>
                     {label && labelPosition === 'right' && (
-                        <Text as="span" className="labs-switch-text">{LabelFormater(label)}</Text>
+                        <Text as="span" className="switch-text">{LabelFormater(label)}</Text>
                     )}
                 </label>
-                {supportText && <Text as="span" color="disabled" size="sm" className="labs-switch-supportText">{supportText}</Text>}
+                {supportText && <Text as="span" color="disabled" size="sm" className="switch-supportText">{supportText}</Text>}
             </div>
         );
     }

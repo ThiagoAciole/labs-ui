@@ -39,18 +39,18 @@ export const Drawer: React.FC<DrawerProps> = ({
 
     return createPortal(
         <>
-            <div className="labs-drawer-overlay" onClick={onClose} />
+            <div className="drawer-overlay" onClick={onClose} />
             <div
                 className={classNames(
-                    'labs-drawer',
-                    `labs-drawer--${placement}`,
-                    isOpen && 'labs-drawer--open'
+                    'drawer',
+                    `drawer--${placement}`,
+                    isOpen && 'drawer--open'
                 )}
                 style={size ? { width: size } : {}}
             >
-                <div className="labs-drawer__header">
+                <div className="drawer__header">
                     {title ? (
-                        <Heading size="sm" className="labs-drawer__title">
+                        <Heading size="sm" className="drawer__title">
                             {title}
                         </Heading>
                     ) : <div />}
@@ -62,11 +62,11 @@ export const Drawer: React.FC<DrawerProps> = ({
                         aria-label="Fechar"
                     />
                 </div>
-                <div className="labs-drawer__body">
+                <div className="drawer__body">
                     {children}
                 </div>
                 {footer && (
-                    <div className="labs-drawer__footer">
+                    <div className="drawer__footer">
                         {footer}
                     </div>
                 )}

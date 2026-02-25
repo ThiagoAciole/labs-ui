@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { classNames } from '../../../utils/classNames';
 import { iconColorVar, type TokenIconColor } from '../../../utils/styleTokens';
 
@@ -19,6 +19,7 @@ export interface IconProps {
     size?: number | string;
     color?: TokenIconColor | string;
     className?: string;
+    style?: CSSProperties; // 1. Adicionado aqui
     'aria-hidden'?: boolean;
     'aria-label'?: string;
 }
@@ -28,6 +29,7 @@ export const Icon: React.FC<IconProps> = ({
     size = 20,
     color,
     className,
+    style, // 2. Desestruturado aqui
     'aria-hidden': ariaHidden = true,
     'aria-label': ariaLabel,
 }) => {
@@ -46,16 +48,17 @@ export const Icon: React.FC<IconProps> = ({
 
     return (
         <span
-            className={classNames('labs-icon-wrapper', className)}
+            className={classNames('icon-wrapper', className)}
             aria-hidden={ariaHidden}
             aria-label={ariaLabel}
             role={ariaLabel ? 'img' : undefined}
             style={{
                 display: 'inline-flex',
+                alignItems: 'center',
                 color: iconColor,
                 width: size,
                 height: size,
-                alignItems: 'center',
+                ...style, // 3. Spread do style original por último (sobrescreve se necessário)
             }}
         >
             <SvgIcon width="100%" height="100%" />

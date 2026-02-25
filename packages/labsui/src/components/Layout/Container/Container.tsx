@@ -17,7 +17,7 @@ export const Container: React.FC<ContainerProps> = ({
 }) => {
     return (
         <div
-            className={classNames('labs-container', `labs-container--${size}`, className)}
+            className={classNames('container', `container--${size}`, className)}
             style={style}
         >
             {children}

@@ -17,29 +17,29 @@ export interface InputProps extends Omit<React.ComponentPropsWithoutRef<'input'>
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({ label, error, supportText, prefix, suffix, size = 'md', full = false, className, id, ...props }, ref) => {
-        const inputId = id ?? (label ? `labs-input-${LabelFormater(label)}` : undefined);
+        const inputId = id ?? (label ? `input-${LabelFormater(label)}` : undefined);
 
         return (
-            <div className={classNames('labs-input-wrapper', full && 'labs-input-wrapper--full', className)}>
+            <div className={classNames('input-wrapper', full && 'input-wrapper--full', className)}>
                 {label && (
-                    <Text size="xs" weight="medium" color='neutral' as="label" htmlFor={inputId} className="labs-input-label">
+                    <Text size="xs" weight="medium" color='neutral' as="label" htmlFor={inputId} className="input-label">
                         {LabelFormater(label)}
                     </Text>
                 )}
-                <div className={classNames('labs-input-field', `labs-input-field--${size}`, error && 'labs-input-field--error', props.disabled && 'labs-input-field--disabled')}>
-                    {prefix && <span className="labs-input-field__adornment labs-input-field__adornment--prefix">{prefix}</span>}
+                <div className={classNames('input-field', `input-field--${size}`, error && 'input-field--error', props.disabled && 'input-field--disabled')}>
+                    {prefix && <span className="input-field__adornment input-field__adornment--prefix">{prefix}</span>}
                     <input
                         ref={ref}
                         id={inputId}
-                        className="labs-input-field__input"
+                        className="input-field__input"
                         aria-invalid={!!error}
                         aria-describedby={error ? `${inputId}-error` : supportText ? `${inputId}-supportText` : undefined}
                         {...props}
                     />
-                    {suffix && <span className="labs-input-field__adornment labs-input-field__adornment--suffix">{suffix}</span>}
+                    {suffix && <span className="input-field__adornment input-field__adornment--suffix">{suffix}</span>}
                 </div>
-                {error && <Text as="span" id={`${inputId}-error`} color="error" size="sm" className="labs-input-message labs-input-message--error" role="alert">{error}</Text>}
-                {!error && supportText && <Text as="span" id={`${inputId}-supportText`} color="disabled" size="sm" className="labs-input-message">{supportText}</Text>}
+                {error && <Text as="span" id={`${inputId}-error`} color="error" size="sm" className="input-message input-message--error" role="alert">{error}</Text>}
+                {!error && supportText && <Text as="span" id={`${inputId}-supportText`} color="disabled" size="sm" className="input-message">{supportText}</Text>}
             </div>
         );
     }

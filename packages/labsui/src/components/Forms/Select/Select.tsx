@@ -64,7 +64,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
         }, [isOpen, props.searchable]);
 
         const selectedOption = options.find(opt => opt.value === selectedValue);
-        const inputId = id ?? (label ? `labs-select-${label.toLowerCase().replace(/\s+/g, '-')}` : undefined);
+        const inputId = id ?? (label ? `select-${label.toLowerCase().replace(/\s+/g, '-')}` : undefined);
 
         const handleToggle = () => {
             if (!disabled) setIsOpen(!isOpen);
@@ -87,10 +87,10 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
         return (
             <div
                 ref={containerRef}
-                className={classNames('labs-select-wrapper', full && 'labs-select-wrapper--full', className)}
+                className={classNames('select-wrapper', full && 'select-wrapper--full', className)}
             >
                 {label && (
-                    <Text size="xs" weight="medium" color='neutral' as="label" id={`${inputId}-label`} className="labs-select-label" onClick={() => !disabled && setIsOpen(true)}>
+                    <Text size="xs" weight="medium" color='neutral' as="label" id={`${inputId}-label`} className="select-label" onClick={() => !disabled && setIsOpen(true)}>
                         {LabelFormater(label)}
                     </Text>
                 )}
@@ -103,12 +103,12 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                     aria-haspopup="listbox"
                     aria-labelledby={`${inputId}-label`}
                     className={classNames(
-                        'labs-input-field',
-                        'labs-input-field--clickable',
-                        `labs-input-field--${size}`,
-                        isOpen && 'labs-input-field--active',
-                        error && 'labs-input-field--error',
-                        disabled && 'labs-input-field--disabled'
+                        'input-field',
+                        'input-field--clickable',
+                        `input-field--${size}`,
+                        isOpen && 'input-field--active',
+                        error && 'input-field--error',
+                        disabled && 'input-field--disabled'
                     )}
                     onClick={handleToggle}
                     tabIndex={disabled ? -1 : 0}
@@ -122,24 +122,24 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                     }}
                     {...props}
                 >
-                    <div className="labs-input-field__input" style={{ display: 'flex', alignItems: 'center' }}>
-                        <Text as="span" color={!selectedOption ? "disabled" : "default"} className={classNames('labs-select-field__value', !selectedOption && 'labs-select-field__value--placeholder')}>
+                    <div className="input-field__input" style={{ display: 'flex', alignItems: 'center' }}>
+                        <Text as="span" color={!selectedOption ? "disabled" : "default"} className={classNames('select-field__value', !selectedOption && 'select-field__value--placeholder')}>
                             {selectedOption ? selectedOption.label : placeholder}
                         </Text>
                     </div>
-                    <span className="labs-input-field__adornment labs-input-field__adornment--suffix">
+                    <span className="input-field__adornment input-field__adornment--suffix">
                         <Icon name="chevron-down" size={16} />
                     </span>
                 </div>
 
                 <DropdownContainer isOpen={isOpen}>
                     {props.searchable && (
-                        <div className="labs-select-menu__search">
-                            <Icon name="search" size={14} className="labs-select-menu__search-icon" />
+                        <div className="select-menu__search">
+                            <Icon name="search" size={14} className="select-menu__search-icon" />
                             <input
                                 ref={searchInputRef}
                                 type="text"
-                                className="labs-select-menu__search-input"
+                                className="select-menu__search-input"
                                 placeholder={props.searchPlaceholder || 'Pesquisar...'}
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -150,16 +150,16 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                             />
                         </div>
                     )}
-                    <ul className="labs-select-menu__list" role="listbox">
+                    <ul className="select-menu__list" role="listbox">
                         {filteredOptions.length > 0 ? filteredOptions.map((opt) => (
                             <li
                                 key={opt.value}
                                 role="option"
                                 aria-selected={opt.value === selectedValue}
                                 className={classNames(
-                                    'labs-select-menu__option',
-                                    opt.value === selectedValue && 'labs-select-menu__option--selected',
-                                    opt.disabled && 'labs-select-menu__option--disabled'
+                                    'select-menu__option',
+                                    opt.value === selectedValue && 'select-menu__option--selected',
+                                    opt.disabled && 'select-menu__option--disabled'
                                 )}
                                 onClick={(e) => {
                                     e.stopPropagation();
@@ -174,13 +174,13 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                                 )}
                             </li>
                         )) : (
-                            <li className="labs-select-menu__empty">Nenhum resultado encontrado</li>
+                            <li className="select-menu__empty">Nenhum resultado encontrado</li>
                         )}
                     </ul>
                 </DropdownContainer>
 
-                {error && <Text as="span" color="error" size="sm" className="labs-select-message labs-select-message--error" role="alert">{error}</Text>}
-                {!error && supportText && <Text as="span" color="disabled" size="sm" className="labs-select-message">{supportText}</Text>}
+                {error && <Text as="span" color="error" size="sm" className="select-message select-message--error" role="alert">{error}</Text>}
+                {!error && supportText && <Text as="span" color="disabled" size="sm" className="select-message">{supportText}</Text>}
             </div>
         );
     }

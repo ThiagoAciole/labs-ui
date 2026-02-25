@@ -69,7 +69,7 @@ export function DropdownMenu({ trigger, items, placement = 'bottom-start', class
                 <div
                     ref={menuRef}
                     role="menu"
-                    className={classNames('labs-dropdown', className)}
+                    className={classNames('dropdown', className)}
                     style={{
                         top: pos.top,
                         left: placement.endsWith('end') ? 'auto' : pos.left,
@@ -78,18 +78,18 @@ export function DropdownMenu({ trigger, items, placement = 'bottom-start', class
                 >
                     {items.map((item, i) =>
                         item.separator ? (
-                            <div key={i} className="labs-dropdown-separator" role="separator" />
+                            <div key={i} className="dropdown-separator" role="separator" />
                         ) : (
                             <button
                                 key={i}
                                 type="button"
                                 role="menuitem"
                                 disabled={item.disabled}
-                                className={classNames('labs-dropdown-item', item.danger && 'labs-dropdown-item--danger')}
+                                className={classNames('dropdown-item', item.danger && 'dropdown-item--danger')}
                                 onClick={() => { item.onClick?.(); setOpen(false); }}
                             >
-                                {item.icon && <span className="labs-dropdown-item__icon">{item.icon}</span>}
-                                <span className="labs-dropdown-item__label">{item.label}</span>
+                                {item.icon && <span className="dropdown-item__icon">{item.icon}</span>}
+                                <span className="dropdown-item__label">{item.label}</span>
                             </button>
                         )
                     )}

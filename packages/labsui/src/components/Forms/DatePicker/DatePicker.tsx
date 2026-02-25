@@ -88,7 +88,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         // Dias do mês anterior (para preencher a grid)
         for (let i = startingDay - 1; i >= 0; i--) {
             days.push(
-                <div key={`prev-${i}`} className="labs-calendar__day labs-calendar__day--outside">
+                <div key={`prev-${i}`} className="calendar__day calendar__day--outside">
                     {prevMonthDays - i}
                 </div>
             );
@@ -103,9 +103,9 @@ export const DatePicker: React.FC<DatePickerProps> = ({
                 <div
                     key={i}
                     className={classNames(
-                        'labs-calendar__day',
-                        isToday && 'labs-calendar__day--today',
-                        isSelected && 'labs-calendar__day--selected'
+                        'calendar__day',
+                        isToday && 'calendar__day--today',
+                        isSelected && 'calendar__day--selected'
                     )}
                     onClick={(e) => {
                         e.stopPropagation();
@@ -122,7 +122,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         const nextDaysCount = totalCells - days.length;
         for (let i = 1; i <= nextDaysCount; i++) {
             days.push(
-                <div key={`next-${i}`} className="labs-calendar__day labs-calendar__day--outside">
+                <div key={`next-${i}`} className="calendar__day calendar__day--outside">
                     {i}
                 </div>
             );
@@ -138,55 +138,55 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     return (
         <div
             ref={containerRef}
-            className={classNames('labs-datepicker-container', full && 'labs-select-wrapper--full')}
+            className={classNames('datepicker-container', full && 'select-wrapper--full')}
         >
-            {label && <label className="labs-select-label">{label}</label>}
+            {label && <label className="select-label">{label}</label>}
 
             <div
                 className={classNames(
-                    'labs-input-field',
-                    'labs-input-field--clickable',
-                    `labs-input-field--${size}`,
-                    isOpen && 'labs-input-field--active',
-                    disabled && 'labs-input-field--disabled'
+                    'input-field',
+                    'input-field--clickable',
+                    `input-field--${size}`,
+                    isOpen && 'input-field--active',
+                    disabled && 'input-field--disabled'
                 )}
                 onClick={() => !disabled && setIsOpen(!isOpen)}
             >
-                <div className="labs-input-field__input" style={{ display: 'flex', alignItems: 'center' }}>
+                <div className="input-field__input" style={{ display: 'flex', alignItems: 'center' }}>
                     <span className={classNames(
-                        selectedDate ? 'labs-datepicker-trigger__value' : 'labs-datepicker-trigger__placeholder'
+                        selectedDate ? 'datepicker-trigger__value' : 'datepicker-trigger__placeholder'
                     )}>
                         {selectedDate ? formatDate(selectedDate) : placeholder}
                     </span>
                 </div>
-                <span className="labs-input-field__adornment labs-input-field__adornment--suffix">
+                <span className="input-field__adornment input-field__adornment--suffix">
                     <Icon name="calendar" size={16} />
                 </span>
             </div>
 
             <DropdownContainer isOpen={isOpen} style={{ width: '320px', padding: '16px' }}>
-                <div className="labs-calendar__header">
-                    <button className="labs-calendar__nav-btn" onClick={handlePrevMonth}>
+                <div className="calendar__header">
+                    <button className="calendar__nav-btn" onClick={handlePrevMonth}>
                         <Icon name="chevron-left" size={18} />
                     </button>
 
-                    <div className="labs-calendar__current-title">
+                    <div className="calendar__current-title">
                         {MONTHS[currentMonth.getMonth()]} {currentMonth.getFullYear()}
                     </div>
 
-                    <button className="labs-calendar__nav-btn" onClick={handleNextMonth}>
+                    <button className="calendar__nav-btn" onClick={handleNextMonth}>
                         <Icon name="chevron-right" size={18} />
                     </button>
                 </div>
 
-                <div className="labs-calendar__grid">
+                <div className="calendar__grid">
                     {WEEKDAYS.map(day => (
-                        <div key={day} className="labs-calendar__weekday">{day}</div>
+                        <div key={day} className="calendar__weekday">{day}</div>
                     ))}
                     {renderDays()}
                 </div>
 
-                <div className="labs-calendar__footer">
+                <div className="calendar__footer">
                     <Button variant="ghost" size="sm" onClick={handleReset}>Limpar</Button>
                     <Button size="sm" onClick={() => setIsOpen(false)}>Concluído</Button>
                 </div>

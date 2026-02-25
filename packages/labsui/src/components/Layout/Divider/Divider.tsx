@@ -13,14 +13,14 @@ export function Divider({ orientation = 'horizontal', label, className }: Divide
             role="separator"
             aria-orientation={orientation}
             className={classNames(
-                'labs-divider',
-                `labs-divider--${orientation}`,
-                label && 'labs-divider--labeled',
+                'divider',
+                `divider--${orientation}`,
+                label && 'divider--labeled',
                 className
             )}
         >
             {label && orientation === 'horizontal' && (
-                <span className="labs-divider__label">{label}</span>
+                <span className="divider__label">{label}</span>
             )}
         </div>
     );

@@ -1,11 +1,11 @@
-.labs-pagination {
+.pagination {
   display: flex;
   align-items: center;
   gap: var(--space--1);
   user-select: none;
 }
 
-.labs-pagination__item {
+.pagination__item {
   min-width: 36px;
   height: 36px;
   display: inline-flex;
@@ -20,34 +20,30 @@
   transition: all var(--transition--fast);
   font-size: var(--font--size--sm);
   font-weight: 500;
+  outline: none;
 }
 
-.labs-pagination__item:hover:not(.labs-pagination__item--disabled) {
+/* Estado de Hover (apenas se não estiver ativo ou desativado) */
+.pagination__item:hover:not(.pagination__item--disabled, .pagination__item--active) {
   background: var(--surface-alt);
   border-color: var(--text-gray);
 }
 
-.labs-pagination__item--muted {
-  background: var(--bg-primary);
-  color: var(--text-disabled);
-  border-color: var(--text-primary);
+/* ESTADO ATIVO: Fundo Roxo e Texto Branco */
+.pagination__item--active {
+  background: #6D28D9; /* Roxo (pode trocar pela sua variável, ex: var(--brand-primary)) */
+  color: #FFFFFF;
+  border-color: #6D28D9;
+  cursor: default;
 }
 
-.labs-pagination__item--muted:hover {
-  opacity: 0.9;
-}
-
-.labs-pagination__item--disabled {
+.pagination__item--disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-.labs-pagination__dots {
+.pagination__dots {
   color: var(--text-gray);
   padding: 0 var(--space--1);
+  font-size: var(--font--size--sm);
 }
-
-
-
-
-

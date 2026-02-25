@@ -63,35 +63,35 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
         <div
             ref={containerRef}
             className={classNames(
-                'labs-select-wrapper',
-                'labs-multiselect',
-                isOpen && 'labs-multiselect--open',
-                error && 'labs-multiselect--error',
-                disabled && 'labs-multiselect--disabled',
+                'select-wrapper',
+                'multiselect',
+                isOpen && 'multiselect--open',
+                error && 'multiselect--error',
+                disabled && 'multiselect--disabled',
                 className
             )}
         >
             <div
                 className={classNames(
-                    'labs-input-field',
-                    'labs-input-field--clickable',
-                    'labs-input-field--md',
-                    isOpen && 'labs-input-field--active',
-                    error && 'labs-input-field--error',
-                    disabled && 'labs-input-field--disabled'
+                    'input-field',
+                    'input-field--clickable',
+                    'input-field--md',
+                    isOpen && 'input-field--active',
+                    error && 'input-field--error',
+                    disabled && 'input-field--disabled'
                 )}
                 onClick={() => !disabled && setIsOpen(!isOpen)}
                 tabIndex={disabled ? -1 : 0}
             >
-                <div className="labs-input-field__input" style={{ display: 'flex', alignItems: 'center' }}>
-                    <div className="labs-multiselect__values">
+                <div className="input-field__input" style={{ display: 'flex', alignItems: 'center' }}>
+                    <div className="multiselect__values">
                         {selectedOptions.length > 0 ? (
                             selectedOptions.map(opt => (
                                 <span key={opt.value} onClick={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()}>
                                     <Tag
                                         size="sm"
                                         color="primary"
-                                        className="labs-multiselect__tag"
+                                        className="multiselect__tag"
                                         closable
                                         onRemove={() => handleRemove(opt.value)}
                                     >
@@ -100,28 +100,28 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
                                 </span>
                             ))
                         ) : (
-                            <span className="labs-multiselect__placeholder">{placeholder}</span>
+                            <span className="multiselect__placeholder">{placeholder}</span>
                         )}
                     </div>
                 </div>
-                <div className="labs-input-field__adornment labs-input-field__adornment--suffix">
-                    <Icon name="chevron-down" size={16} className="labs-multiselect__icon" />
+                <div className="input-field__adornment input-field__adornment--suffix">
+                    <Icon name="chevron-down" size={16} className="multiselect__icon" />
                 </div>
             </div>
 
             <DropdownContainer isOpen={isOpen}>
                 {options.length === 0 ? (
-                    <div className="labs-multiselect__empty">Nenhuma opção disponível</div>
+                    <div className="multiselect__empty">Nenhuma opção disponível</div>
                 ) : (
-                    <ul className="labs-multiselect__list">
+                    <ul className="multiselect__list">
                         {options.map((opt) => {
                             const isSelected = value.includes(opt.value);
                             return (
                                 <li
                                     key={opt.value}
-                                    className={classNames('labs-multiselect__item', {
-                                        'labs-multiselect__item--selected': isSelected,
-                                        'labs-multiselect__item--disabled': opt.disabled
+                                    className={classNames('multiselect__item', {
+                                        'multiselect__item--selected': isSelected,
+                                        'multiselect__item--disabled': opt.disabled
                                     })}
                                     onClick={() => !opt.disabled && handleSelect(opt.value)}
                                 >
@@ -130,7 +130,7 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
                                         disabled={opt.disabled}
                                         label={opt.label}
                                         onChange={() => undefined}
-                                        className="labs-multiselect__item-checkbox"
+                                        className="multiselect__item-checkbox"
                                     />
                                 </li>
                             );

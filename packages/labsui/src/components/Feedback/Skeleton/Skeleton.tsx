@@ -31,9 +31,9 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     return (
         <div
             className={classNames(
-                'labs-skeleton',
-                circle && 'labs-skeleton--circle',
-                animated && 'labs-skeleton--animated',
+                'skeleton',
+                circle && 'skeleton--circle',
+                animated && 'skeleton--animated',
                 className
             )}
             style={customStyle}

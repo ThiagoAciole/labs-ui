@@ -13,9 +13,9 @@ export interface LoaderProps {
 
 export function Loader({ size = 'md', color = 'primary', className, label = 'Loading...' }: LoaderProps) {
     return (
-        <span role="status" aria-label={label} className={classNames('labs-loader', `labs-loader--${size}`, className)} style={{ ['--labs-loader-color' as string]: colorVar(color) }}>
-            <span className="labs-loader__ring" />
-            <span className="labs-sr-only">{label}</span>
+        <span role="status" aria-label={label} className={classNames('loader', `loader--${size}`, className)} style={{ ['--loader-color' as string]: colorVar(color) }}>
+            <span className="loader__ring" />
+            <span className="sr-only">{label}</span>
         </span>
     );
 }

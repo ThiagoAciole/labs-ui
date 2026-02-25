@@ -16,7 +16,7 @@ export const DropdownContainer: React.FC<DropdownContainerProps> = ({
     if (!isOpen) return null;
 
     return (
-        <div className={classNames('container', className)} {...props}>
+        <div className={classNames('dropdown-container', className)} {...props}>
             {children}
         </div>
     );

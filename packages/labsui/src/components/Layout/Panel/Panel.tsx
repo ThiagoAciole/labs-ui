@@ -35,9 +35,9 @@ export const Panel: React.FC<PanelProps> & {
         return (
             <aside
                 className={classNames(
-                    'labs-panel',
-                    `labs-panel--${side}`,
-                    `labs-panel--${variant}`,
+                    'panel',
+                    `panel--${side}`,
+                    `panel--${variant}`,
                     className
                 )}
                 style={{
@@ -46,7 +46,7 @@ export const Panel: React.FC<PanelProps> & {
                 }}
             >
                 {onClose && (
-                    <div className="labs-panel__close">
+                    <div className="panel__close">
                         <IconButton
                             icon="close"
                             variant="ghost" color="neutral"
@@ -70,9 +70,9 @@ interface PanelHeaderProps {
 }
 
 const PanelHeader: React.FC<PanelHeaderProps> = ({ children, title, icon, className }) => (
-    <div className={classNames('labs-panel__header', className)}>
-        {icon && <div className="labs-panel__header-icon">{icon}</div>}
-        {title && <Heading size="xs" className="labs-panel__header-title">{title}</Heading>}
+    <div className={classNames('panel__header', className)}>
+        {icon && <div className="panel__header-icon">{icon}</div>}
+        {title && <Heading size="xs" className="panel__header-title">{title}</Heading>}
         {children}
     </div>
 );
@@ -84,7 +84,7 @@ interface PanelContentProps {
 }
 
 const PanelContent: React.FC<PanelContentProps> = ({ children, className }) => (
-    <div className={classNames('labs-panel__content', className)}>
+    <div className={classNames('panel__content', className)}>
         {children}
     </div>
 );
@@ -96,7 +96,7 @@ interface PanelFooterProps {
 }
 
 const PanelFooter: React.FC<PanelFooterProps> = ({ children, className }) => (
-    <div className={classNames('labs-panel__footer', className)}>
+    <div className={classNames('panel__footer', className)}>
         {children}
     </div>
 );
@@ -110,14 +110,14 @@ interface PanelSectionProps {
 }
 
 const PanelSection: React.FC<PanelSectionProps> = ({ children, title, icon, className }) => (
-    <div className={classNames('labs-panel__section', className)}>
+    <div className={classNames('panel__section', className)}>
         {(title || icon) && (
-            <div className="labs-panel__section-header">
-                {icon && <span className="labs-panel__section-icon">{icon}</span>}
-                {title && <span className="labs-panel__section-title">{title}</span>}
+            <div className="panel__section-header">
+                {icon && <span className="panel__section-icon">{icon}</span>}
+                {title && <span className="panel__section-title">{title}</span>}
             </div>
         )}
-        <div className="labs-panel__section-content">
+        <div className="panel__section-content">
             {children}
         </div>
     </div>

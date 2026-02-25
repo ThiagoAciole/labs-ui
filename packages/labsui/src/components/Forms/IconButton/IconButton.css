@@ -1,5 +1,5 @@
-.labs-icon-btn {
-  --labs-icon-btn-color: var(--bg-primary);
+.icon-btn {
+  --icon-btn-color: var(--bg-primary);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -7,10 +7,10 @@
   border-radius: var(--radius--md);
   cursor: pointer;
   transition: all var(--transition--fast);
-  color: var(--labs-icon-btn-color);
+  color: var(--icon-btn-color);
 }
-.labs-icon-btn:focus-visible { outline: 2px solid var(--labs-icon-btn-color); outline-offset: 2px; }
-.labs-icon-btn:disabled {
+.icon-btn:focus-visible { outline: 2px solid var(--icon-btn-color); outline-offset: 2px; }
+.icon-btn:disabled {
   background-color: var(--border-neutral);
   color: var(--text-gray);
   border-color: var(--border-neutral);
@@ -18,10 +18,10 @@
   cursor: not-allowed;
   pointer-events: none;
 }
-.labs-icon-btn--variant-solid { background: var(--labs-icon-btn-color); color: var(--text-on-solid); border-color: var(--labs-icon-btn-color); }
-.labs-icon-btn--variant-soft { background: color-mix(in srgb, var(--labs-icon-btn-color) 20%, var(--surface)); border-color: color-mix(in srgb, var(--labs-icon-btn-color) 40%, var(--surface)); }
-.labs-icon-btn--variant-ghost { background: transparent; border-color: transparent; }
-.labs-icon-btn--variant-outline { background: transparent; border-color: var(--labs-icon-btn-color); }
-.labs-icon-btn--size-sm { width: 2rem; height: 2rem; }
-.labs-icon-btn--size-md { width: 2.5rem; height: 2.5rem; }
-.labs-icon-btn--size-lg { width: 3rem; height: 3rem; }
+.icon-btn--variant-solid { background: var(--icon-btn-color); color: var(--text-on-solid); border-color: var(--icon-btn-color); }
+.icon-btn--variant-soft { background: color-mix(in srgb, var(--icon-btn-color) 20%, var(--surface)); border-color: color-mix(in srgb, var(--icon-btn-color) 40%, var(--surface)); }
+.icon-btn--variant-ghost { background: transparent; border-color: transparent; }
+.icon-btn--variant-outline { background: transparent; border-color: var(--icon-btn-color); }
+.icon-btn--size-sm { width: 2rem; height: 2rem; }
+.icon-btn--size-md { width: 2.5rem; height: 2.5rem; }
+.icon-btn--size-lg { width: 3rem; height: 3rem; }

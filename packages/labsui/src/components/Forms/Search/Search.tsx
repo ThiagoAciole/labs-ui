@@ -27,7 +27,7 @@ export const Search = React.forwardRef<HTMLInputElement, SearchProps>(
                         <Icon name="search" size={18} />
                     )
                 }
-                className={classNames('labs-search', className)}
+                className={classNames('search', className)}
                 onChange={handleChange}
                 {...props}
             />
