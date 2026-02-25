@@ -187,7 +187,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
                 </div>
 
                 <div className="labs-calendar__footer">
-                    <Button appearance="ghost" size="sm" onClick={handleReset}>Limpar</Button>
+                    <Button variant="ghost" size="sm" onClick={handleReset}>Limpar</Button>
                     <Button size="sm" onClick={() => setIsOpen(false)}>Concluído</Button>
                 </div>
             </DropdownContainer>

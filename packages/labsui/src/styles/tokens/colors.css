@@ -19,7 +19,7 @@
   --surface-inverse: #162033;
 
   /* Text */
-  --text-primary: #313131;
+  --text-primary: #3d3d3d;
   --text-gray: #475569;
   --text-success: #15803d;
   --text-error: #dc2626;
@@ -30,7 +30,8 @@
 
   /* Borders */
   --border-primary: #313131;
-  --border-gray: #e5e5e5;
+  --border-neutral: #e5e9ec;
+  --border-disabled: #d0d7dd;
   --border-error: #ef4444;
   --border-success: #22c55e;
   --border-attention: #f59e0b;
@@ -68,7 +69,8 @@
 
   /* Borders */
   --border-primary: #1e293b;
-  --border-gray: #1f2937;
+  --border-neutral: #1e293b;
+  --border-disabled: #353f4e;
   --border-error: #ef4444;
   --border-success: #22c55e;
   --border-attention: #f59e0b;

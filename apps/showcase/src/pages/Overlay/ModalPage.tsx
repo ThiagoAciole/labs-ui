@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import { Modal, Button, Heading, Text, Flex } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
@@ -18,14 +19,7 @@ export default function ModalPage() {
                 title: { type: 'text' },
                 size: {
                     type: 'select',
-                    options: [
-                        { value: 'xs', label: 'Extra Small' },
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' },
-                        { value: 'xl', label: 'Extra Large' },
-                        { value: 'full', label: 'Full Screen' }
-                    ]
+                    options: SIZE_OPTIONS
                 },
                 closeOnOverlayClick: { type: 'boolean' }
             }}
@@ -44,7 +38,7 @@ export default function ModalPage() {
                             onClose={() => setOpen(false)}
                             footer={
                                 <Flex justify="flex-end" gap="2">
-                                    <Button appearance="ghost" onClick={() => setOpen(false)}>Cancelar</Button>
+                                    <Button variant="ghost" onClick={() => setOpen(false)}>Cancelar</Button>
                                     <Button onClick={() => setOpen(false)}>Confirmar</Button>
                                 </Flex>
                             }

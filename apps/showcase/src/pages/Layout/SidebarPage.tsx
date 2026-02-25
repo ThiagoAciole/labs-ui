@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-    Sidebar, Icon, Avatar, IconButton, Flex, Heading, Text, Badge
+    Sidebar, Icon, Avatar, IconButton, Flex, Heading, Text, Badge, Button
 } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
@@ -24,10 +24,10 @@ export default function SidebarPage() {
                 aside={<Playground.Controls />}
             >
                 <Playground.Preview render={(props) => (
-                    <div style={{ height: '600px', display: 'flex', border: '1px solid var(--color--grayDark)', borderRadius: 'var(--radius--lg)', overflow: 'hidden' }}>
+                    <div style={{ height: '600px', display: 'flex', border: '1px solid var(--border-neutral)', borderRadius: 'var(--radius--lg)', overflow: 'hidden' }}>
                         <Sidebar {...props}>
                             <Sidebar.Header
-                                icon={<Icon name="box" size={32} color="var(--color--violet)" />}
+                                icon={<Icon name="box" size={32} color="primary" />}
                                 logo={<span style={{ marginLeft: '8px', fontWeight: 'bold', fontSize: '1.25rem' }}>LabsUI</span>}
                             >
                                 <Badge color="primary" size="sm">v1.2.0</Badge>
@@ -67,7 +67,7 @@ export default function SidebarPage() {
                                     action={
                                         <IconButton
                                             icon="log-out"
-                                            appearance="ghost" color="gray"
+                                            variant="ghost" color="neutral"
                                             size="sm"
                                             aria-label="Logout"
                                         />
@@ -76,9 +76,9 @@ export default function SidebarPage() {
                             </Sidebar.Footer>
                         </Sidebar>
 
-                        <div style={{ flex: 1, padding: '2rem', backgroundColor: 'var(--color--grayLight)' }}>
+                        <div style={{ flex: 1, padding: '2rem', backgroundColor: 'var(--surface-alt)' }}>
                             <Heading size="lg">{activeTab}</Heading>
-                            <Text color="gray" style={{ marginTop: '1rem' }}>
+                            <Text color="disabled" style={{ marginTop: '1rem' }}>
                                 A largura da área de conteúdo se adapta automaticamente quando a Sidebar é colapsada.
                             </Text>
                         </div>

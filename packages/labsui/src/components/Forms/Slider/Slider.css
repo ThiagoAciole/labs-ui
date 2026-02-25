@@ -28,7 +28,7 @@
   width: 18px;
   height: 18px;
   background: var(--surface-alt);
-  border: 2px solid var(--border-primary);
+  border: 2px solid var(--border-disabled);
   border-radius: var(--radius--pill);
   position: absolute;
   top: 50%;

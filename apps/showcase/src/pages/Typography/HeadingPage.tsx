@@ -1,4 +1,5 @@
 import { Heading, Card, CardBody } from '@labsui/core';
+import { COLOR_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -34,13 +35,7 @@ export default function HeadingPage() {
                 },
                 color: {
                     type: 'select',
-                    options: [
-                        { value: 'neutral', label: 'Neutral' },
-                        { value: 'primary', label: 'Primary' },
-                        { value: 'success', label: 'Success' },
-                        { value: 'error', label: 'Error' },
-                        { value: 'attention', label: 'Attention' },
-                    ]
+                    options: COLOR_OPTIONS
                 },
                 children: { type: 'text' }
             }}

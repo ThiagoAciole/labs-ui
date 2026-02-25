@@ -12,7 +12,7 @@
 
 .labs-textarea {
   background-color: var(--surface);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-neutral);
   border-radius: var(--radius--md);
   color: var(--text-gray);
   font-family: var(--font--family);

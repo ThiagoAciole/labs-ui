@@ -9,11 +9,11 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
     label?: string;
     labelPosition?: 'left' | 'right';
     size?: SwitchSize;
-    hint?: string;
+    supportText?: string;
 }
 
 export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
-    ({ label, labelPosition = 'right', size = 'md', hint, className, id, ...props }, ref) => {
+    ({ label, labelPosition = 'right', size = 'md', supportText, className, id, ...props }, ref) => {
         const inputId = id ?? (label ? `labs-sw-${LabelFormater(label)}` : undefined);
 
         return (
@@ -40,7 +40,7 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
                         <Text as="span" className="labs-switch-text">{LabelFormater(label)}</Text>
                     )}
                 </label>
-                {hint && <Text as="span" color="disabled" size="sm" className="labs-switch-hint">{hint}</Text>}
+                {supportText && <Text as="span" color="disabled" size="sm" className="labs-switch-supportText">{supportText}</Text>}
             </div>
         );
     }

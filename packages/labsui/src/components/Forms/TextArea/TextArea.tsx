@@ -6,13 +6,13 @@ import { Text } from '../../Typography/Text/Text';
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     label?: string;
     error?: string;
-    hint?: string;
+    supportText?: string;
     resize?: 'none' | 'vertical' | 'horizontal' | 'both';
     full?: boolean;
 }
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
-    ({ label, error, hint, resize = 'vertical', full = false, className, id, rows = 4, ...props }, ref) => {
+    ({ label, error, supportText, resize = 'vertical', full = false, className, id, rows = 4, ...props }, ref) => {
         const inputId = id ?? (label ? `labs-textarea-${label.toLowerCase().replace(/\s+/g, '-')}` : undefined);
 
         return (
@@ -31,11 +31,11 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
                     )}
                     style={{ resize }}
                     aria-invalid={!!error}
-                    aria-describedby={error ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined}
+                    aria-describedby={error ? `${inputId}-error` : supportText ? `${inputId}-supportText` : undefined}
                     {...props}
                 />
                 {error && <Text as="span" id={`${inputId}-error`} color="error" size="sm" className="labs-textarea-message labs-textarea-message--error" role="alert">{error}</Text>}
-                {!error && hint && <Text as="span" id={`${inputId}-hint`} color="disabled" size="sm" className="labs-textarea-message">{hint}</Text>}
+                {!error && supportText && <Text as="span" id={`${inputId}-supportText`} color="disabled" size="sm" className="labs-textarea-message">{supportText}</Text>}
             </div>
         );
     }

@@ -5,12 +5,12 @@ import { Loader } from '../../Feedback/Loader/Loader';
 import { Icon, IconName } from '../../Typography/Icon/Icon';
 import { colorVar, type TokenColor } from '../../../utils/styleTokens';
 
-export type IconButtonAppearance = 'solid' | 'soft' | 'ghost' | 'outline';
+export type IconButtonVariant = 'solid' | 'soft' | 'ghost' | 'outline';
 export type IconButtonSize = 'sm' | 'md' | 'lg';
 
 export interface IconButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
     icon: IconName;
-    appearance?: IconButtonAppearance;
+    variant?: IconButtonVariant;
     size?: IconButtonSize;
     loading?: boolean;
     color?: TokenColor;
@@ -18,7 +18,7 @@ export interface IconButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLBut
 }
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-    ({ icon, appearance = 'soft', size = 'md', loading = false, color = 'primary', disabled, className, style, 'aria-label': ariaLabel, ...props }, ref) => {
+    ({ icon, variant = 'soft', size = 'md', loading = false, color = 'primary', disabled, className, style, 'aria-label': ariaLabel, ...props }, ref) => {
         const iconSize = size === 'sm' ? 16 : size === 'lg' ? 24 : 20;
         return (
             <button
@@ -26,7 +26,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
                 disabled={disabled || loading}
                 aria-label={ariaLabel || icon}
                 aria-busy={loading}
-                className={classNames('labs-icon-btn', `labs-icon-btn--${appearance}`, `labs-icon-btn--${size}`, loading && 'labs-icon-btn--loading', className)}
+                className={classNames('labs-icon-btn', `labs-icon-btn--variant-${variant}`, `labs-icon-btn--size-${size}`, loading && 'labs-icon-btn--loading', className)}
                 style={{ ['--labs-icon-btn-color' as string]: colorVar(color), ...(style ?? {}) }}
                 {...props}
             >

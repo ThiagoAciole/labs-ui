@@ -55,7 +55,7 @@ export const Drawer: React.FC<DrawerProps> = ({
                         </Heading>
                     ) : <div />}
                     <IconButton
-                        appearance="ghost" color="gray"
+                        variant="ghost" color="neutral"
                         size="sm"
                         icon="close"
                         onClick={onClose}

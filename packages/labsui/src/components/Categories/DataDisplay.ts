@@ -1,7 +1,7 @@
 export { Badge } from '../DataDisplay/Badge/Badge';
-export type { BadgeProps, BadgeAppearance, BadgeSize } from '../DataDisplay/Badge/Badge';
+export type { BadgeProps, BadgeVariant, BadgeSize } from '../DataDisplay/Badge/Badge';
 export { Tag } from '../DataDisplay/Tag/Tag';
-export type { TagProps, TagAppearance, TagSize } from '../DataDisplay/Tag/Tag';
+export type { TagProps, TagVariant, TagSize } from '../DataDisplay/Tag/Tag';
 export { Card, CardHeader, CardBody, CardFooter } from '../DataDisplay/Card/Card';
 export type { CardProps, CardHeaderProps, CardPadding, CardVariant } from '../DataDisplay/Card/Card';
 export { Avatar } from '../DataDisplay/Avatar/Avatar';

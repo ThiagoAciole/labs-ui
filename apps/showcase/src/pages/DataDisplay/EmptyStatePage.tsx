@@ -30,7 +30,7 @@ export default function EmptyStatePage() {
                             title={props.title}
                             description={props.description}
                             icon={props.iconName}
-                            action={props.showAction ? <Button appearance="solid" color="primary">Criar Novo</Button> : undefined}
+                            action={props.showAction ? <Button variant="solid" color="primary">Criar Novo</Button> : undefined}
                         />
                     </div>
                 )} />

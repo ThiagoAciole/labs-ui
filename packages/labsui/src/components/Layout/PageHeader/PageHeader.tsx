@@ -28,7 +28,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
                 {showBack && (
                     <div className="labs-page-header__back">
                         <IconButton
-                            appearance="ghost"
+                            variant="ghost"
                             size="md"
                             icon="chevron-left"
                             onClick={onBack}

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import { Pagination, Heading, Card, CardBody } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
@@ -25,11 +26,7 @@ export default function PaginationPage() {
                 },
                 size: {
                     type: 'select',
-                    options: [
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' }
-                    ]
+                    options: SIZE_OPTIONS
                 }
             }}
         >

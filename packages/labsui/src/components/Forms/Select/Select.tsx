@@ -21,7 +21,7 @@ export interface SelectProps extends Omit<React.ComponentPropsWithoutRef<'div'>,
     onChange?: (value: string) => void;
     label?: string;
     error?: string;
-    hint?: string;
+    supportText?: string;
     size?: SelectSize;
     placeholder?: string;
     full?: boolean;
@@ -31,7 +31,7 @@ export interface SelectProps extends Omit<React.ComponentPropsWithoutRef<'div'>,
 }
 
 export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
-    ({ options, value, defaultValue, onChange, label, error, hint, size = 'md', placeholder = 'Selecione...', full = false, disabled = false, className, id, ...props }, ref) => {
+    ({ options, value, defaultValue, onChange, label, error, supportText, size = 'md', placeholder = 'Selecione...', full = false, disabled = false, className, id, ...props }, ref) => {
         const [isOpen, setIsOpen] = useState(false);
         const [selectedValue, setSelectedValue] = useState(value || defaultValue || '');
         const [searchTerm, setSearchTerm] = useState('');
@@ -90,7 +90,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                 className={classNames('labs-select-wrapper', full && 'labs-select-wrapper--full', className)}
             >
                 {label && (
-                    <Text as="label" id={`${inputId}-label`} className="labs-select-label" onClick={() => !disabled && setIsOpen(true)}>
+                    <Text size="xs" weight="medium" color='neutral' as="label" id={`${inputId}-label`} className="labs-select-label" onClick={() => !disabled && setIsOpen(true)}>
                         {LabelFormater(label)}
                     </Text>
                 )}
@@ -168,7 +168,9 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                             >
                                 {opt.label}
                                 {opt.value === selectedValue && (
-                                    <Icon name="check" size={14} />
+                                    <div className='checked-icon'>
+                                        <Icon name="check" size={14} color='disabled' />
+                                    </div>
                                 )}
                             </li>
                         )) : (
@@ -178,7 +180,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                 </DropdownContainer>
 
                 {error && <Text as="span" color="error" size="sm" className="labs-select-message labs-select-message--error" role="alert">{error}</Text>}
-                {!error && hint && <Text as="span" color="disabled" size="sm" className="labs-select-message">{hint}</Text>}
+                {!error && supportText && <Text as="span" color="disabled" size="sm" className="labs-select-message">{supportText}</Text>}
             </div>
         );
     }

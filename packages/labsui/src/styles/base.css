@@ -11,14 +11,15 @@
 html,
 body {
   font-family: var(--font--family);
-  color: var(--color--gray);
+  color: var(--text-gray);
   background-color: var(--bg);
 }
+
 
 .labs-root {
   font-family: var(--font--family);
   font-size: var(--font--size--md);
-  color: var(--color--gray);
+  color: var(--text-gray);
   background-color: var(--surface);
   line-height: var(--line--height--md);
   -webkit-font-smoothing: antialiased;
@@ -26,7 +27,7 @@ body {
 }
 
 .labs-focus-ring:focus-visible {
-  outline: var(--border--width--thin) solid var(--color--violet);
+  outline: var(--border--width--thin) solid var(--border-primary);
   outline-offset: 2px;
 }
 

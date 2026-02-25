@@ -12,11 +12,11 @@
 }
 
 .labs-panel--right {
-  border-left: 1px solid var(--border-gray);
+  border-left: 1px solid var(--border-neutral);
 }
 
 .labs-panel--left {
-  border-right: 1px solid var(--border-gray);
+  border-right: 1px solid var(--border-neutral);
 }
 
 .labs-panel--glass {
@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   gap: var(--space--3);
-  border-bottom: 1px solid var(--border-gray);
+  border-bottom: 1px solid var(--border-neutral);
   min-height: 72px;
   flex-shrink: 0;
 }
@@ -53,7 +53,7 @@
 
 .labs-panel__header-title {
   margin: 0 !important;
-  color: var(--text-gray);
+  color: var(--text-primary);
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -83,8 +83,8 @@
 /* --- Footer --- */
 .labs-panel__footer {
   padding: var(--space--6);
-  border-top: 1px solid var(--border-gray);
-  background-color: var(--text-disabled);
+  border-top: 1px solid var(--border-neutral);
+  background-color: var(--surface-alt);
   flex-shrink: 0;
 }
 
@@ -102,7 +102,7 @@
 }
 
 .labs-panel__section-icon {
-  color: var(--text-gray);
+  color: var(--text-disabled);
   display: flex;
   align-items: center;
 }
@@ -110,7 +110,7 @@
 .labs-panel__section-title {
   font-size: 11px;
   font-weight: 700;
-  color: var(--text-gray);
+  color: var(--text-disabled);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }

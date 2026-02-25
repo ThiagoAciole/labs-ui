@@ -8,11 +8,11 @@
   font-family: var(--font--family);
   border: var(--border--width--hairline) solid transparent;
 }
-.labs-badge--soft { background: color-mix(in srgb, var(--labs-badge-color) 15%, transparent); color: var(--labs-badge-color); border-color: color-mix(in srgb, var(--labs-badge-color) 30%, transparent); }
-.labs-badge--outline { background: transparent; color: var(--labs-badge-color); border-color: var(--labs-badge-color); }
-.labs-badge--xs { font-size: var(--font--size--xs); padding: 0 var(--space--1); }
-.labs-badge--sm { font-size: var(--font--size--xs); padding: 1px var(--space--2); }
-.labs-badge--md { font-size: var(--font--size--sm); padding: 2px var(--space--2); }
-.labs-badge--lg { font-size: var(--font--size--md); padding: var(--space--1) var(--space--3); }
-.labs-badge--xl { font-size: var(--font--size--lg); padding: var(--space--2) var(--space--4); }
+.labs-badge--variant-soft { background: color-mix(in srgb, var(--labs-badge-color) 15%, transparent); color: var(--labs-badge-color); border-color: color-mix(in srgb, var(--labs-badge-color) 30%, transparent); }
+.labs-badge--variant-outline { background: transparent; color: var(--labs-badge-color); border-color: var(--labs-badge-color); }
+.labs-badge--size-xs { font-size: var(--font--size--xs); padding: 0 var(--space--1); }
+.labs-badge--size-sm { font-size: var(--font--size--xs); padding: 1px var(--space--2); }
+.labs-badge--size-md { font-size: var(--font--size--sm); padding: 2px var(--space--2); }
+.labs-badge--size-lg { font-size: var(--font--size--md); padding: var(--space--1) var(--space--3); }
+.labs-badge--size-xl { font-size: var(--font--size--lg); padding: var(--space--2) var(--space--4); }
 .labs-badge__dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }

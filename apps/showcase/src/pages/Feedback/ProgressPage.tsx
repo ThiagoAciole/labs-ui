@@ -1,4 +1,5 @@
 import { Progress, Heading, Flex } from '@labsui/core';
+import { COLOR_OPTIONS, SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -9,8 +10,8 @@ export default function ProgressPage() {
             defaultProps={{ value: 65, color: 'primary', size: 'md', animated: true, showValue: true, label: 'Status do Processamento' }}
             controls={{
                 value: { type: 'number' },
-                color: { type: 'select', options: [ { value: 'primary', label: 'Primary' }, { value: 'success', label: 'Success' }, { value: 'attention', label: 'Attention' }, { value: 'error', label: 'Error' }, { value: 'neutral', label: 'Neutral' } ] },
-                size: { type: 'select', options: [ { value: 'sm', label: 'Small' }, { value: 'md', label: 'Medium' }, { value: 'lg', label: 'Large' } ] },
+                color: { type: 'select', options: COLOR_OPTIONS },
+                size: { type: 'select', options: SIZE_OPTIONS },
                 animated: { type: 'boolean' }, showValue: { type: 'boolean' }, label: { type: 'text' }
             }}
         >

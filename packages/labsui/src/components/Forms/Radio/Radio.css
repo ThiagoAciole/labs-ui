@@ -33,7 +33,7 @@
   width: 20px;
   height: 20px;
   border-radius: var(--radius--pill);
-  border: 2px solid var(--border-gray);
+  border: 2px solid var(--border-neutral);
   background-color: var(--surface);
   transition: all var(--transition--normal);
   display: flex;
@@ -45,26 +45,27 @@
   width: 10px;
   height: 10px;
   border-radius: var(--radius--pill);
-  background-color: var(--bg-primary);
+  background-color: var(--labs-radio-color, var(--bg-primary));
   transform: scale(0);
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .labs-radio__wrapper:hover .labs-radio__control {
-  border-color: var(--bg-primary);
+  border-color: var(--labs-radio-color, var(--bg-primary));
 }
 
 .labs-radio__input:checked + .labs-radio__control {
-  border-color: var(--bg-primary);
-  background-color: color-mix(in srgb, var(--bg-primary) 8%, var(--surface));
+  border-color: var(--labs-radio-color, var(--bg-primary));
+  background-color: color-mix(in srgb, var(--labs-radio-color, var(--bg-primary)) 8%, var(--surface));
 }
 
 .labs-radio__input:checked + .labs-radio__control .labs-radio__dot {
   transform: scale(1);
+  
 }
 
 .labs-radio__input:focus-visible + .labs-radio__control {
-  outline: 2px solid var(--bg-primary);
+  outline: 2px solid var(--labs-radio-color, var(--bg-primary));
   outline-offset: 2px;
 }
 

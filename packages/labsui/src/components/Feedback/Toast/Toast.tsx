@@ -38,13 +38,13 @@ function ToastItem({ toast, onDismiss }: { toast: ToastData; onDismiss: (id: str
     const icon = COLOR_ICONS[color] ?? 'info';
 
     return (
-        <div className={classNames('labs-toast', exiting && 'labs-toast--exiting')} style={{ ['--labs-toast-color' as string]: `var(--color--${color})` }}>
+        <div className={classNames('labs-toast', exiting && 'labs-toast--exiting')} style={{ ['--labs-toast-color' as string]: `var(--bg-${color === 'primary' ? 'primary' : color})` }}>
             <span className="labs-toast__icon"><Icon name={icon} size={18} color={color} /></span>
             <div className="labs-toast__content">
                 <p className="labs-toast__title">{toast.title}</p>
                 {toast.description && <p className="labs-toast__description">{toast.description}</p>}
             </div>
-            <IconButton icon="close" aria-label="Dismiss notification" appearance="ghost" size="sm" color={color} onClick={handleDismiss} className="labs-toast__close" />
+            <IconButton icon="close" aria-label="Dismiss notification" variant="ghost" size="sm" color={color} onClick={handleDismiss} className="labs-toast__close" />
         </div>
     );
 }

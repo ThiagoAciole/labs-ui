@@ -52,7 +52,7 @@ export const TopBar: React.FC<TopBarProps> = ({
 
     const renderThemeToggle = () => {
         if (themeToggle === true) {
-            return <ThemeToggle appearance="soft" />;
+            return <ThemeToggle variant="soft" />;
         }
         return themeToggle;
     };
@@ -66,7 +66,6 @@ export const TopBar: React.FC<TopBarProps> = ({
                 if (route) {
                     return (
                         <a
-                            key={`${item.label}-${idx}`}
                             className={`labs-topbar__nav-item ${isActive ? 'labs-topbar__nav-item--active' : ''}`}
                             onClick={item.onClick}
                             href={route}

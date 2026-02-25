@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100vh;
   background-color: var(--surface);
-  border-right: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-neutral);
   transition: width var(--transition--normal), transform var(--transition--normal);
   flex-shrink: 0;
   z-index: var(--z--sticky);
@@ -66,7 +66,7 @@
 .labs-sidebar__header-text {
   font-weight: 700;
   font-size: var(--font--size--md);
-  color: var(--text-gray);
+  color: var(--text-primary);
   white-space: nowrap;
   transition: opacity var(--transition--fast), transform var(--transition--fast);
   opacity: 1;
@@ -106,7 +106,7 @@
   gap: var(--space--4);
   cursor: pointer;
   background: none;
-  border: none;
+  border: 1px solid transparent;
   width: 100%;
   font-size: var(--font--size--md);
   font-weight: 600;
@@ -128,8 +128,9 @@
 }
 
 .labs-sidebar__item--active {
-  background-color: transparent;
-  color: var(--text-primary);
+  background-color: color-mix(in srgb, var(--bg-primary) 20%, var(--surface));
+  border-color: color-mix(in srgb, var(--bg-primary) 40%, var(--surface));
+  color: var(--bg-primary);
 }
 
 .labs-sidebar__item--active::after {
@@ -139,9 +140,12 @@
   top: 0.625rem;
   bottom: 0.625rem;
   width: 4px;
-  background-color: var(--bg-);
+  background-color: var(--bg-primary);
   border-radius: 0 4px 4px 0;
-  
+}
+
+.labs-sidebar__item--active .labs-sidebar__item-icon {
+  color: var(--bg-primary);
 }
 
 .labs-sidebar__item-icon {
@@ -184,7 +188,7 @@
   gap: var(--space--3);
   cursor: pointer;
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   width: calc(100% - 1rem);
   margin: 0 0.5rem;
   font-size: var(--font--size--md);
@@ -209,22 +213,23 @@
 }
 
 .labs-sidebar__group-header--active {
-  color: var(--text-on-solid);
-  background-color: var(--bg-primary);
+  color: var(--bg-primary);
+  background-color: color-mix(in srgb, var(--bg-primary) 20%, var(--surface));
+  border-color: color-mix(in srgb, var(--bg-primary) 40%, var(--surface));
   font-weight: 700;
 }
 
 .labs-sidebar__group-header--active .labs-sidebar__item-icon {
-  color: var(--text-on-solid);
+  color: var(--bg-primary);
 }
 
 .labs-sidebar__group-header--active .labs-sidebar__group-chevron {
-  color: var(--text-on-solid);
+  color: var(--text-gray);
 }
 
 .labs-sidebar__group-header--active:hover {
-  background-color: var(--bg-primary-dark, color-mix(in srgb, var(--bg-primary) 78%, #000));
-  color: var(--bg-primary-light, #f5f3ff);
+  background-color: color-mix(in srgb, var(--bg-primary) 20%, var(--surface));
+  color: var(--bg-primary);
 }
 
 .labs-sidebar__group-title {
@@ -291,13 +296,16 @@
 }
 
 .labs-sidebar__group-content .labs-sidebar__item--active {
-  color: var(--text-primary);
-  background: transparent;
-  font-weight: 400;
+  color: var(--bg-primary);
+  background-color: transparent;
+  border-color: transparent;
+  font-weight: 500;
 }
 
-.labs-sidebar__group-content .labs-sidebar__item--active .labs-sidebar__item-icon {
+.labs-sidebar__group-content .labs-sidebar__item--active .labs-sidebar__item-icon,
+.labs-sidebar__group-content .labs-sidebar__item--active .labs-sidebar__item-icon svg {
   opacity: 1;
+  color: var(--bg-primary);
 }
 
 .labs-sidebar__group-content .labs-sidebar__item--active::before {
@@ -323,7 +331,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space--6);
-  border-top: 1px solid var(--border-gray);
+  border-top: 1px solid var(--border-neutral);
   flex-shrink: 0;
 }
 
@@ -336,7 +344,7 @@
   background-color: var(--surface-alt);
   border-radius: var(--radius--xl);
   gap: var(--space--3);
-  border: 1px solid var(--border-gray);
+  border: 1px solid var(--border-neutral);
   overflow: hidden;
 }
 
@@ -368,7 +376,7 @@
 .labs-sidebar__user-name {
   font-weight: 800;
   font-size: 0.875rem;
-  color: var(--text-gray);
+  color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -376,7 +384,7 @@
 
 .labs-sidebar__user-description {
   font-size: 0.75rem;
-  color: var(--text-gray);
+  color: var(--text-disabled);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

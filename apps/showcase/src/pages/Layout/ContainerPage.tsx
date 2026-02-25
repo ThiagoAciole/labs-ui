@@ -1,4 +1,5 @@
 import { Container, Heading, Text, Card, CardBody } from '@labsui/core';
+import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -12,13 +13,7 @@ export default function ContainerPage() {
             controls={{
                 size: {
                     type: 'select',
-                    options: [
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' },
-                        { value: 'xl', label: 'Extra Large' },
-                        { value: 'full', label: 'Full' },
-                    ]
+                    options: SIZE_OPTIONS
                 }
             }}
         >

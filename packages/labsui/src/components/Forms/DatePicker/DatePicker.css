@@ -19,7 +19,7 @@
   border: 1px solid var(--border-color);
   border-radius: var(--radius--md);
   height: 2.5rem;
-  color: var(--text-gray);
+  color: var(--text-primary);
   font-family: var(--font--family);
   font-size: var(--font--size--md);
   cursor: pointer;
@@ -42,11 +42,11 @@
 }
 
 .labs-datepicker-trigger__placeholder {
-  color: var(--text-gray);
+  color: var(--text-disabled);
 }
 
 .labs-datepicker-trigger__icon {
-  color: var(--text-gray);
+  color: var(--text-disabled);
   display: flex;
 }
 
@@ -56,8 +56,9 @@
   top: 100%;
   left: 0;
   margin-top: var(--space--2);
+  margin-top: var(--space--2);
   background: var(--surface);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-neutral);
   border-radius: var(--radius--lg);
   box-shadow: var(--shadow--lg);
   z-index: var(--z--dropdown);
@@ -90,10 +91,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
   border-radius: var(--radius--md);
-  color: var(--text-gray);
+  color: var(--text-primary);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -102,7 +104,7 @@
 
 .labs-calendar__nav-btn:hover {
   background: var(--surface-alt);
-  color: var(--text-gray);
+  color: var(--text-primary);
 }
 
 .labs-calendar__grid {
@@ -125,7 +127,7 @@
   align-items: center;
   justify-content: center;
   font-size: var(--font--size--sm);
-  color: var(--text-gray);
+  color: var(--text-primary);
   border-radius: var(--radius--md);
   cursor: pointer;
   transition: all var(--transition--fast);
@@ -137,14 +139,14 @@
 }
 
 .labs-calendar__day--outside {
-  color: var(--text-gray);
+  color: var(--text-disabled);
   opacity: 0.5;
 }
 
 .labs-calendar__day--today {
-  color: var(--text-primary);
+  color: var(--bg-primary);
   font-weight: 700;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .labs-calendar__day--selected {
@@ -158,14 +160,14 @@
   justify-content: flex-end;
   margin-top: var(--space--4);
   padding-top: var(--space--4);
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-neutral);
   gap: var(--space--2);
 }
 
 .labs-calendar__current-title {
   font-size: var(--font--size--sm);
   font-weight: 500;
-  color: var(--text-gray);
+  color: var(--text-primary);
   padding: 0 var(--space--2);
 }
 

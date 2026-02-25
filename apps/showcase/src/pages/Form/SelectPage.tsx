@@ -1,4 +1,5 @@
-import { Select, Heading, Card, CardBody } from '@labsui/core';
+import { Select, Heading, Card, CardBody, Flex } from '@labsui/core';
+import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 import { useState } from 'react';
@@ -22,20 +23,16 @@ export default function SelectPage() {
                 full: true,
                 disabled: false,
                 error: '',
-                hint: 'Escolha sua tecnologia favorita.'
+                supportText: 'Escolha sua tecnologia favorita.'
             }}
             controls={{
                 label: { type: 'text' },
                 placeholder: { type: 'text' },
                 error: { type: 'text' },
-                hint: { type: 'text' },
+                supportText: { type: 'text' },
                 size: {
                     type: 'select',
-                    options: [
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' },
-                    ]
+                    options: SIZE_OPTIONS
                 },
                 full: { type: 'boolean' },
                 disabled: { type: 'boolean' }
@@ -52,13 +49,13 @@ export default function SelectPage() {
                     </div>
                 )} />
 
-                <div style={{ marginTop: '4rem' }}>
+                <div style={{ marginTop: '4rem', }}>
                     <Heading size="m">Variantes de Tamanho</Heading>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginTop: '1.5rem' }}>
-                        <Select label="Pequeno (sm)" size="sm" options={options} defaultValue="react" />
-                        <Select label="Médio (md)" size="md" options={options} defaultValue="vite" />
-                        <Select label="Grande (lg)" size="lg" options={options} defaultValue="labs" />
-                    </div>
+                    <Flex direction="row" style={{ gap: '1rem', alignItems: 'flex-end', justifyContent: 'space-between', marginTop: '1rem' }}>
+                        <Select full label="Pequeno (sm)" size="sm" options={options} defaultValue="react" style={{ width: '100%', }} />
+                        <Select full label="Médio (md)" size="md" options={options} defaultValue="vite" style={{ width: '100%' }} />
+                        <Select full label="Grande (lg)" size="lg" options={options} defaultValue="labs" style={{ width: '100%' }} />
+                    </Flex>
                 </div>
             </ShowcasePage>
         </Playground.Root>

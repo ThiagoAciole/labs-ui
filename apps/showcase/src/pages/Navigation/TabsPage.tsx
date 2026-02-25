@@ -1,4 +1,5 @@
 import { Tabs, Heading, Icon } from '@labsui/core';
+import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -53,11 +54,7 @@ export default function TabsPage() {
                 },
                 size: {
                     type: 'select',
-                    options: [
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' },
-                    ]
+                    options: SIZE_OPTIONS
                 }
             }}
         >

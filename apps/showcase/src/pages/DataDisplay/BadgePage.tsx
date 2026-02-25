@@ -1,17 +1,17 @@
 import { Badge, Heading, Flex } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
-import { COLOR_OPTIONS } from '../../config/categories/colorOptions';
+import { COLOR_OPTIONS, SIZE_OPTIONS } from '../../config/categories/commonOptions';
 
 export default function BadgePage() {
     return (
         <Playground.Root
             componentName="Badge"
-            defaultProps={{ appearance: 'soft', color: 'primary', size: 'md', children: 'Novo' }}
+            defaultProps={{ variant: 'soft', color: 'primary', size: 'md', children: 'Novo' }}
             controls={{
-                appearance: { type: 'select', options: [{ value: 'soft', label: 'Soft' }, { value: 'outline', label: 'Outline' }] },
+                variant: { type: 'select', options: [{ value: 'soft', label: 'Soft' }, { value: 'outline', label: 'Outline' }] },
                 color: { type: 'select', options: COLOR_OPTIONS },
-                size: { type: 'select', options: [{ value: 'xs', label: 'XS' }, { value: 'sm', label: 'Small' }, { value: 'md', label: 'Medium' }, { value: 'lg', label: 'Large' }, { value: 'xl', label: 'XL' }] },
+                size: { type: 'select', options: SIZE_OPTIONS },
                 children: { type: 'text' }
             }}
         >
@@ -25,11 +25,11 @@ export default function BadgePage() {
                         <Badge color="attention">Ausente</Badge>
                         <Badge color="success">Sucesso</Badge>
                         <Badge color="neutral">Neutral</Badge>
-                        <Badge color="primary" appearance="outline">Disponivel</Badge>
-                        <Badge color="error" appearance="outline">Ocupado</Badge>
-                        <Badge color="attention" appearance="outline">Ausente</Badge>
-                        <Badge color="success" appearance="outline">Sucesso</Badge>
-                        <Badge color="neutral" appearance="outline">Neutral</Badge>
+                        <Badge color="primary" variant="outline">Disponivel</Badge>
+                        <Badge color="error" variant="outline">Ocupado</Badge>
+                        <Badge color="attention" variant="outline">Ausente</Badge>
+                        <Badge color="success" variant="outline">Sucesso</Badge>
+                        <Badge color="neutral" variant="outline">Neutral</Badge>
                     </Flex>
                 </div>
             </ShowcasePage>

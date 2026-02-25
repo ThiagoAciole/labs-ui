@@ -20,7 +20,7 @@ export const Progress: React.FC<ProgressProps> = ({ value, max = 100, size = 'md
     return (
         <div className={classNames('labs-progress-wrapper', className)}>
             {label && <div className="labs-progress-label">{label}</div>}
-            <div className={classNames('labs-progress', `labs-progress--${size}`, animated && 'labs-progress--animated')} role="progressbar" aria-valuenow={value} aria-valuemin={0} aria-valuemax={max} style={{ ['--labs-progress-color' as string]: `var(--color--${color})`, ...(style ?? {}) }} {...props}>
+            <div className={classNames('labs-progress', `labs-progress--${size}`, animated && 'labs-progress--animated')} role="progressbar" aria-valuenow={value} aria-valuemin={0} aria-valuemax={max} style={{ ['--labs-progress-color' as string]: `var(--bg-${color === 'neutral' ? 'neutral' : color})`, ...(style ?? {}) }} {...props}>
                 <div className="labs-progress__bar" style={{ width: `${percentage}%` }} />
             </div>
             {showValue && <div className="labs-progress-value">{Math.round(percentage)}%</div>}

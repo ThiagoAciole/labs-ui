@@ -32,7 +32,7 @@ export default function TooltipPage() {
                     <Playground.Preview render={(props) => (
                         <Flex justify="center">
                             <Tooltip {...props}>
-                                <Button appearance="outline">Passe o mouse ou foque aqui</Button>
+                                <Button variant="outline">Passe o mouse ou foque aqui</Button>
                             </Tooltip>
                         </Flex>
                     )} />

@@ -8,7 +8,7 @@
 @import './tokens/typography.css';
 
 :root {
-  --z--dropdown: 1000;
+  --z--dropdown: 2000;
   --z--sticky: 1100;
   --z--modal: 1300;
   --z--tooltip: 1500;
@@ -18,7 +18,7 @@
 }
 
 :focus-visible {
-  outline: var(--border--width--thin) solid var(--color--violet);
+  outline: var(--border--width--thin) solid var(--border-primary);
   outline-offset: 2px;
 }
 

@@ -1,4 +1,5 @@
 import { Input, Icon, Heading } from '@labsui/core';
+import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -13,20 +14,16 @@ export default function InputPage() {
                 full: true,
                 disabled: false,
                 error: '',
-                hint: 'Como você gostaria de ser chamado?'
+                supportText: 'Como você gostaria de ser chamado?'
             }}
             controls={{
                 label: { type: 'text' },
                 placeholder: { type: 'text' },
                 error: { type: 'text' },
-                hint: { type: 'text' },
+                supportText: { type: 'text' },
                 size: {
                     type: 'select',
-                    options: [
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' },
-                    ]
+                    options: SIZE_OPTIONS
                 },
                 disabled: { type: 'boolean' },
                 full: { type: 'boolean' }

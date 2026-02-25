@@ -49,7 +49,7 @@ export const Panel: React.FC<PanelProps> & {
                     <div className="labs-panel__close">
                         <IconButton
                             icon="close"
-                            appearance="ghost" color="gray"
+                            variant="ghost" color="neutral"
                             onClick={onClose}
                             aria-label="Close panel"
                             size="md"

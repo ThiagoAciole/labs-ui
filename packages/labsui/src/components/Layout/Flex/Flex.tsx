@@ -29,12 +29,12 @@ export const Flex: React.FC<FlexProps> = ({
     return (
         <Component
             className={classNames(
-                'labs-flex',
-                `labs-flex-direction--${direction}`,
-                `labs-flex-align--${align}`,
-                `labs-flex-justify--${justify}`,
-                `labs-flex-wrap--${wrap}`,
-                `labs-flex-gap--${gap}`,
+                'flex',
+                `flex-direction--${direction}`,
+                `flex-align--${align}`,
+                `flex-justify--${justify}`,
+                `flex-wrap--${wrap}`,
+                `flex-gap--${gap}`,
                 className
             )}
             style={style}

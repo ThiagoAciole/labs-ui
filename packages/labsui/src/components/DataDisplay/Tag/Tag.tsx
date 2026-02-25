@@ -3,12 +3,12 @@ import { classNames } from '../../../utils/classNames';
 import { Icon } from '../../Typography/Icon/Icon';
 import { colorVar, type TokenColor, type TokenSize } from '../../../utils/styleTokens';
 
-export type TagAppearance = 'soft' | 'outline';
+export type TagVariant = 'soft' | 'outline';
 export type TagSize = Extract<TokenSize, 'xs' | 'sm' | 'md' | 'lg' | 'xl'>;
 
 export interface TagProps {
     children: React.ReactNode;
-    appearance?: TagAppearance;
+    variant?: TagVariant;
     size?: TagSize;
     color?: TokenColor;
     leftIcon?: string;
@@ -19,10 +19,10 @@ export interface TagProps {
     style?: React.CSSProperties;
 }
 
-export function Tag({ children, appearance = 'soft', size = 'md', color = 'primary', leftIcon, rightIcon, closable, onRemove, className, style }: TagProps) {
+export function Tag({ children, variant = 'soft', size = 'md', color = 'primary', leftIcon, rightIcon, closable, onRemove, className, style }: TagProps) {
     const showRemove = closable || !!onRemove;
     return (
-        <span className={classNames('labs-tag', `labs-tag--${appearance}`, `labs-tag--${size}`, className)} style={{ ['--labs-tag-color' as string]: colorVar(color), ...(style ?? {}) }}>
+        <span className={classNames('labs-tag', `labs-tag--variant-${variant}`, `labs-tag--size-${size}`, className)} style={{ ['--labs-tag-color' as string]: colorVar(color), ...(style ?? {}) }}>
             {leftIcon && <Icon name={leftIcon} size={10} color={color} />}
             <span className="labs-tag__label">{children}</span>
             {rightIcon && <Icon name={rightIcon} size={10} color={color} />}

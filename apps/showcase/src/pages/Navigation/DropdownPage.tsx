@@ -36,7 +36,7 @@ export default function DropdownPage() {
                     <div style={{ paddingBottom: '150px' }}> {/* Espaço para o menu abrir */}
                         <DropdownMenu
                             {...props}
-                            trigger={<Button appearance="outline">Opções da Conta</Button>}
+                            trigger={<Button variant="outline">Opções da Conta</Button>}
                             items={defaultItems}
                         />
                     </div>

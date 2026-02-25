@@ -3,11 +3,13 @@ import React from 'react';
 import { classNames } from '../../../utils/classNames';
 import { Icon } from '../../Typography/Icon/Icon';
 import { Text } from '../../Typography/Text/Text';
+import { colorVar, type TokenColor } from '../../../utils/styleTokens';
 
 export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
     label?: string;
     indeterminate?: boolean;
-    hint?: string;
+    supportText?: string;
+    color?: TokenColor;
 }
 
 function setForwardedRef<T>(ref: React.ForwardedRef<T>, value: T | null) {
@@ -21,7 +23,7 @@ function setForwardedRef<T>(ref: React.ForwardedRef<T>, value: T | null) {
 }
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-    ({ label, indeterminate = false, hint, className, id, disabled, ...props }, ref) => {
+    ({ label, indeterminate = false, supportText, className, id, disabled, color = 'primary', ...props }, ref) => {
         const generatedId = React.useId();
         const inputId = id ?? `labs-cb-${generatedId}`;
         const inputRef = React.useRef<HTMLInputElement | null>(null);
@@ -45,6 +47,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                     indeterminate && 'labs-checkbox-root--indeterminate',
                     className
                 )}
+                style={{ ['--labs-checkbox-color' as string]: colorVar(color), ...(props.style ?? {}) }}
             >
                 <label className="labs-checkbox-label" htmlFor={inputId}>
                     <span className="labs-checkbox-control">
@@ -64,7 +67,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                     </span>
                     {label && <Text as="span" className="labs-checkbox-text">{label}</Text>}
                 </label>
-                {hint && <Text as="span" color="disabled" size="sm" className="labs-checkbox-hint">{hint}</Text>}
+                {supportText && <Text as="span" color="disabled" size="sm" className="labs-checkbox-supportText">{supportText}</Text>}
             </div>
         );
     }

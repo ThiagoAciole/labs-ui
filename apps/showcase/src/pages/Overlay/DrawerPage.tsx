@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import { Drawer, Button, Heading, Text, Flex } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
@@ -27,12 +28,7 @@ export default function DrawerPage() {
                 },
                 size: {
                     type: 'select',
-                    options: [
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' },
-                        { value: 'full', label: 'Full Screen' }
-                    ]
+                    options: SIZE_OPTIONS
                 }
             }}
         >
@@ -50,7 +46,7 @@ export default function DrawerPage() {
                             onClose={() => setOpen(false)}
                             footer={
                                 <Flex gap="2">
-                                    <Button appearance="ghost" full onClick={() => setOpen(false)}>Cancelar</Button>
+                                    <Button variant="ghost" full onClick={() => setOpen(false)}>Cancelar</Button>
                                     <Button full onClick={() => setOpen(false)}>Salvar Mudanças</Button>
                                 </Flex>
                             }
@@ -58,7 +54,7 @@ export default function DrawerPage() {
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                                 <section>
                                     <Heading size="sm" style={{ marginBottom: '0.5rem' }}>Configurações de Notificação</Heading>
-                                    <Text size="sm" color="gray">Visualize e edite como você recebe alertas do sistema.</Text>
+                                    <Text size="sm">Visualize e edite como você recebe alertas do sistema.</Text>
                                 </section>
                                 <section>
                                     <Text>Conteúdo rico, formulários ou listas podem ser colocados aqui dentro.</Text>

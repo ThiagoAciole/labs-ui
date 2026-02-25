@@ -1,4 +1,5 @@
 import { Search, Heading, Text, Card, CardBody } from '@labsui/core';
+import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 import { useState } from 'react';
@@ -18,11 +19,7 @@ export default function SearchPage() {
                 placeholder: { type: 'text' },
                 size: {
                     type: 'select',
-                    options: [
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' },
-                    ]
+                    options: SIZE_OPTIONS
                 },
                 loading: { type: 'boolean' },
                 full: { type: 'boolean' },

@@ -2,11 +2,13 @@ import React, { forwardRef } from 'react';
 import './Radio.css';
 import { classNames } from '../../../utils/classNames';
 import { Text } from '../../Typography/Text/Text';
+import { colorVar, type TokenColor } from '../../../utils/styleTokens';
 
 export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
     label?: string;
     description?: string;
     error?: boolean;
+    color?: TokenColor;
 }
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
@@ -16,6 +18,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
     disabled,
     error,
     style,
+    color = 'primary',
     ...props
 }, ref) => {
     return (
@@ -28,7 +31,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
                 },
                 className
             )}
-            style={style}
+            style={{ ['--labs-radio-color' as string]: colorVar(color), ...(style ?? {}) }}
         >
             <div className="labs-radio__input-container">
                 <input

@@ -1,4 +1,5 @@
 import { Text, Heading, Card, CardBody } from '@labsui/core';
+import { COLOR_OPTIONS, SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -15,13 +16,7 @@ export default function TextPage() {
             controls={{
                 size: {
                     type: 'select',
-                    options: [
-                        { value: 'xs', label: 'xs' },
-                        { value: 'sm', label: 'sm' },
-                        { value: 'md', label: 'md' },
-                        { value: 'lg', label: 'lg' },
-                        { value: 'xl', label: 'xl' },
-                    ]
+                    options: SIZE_OPTIONS
                 },
                 weight: {
                     type: 'select',
@@ -35,13 +30,7 @@ export default function TextPage() {
                 },
                 color: {
                     type: 'select',
-                    options: [
-                        { value: 'primary', label: 'Primary' },
-                        { value: 'success', label: 'Success' },
-                        { value: 'attention', label: 'Attention' },
-                        { value: 'error', label: 'Error' },
-                        { value: 'neutral', label: 'Neutral' },
-                    ]
+                    options: COLOR_OPTIONS
                 },
                 children: { type: 'text' }
             }}

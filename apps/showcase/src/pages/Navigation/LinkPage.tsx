@@ -1,4 +1,5 @@
 import { Link, Text, Heading } from '@labsui/core';
+import { COLOR_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -8,7 +9,7 @@ export default function LinkPage() {
             componentName="Link"
             defaultProps={{ children: 'Clique aqui para navegar', href: '#', underline: true, color: 'primary' }}
             controls={{
-                color: { type: 'select', options: [ { value: 'primary', label: 'Primary' }, { value: 'success', label: 'Success' }, { value: 'attention', label: 'Attention' }, { value: 'error', label: 'Error' }, { value: 'neutral', label: 'Neutral' } ] },
+                color: { type: 'select', options: COLOR_OPTIONS },
                 underline: { type: 'boolean' }
             }}
         >

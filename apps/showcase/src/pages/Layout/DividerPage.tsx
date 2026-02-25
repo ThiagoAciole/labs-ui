@@ -1,4 +1,5 @@
 import { Divider, Heading, Text, Flex } from '@labsui/core';
+import { ORIENTATION_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -14,10 +15,7 @@ export default function DividerPage() {
                 label: { type: 'text' },
                 orientation: {
                     type: 'select',
-                    options: [
-                        { value: 'horizontal', label: 'Horizontal' },
-                        { value: 'vertical', label: 'Vertical' }
-                    ]
+                    options: ORIENTATION_OPTIONS
                 }
             }}
         >
@@ -33,9 +31,9 @@ export default function DividerPage() {
                         align="center"
                         style={{ minHeight: '150px', width: '100%' }}
                     >
-                        <Text color="gray">Seção Anterior</Text>
+                        <Text color="disabled">Seção Anterior</Text>
                         <Divider {...props} style={props.orientation === 'vertical' ? { height: '100px' } : { width: '100%' }} />
-                        <Text color="gray">Seção Posterior</Text>
+                        <Text color="disabled">Seção Posterior</Text>
                     </Flex>
                 )} />
 

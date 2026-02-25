@@ -31,11 +31,11 @@ export default function PageHeaderPage() {
                                     { label: 'LabsUI' }
                                 ]} />
                             }
-                            action={
-                                <Flex gap="2">
-                                    <Button appearance="ghost" size="sm" icon="settings">Configurar</Button>
-                                    <Button appearance="solid" color="primary" size="sm" icon="plus">Nova Instância</Button>
-                                </Flex>
+                            actions={
+                                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                    <Button variant="outline">Exportar</Button>
+                                    <Button variant="solid" color="primary" icon="plus">Nova Campanha</Button>
+                                </div>
                             }
                         />
                     )} />

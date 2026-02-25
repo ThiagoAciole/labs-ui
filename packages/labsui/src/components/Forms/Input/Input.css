@@ -8,14 +8,14 @@
 .labs-input-label {
   font-size: var(--font--size--sm);
   font-weight: 500;
-  color: var(--text-gray);
+  color: var(--text-primary);
 }
 
 .labs-input-field {
   display: flex;
   align-items: center;
   background-color: var(--surface);
-  border: 1px solid var(--border-gray);
+  border: 1px solid var(--border-neutral);
   border-radius: var(--radius--md);
   transition: all var(--transition--fast);
   overflow: hidden;
@@ -23,12 +23,13 @@
 .labs-input-field:focus-within,
 .labs-input-field--active {
   border-color: var(--bg-primary);
-  box-shadow: none;
+  outline: 2px solid var(--bg-primary);
+  outline-offset: -1px;
 }
 .labs-input-field--error { border-color: var(--border-error); }
 .labs-input-field--error:focus-within,
-.labs-input-field--error.labs-input-field--active { box-shadow: 0 0 0 2px rgba(239,68,68,0.1); }
-.labs-input-field--disabled { opacity: 0.5; cursor: not-allowed; }
+.labs-input-field--error.labs-input-field--active { outline-color: var(--border-error); }
+.labs-input-field--disabled { opacity: 0.5; cursor: not-allowed; background-color: var(--border-neutral);}
 
 /* Sizes */
 .labs-input-field--sm { height: 2rem; font-size: var(--font--size--sm); }
@@ -46,7 +47,7 @@
   width: 100%;
   min-width: 0;
 }
-.labs-input-field__input::placeholder { color: var(--text-disabled); opacity: 0.8; }
+.labs-input-field__input::placeholder { color: var(--text-neutral); opacity: 0.8; font-weight: 400; }
 .labs-input-field__input:disabled { cursor: not-allowed; }
 .labs-input-field--clickable { cursor: pointer; user-select: none; }
 .labs-input-field--clickable .labs-input-field__input { cursor: pointer; }
@@ -54,11 +55,11 @@
 .labs-input-field__adornment {
   display: flex;
   align-items: center;
-  color: var(--text-gray);
+  color: var(--text-primary);
   flex-shrink: 0;
 }
 .labs-input-field__adornment--prefix { padding-left: var(--space--3); }
 .labs-input-field__adornment--suffix { padding-right: var(--space--3); }
 
-.labs-input-message { font-size: var(--font--size--xs); color: var(--text-gray); }
+.labs-input-message { font-size: var(--font--size--xs); color: var(--text-disabled); }
 .labs-input-message--error { color: var(--text-error); }

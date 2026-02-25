@@ -31,13 +31,13 @@ export default function ShowcasePage({ title, description, children, aside, code
                 {code && (
                     <Panel.Section title="Source" icon={<Icon name="code" size={14} />}>
                         <div style={{
-                            background: 'var(--color--grayDark)',
+                            background: 'var(--surface-alt)',
                             padding: '1rem',
                             borderRadius: '8px',
-                            border: '1px solid var(--color--grayDark)',
+                            border: '1px solid var(--border-neutral)',
                             marginTop: '0.5rem'
                         }}>
-                            <pre style={{ margin: 0, fontSize: '12px', color: 'var(--color--violet)', fontFamily: 'monospace', whiteSpace: 'pre-wrap' }}>
+                            <pre style={{ margin: 0, fontSize: '12px', color: 'var(--text-primary)', fontFamily: 'monospace', whiteSpace: 'pre-wrap' }}>
                                 <code>{code}</code>
                             </pre>
                         </div>
@@ -49,13 +49,14 @@ export default function ShowcasePage({ title, description, children, aside, code
 
     return (
         <Flex direction="row" style={{ height: '100%', width: '100%', overflow: 'hidden' }}>
-            <div style={{ flex: 1, overflowY: 'auto', minWidth: 0, height: '100%' }}>
-                <Container size="full" style={{ paddingBottom: '4rem' }}>
+            <div style={{ flex: 1, overflowY: 'auto', minWidth: 0, height: '100%', paddingBottom: '4rem' }}>
+                <Container size="full" >
                     <PageHeader
                         title={title}
                         description={description}
                     />
                     {children}
+                    <div style={{ height: '250px' }}></div>
                 </Container>
             </div>
 

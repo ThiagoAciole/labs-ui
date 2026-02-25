@@ -1,4 +1,5 @@
 import { Card, CardHeader, CardBody, CardFooter, Button, Heading, Text, Icon } from '@labsui/core';
+import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -22,12 +23,7 @@ export default function CardPage() {
                 },
                 padding: {
                     type: 'select',
-                    options: [
-                        { value: 'none', label: 'None' },
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' },
-                    ]
+                    options: SIZE_OPTIONS
                 }
             }}
         >
@@ -50,7 +46,7 @@ export default function CardPage() {
                                 </Text>
                             </CardBody>
                             <CardFooter>
-                                <Button appearance="ghost" size="sm">Ignorar</Button>
+                                <Button variant="ghost" size="sm">Ignorar</Button>
                                 <Button size="sm">Explorar</Button>
                             </CardFooter>
                         </Card>

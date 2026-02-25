@@ -1,4 +1,5 @@
 import { Image, Heading, Flex } from '@labsui/core';
+import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -17,14 +18,7 @@ export default function ImagePage() {
                 alt: { type: 'text' },
                 radius: {
                     type: 'select',
-                    options: [
-                        { value: 'none', label: 'None' },
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' },
-                        { value: 'xl', label: 'Extra Large' },
-                        { value: 'full', label: 'Full' },
-                    ]
+                    options: SIZE_OPTIONS
                 },
                 objectFit: {
                     type: 'select',

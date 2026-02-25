@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TopBar, Icon, IconButton, Heading, Text } from '@labsui/core';
+import { TopBar, Icon, Button, IconButton, Heading, Text } from '@labsui/core';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -15,8 +15,8 @@ export default function TopBarPage() {
 
     const extraContent = (
         <div style={{ display: 'flex', gap: '8px' }}>
-            <IconButton appearance="ghost" color="gray" size="sm" icon="search" aria-label="Search" />
-            <IconButton appearance="ghost" color="gray" size="sm" icon="user" aria-label="User Profile" />
+            <Button variant="ghost" icon="bell" aria-label="Notificações" />
+            <Button variant="ghost" icon="settings" aria-label="Configurações" />
         </div>
     );
 
@@ -47,9 +47,9 @@ export default function TopBarPage() {
                 description="O TopBar é o elemento principal de navegação superior, fornecendo branding, links de navegação e controles globais como troca de tema."
                 aside={<Playground.Controls />}
             >
-                <div style={{ background: 'var(--color--grayLight)', padding: '2rem', borderRadius: 'var(--radius--xl)', overflow: 'hidden' }}>
+                <div style={{ background: 'var(--surface-alt)', padding: '2rem', borderRadius: 'var(--radius--xl)', overflow: 'hidden' }}>
                     <Playground.Preview render={(props) => (
-                        <div style={{ border: '1px solid var(--color--grayDark)', borderRadius: 'var(--radius--lg)', overflow: 'hidden' }}>
+                        <div style={{ border: '1px solid var(--border-neutral)', borderRadius: 'var(--radius--lg)', overflow: 'hidden' }}>
                             <TopBar
                                 {...props}
                                 navItems={navItems}

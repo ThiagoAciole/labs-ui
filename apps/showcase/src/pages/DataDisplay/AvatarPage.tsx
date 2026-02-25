@@ -1,6 +1,8 @@
 import { Avatar, Heading, Flex, Card, CardBody } from '@labsui/core';
+
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
+import { SIZE_OPTIONS } from '../../config/categories/commonOptions';
 
 export default function AvatarPage() {
     return (
@@ -16,14 +18,7 @@ export default function AvatarPage() {
             controls={{
                 size: {
                     type: 'select',
-                    options: [
-                        { value: 'xs', label: 'Extra Small' },
-                        { value: 'sm', label: 'Small' },
-                        { value: 'md', label: 'Medium' },
-                        { value: 'lg', label: 'Large' },
-                        { value: 'xl', label: 'Extra Large' },
-                        { value: '2xl', label: '2XL' },
-                    ]
+                    options: SIZE_OPTIONS
                 },
                 shape: {
                     type: 'select',

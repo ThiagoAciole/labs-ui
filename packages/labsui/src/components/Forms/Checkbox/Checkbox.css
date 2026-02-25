@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 .labs-checkbox-control__input:focus-visible + .labs-checkbox-control__box {
-  outline: 2px solid var(--bg-primary);
+  outline: 2px solid var(--labs-checkbox-color, var(--bg-primary));
   outline-offset: 2px;
 }
 
@@ -33,8 +33,8 @@
 }
 .labs-checkbox-control__input:checked + .labs-checkbox-control__box,
 .labs-checkbox-control__input[aria-checked="mixed"] + .labs-checkbox-control__box {
-  background: var(--bg-primary);
-  border-color: var(--bg-primary);
+  background: var(--labs-checkbox-color, var(--bg-primary));
+  border-color: var(--labs-checkbox-color, var(--bg-primary));
   color: var(--text-on-solid);
 }
 
@@ -60,7 +60,7 @@
 }
 
 .labs-checkbox-text { font-size: var(--font--size--sm); color: var(--text-primary); line-height: 1; }
-.labs-checkbox-hint { font-size: var(--font--size--xs); color: var(--text-disabled); padding-left: 1.375rem; }
+.labs-checkbox-supportText { font-size: var(--font--size--xs); color: var(--text-disabled); padding-left: 1.375rem; }
 
 
 

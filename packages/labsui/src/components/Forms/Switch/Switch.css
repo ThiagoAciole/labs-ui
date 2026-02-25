@@ -2,7 +2,7 @@
 .labs-switch-root--disabled { opacity: 0.5; pointer-events: none; }
 .labs-switch-label { display: inline-flex; align-items: center; gap: var(--space--2); cursor: pointer; user-select: none; }
 .labs-switch-text { font-size: var(--font--size--sm); color: var(--text-gray); font-weight: 500; }
-.labs-switch-hint { font-size: var(--font--size--xs); color: var(--text-disabled); }
+.labs-switch-supportText { font-size: var(--font--size--xs); color: var(--text-disabled); }
 
 .labs-switch-control { display: inline-flex; position: relative; }
 .labs-switch-control__input { position: absolute; opacity: 0; width: 0; height: 0; }
@@ -15,7 +15,8 @@
   display: flex;
   align-items: center;
   border-radius: var(--radius--pill);
-  background: var(--border-gray);
+  background: var(--surface-alt);
+  border: 0.5px solid var(--border-disabled);
   transition: all var(--transition--normal);
   cursor: pointer;
   padding: 2px;

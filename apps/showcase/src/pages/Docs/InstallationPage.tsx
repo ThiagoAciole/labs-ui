@@ -21,7 +21,7 @@ function App() {
           <Heading size="lg" style={{ marginBottom: '1rem' }}>
             Introducao
           </Heading>
-          <Text size="lg" color="gray">
+          <Text size="lg" color="disabled">
             LabsUI e uma biblioteca de componentes React premium, focada em estetica moderna, performance e
             facilidade de uso. Com suporte nativo a Dark Mode e um sistema de design consistente.
           </Text>
@@ -66,10 +66,10 @@ function App() {
             <Card style={{ flex: '1 1 300px' }}>
               <CardBody>
                 <Flex align="center" gap="4" style={{ marginBottom: '1rem' }}>
-                  <Icon name="sparkles" color="var(--color--violet)" />
+                  <Icon name="sparkles" color="var(--text-primary)" />
                   <Heading size="s">Estetica premium</Heading>
                 </Flex>
-                <Text size="sm" color="gray">
+                <Text size="sm" color="disabled">
                   Designs modernos com sombras suaves, gradientes sutis e micro-interacoes.
                 </Text>
               </CardBody>
@@ -77,10 +77,10 @@ function App() {
             <Card style={{ flex: '1 1 300px' }}>
               <CardBody>
                 <Flex align="center" gap="4" style={{ marginBottom: '1rem' }}>
-                  <Icon name="theme-dark" color="var(--color--violet)" />
+                  <Icon name="theme-dark" color="var(--text-primary)" />
                   <Heading size="s">Dark Mode nativo</Heading>
                 </Flex>
-                <Text size="sm" color="gray">
+                <Text size="sm" color="disabled">
                   Otimizado para interfaces escuras com persistencia automatica de tema.
                 </Text>
               </CardBody>

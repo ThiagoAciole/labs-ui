@@ -1,4 +1,5 @@
 import { useToast, Button, Heading, Text, Flex } from '@labsui/core';
+import { COLOR_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 
@@ -12,7 +13,7 @@ export default function ToastPage() {
             controls={{
                 title: { type: 'text' },
                 description: { type: 'text' },
-                color: { type: 'select', options: [ { value: 'primary', label: 'Primary' }, { value: 'success', label: 'Success' }, { value: 'attention', label: 'Attention' }, { value: 'error', label: 'Error' }, { value: 'neutral', label: 'Neutral' } ] },
+                color: { type: 'select', options: COLOR_OPTIONS },
                 duration: { type: 'number' }
             }}
         >
@@ -26,7 +27,7 @@ export default function ToastPage() {
                     <Heading size="m">Como usar</Heading>
                     <div style={{ marginTop: '1.5rem' }}>
                         <Text>Use o <code>ToastProvider</code> e o hook <code>useToast</code>.</Text>
-                        <pre style={{ background: 'var(--color--grayLight)', padding: '1.5rem', borderRadius: 'var(--radius--lg)', marginTop: '1.5rem', fontSize: '0.875rem', color: 'var(--color--violet)', overflow: 'auto' }}>
+                        <pre style={{ background: 'var(--surface-alt)', padding: '1.5rem', borderRadius: 'var(--radius--lg)', marginTop: '1.5rem', fontSize: '0.875rem', color: 'var(--text-primary)', overflow: 'auto' }}>
                             <code>{`const { toast } = useToast();\n\ntoast({\n  title: "Arquivo Salvo",\n  color: "success"\n});`}</code>
                         </pre>
                     </div>

@@ -77,7 +77,7 @@ export function Modal({
                         <IconButton
                             icon="close"
                             aria-label="Close modal"
-                            appearance="ghost" color="gray"
+                            variant="ghost" color="neutral"
                             size="sm"
                             onClick={onClose}
                         />

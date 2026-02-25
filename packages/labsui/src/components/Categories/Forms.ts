@@ -1,7 +1,7 @@
 export { Button } from '../Forms/Button/Button';
-export type { ButtonProps, ButtonAppearance, ButtonSize } from '../Forms/Button/Button';
+export type { ButtonProps, ButtonVariant, ButtonSize } from '../Forms/Button/Button';
 export { IconButton } from '../Forms/IconButton/IconButton';
-export type { IconButtonProps, IconButtonAppearance, IconButtonSize } from '../Forms/IconButton/IconButton';
+export type { IconButtonProps, IconButtonVariant, IconButtonSize } from '../Forms/IconButton/IconButton';
 export { Input } from '../Forms/Input/Input';
 export type { InputProps, InputSize } from '../Forms/Input/Input';
 export { Search } from '../Forms/Search/Search';

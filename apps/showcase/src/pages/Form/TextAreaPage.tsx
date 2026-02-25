@@ -9,7 +9,7 @@ export default function TextAreaPage() {
             defaultProps={{
                 label: 'Sua Mensagem',
                 placeholder: 'Escreva algo aqui...',
-                hint: 'Seja breve e direto.',
+                supportText: 'Seja breve e direto.',
                 rows: 4,
                 full: true,
                 disabled: false,
@@ -18,7 +18,7 @@ export default function TextAreaPage() {
             controls={{
                 label: { type: 'text' },
                 placeholder: { type: 'text' },
-                hint: { type: 'text' },
+                supportText: { type: 'text' },
                 rows: { type: 'number' },
                 resize: {
                     type: 'select',

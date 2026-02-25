@@ -22,7 +22,7 @@ export const Search = React.forwardRef<HTMLInputElement, SearchProps>(
                 type="search"
                 prefix={
                     loading ? (
-                        <Loader size="xs" color="gray" />
+                        <Loader size="xs" color="neutral" />
                     ) : (
                         <Icon name="search" size={18} />
                     )

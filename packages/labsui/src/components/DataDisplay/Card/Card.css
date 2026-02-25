@@ -1,7 +1,7 @@
 .labs-card {
   background: var(--surface);
   border-radius: var(--radius--xl);
-  border: 1px solid var(--border-gray);
+  border: 1px solid var(--border-neutral);
   position: relative;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 4px 12px -4px rgba(0, 0, 0, 0.1);
 }
@@ -41,5 +41,5 @@
   justify-content: flex-end;
   gap: var(--space--3);
   padding: var(--space--4) var(--space--4);
-  border-top: 1px solid var(--border-gray);
+  border-top: 1px solid var(--border-neutral);
 }

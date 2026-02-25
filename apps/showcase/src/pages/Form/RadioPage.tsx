@@ -1,4 +1,5 @@
 import { Radio, Flex, Heading } from '@labsui/core';
+import { COLOR_OPTIONS } from '../../config/categories/commonOptions';
 import ShowcasePage from '../../components/ShowcasePage';
 import Playground from '../../components/Playground';
 import { useState } from 'react';
@@ -11,13 +12,15 @@ export default function RadioPage() {
                 label: 'Sua Opção',
                 description: 'Esta é uma breve descrição da escolha.',
                 checked: true,
-                disabled: false
+                disabled: false,
+                color: 'primary'
             }}
             controls={{
                 label: { type: 'text' },
                 description: { type: 'text' },
                 checked: { type: 'boolean' },
-                disabled: { type: 'boolean' }
+                disabled: { type: 'boolean' },
+                color: { type: 'select', options: COLOR_OPTIONS }
             }}
         >
             <ShowcasePage
@@ -28,6 +31,17 @@ export default function RadioPage() {
                 <Playground.Preview render={(props) => (
                     <Radio {...props} name="playground-radio" />
                 )} />
+
+                <div style={{ marginTop: '4rem' }}>
+                    <Heading size="m">Cores</Heading>
+                    <Flex gap="4" style={{ marginTop: '1.5rem', flexWrap: 'wrap' }}>
+                        <Radio name="cor" label="Primary" color="primary" defaultChecked />
+                        <Radio name="cor" label="Success" color="success" />
+                        <Radio name="cor" label="Error" color="error" />
+                        <Radio name="cor" label="Attention" color="attention" />
+                        <Radio name="cor" label="Neutral" color="neutral" />
+                    </Flex>
+                </div>
 
                 <div style={{ marginTop: '4rem' }}>
                     <Heading size="m">Grupo de Opções</Heading>
