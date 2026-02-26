@@ -1,5 +1,0 @@
-../../packages/labsui/src/components/Categories/DataDisplay.ts(2,27): error TS2305: Module '"../DataDisplay/Badge/Badge"' has no exported member 'BadgeAppearance'.
-../../packages/labsui/src/components/Categories/DataDisplay.ts(4,25): error TS2305: Module '"../DataDisplay/Tag/Tag"' has no exported member 'TagAppearance'.
-../../packages/labsui/src/components/Categories/Forms.ts(2,28): error TS2305: Module '"../Forms/Button/Button"' has no exported member 'ButtonAppearance'.
-../../packages/labsui/src/components/Categories/Forms.ts(4,32): error TS2305: Module '"../Forms/IconButton/IconButton"' has no exported member 'IconButtonAppearance'.
-../../packages/labsui/src/components/Forms/Search/Search.tsx(25,43): error TS2322: Type '"gray"' is not assignable to type 'TokenColor | undefined'.
