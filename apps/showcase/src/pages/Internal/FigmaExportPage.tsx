@@ -63,8 +63,8 @@ export default function FigmaExportPage() {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     return (
-        <div style={{ padding: '60px', background: 'var(--color-bg-base)', minHeight: '100%', position: 'relative' }}>
-            <Heading size="xl" style={{ marginBottom: '60px' }}>LabsUI - Full Design System Export</Heading>
+        <div data-theme="light" style={{ padding: '60px', background: 'var(--bg)', minHeight: '100%', position: 'relative' }}>
+            <Heading size="xl" style={{ marginBottom: '60px' }}>LabsUI - Full Design System Export (Light Only)</Heading>
 
             {/* --- SHELL COMPONENTS --- */}
             <section style={{ marginBottom: '100px' }}>
@@ -344,10 +344,6 @@ export default function FigmaExportPage() {
                 </Flex>
             </section>
 
-            {/* Added floating info for designer */}
-            <div style={{ position: 'fixed', bottom: '20px', right: '20px', padding: '12px 20px', background: 'rgb(124, 58, 237)', color: 'white', borderRadius: '30px', boxShadow: '0 10px 25px rgba(0,0,0,0.2)', zIndex: 999 }}>
-                <Text size="sm" weight="bold">LabsUI Export Mode: {theme.toUpperCase()}</Text>
-            </div>
         </div>
     );
 }
