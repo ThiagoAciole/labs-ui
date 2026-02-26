@@ -18,7 +18,13 @@ export default function App() {
         const hash = window.location.hash.replace('#', '');
         return hash || 'installation';
     });
-    const { theme } = useTheme();
+    const { theme, setTheme } = useTheme();
+
+    useEffect(() => {
+        if (theme !== 'light') {
+            setTheme('light');
+        }
+    }, [theme, setTheme]);
 
     // Restaura o roteamento hash
     useEffect(() => {
@@ -43,7 +49,7 @@ export default function App() {
                 <Sidebar defaultCollapsed={window.innerWidth < 768}>
                     <Sidebar.Header
                         icon={<img src={icon} alt="LabsUI Icon" style={{ height: '24px' }} />}
-                        logo={<img src={theme === 'dark' ? logoDark : logoLight} alt="LabsUI Logo" style={{ height: '24px' }} />}
+                        logo={<img src={logoLight} alt="LabsUI Logo" style={{ height: '24px' }} />}
                     />
 
                     <Sidebar.Nav>
@@ -75,7 +81,7 @@ export default function App() {
                 {!isFigmaExport && (
                     <TopBar
                         sticky
-                        themeToggle={true}
+                        themeToggle={false}
                     />
                 )}
                 <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', position: 'relative' }}>
