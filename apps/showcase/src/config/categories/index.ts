@@ -7,6 +7,7 @@ import { navigationComponents } from './navigation';
 import { feedbackComponents } from './feedback';
 import { overlayComponents } from './overlay';
 import { layoutComponents } from './layout';
+import { internalComponents } from './internal';
 
 export const CATEGORIZED_COMPONENTS: ComponentGroup[] = [
     docsComponents,
@@ -16,7 +17,8 @@ export const CATEGORIZED_COMPONENTS: ComponentGroup[] = [
     navigationComponents,
     feedbackComponents,
     overlayComponents,
-    layoutComponents
+    layoutComponents,
+    internalComponents
 ];
 
 export const ALL_COMPONENTS = CATEGORIZED_COMPONENTS.flatMap((group) => group.items);

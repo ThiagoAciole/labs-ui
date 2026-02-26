@@ -11,7 +11,7 @@ export interface BreadcrumbItem {
     icon?: React.ReactNode;
 }
 
-interface BreadcrumbProps {
+export interface BreadcrumbProps {
     items: BreadcrumbItem[];
     separator?: React.ReactNode;
     className?: string;
