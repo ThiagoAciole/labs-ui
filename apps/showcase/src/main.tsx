@@ -7,7 +7,7 @@ import './index.css';
 const root = createRoot(document.getElementById('root')!);
 root.render(
     <React.StrictMode>
-        <ThemeProvider defaultTheme="light">
+        <ThemeProvider>
             <ToastProvider position="top-right">
                 <App />
             </ToastProvider>

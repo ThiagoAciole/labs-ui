@@ -18,15 +18,7 @@ export default function App() {
         const hash = window.location.hash.replace('#', '');
         return hash || 'installation';
     });
-    const { theme, setTheme } = useTheme();
-
-    useEffect(() => {
-        if (theme !== 'light') {
-            setTheme('light');
-        }
-    }, [theme, setTheme]);
-
-    // Restaura o roteamento hash
+   
     useEffect(() => {
         const hash = window.location.hash.replace('#', '');
         if (hash) {
@@ -40,50 +32,45 @@ export default function App() {
         window.location.hash = id;
     };
 
-    const isFigmaExport = activeId === 'figma-export';
     const ActiveComponent = ALL_COMPONENTS.find(c => c.id === activeId)?.component;
 
     return (
         <Flex className="showcase-app">
-            {!isFigmaExport && (
-                <Sidebar defaultCollapsed={window.innerWidth < 768}>
-                    <Sidebar.Header
-                        icon={<img src={icon} alt="LabsUI Icon" style={{ height: '24px' }} />}
-                        logo={<img src={logoLight} alt="LabsUI Logo" style={{ height: '24px' }} />}
-                    />
+            <Sidebar defaultCollapsed={window.innerWidth < 768}>
+                <Sidebar.Header
+                    icon={<img src={icon} alt="LabsUI Icon" style={{ height: '24px' }} />}
+                    logo={<img src={logoLight} alt="LabsUI Logo" style={{ height: '24px' }} />}
+                />
 
-                    <Sidebar.Nav>
-                        {CATEGORIZED_COMPONENTS.map((group) => (
-                            <Sidebar.Group
-                                key={group.title}
-                                title={group.title}
-                                icon={<Icon name={group.icon as any} size={20} />}
-                                active={group.items.some((i) => i.id === activeId)}
-                                defaultExpanded={true}
-                            >
-                                {group.items.map((item) => (
-                                    <Sidebar.Item
-                                        key={item.id}
-                                        icon={<Icon name={item.icon as any} />}
-                                        active={activeId === item.id}
-                                        onClick={() => handleNavigate(item.id)}
-                                    >
-                                        {item.name}
-                                    </Sidebar.Item>
-                                ))}
-                            </Sidebar.Group>
-                        ))}
-                    </Sidebar.Nav>
-                </Sidebar>
-            )}
+                <Sidebar.Nav>
+                    {CATEGORIZED_COMPONENTS.map((group) => (
+                        <Sidebar.Group
+                            key={group.title}
+                            title={group.title}
+                            icon={<Icon name={group.icon as any} size={20} />}
+                            active={group.items.some((i) => i.id === activeId)}
+                            defaultExpanded={true}
+                        >
+                            {group.items.map((item) => (
+                                <Sidebar.Item
+                                    key={item.id}
+                                    icon={<Icon name={item.icon as any} />}
+                                    active={activeId === item.id}
+                                    onClick={() => handleNavigate(item.id)}
+                                >
+                                    {item.name}
+                                </Sidebar.Item>
+                            ))}
+                        </Sidebar.Group>
+                    ))}
+                </Sidebar.Nav>
+            </Sidebar>
 
             <Flex direction="column" className="showcase-content">
-                {!isFigmaExport && (
-                    <TopBar
-                        sticky
-                        themeToggle={false}
-                    />
-                )}
+                <TopBar
+                    sticky
+                    themeToggle={true}
+                />
                 <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', position: 'relative' }}>
                     {
                         ActiveComponent ? (
