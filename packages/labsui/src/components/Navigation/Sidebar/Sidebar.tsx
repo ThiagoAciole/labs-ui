@@ -3,6 +3,7 @@ import './Sidebar.css';
 import { classNames } from '../../../utils/classNames';
 import { Icon } from '../../Typography/Icon/Icon';
 import { Flex } from '../../Layout/Flex/Flex';
+import { Panel } from '../Panel/Panel';
 
 interface SidebarContextValue {
     collapsed: boolean;
@@ -219,7 +220,6 @@ const SidebarGroup = ({ title, icon, active, defaultExpanded = true, className, 
     );
 };
 
-import { ThemeToggle } from '../../Navigation/TopBar/ThemeToggle';
 
 // ... (fim do arquivo)
 Sidebar.Header = SidebarHeader;
@@ -228,7 +228,8 @@ Sidebar.Item = SidebarItem;
 Sidebar.Group = SidebarGroup;
 Sidebar.Footer = SidebarFooter;
 Sidebar.User = SidebarUser;
-Sidebar.ThemeToggle = ThemeToggle;
+Sidebar.Panel = Panel;
+
 
 
 

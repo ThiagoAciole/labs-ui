@@ -1,10 +1,11 @@
 import React from 'react';
-import { ThemeToggle } from './ThemeToggle';
 import { Flex } from '../../Layout/Flex/Flex';
 import './TopBar.css';
+import { useTheme } from '../../Foundation/ThemeProvider/ThemeProvider';
+import { IconButton } from '../../Forms/IconButton/IconButton';
 
 export interface TopBarNavItem {
-    label: string;
+    label?: string;
     active?: boolean;
     onClick?: () => void;
     href?: string;
@@ -12,37 +13,41 @@ export interface TopBarNavItem {
 }
 
 export interface TopBarProps {
-    /** Logo do cabeçalho (pode ser texto ou componente de imagem) */
     logo?: React.ReactNode;
-    /** Itens de navegação central/direita */
     navItems?: TopBarNavItem[];
-    /** Posição da navegação */
     navPosition?: 'center' | 'right';
-    /** Conteúdo extra no lado direito (ex: botões de redes sociais) */
     extraContent?: React.ReactNode;
-    /** Componente de toggle de tema ou um booleano para usar o padrão */
     themeToggle?: React.ReactNode | boolean;
-    /** Se deve ser fixo no topo */
     sticky?: boolean;
-    /** Classe CSS adicional */
     className?: string;
+    children?: React.ReactNode;
+    contentInside?: boolean;
 }
 
 export const TopBar: React.FC<TopBarProps> = ({
     logo,
-    navItems = [],
+    navItems,
     navPosition = 'center',
     extraContent,
     themeToggle,
     sticky = false,
     className = '',
+    children,
+    contentInside = false,
 }) => {
+    const safeNavItems = navItems ?? [];
+    const hasNavItems = safeNavItems.length > 0;
+    const hasChildren = !!children;
     const isNavRight = navPosition === 'right';
-    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+    const { theme, toggleTheme } = useTheme();
+    const currentPath =
+        typeof window !== 'undefined' ? window.location.pathname : '';
 
     const normalizePath = (path: string) => {
         const pathname = path.split('?')[0].split('#')[0];
-        return pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
+        return pathname.endsWith('/') && pathname !== '/'
+            ? pathname.slice(0, -1)
+            : pathname;
     };
 
     const isCurrentRoute = (path?: string) => {
@@ -50,69 +55,85 @@ export const TopBar: React.FC<TopBarProps> = ({
         return normalizePath(currentPath) === normalizePath(path);
     };
 
-    const renderThemeToggle = () => {
-        if (themeToggle === true) {
-            return <ThemeToggle variant="soft" />;
-        }
-        return themeToggle;
-    };
+    const renderNav = () => {
+        if (!hasNavItems) return null;
 
-    const renderNav = () => (
-        <Flex as="nav" align="center" gap="6" className="topbar__nav">
-            {navItems.map((item, idx) => {
-                const route = item.to ?? item.href;
-                const isActive = item.active ?? isCurrentRoute(route);
+        return (
+            <Flex as="nav" align="center" gap="6" className="topbar__nav">
+                {safeNavItems.map((item, idx) => {
+                    const route = item.to ?? item.href;
+                    const isActive = item.active ?? isCurrentRoute(route);
+                    const label = item.label ?? '';
 
-                if (route) {
+                    if (route) {
+                        return (
+                            <a
+                                key={`${label || 'link'}-${idx}`}
+                                className={`topbar__nav-item ${isActive ? 'topbar__nav-item--active' : ''}`}
+                                onClick={item.onClick}
+                                href={route}
+                                aria-current={isActive ? 'page' : undefined}
+                            >
+                                {label}
+                            </a>
+                        );
+                    }
+
                     return (
-                        <a
+                        <button
+                            key={`${label || 'button'}-${idx}`}
                             className={`topbar__nav-item ${isActive ? 'topbar__nav-item--active' : ''}`}
                             onClick={item.onClick}
-                            href={route}
-                            aria-current={isActive ? 'page' : undefined}
+                            type="button"
                         >
-                            {item.label}
-                        </a>
+                            {label}
+                        </button>
                     );
-                }
+                })}
+            </Flex>
+        );
+    };
 
-                return (
-                    <button
-                        key={`${item.label}-${idx}`}
-                        className={`topbar__nav-item ${isActive ? 'topbar__nav-item--active' : ''}`}
-                        onClick={item.onClick}
-                        type="button"
-                    >
-                        {item.label}
-                    </button>
-                );
-            })}
-        </Flex>
-    );
+    const hasCenterContent = navPosition === 'center' && hasNavItems;
+    const hasLeftContent = !!logo;
 
     return (
         <Flex
             as="header"
             align="center"
             justify="space-between"
-            className={`topbar ${sticky ? 'topbar--sticky' : ''} ${isNavRight ? 'topbar--nav-right' : ''} ${className}`}
+            className={[
+                'topbar',
+                sticky ? 'topbar--sticky' : '',
+                isNavRight ? 'topbar--nav-right' : '',
+                contentInside ? 'topbar--with-children' : '',
+                className,
+            ]
+                .filter(Boolean)
+                .join(' ')}
         >
             <Flex align="center" gap="4" className="topbar__left">
-                {logo && (
+                {hasLeftContent && (
                     <Flex as="div" align="center" gap="2" className="topbar__logo">
                         {logo}
                     </Flex>
                 )}
             </Flex>
 
-            {navPosition === 'center' && navItems.length > 0 && (
+            {hasCenterContent && (
                 <Flex align="center" justify="center" className="topbar__center">
                     {renderNav()}
                 </Flex>
             )}
 
+            {contentInside && hasChildren && (
+                <Flex align="center" gap="3" className="topbar__content">
+                    {children}
+                </Flex>
+            )}
+
             <Flex align="center" gap="4" className="topbar__right">
-                {navPosition === 'right' && navItems.length > 0 && renderNav()}
+                {isNavRight && hasNavItems && renderNav()}
 
                 {extraContent && (
                     <Flex align="center" gap="2" className="topbar__actions">
@@ -122,17 +143,25 @@ export const TopBar: React.FC<TopBarProps> = ({
 
                 {themeToggle && (
                     <div className="topbar__theme">
-                        {renderThemeToggle()}
+                        <IconButton
+                            variant="soft"
+                            color={'primary'}
+                            size="md"
+                            icon={theme === 'dark' ? 'theme-dark' : 'theme-light'}
+                            onClick={toggleTheme}
+                            aria-label="Toggle theme"
+                        />
                     </div>
                 )}
             </Flex>
+
+            {!contentInside && hasChildren && (
+                <div className="topbar__children">
+                    {children}
+                </div>
+            )}
         </Flex>
     );
 };
 
 export default TopBar;
-
-
-
-
-

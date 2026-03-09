@@ -7,6 +7,8 @@ import Playground from '../../components/Playground';
 
 export default function SidebarPage() {
     const [activeTab, setActiveTab] = useState('Overview');
+    const [panelOpen, setPanelOpen] = useState(true);
+    const [activePanelTab, setActivePanelTab] = useState('Elements');
 
     return (
         <Playground.Root
@@ -96,8 +98,66 @@ export default function SidebarPage() {
                     </div>
                 </div>
             </ShowcasePage>
-        </Playground.Root>
-    );
+            <div style={{ marginTop: '4rem' }}>
+                <Heading size="m">Sidebar com Painel de Ferramentas</Heading>
+                <Text color="neutral" style={{ marginTop: '0.5rem', marginBottom: '1.5rem' }}>
+                    Você pode combinar a Sidebar em modo colapsado com o `Sidebar.Panel` para criar uma interface de duas colunas comum em editores.
+                </Text>
+                <div style={{ height: '600px', display: 'flex', border: '1px solid var(--border-neutral)', borderRadius: 'var(--radius--lg)', overflow: 'hidden' }}>
+                    <Sidebar collapsed={true}>
+                        <Sidebar.Header icon={<Icon name="box" size={32} color="primary" />} />
+                        <Sidebar.Nav style={{ paddingTop: '2rem' }}>
+                            <Sidebar.Item icon={<Icon name="grid" />} active={activePanelTab === 'Elements'} onClick={() => setActivePanelTab('Elements')} />
+                            <Sidebar.Item icon={<Icon name="type" />} active={activePanelTab === 'Text'} onClick={() => setActivePanelTab('Text')} />
+                            <Sidebar.Item icon={<Icon name="image" />} active={activePanelTab === 'Images'} onClick={() => setActivePanelTab('Images')} />
+                        </Sidebar.Nav>
+                    </Sidebar>
+
+                    <Sidebar.Panel
+                        open={panelOpen}
+                        title="Elementos"
+                        onToggle={() => setPanelOpen(!panelOpen)}
+                        side="left"
+                        collapsible={false}
+                    >
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                            <div style={{ padding: '1rem', border: '1px solid var(--border-neutral)', borderRadius: 'var(--radius--md)', display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                                <div style={{ width: '40px', height: '40px', backgroundColor: 'var(--surface-alt)', borderRadius: 'var(--radius--sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-primary)' }}>
+                                    <Icon name="type" />
+                                </div>
+                                <div>
+                                    <Heading size="sm">Texto</Heading>
+                                    <Text size="sm" color="disabled">Adicionar campo de texto</Text>
+                                </div>
+                            </div>
+                            <div style={{ padding: '1rem', border: '1px solid var(--border-neutral)', borderRadius: 'var(--radius--md)', display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                                <div style={{ width: '40px', height: '40px', backgroundColor: 'var(--surface-alt)', borderRadius: 'var(--radius--sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-primary)' }}>
+                                    <Icon name="square" />
+                                </div>
+                                <div>
+                                    <Heading size="sm">Formas</Heading>
+                                    <Text size="sm" color="disabled">Quadrados, círculos e linhas</Text>
+                                </div>
+                            </div>
+                            <div style={{ padding: '1rem', border: '1px solid var(--border-neutral)', borderRadius: 'var(--radius--md)', display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                                <div style={{ width: '40px', height: '40px', backgroundColor: 'var(--surface-alt)', borderRadius: 'var(--radius--sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-primary)' }}>
+                                    <Icon name="star" />
+                                </div>
+                                <div>
+                                    <Heading size="sm">Ícones</Heading>
+                                    <Text size="sm" color="disabled">Biblioteca de ícones SVG</Text>
+                                </div>
+                            </div>
+                        </div>
+                    </Sidebar.Panel>
+
+                    <div style={{ flex: 1, padding: '2rem', backgroundColor: 'var(--surface-alt)' }}>
+                        <Heading size="lg">Canvas Placeholder</Heading>
+                    </div>
+                </div>
+            </div>
+
+        </Playground.Root>);
 }
 
 

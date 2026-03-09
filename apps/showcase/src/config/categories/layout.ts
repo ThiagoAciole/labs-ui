@@ -6,6 +6,7 @@ import SidebarPage from '../../pages/Layout/SidebarPage';
 import SpacerPage from '../../pages/Layout/SpacerPage';
 import DividerPage from '../../pages/Layout/DividerPage';
 import PageHeaderPage from '../../pages/Layout/PageHeaderPage';
+import PanelPage from '../../pages/Navigation/PanelPage';
 
 export const layoutComponents: ComponentGroup = {
     title: 'Layout',
@@ -17,7 +18,8 @@ export const layoutComponents: ComponentGroup = {
         { id: 'sidebar', name: 'Sidebar', icon: 'panel-left', component: SidebarPage },
         { id: 'spacer', name: 'Spacer', icon: 'ruler', component: SpacerPage },
         { id: 'divider', name: 'Divider', icon: 'minus', component: DividerPage },
-        { id: 'pageheader', name: 'PageHeader', icon: 'heading1', component: PageHeaderPage }
+        { id: 'pageheader', name: 'PageHeader', icon: 'heading1', component: PageHeaderPage },
+        { id: 'panel', name: 'Panel', icon: 'panel-right', component: PanelPage }
     ]
 };
 
