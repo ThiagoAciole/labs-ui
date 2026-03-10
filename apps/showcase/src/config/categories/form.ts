@@ -32,6 +32,3 @@ export const formComponents: ComponentGroup = {
         { id: 'fileupload', name: 'FileUpload', icon: 'upload-cloud', component: FileUploadPage }
     ]
 };
-
-
-

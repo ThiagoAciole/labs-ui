@@ -1,0 +1,30 @@
+.code {
+  display: inline-block;
+  margin: 0;
+  padding: 0.15em 0.45em;
+  border: 1px solid var(--border-neutral);
+  border-radius: var(--radius--sm);
+  background: var(--surface-alt);
+  color: var(--text-primary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  line-height: 1.4;
+  white-space: break-spaces;
+}
+
+.code--xs { font-size: var(--font--size--xs); }
+.code--sm { font-size: var(--font--size--sm); }
+.code--md { font-size: var(--font--size--md); }
+.code--lg { font-size: var(--font--size--lg); }
+.code--xl { font-size: var(--font--size--xl); }
+
+.code--regular { font-weight: var(--font--weight--regular); }
+.code--medium { font-weight: var(--font--weight--medium); }
+.code--bold { font-weight: var(--font--weight--bold); }
+
+.code--block {
+  display: block;
+  width: 100%;
+  padding: var(--space--3) var(--space--4);
+  overflow-x: auto;
+}
+

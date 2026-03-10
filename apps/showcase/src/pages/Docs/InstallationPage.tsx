@@ -1,4 +1,4 @@
-import { Heading, Text, Card, CardBody, Flex, Icon } from '@aciolelabs/labs-ui';
+import { Heading, Text, Card, CardBody, Flex, Icon, Code, IconButton } from '@aciolelabs/labs-ui';
 import ShowcasePage from '../../components/ShowcasePage';
 
 const InstallationPage = () => {
@@ -32,12 +32,14 @@ function App() {
             <Heading size="m" style={{ marginBottom: '1rem' }}>
               Instalacao
             </Heading>
-            <Text style={{ marginBottom: '1rem' }}>Rode o comando abaixo no seu terminal:</Text>
-            <div className="code-snippet">
-              <pre>
-                <code>{installCode}</code>
-              </pre>
-            </div>
+            <Flex gap="2" direction="column">
+              <Text style={{ marginBottom: '1rem' }}>Rode o comando abaixo no seu terminal:</Text>
+              <Flex gap="2" align="center">
+                <Code >{installCode}</Code>
+                <IconButton size='sm' icon="copy" onClick={() => navigator.clipboard.writeText(installCode)} />
+              </Flex>
+            </Flex>
+
           </CardBody>
         </Card>
 
@@ -46,15 +48,14 @@ function App() {
             <Heading size="m" style={{ marginBottom: '1rem' }}>
               Como usar
             </Heading>
-            <Text style={{ marginBottom: '1.5rem' }}>
-              Para comecar a usar os componentes, envolva sua aplicacao com o <code>ThemeProvider</code> e importe os
-              componentes desejados:
-            </Text>
-            <div className="code-snippet">
-              <pre>
-                <code>{usageCode}</code>
-              </pre>
-            </div>
+            <Flex gap="2" direction="column">
+              <Text style={{ marginBottom: '1rem' }}> Para comecar a usar os componentes, envolva sua aplicacao com o <code>ThemeProvider</code> e importe os
+                componentes desejados:</Text>
+              <Flex gap="2" align="center">
+                <Code block >{usageCode}</Code>
+                <IconButton size='sm' icon="copy" onClick={() => navigator.clipboard.writeText(installCode)} />
+              </Flex>
+            </Flex>
           </CardBody>
         </Card>
 

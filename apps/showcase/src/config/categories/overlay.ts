@@ -12,6 +12,3 @@ export const overlayComponents: ComponentGroup = {
         { id: 'tooltip', name: 'Tooltip', icon: 'message-circle', component: TooltipPage }
     ]
 };
-
-
-

@@ -14,6 +14,3 @@ export const feedbackComponents: ComponentGroup = {
         { id: 'skeleton', name: 'Skeleton', icon: 'component', component: SkeletonPage }
     ]
 };
-
-
-

@@ -26,6 +26,3 @@ export const dataDisplayComponents: ComponentGroup = {
         { id: 'card', name: 'Card', icon: 'panel-top', component: CardPage }
     ]
 };
-
-
-
